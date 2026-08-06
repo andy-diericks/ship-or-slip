@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ship or Slip — Microsoft roadmap change history</title>
+    <meta
+      name="description"
+      content="Every date Microsoft promised, and every date it moved. A running history of Microsoft 365 roadmap slips, ships, drops and Azure retirements."
+    />
+    <meta name="color-scheme" content="dark light" />
+    <meta property="og:title" content="Ship or Slip" />
+    <meta property="og:description" content="Every date Microsoft promised, and every date it moved." />
+    <meta property="og:type" content="website" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>📅</text></svg>"
+    />
+    <script>
+      // Apply the stored theme before first paint so a light-theme reader never
+      // sees a dark flash on load.
+      try {
+        var t = localStorage.getItem('ship-or-slip:theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) { /* storage blocked — the CSS media query still applies */ }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

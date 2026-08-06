@@ -1,0 +1,69 @@
+name: Fetch and diff
+
+# Every six hours. GitHub's scheduler drifts and occasionally drops runs on the
+# free tier; at this cadence that costs at most a few hours of detection delay,
+# which is well inside what a roadmap-tracking product needs. If the cadence
+# ever has to tighten, move to an external dispatcher rather than trusting cron.
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch: {}
+
+# Two runs writing the data branch at once would race on the push. Queue instead.
+concurrency:
+  group: fetch
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      # The data lives on its own orphan branch so a refresh never rebuilds or
+      # redeploys the site — see docs/adr/0003-data-model.md.
+      - name: Check out the data branch
+        uses: actions/checkout@v4
+        with:
+          ref: data
+          path: .data
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # The pipeline deliberately has zero dependencies, so there is nothing to
+      # install and nothing that can break between the feed and the diff.
+      - name: Fetch feeds and diff against the last snapshot
+        run: node scripts/fetch.mjs --data-dir=.data
+
+      - name: Commit the new snapshot
+        working-directory: .data
+        run: |
+          git config user.name  "ship-or-slip-bot"
+          git config user.email "actions@github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git commit -m "Data refresh $(date -u +%Y-%m-%dT%H:%MZ)"
+          # Only this workflow writes this branch and it is serialised by the
+          # concurrency group, so a plain push is safe; the retry covers
+          # transient network failures, not conflicts.
+          for attempt in 1 2 3 4; do
+            if git push origin HEAD:data; then
+              echo "pushed"
+              exit 0
+            fi
+            echo "push attempt $attempt failed — retrying"
+            sleep $((attempt * 4))
+            git pull --rebase origin data || true
+          done
+          echo "push failed after retries"
+          exit 1

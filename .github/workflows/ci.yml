@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run test
+      - run: npm run build
+
+      # The pipeline must survive its own feeds going strange, so it is
+      # exercised on every change against the checked-in fixtures. No network,
+      # no flake, and a parser regression fails here rather than silently
+      # writing nonsense into the data branch six hours later.
+      - name: Pipeline smoke test (offline)
+        run: node scripts/fetch.mjs --offline --data-dir="$RUNNER_TEMP/data"

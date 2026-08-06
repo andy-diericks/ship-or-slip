@@ -1,0 +1,48 @@
+// Loading the data branch.
+//
+// The pipeline commits to an orphan `data` branch rather than to `main`, so a
+// data refresh never rebuilds or redeploys the site (ADR 0003). The page reads
+// that branch directly over raw.githubusercontent.com, which serves permissive
+// CORS headers and caches for a few minutes.
+
+import type { ChangeEvent, DataIndex, Timeline } from './types';
+
+const DEFAULT_BASE =
+  'https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data';
+
+/** Overridable so `npm run dev` can point at a local pipeline run. */
+export const DATA_BASE: string =
+  (import.meta.env.VITE_DATA_BASE as string | undefined)?.replace(/\/$/, '') ?? DEFAULT_BASE;
+
+async function getJson<T>(path: string, signal?: AbortSignal): Promise<T> {
+  const response = await fetch(`${DATA_BASE}/${path}`, { signal });
+  if (!response.ok) throw new Error(`Could not load ${path} (HTTP ${response.status})`);
+  return (await response.json()) as T;
+}
+
+export const loadIndex = (signal?: AbortSignal) => getJson<DataIndex>('index.json', signal);
+
+export const loadRecent = (signal?: AbortSignal) => getJson<ChangeEvent[]>('recent.json', signal);
+
+export const loadTimelines = (signal?: AbortSignal) =>
+  getJson<Record<string, Timeline>>('timelines.json', signal);
+
+/**
+ * Load the dashboard's data in one go.
+ *
+ * Timelines are optional: they only exist once something has actually changed,
+ * and a first-run repository legitimately has no such file yet. A missing
+ * timeline file must not blank the whole page.
+ */
+export async function loadDashboard(signal?: AbortSignal): Promise<{
+  index: DataIndex;
+  events: ChangeEvent[];
+  timelines: Record<string, Timeline>;
+}> {
+  const [index, events, timelines] = await Promise.all([
+    loadIndex(signal),
+    loadRecent(signal).catch(() => [] as ChangeEvent[]),
+    loadTimelines(signal).catch(() => ({}) as Record<string, Timeline>),
+  ]);
+  return { index, events, timelines };
+}

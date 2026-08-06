@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+
+# Local pipeline output. The real thing lives on the `data` branch.
+.data/
+
+.DS_Store
+*.local
+.vite/
