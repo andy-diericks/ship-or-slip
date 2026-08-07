@@ -39,3 +39,33 @@ Append-only. Newest at the bottom. Read the tail before starting work.
     items being pulled from the public roadmap.
   - No scheduled Claude workflows were set up. See the note at the bottom of
     CLAUDE.md for what to fix first if they get added.
+
+## 2026-08-07 — first deploy, and a wrong diagnosis corrected
+
+- **Did:** Pushed to GitHub, seeded the `data` branch, got CI and the fetch
+  pipeline green, and published the site at
+  https://andy-diericks.github.io/ship-or-slip/.
+
+- **What actually went wrong on day one:** the first push landed during a
+  GitHub Actions incident. Both queued runs sat with no runner assigned and
+  were eventually cancelled with zero steps executed. The Pages deploy then
+  sat in `waiting` because Pages had not yet been set to build from GitHub
+  Actions — the environment exists either way, so the job waits rather than
+  failing, and `pending_deployments` shows an empty reviewer list that looks
+  like an approval gate but is not one.
+
+- **A diagnosis I got wrong, recorded so nobody repeats it:** seeing no
+  `push`- or `schedule`-triggered runs for 13 hours, I concluded that workflow
+  files pushed with a GitHub App token never activate their triggers, and I
+  wrote that into ADR 0003. It is false. A later ordinary push triggered both
+  workflows normally. The silence was the incident plus a skipped cron window.
+  The ADR has been corrected. Check githubstatus.com before theorising about
+  triggers.
+
+- **Still unproven:** no `schedule:` run has fired yet. The cadence was moved
+  off the top of the hour (`37 1,7,13,19`) since GitHub's scheduler is busiest
+  at `:00`. The next window is the first real test of unattended operation.
+
+- **Nice confirmation:** with data 14 hours old the freshness badge went amber
+  on the live site, exactly as designed — the staleness was visible on the
+  page before it was visible in the Actions tab.

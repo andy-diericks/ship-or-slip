@@ -90,8 +90,13 @@ bursts on weekdays, so a tighter schedule would mostly buy empty runs. If the
 cadence ever needs to tighten, move to an external dispatcher (as
 `finance-portfolio` did with cron-job.org) rather than trusting GitHub cron.
 
-**Known activation gotcha:** a `schedule:` (or `push:`) trigger does not
-activate when the workflow file arrives via a push authenticated with a GitHub
-App token — the workflow registers and can be dispatched manually, but never
-fires on its own. If scheduled runs are silently absent, the fix is one commit
-to `main` pushed by a human account. This bit this repository on day one.
+**Do not read a missed run as a broken trigger.** On day one this repository
+saw no `push`-triggered and no `schedule`-triggered runs for 13 hours, which
+looked like the triggers had never activated. They had: the first push simply
+landed during a GitHub Actions incident that cancelled everything queued, and
+the scheduler then skipped its windows. A later ordinary push triggered both
+workflows normally. Check [githubstatus.com](https://www.githubstatus.com)
+before concluding anything about a trigger, and remember that GitHub's own
+docs make no guarantee that a `schedule:` run happens at all under load — that
+is the standing reason this project treats cron as best-effort and would move
+to an external dispatcher before tightening the cadence.

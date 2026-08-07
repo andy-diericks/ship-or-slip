@@ -1,5 +1,8 @@
 name: CI
 
+# workflow_dispatch is kept so CI can be re-run on demand — useful when a
+# GitHub incident cancels a queued run, which is how this repository's first
+# two runs died.
 on:
   pull_request:
   push:
