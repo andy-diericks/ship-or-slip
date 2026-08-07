@@ -1,12 +1,14 @@
 name: Fetch and diff
 
-# Every six hours. GitHub's scheduler drifts and occasionally drops runs on the
-# free tier; at this cadence that costs at most a few hours of detection delay,
-# which is well inside what a roadmap-tracking product needs. If the cadence
-# ever has to tighten, move to an external dispatcher rather than trusting cron.
+# Every six hours, deliberately NOT on the hour. GitHub's scheduler is busiest
+# at :00 and drops or heavily delays runs queued there; an odd minute is the
+# single cheapest reliability win available. The scheduler still drifts, but at
+# this cadence that costs at most a few hours of detection delay, which is well
+# inside what a roadmap tracker needs. If the cadence ever has to tighten, move
+# to an external dispatcher rather than trusting cron.
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '37 1,7,13,19 * * *'
   workflow_dispatch: {}
 
 # Two runs writing the data branch at once would race on the push. Queue instead.

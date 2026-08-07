@@ -81,9 +81,17 @@ otherwise the archive would open with 1,800 spurious "added" entries.
 
 ## Cadence
 
-Every six hours (`0 */6 * * *`). GitHub's scheduler drifts and drops runs on
-the free tier; at this cadence that costs at most a few hours of detection
-delay, which is inside what a roadmap tracker needs. Microsoft updates these
-feeds in bursts on weekdays, so a tighter schedule would mostly buy empty runs.
-If the cadence ever needs to tighten, move to an external dispatcher (as
+Every six hours, at `37 1,7,13,19 * * *` — deliberately **not** on the hour.
+GitHub's scheduler is busiest at `:00` and drops or heavily delays runs queued
+there, so an odd minute is the cheapest reliability win available. It still
+drifts; at this cadence that costs at most a few hours of detection delay,
+which is inside what a roadmap tracker needs. Microsoft updates these feeds in
+bursts on weekdays, so a tighter schedule would mostly buy empty runs. If the
+cadence ever needs to tighten, move to an external dispatcher (as
 `finance-portfolio` did with cron-job.org) rather than trusting GitHub cron.
+
+**Known activation gotcha:** a `schedule:` (or `push:`) trigger does not
+activate when the workflow file arrives via a push authenticated with a GitHub
+App token — the workflow registers and can be dispatched manually, but never
+fires on its own. If scheduled runs are silently absent, the fix is one commit
+to `main` pushed by a human account. This bit this repository on day one.
