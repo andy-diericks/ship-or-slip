@@ -45,6 +45,11 @@ The pipeline runs on GitHub Actions every six hours and commits to an orphan
 branch, a data refresh costs no Pages build and can never race a code push —
 see [ADR 0003](docs/adr/0003-data-model.md) for why that matters.
 
+The six-hourly clock is an external [cron-job.org](https://cron-job.org) job
+hitting the workflow's dispatch endpoint, not GitHub's `schedule:` — that never
+fired here, and a record of *when* something changed cannot rest on a
+best-effort trigger.
+
 ## Running it locally
 
 ```bash

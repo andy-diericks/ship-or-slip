@@ -79,24 +79,41 @@ events. A run with one dead feed is a successful run for the other.
 The first run for a source **seeds** its snapshot and emits no events —
 otherwise the archive would open with 1,800 spurious "added" entries.
 
-## Cadence
+## Cadence: an external trigger, not GitHub cron
 
-Every six hours, at `37 1,7,13,19 * * *` — deliberately **not** on the hour.
-GitHub's scheduler is busiest at `:00` and drops or heavily delays runs queued
-there, so an odd minute is the cheapest reliability win available. It still
-drifts; at this cadence that costs at most a few hours of detection delay,
-which is inside what a roadmap tracker needs. Microsoft updates these feeds in
-bursts on weekdays, so a tighter schedule would mostly buy empty runs. If the
-cadence ever needs to tighten, move to an external dispatcher (as
-`finance-portfolio` did with cron-job.org) rather than trusting GitHub cron.
+Four times a day, triggered by a **cron-job.org** job that POSTs to the
+workflow's `dispatches` endpoint. `fetch.yml` carries `workflow_dispatch:` and
+no `schedule:`. Setup is in [docs/setup.md](../setup.md).
+
+GitHub's `schedule:` was tried first and removed. It fired **zero** times: two
+windows passed in silence, on two different cron expressions, including one
+deliberately moved off the top of the hour. GitHub documents no guarantee that
+a scheduled workflow runs at all, and the sibling `finance-portfolio` project
+reached the same conclusion independently before switching to the same
+dispatcher.
+
+The reasoning is specific to what this project is. A tracker whose entire
+value proposition is *"we were watching at the moment it changed"* cannot rest
+on a best-effort trigger. A missed window is not a delayed run — it is a
+permanent hole in the record, because Microsoft will not serve the old value
+again. Every other design decision here (the append-only archive, the seeding
+guard, the refusal to emit `dropped` on a windowed feed) exists to protect the
+integrity of that record; leaving the clock to chance would undo all of it.
+
+Four runs a day is a deliberate ceiling, not a limitation to work around.
+Microsoft publishes in weekday bursts, so a tighter cadence mostly buys empty
+runs, and the cost of missing a same-day change is low for a product measured
+in months of slippage.
+
+**Failure is visible without monitoring.** If the dispatcher stops, no run
+happens, `index.json` stops advancing, and the dashboard's freshness badge goes
+amber and then red on its own. That is the intended safety net: staleness
+surfaces to a reader on the page, not only to whoever thinks to open the
+Actions tab.
 
 **Do not read a missed run as a broken trigger.** On day one this repository
-saw no `push`-triggered and no `schedule`-triggered runs for 13 hours, which
-looked like the triggers had never activated. They had: the first push simply
-landed during a GitHub Actions incident that cancelled everything queued, and
-the scheduler then skipped its windows. A later ordinary push triggered both
+saw no `push`-triggered runs for 13 hours, which looked like the triggers had
+never activated. They had: the first push landed during a GitHub Actions
+incident that cancelled everything queued. A later ordinary push triggered both
 workflows normally. Check [githubstatus.com](https://www.githubstatus.com)
-before concluding anything about a trigger, and remember that GitHub's own
-docs make no guarantee that a `schedule:` run happens at all under load — that
-is the standing reason this project treats cron as best-effort and would move
-to an external dispatcher before tightening the cadence.
+before concluding anything about a trigger.

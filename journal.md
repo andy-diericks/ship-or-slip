@@ -66,6 +66,35 @@ Append-only. Newest at the bottom. Read the tail before starting work.
   off the top of the hour (`37 1,7,13,19`) since GitHub's scheduler is busiest
   at `:00`. The next window is the first real test of unattended operation.
 
+## 2026-08-07 — GitHub cron removed, external dispatcher adopted
+
+- **Did:** Deleted `schedule:` from `fetch.yml`, leaving `workflow_dispatch:`
+  as the only trigger, and documented the cron-job.org setup in
+  `docs/setup.md` (fine-grained token scoped to this repo with Actions:
+  read/write, POST to the workflow's `dispatches` endpoint, four times a day
+  at `:37`). Rewrote the cadence section of ADR 0003 to record the decision.
+
+- **Why:** GitHub's scheduler fired zero times across two windows and two
+  different cron expressions, one of them deliberately off the hour. GitHub
+  guarantees nothing about `schedule:`, and `finance-portfolio` reached the
+  same conclusion independently before switching to the same dispatcher.
+
+- **The reasoning that settled it:** for this project a missed window is not a
+  delayed run, it is a permanent hole in the record — Microsoft will not serve
+  the old value again. Every other decision here protects the integrity of
+  that record, so leaving the clock to chance was inconsistent with the rest
+  of the design.
+
+- **Still needs a human:** the token and the cron-job.org job. Until a run
+  appears in the Actions tab that nobody triggered by hand, the pipeline is
+  not autonomous — every run so far has been a manual dispatch or a push.
+
+- **Safety net, by design:** if the dispatcher stops, no run happens,
+  `index.json` stops advancing, and the freshness badge goes amber then red on
+  the live site. Staleness surfaces to a reader on the page rather than only
+  in the Actions tab. This was already observed working when data went 14
+  hours stale.
+
 - **Nice confirmation:** with data 14 hours old the freshness badge went amber
   on the live site, exactly as designed — the staleness was visible on the
   page before it was visible in the Actions tab.

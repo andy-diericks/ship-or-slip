@@ -1,14 +1,17 @@
 name: Fetch and diff
 
-# Every six hours, deliberately NOT on the hour. GitHub's scheduler is busiest
-# at :00 and drops or heavily delays runs queued there; an odd minute is the
-# single cheapest reliability win available. The scheduler still drifts, but at
-# this cadence that costs at most a few hours of detection delay, which is well
-# inside what a roadmap tracker needs. If the cadence ever has to tighten, move
-# to an external dispatcher rather than trusting cron.
+# Triggered externally, four times a day, by a cron-job.org job that POSTs to
+# this workflow's dispatches endpoint — see docs/setup.md.
+#
+# GitHub's own `schedule:` was removed. It never fired once here: two windows
+# passed in silence before it was given up on, which matches what the sibling
+# finance-portfolio project found before it moved to the same external
+# dispatcher. GitHub documents no guarantee that a scheduled run happens at
+# all, and a tracker whose whole value is "we were watching when it changed"
+# cannot be built on a best-effort trigger.
+#
+# Everything still runs on GitHub Actions; only the clock moved outside.
 on:
-  schedule:
-    - cron: '37 1,7,13,19 * * *'
   workflow_dispatch: {}
 
 # Two runs writing the data branch at once would race on the push. Queue instead.
