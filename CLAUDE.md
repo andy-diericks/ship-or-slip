@@ -79,6 +79,14 @@ review. This is a deliberate exception to how the sibling projects work, and
 it raises the bar on everything else: run the full check list below before
 pushing, because nothing else stands between you and the published site.
 
+## Talking about the backlog
+
+`docs/product-vision.md` holds **every** feature, built or not, in one table
+ranked by impact then complexity. When asked what could be built, reproduce
+that whole table — built and unbuilt together, with status shown — rather than
+listing only what remains. Splitting it hides what has already been done and
+invites rebuilding it. Update the table in the same commit as the feature.
+
 ## When you are uncertain
 
 Do not guess. Open an issue labelled `needs-human`, note it in `journal.md`,

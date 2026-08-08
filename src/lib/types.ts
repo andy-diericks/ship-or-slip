@@ -88,6 +88,12 @@ export interface Timeline {
   source: Source;
   products: string[];
   points: TimelinePoint[];
+  /** The item's state *now*, refreshed every run — not history. */
+  note?: UpdateNote | null;
+  status?: string | null;
+  ga?: string | null;
+  preview?: string | null;
+  phases?: string[] | null;
 }
 
 export interface SourceMeta {
@@ -98,12 +104,42 @@ export interface SourceMeta {
   seeded?: boolean;
 }
 
+/** One item whose promised month passed without it arriving. */
+export interface OverdueItem {
+  id: string;
+  title: string;
+  source: Source;
+  products: string[];
+  due: string;
+  dueRaw: string | null;
+  status: string | null;
+  monthsLate: number;
+  note: UpdateNote | null;
+}
+
+export interface OverdueSummary {
+  count: number;
+  tracked: number;
+  share: number;
+  worstMonthsLate: number;
+  stillInDevelopment: number;
+  byStatus: Record<string, number>;
+}
+
+export interface OverdueRegister {
+  generated: string;
+  month: string;
+  summary: OverdueSummary;
+  items: OverdueItem[];
+}
+
 export interface DataIndex {
   generated: string;
   recentDays: number;
   months: string[];
   sources: Record<string, SourceMeta>;
   totals: { recent: number; recentByType: Partial<Record<EventType, number>> };
+  overdue?: OverdueSummary;
   warnings: string[];
 }
 

@@ -429,6 +429,45 @@ Three layers, weakest threat last.
   fact when the lead already carries it. Reading the rendered string, not just
   the passing test, is what surfaced it.
 
+## 2026-08-08 — the overdue register (L1), and a missing note
+
+- **The note bug.** The item page showed no quote for the Purview
+  cancellation. Not a rendering fault: that event was recorded at 07:39, before
+  note capture shipped, so the archived point genuinely has none.
+  - Fixed *without* rewriting history. Timeline entries now carry the item's
+    **current** state — note, status, ga, preview, phases — refreshed on every
+    run for *every* entry, not only those with new events. The item page shows
+    it under "Microsoft's latest note on this item", clearly separate from the
+    timeline of what was true at each change.
+  - Backfilling the historical point was the tempting alternative and would
+    have been a small lie: it would assert the note existed at the moment of
+    the event, which we did not observe.
+
+- **L1, the overdue register.** 578 items whose rollout month has passed
+  without shipping or being cancelled — 29% of everything tracked. 347 still
+  sit at "In development"; the worst is 28 months past its date. Microsoft
+  lists all of them with the same stale dates and no indication of a problem.
+  - Chosen over the epic B analytics precisely because it needs **no
+    accumulated history**: it is computed from the current snapshot, so it was
+    as good on the day it shipped as it will ever be.
+  - Written to `overdue.json` and lazy-loaded — 148 KB, and most visits never
+    open it. Its route chunk is 3 KB.
+  - "Rolling out" is included but never merged with "In development": a
+    rollout in flight is a weaker claim than something still in development two
+    years on, and conflating them would overstate the case.
+
+- **A false positive caught by reading the output.** The first run reported 579
+  with one `unknown` status — an Azure *retirement* whose date had passed. A
+  retirement that happened on schedule is a promise **kept**, the exact
+  opposite of overdue. Excluded, with a test named for it. Inspecting the
+  summary rather than trusting the count is what found it.
+
+- **`docs/product-vision.md` restructured** into one master table of every
+  feature, built and unbuilt, ranked by impact then complexity, with status.
+  CLAUDE.md now says to reproduce the whole table when asked what can be
+  built — listing only what remains hides what exists and invites rebuilding
+  it.
+
 - **Nice confirmation:** with data 14 hours old the freshness badge went amber
   on the live site, exactly as designed — the staleness was visible on the
   page before it was visible in the Actions tab.

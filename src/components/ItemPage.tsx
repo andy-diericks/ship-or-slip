@@ -55,6 +55,17 @@ export function ItemPage({ id, timeline, onBack }: Props) {
         </a>
       </p>
 
+      {/* Microsoft's latest word on this item, as it stands now. Kept separate
+          from the timeline below, which records what was true at each change —
+          an item whose only recorded change predates note capture would
+          otherwise show nothing at all. */}
+      {timeline.note && (
+        <section className="panel">
+          <h3 className="panel__title">Microsoft's latest note on this item</h3>
+          <MicrosoftNote note={timeline.note} />
+        </section>
+      )}
+
       <section className="panel">
         <h3 className="panel__title">
           {points.length} recorded {points.length === 1 ? 'change' : 'changes'}

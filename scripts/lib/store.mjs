@@ -12,6 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { buildFeed } from './feed.mjs';
+import { computeOverdue, summariseOverdue } from './overdue.mjs';
 
 /** How much history the dashboard's single request covers. */
 export const RECENT_DAYS = 90;
@@ -121,6 +122,24 @@ export function updateTimelines(dir, events, snapshots) {
   const timelines = readJson(file, {});
   const current = new Map(Object.values(snapshots).flat().map((i) => [i.id, i]));
 
+  // Refresh the current state of *every* tracked item, not only those with new
+  // events. A feature's latest note and stage change without anything moving,
+  // and an item whose only event predates a field being captured would
+  // otherwise never gain it. This is explicitly the item's state *now* — the
+  // historical points below keep whatever was true when they were recorded.
+  for (const [id, entry] of Object.entries(timelines)) {
+    const item = current.get(id);
+    if (!item) continue;
+    entry.title = item.title ?? entry.title;
+    entry.link = item.link ?? entry.link;
+    entry.products = item.products ?? entry.products;
+    entry.note = item.note ?? null;
+    entry.status = item.status ?? null;
+    entry.ga = item.date ?? null;
+    entry.preview = item.preview ?? null;
+    entry.phases = item.phases?.length ? item.phases : null;
+  }
+
   for (const e of events) {
     const item = current.get(e.id);
     const entry = timelines[e.id] ?? {
@@ -133,6 +152,11 @@ export function updateTimelines(dir, events, snapshots) {
     entry.title = item?.title ?? e.title;
     entry.link = item?.link ?? e.link;
     entry.products = item?.products ?? e.products;
+    entry.note = item?.note ?? e.note ?? null;
+    entry.status = item?.status ?? null;
+    entry.ga = item?.date ?? null;
+    entry.preview = item?.preview ?? null;
+    entry.phases = item?.phases?.length ? item.phases : null;
     const point = {
       ts: e.ts,
       type: e.type,
@@ -181,6 +205,26 @@ export function writeFeed(dir, events, generated) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, xml);
   return xml;
+}
+
+/**
+ * Write the overdue register.
+ *
+ * Derived from the current snapshots on every run, never appended to: an item
+ * that finally ships must leave the register, and an item that slips into the
+ * past must join it. Kept in its own file because it is large and the feed
+ * page never needs it.
+ */
+export function writeOverdue(dir, snapshots, generated) {
+  const month = String(generated).slice(0, 7);
+  const items = Object.values(snapshots ?? {}).flat();
+  const overdue = computeOverdue(items, month);
+  const summary = summariseOverdue(overdue, items.length);
+
+  const file = path.join(dir, 'overdue.json');
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, `${JSON.stringify({ generated, month, summary, items: overdue }, null, 0)}\n`);
+  return summary;
 }
 
 /** Roll up event counts by type, for the dashboard's hero row. */

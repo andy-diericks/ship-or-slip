@@ -25,7 +25,7 @@ import { diffSnapshots, mergeSnapshot } from './lib/diff.mjs';
 import { detectAnomaly } from './lib/anomaly.mjs';
 import {
   readSnapshot, writeSnapshot, appendEvents, rebuildRecent,
-  updateTimelines, writeIndex, countByType, writeFeed, readIndex,
+  updateTimelines, writeIndex, countByType, writeFeed, readIndex, writeOverdue,
 } from './lib/store.mjs';
 
 const args = process.argv.slice(2);
@@ -199,12 +199,19 @@ async function main() {
   const recent = rebuildRecent(DATA_DIR);
   updateTimelines(DATA_DIR, allEvents, snapshots);
   writeFeed(DATA_DIR, recent, ts);
+  const overdue = writeOverdue(DATA_DIR, snapshots, ts);
   writeIndex(DATA_DIR, {
     generated: ts,
     sources: sourceMeta,
     totals: { recent: recent.length, recentByType: countByType(recent) },
+    overdue,
     warnings,
   });
+
+  console.log(
+    `\noverdue: ${overdue.count} item(s) past their date (${overdue.share}% of tracked), ` +
+    `${overdue.stillInDevelopment} still in development, worst ${overdue.worstMonthsLate} months late`,
+  );
 
   console.log(`\nWrote ${DATA_DIR} — ${allEvents.length} new event(s), ${recent.length} in recent feed.`);
   for (const w of warnings) console.warn(`  warning: ${w}`);

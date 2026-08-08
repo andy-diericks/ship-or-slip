@@ -492,6 +492,24 @@ button {
   50% { opacity: 0.55; }
 }
 
+/* The register is the site's strongest claim, so it gets a standing invitation
+   rather than being buried in the footer. */
+.overdue-banner {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--slip);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.overdue-banner:hover { border-color: var(--slip); }
+.overdue-banner strong { color: var(--slip); }
+
 .warnings {
   border: 1px solid var(--add);
   border-radius: var(--radius);

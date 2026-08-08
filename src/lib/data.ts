@@ -5,7 +5,7 @@
 // that branch directly over raw.githubusercontent.com, which serves permissive
 // CORS headers and caches for a few minutes.
 
-import type { ChangeEvent, DataIndex, Timeline } from './types';
+import type { ChangeEvent, DataIndex, Timeline, OverdueRegister } from './types';
 
 const DEFAULT_BASE =
   'https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data';
@@ -34,6 +34,15 @@ export const loadRecent = (signal?: AbortSignal) => getJson<ChangeEvent[]>('rece
 
 export const loadTimelines = (signal?: AbortSignal) =>
   getJson<Record<string, Timeline>>('timelines.json', signal);
+
+/**
+ * The overdue register — fetched only when that page is opened.
+ *
+ * It is the largest file the site serves and most visits never look at it, so
+ * loading it with the dashboard would tax every reader for a minority's view.
+ */
+export const loadOverdue = (signal?: AbortSignal) =>
+  getJson<OverdueRegister>('overdue.json', signal);
 
 /**
  * Load the dashboard's data in one go.

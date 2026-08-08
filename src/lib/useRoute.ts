@@ -6,9 +6,10 @@ import { useCallback, useEffect, useState } from 'react';
  *
  *   #/            the feed, with filters in the query string
  *   #/item/<id>   one feature's date history
+ *   #/overdue     everything past its promised date
  */
 export interface Route {
-  name: 'feed' | 'item';
+  name: 'feed' | 'item' | 'overdue';
   id: string;
   query: string;
 }
@@ -18,6 +19,7 @@ export function parseHash(hash: string): Route {
   const [path = '/', query = ''] = raw.split('?');
   const item = path.match(/^\/item\/(.+)$/);
   if (item?.[1]) return { name: 'item', id: decodeURIComponent(item[1]), query };
+  if (path === '/overdue') return { name: 'overdue', id: '', query };
   return { name: 'feed', id: '', query };
 }
 

@@ -14,6 +14,9 @@ import { ItemPage } from './components/ItemPage';
 // Recharts is the bundle's centre of gravity and the chart is below the fold,
 // so it loads on its own rather than delaying the feed.
 const ActivityChart = lazy(() => import('./components/ActivityChart'));
+// The register is the largest thing the site serves and most visits never open
+// it, so it stays out of the main bundle.
+const OverduePage = lazy(() => import('./components/OverduePage'));
 
 type LoadState =
   | { status: 'loading' }
@@ -123,12 +126,36 @@ export default function App() {
     );
   }
 
+  if (route.name === 'overdue') {
+    return (
+      <div className="app">
+        {header}
+        <Suspense fallback={<div className="skeleton" />}>
+          <OverduePage onBack={() => navigate('/')} />
+        </Suspense>
+      </div>
+    );
+  }
+
   const onToggleType = (type: EventType) =>
     setFilters({ ...filters, types: toggleFacet(filters.types, type) });
 
   return (
     <div className="app">
       {header}
+
+      {state.index.overdue && state.index.overdue.count > 0 && (
+        <a
+          className="overdue-banner"
+          href="#/overdue"
+          onClick={() => navigate('/overdue')}
+        >
+          <strong>{state.index.overdue.count} features are past their promised date</strong>
+          {' — '}
+          {state.index.overdue.stillInDevelopment} still in development, worst{' '}
+          {state.index.overdue.worstMonthsLate} months late. See the register →
+        </a>
+      )}
 
       {state.index.warnings.length > 0 && (
         <div className="warnings" role="status">
