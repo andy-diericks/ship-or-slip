@@ -242,6 +242,107 @@ describe('diffSnapshots — renames (the quiet scope cut)', () => {
   });
 });
 
+describe('diffSnapshots — scope changes (G2)', () => {
+  const scoped = (overrides = {}) =>
+    m365({ clouds: ['Worldwide', 'GCC High'], platforms: ['Web', 'Desktop', 'Mac'], ...overrides });
+
+  it('reports a cloud being dropped, naming what was lost', () => {
+    const events = diffSnapshots([scoped()], [scoped({ clouds: ['Worldwide'] })], { ts: TS });
+    expect(events).toHaveLength(1);
+    expect(events[0]).toMatchObject({
+      type: 'scope_reduced',
+      dimension: 'clouds',
+      from: 'Worldwide, GCC High',
+      to: 'Worldwide',
+      fromRaw: 'Clouds lost: GCC High',
+    });
+  });
+
+  it('reports a platform being dropped', () => {
+    const events = diffSnapshots([scoped()], [scoped({ platforms: ['Web', 'Desktop'] })], { ts: TS });
+    expect(events[0]).toMatchObject({ type: 'scope_reduced', dimension: 'platforms' });
+    expect(events[0].fromRaw).toBe('Platforms lost: Mac');
+  });
+
+  it('reports scope widening separately', () => {
+    const events = diffSnapshots(
+      [scoped()],
+      [scoped({ platforms: ['Web', 'Desktop', 'Mac', 'Mobile'] })],
+      { ts: TS },
+    );
+    expect(events[0]).toMatchObject({ type: 'scope_expanded', dimension: 'platforms' });
+    expect(events[0].fromRaw).toBe('Platforms gained: Mobile');
+  });
+
+  it('reports the release phase changing', () => {
+    const events = diffSnapshots(
+      [scoped({ phases: ['General Availability', 'Preview'] })],
+      [scoped({ phases: ['General Availability'] })],
+      { ts: TS },
+    );
+    expect(events[0]).toMatchObject({ type: 'scope_reduced', dimension: 'phases' });
+    expect(events[0].fromRaw).toBe('Release phase lost: Preview');
+  });
+
+  it('IGNORES a reordering — these lists are sets, and the feed reshuffles them', () => {
+    const events = diffSnapshots(
+      [scoped()],
+      [scoped({ clouds: ['GCC High', 'Worldwide'], platforms: ['Mac', 'Web', 'Desktop'] })],
+      { ts: TS },
+    );
+    expect(events).toEqual([]);
+  });
+
+  it('says nothing when a dimension is absent from the previous snapshot', () => {
+    // The migration case: `platforms` was not captured until now. Treating
+    // absent as empty would report every one of 1,800 items as gaining scope.
+    const before = m365();
+    delete before.platforms;
+    const events = diffSnapshots([before], [m365({ platforms: ['Web'] })], { ts: TS });
+    expect(events).toEqual([]);
+  });
+
+  it('says nothing when a dimension is absent from the new snapshot', () => {
+    const after = m365({ clouds: ['Worldwide'] });
+    delete after.clouds;
+    expect(diffSnapshots([m365({ clouds: ['Worldwide'] })], [after], { ts: TS })).toEqual([]);
+  });
+
+  it('reports both directions when a dimension gains and loses at once', () => {
+    const events = diffSnapshots(
+      [scoped({ clouds: ['Worldwide', 'GCC High'] })],
+      [scoped({ clouds: ['Worldwide', 'DoD'] })],
+      { ts: TS },
+    );
+    expect(types(events)).toEqual(['scope_expanded', 'scope_reduced']);
+  });
+
+  it('reports each dimension independently', () => {
+    const events = diffSnapshots(
+      [scoped()],
+      [scoped({ clouds: ['Worldwide'], platforms: ['Web'] })],
+      { ts: TS },
+    );
+    expect(events).toHaveLength(2);
+    expect(events.map((e) => e.dimension).sort()).toEqual(['clouds', 'platforms']);
+  });
+
+  it('shows an em dash rather than an empty string when a list empties', () => {
+    const events = diffSnapshots([scoped()], [scoped({ clouds: [] })], { ts: TS });
+    expect(events[0].to).toBe('—');
+  });
+
+  it('does not treat products as scope — reassignment is its own thing', () => {
+    const events = diffSnapshots([scoped()], [scoped({ products: ['Outlook'] })], { ts: TS });
+    expect(events).toEqual([]);
+  });
+
+  it('leaves scope alone when only the date moved', () => {
+    const events = diffSnapshots([scoped()], [scoped({ date: '2026-12' })], { ts: TS });
+    expect(types(events)).toEqual(['slipped']);
+  });
+});
+
 describe('mergeSnapshot', () => {
   it('replaces wholesale for a complete feed', () => {
     expect(mergeSnapshot([m365(), m365({ id: 'm365:2' })], [m365()])).toHaveLength(1);

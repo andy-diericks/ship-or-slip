@@ -88,9 +88,8 @@ of using what is already fetched.*
 
 - ~~**G1 — Preview-date tracking.**~~ **Built 2026-08-08.** 422 of 1,819 items
   carry a preview date, and it moves before GA does.
-- **G2 — Scope-cut detection.** Diff the `platforms` / `clouds` / `phases`
-  arrays. An item quietly losing "GCC High" or dropping "Mobile" is a scope cut
-  that currently produces no event at all. Nobody reports these. *(med)* ⭐⭐
+- ~~**G2 — Scope-cut detection.**~~ **Built 2026-08-08.** `clouds`, `platforms`
+  and `phases` compared as sets; `platforms` had to be captured first.
 - ~~**G3 — Title-change tracking.**~~ **Built 2026-08-08.** Whitespace-only
   changes ignored.
 - **G4 — Product reassignment** — an item moving between product families,
@@ -150,9 +149,10 @@ of using what is already fetched.*
 2. ~~G1 and G3~~ — done. Cheap, and they deepen the record *from the next run
    onward*, which is the argument for doing this kind of work early: history
    not captured today cannot be recovered later.
-3. **I2 (back up the data branch)** — the archive is now genuinely valuable and
-   still exists in exactly one place.
-4. **G2 (scope cuts)** — the most interesting unbuilt idea here.
+3. ~~G2 (scope cuts)~~ — done. All of epic G's already-captured-and-discarded
+   signals are now used, except product reassignment (G4).
+4. **I2 (back up the data branch)** — the archive is now genuinely valuable and
+   still exists in exactly one place. The largest unaddressed risk here.
 5. **C1 (RSS)** — an afternoon, and it is how people find this kind of site.
 6. **A2 (Azure launches)** — widens coverage using data already fetched.
 7. Let the archive accumulate for two or three months.

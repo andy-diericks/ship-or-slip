@@ -22,7 +22,11 @@ function EventRow({ event, onOpen }: { event: ChangeEvent; onOpen: (id: string) 
   // but two full titles either side of an arrow is unreadable. The heading
   // already carries the new title, so only the old one needs showing.
   const isRename = event.type === 'renamed';
-  const showsMove = !isRename && (event.from != null || event.to != null);
+  // Scope events carry tag lists in from/to, not dates. `fromRaw` holds the
+  // summary that matters ("Clouds lost: GCC High") — the full before/after
+  // lists are context, so they follow it rather than lead.
+  const isScope = event.type === 'scope_reduced' || event.type === 'scope_expanded';
+  const showsMove = !isRename && !isScope && (event.from != null || event.to != null);
 
   return (
     <button type="button" className="event" onClick={() => onOpen(event.id)}>
@@ -37,6 +41,19 @@ function EventRow({ event, onOpen }: { event: ChangeEvent; onOpen: (id: string) 
 
         {isRename && event.from && (
           <span className="event__was">was “{event.from}”</span>
+        )}
+
+        {isScope && (
+          <>
+            {event.fromRaw && (
+              <span className={`event__scope tone-${meta.tone}`}>{event.fromRaw}</span>
+            )}
+            <span className="event__move">
+              {event.from}
+              <span className="event__arrow"> → </span>
+              {event.to}
+            </span>
+          </>
         )}
 
         {showsMove && (

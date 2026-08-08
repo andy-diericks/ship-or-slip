@@ -198,6 +198,42 @@ Append-only. Newest at the bottom. Read the tail before starting work.
   experience. I2 — backing up the `data` branch — is now the top priority: the
   archive has become genuinely valuable and exists in exactly one place.
 
+## 2026-08-08 — scope-cut detection (G2)
+
+- **Did:** `clouds`, `platforms` and `phases` are now diffed, emitting
+  `scope_reduced` and `scope_expanded` with the dimension and what was
+  lost or gained. `platforms` was not being captured at all and had to be added
+  to `normalize.mjs` first. `products` is excluded on purpose — reassignment is
+  G4, not a cut. 16 new tests; 213 total.
+
+- **Two rules that make it safe, both learned by thinking about how it would
+  fail rather than by it failing:**
+  - **Sets, not arrays.** These feeds reshuffle tag order between responses.
+    Array comparison would have reported a reshuffle as a scope change across
+    hundreds of items in one run.
+  - **Absent ≠ empty.** A dimension missing from the previous snapshot is
+    unknown. Without that rule, the first run after adding `platforms` would
+    have reported all 1,819 items as gaining scope — and the anomaly guard
+    would have caught it, which is reassuring, but a silent migration is
+    better than a held run.
+
+- **Verified against the live `data` branch**, which was written before
+  `platforms` existed: a dry run produced **zero** events, confirming the
+  migration is silent. Then widened `clouds` on three real items and reversed
+  the order on another: exactly one `scope_reduced`, no reorder noise.
+
+- **A result I nearly misread:** three widened items produced only one event.
+  Rather than assume the code was wrong, I checked the source data — two of the
+  three already carried both `GCC High` and `DoD`, so adding them was a no-op.
+  One event was the correct answer. Second time this session that a surprising
+  number turned out to be a flawed hand-built fixture rather than a bug; worth
+  the thirty seconds to check before changing code.
+
+- **Interaction worth knowing:** if Microsoft ever renames a tag value across
+  the catalogue (say "GCC High" → "GCC-High"), that produces a paired
+  `scope_reduced` + `scope_expanded` on every affected item — thousands of
+  events, which the anomaly guard holds. The two features cover each other.
+
 - **Nice confirmation:** with data 14 hours old the freshness badge went amber
   on the live site, exactly as designed — the staleness was visible on the
   page before it was visible in the Actions tab.

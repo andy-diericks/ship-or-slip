@@ -33,6 +33,16 @@ describe('normalizeM365', () => {
     expect(item.phases).toEqual(['General Availability']);
   });
 
+  it('captures platforms, so scope cuts can be detected', () => {
+    const [item] = normalizeM365([roadmapItem()]);
+    expect(item.platforms).toEqual(['Web']);
+  });
+
+  it('gives an absent platforms list an empty array, not undefined', () => {
+    const [item] = normalizeM365([roadmapItem({ tagsContainer: { products: [] } })]);
+    expect(item.platforms).toEqual([]);
+  });
+
   it('builds a link back to the roadmap entry', () => {
     const [item] = normalizeM365([roadmapItem()]);
     expect(item.link).toContain('featureid=568792');

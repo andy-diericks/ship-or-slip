@@ -60,6 +60,12 @@ export function ItemPage({ id, timeline, onBack }: Props) {
                   <span className={`badge tone-${meta.tone}`}>{meta.label}</span>{' '}
                   {point.type === 'renamed' ? (
                     <span className="event__was">was “{point.from}”</span>
+                  ) : point.type === 'scope_reduced' || point.type === 'scope_expanded' ? (
+                    <span className="event__move">
+                      {point.from}
+                      <span className="event__arrow"> → </span>
+                      {point.to}
+                    </span>
                   ) : (
                     (point.from || point.to) && (
                       <span className="event__move">

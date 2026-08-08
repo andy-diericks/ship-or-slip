@@ -22,6 +22,7 @@ import { monthsBetween, daysBetween } from './dates.mjs';
  * @property {string|null} toRaw
  * @property {number|null} months Slip size in months (M365)
  * @property {number|null} days   Slip size in days (Azure)
+ * @property {string} [dimension] Which tag list changed, on scope events
  */
 
 export const EVENT_TYPES = /** @type {const} */ ([
@@ -39,7 +40,40 @@ export const EVENT_TYPES = /** @type {const} */ ([
   'preview_pulled_in',
   'preview_set',
   'renamed',
+  'scope_reduced',
+  'scope_expanded',
 ]);
+
+/**
+ * Tag lists whose shrinking is a scope cut.
+ *
+ * `products` is deliberately absent: an item moving between product families
+ * is a reassignment, not a cut, and belongs to its own event type.
+ */
+export const SCOPE_DIMENSIONS = /** @type {const} */ (['clouds', 'platforms', 'phases']);
+
+/** Human labels for the dimensions, used in warnings and the UI. */
+export const SCOPE_LABELS = {
+  clouds: 'Clouds',
+  platforms: 'Platforms',
+  phases: 'Release phase',
+};
+
+/**
+ * Compare two tag lists as sets.
+ *
+ * Order is not meaningful in these feeds and does vary between responses, so
+ * comparing them as arrays would report a reshuffle as a scope change on
+ * hundreds of items at once.
+ */
+function setDiff(before, after) {
+  const b = new Set(before);
+  const a = new Set(after);
+  return {
+    removed: [...b].filter((v) => !a.has(v)),
+    added: [...a].filter((v) => !b.has(v)),
+  };
+}
 
 /**
  * Titles differing only in whitespace are not renames.
@@ -147,6 +181,43 @@ export function diffSnapshots(prev, next, options = {}) {
       // A preview date being withdrawn is left unreported, for the same reason
       // a withdrawn GA date is: the feed does it transiently and it says less
       // than a slip does.
+    }
+
+    // Scope: a feature losing "GCC High" or "Mac" is a commitment shrinking
+    // without a single date moving, and nothing else reports it.
+    for (const dimension of SCOPE_DIMENSIONS) {
+      const before = old[dimension];
+      const after = item[dimension];
+
+      // A dimension missing from the previous snapshot is *unknown*, not
+      // empty. Without this, the first run after a new dimension starts being
+      // captured would report every item as having gained scope — thousands of
+      // false events, which is exactly what the archive must never accumulate.
+      if (!Array.isArray(before) || !Array.isArray(after)) continue;
+
+      const { removed, added } = setDiff(before, after);
+      const label = SCOPE_LABELS[dimension] ?? dimension;
+
+      if (removed.length) {
+        events.push({
+          ...base(item, ts, 'scope_reduced'),
+          dimension,
+          from: before.join(', '),
+          to: after.join(', ') || '—',
+          fromRaw: `${label} lost: ${removed.join(', ')}`,
+          toRaw: null,
+        });
+      }
+      if (added.length) {
+        events.push({
+          ...base(item, ts, 'scope_expanded'),
+          dimension,
+          from: before.join(', ') || '—',
+          to: after.join(', '),
+          fromRaw: `${label} gained: ${added.join(', ')}`,
+          toRaw: null,
+        });
+      }
     }
 
     if (canonicalTitle(old.title) !== canonicalTitle(item.title) && old.title && item.title) {

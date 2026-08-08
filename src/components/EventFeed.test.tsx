@@ -104,6 +104,43 @@ describe('EventFeed', () => {
     expect(screen.getByText('+2 months')).toBeInTheDocument();
   });
 
+  it('leads a scope cut with what was lost', () => {
+    render(
+      <EventFeed
+        events={[event({
+          type: 'scope_reduced',
+          dimension: 'clouds',
+          from: 'Worldwide, GCC High',
+          to: 'Worldwide',
+          fromRaw: 'Clouds lost: GCC High',
+          months: null,
+        })]}
+        onOpen={vi.fn()}
+      />,
+    );
+    expect(screen.getByText('Scope cut')).toBeInTheDocument();
+    expect(screen.getByText('Clouds lost: GCC High')).toBeInTheDocument();
+    expect(screen.getByText(/Worldwide, GCC High/)).toBeInTheDocument();
+  });
+
+  it('labels a widened scope distinctly', () => {
+    render(
+      <EventFeed
+        events={[event({
+          type: 'scope_expanded',
+          dimension: 'platforms',
+          from: 'Web',
+          to: 'Web, Mac',
+          fromRaw: 'Platforms gained: Mac',
+          months: null,
+        })]}
+        onOpen={vi.fn()}
+      />,
+    );
+    expect(screen.getByText('Scope widened')).toBeInTheDocument();
+    expect(screen.getByText('Platforms gained: Mac')).toBeInTheDocument();
+  });
+
   it('explains an empty result rather than showing a blank page', () => {
     render(<EventFeed events={[]} onOpen={vi.fn()} />);
     expect(screen.getByText(/nothing matches those filters/i)).toBeInTheDocument();

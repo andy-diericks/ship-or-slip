@@ -17,7 +17,12 @@ export type EventType =
   | 'preview_slipped'
   | 'preview_pulled_in'
   | 'preview_set'
-  | 'renamed';
+  | 'renamed'
+  | 'scope_reduced'
+  | 'scope_expanded';
+
+/** Tag lists whose membership is tracked for scope changes. */
+export type ScopeDimension = 'clouds' | 'platforms' | 'phases';
 
 export interface ChangeEvent {
   ts: string;
@@ -33,6 +38,8 @@ export interface ChangeEvent {
   toRaw: string | null;
   months: number | null;
   days: number | null;
+  /** Present on scope_reduced / scope_expanded: which tag list changed. */
+  dimension?: ScopeDimension;
 }
 
 export interface TimelinePoint {
@@ -88,12 +95,16 @@ export const EVENT_META: Record<
   // The preview date moves before the GA date does — a slip here is the early
   // warning, so it ranks just below the real thing rather than with the noise.
   preview_slipped: { label: 'Preview slipped', tone: 'slip', weight: 5 },
-  renamed: { label: 'Renamed', tone: 'drop', weight: 6 },
-  pulled_in: { label: 'Pulled in', tone: 'pull', weight: 7 },
-  preview_pulled_in: { label: 'Preview pulled in', tone: 'pull', weight: 8 },
-  shipped: { label: 'Shipped', tone: 'ship', weight: 9 },
-  added: { label: 'Added', tone: 'add', weight: 10 },
-  date_added: { label: 'Date set', tone: 'add', weight: 11 },
-  preview_set: { label: 'Preview dated', tone: 'add', weight: 12 },
-  status_changed: { label: 'Status changed', tone: 'drop', weight: 13 },
+  // A scope cut is a promise shrinking without any date moving — the quietest
+  // bad news in the feed, so it ranks with the slips rather than the noise.
+  scope_reduced: { label: 'Scope cut', tone: 'slip', weight: 6 },
+  renamed: { label: 'Renamed', tone: 'drop', weight: 7 },
+  pulled_in: { label: 'Pulled in', tone: 'pull', weight: 8 },
+  preview_pulled_in: { label: 'Preview pulled in', tone: 'pull', weight: 9 },
+  scope_expanded: { label: 'Scope widened', tone: 'pull', weight: 10 },
+  shipped: { label: 'Shipped', tone: 'ship', weight: 11 },
+  added: { label: 'Added', tone: 'add', weight: 12 },
+  date_added: { label: 'Date set', tone: 'add', weight: 13 },
+  preview_set: { label: 'Preview dated', tone: 'add', weight: 14 },
+  status_changed: { label: 'Status changed', tone: 'drop', weight: 15 },
 };

@@ -66,6 +66,24 @@ Both versions are recorded so the change speaks for itself. Titles differing
 only in whitespace are ignored — Microsoft reflows its own copy constantly, and
 that noise would bury the renames that mean something.
 
+**Scope is tracked across three tag lists**: `clouds`, `platforms` and
+`phases`. A feature losing "GCC High" or "Mac" is a commitment shrinking
+without a single date moving, and nothing else reports it. `products` is
+deliberately excluded — an item moving between product families is a
+reassignment, not a cut, and belongs to its own event type.
+
+Two rules make this safe, and both are load-bearing:
+
+- **Lists are compared as sets.** Order is not meaningful in these feeds and
+  does vary between responses; comparing them as arrays would report a
+  reshuffle as a scope change across hundreds of items at once.
+- **A dimension absent from the previous snapshot is *unknown*, not empty.**
+  When `platforms` began being captured, every one of 1,819 items would
+  otherwise have looked like it gained scope on the first run. Skipping the
+  comparison until both sides have the field makes adding a new dimension a
+  silent migration — verified against the live snapshot, which produced zero
+  events.
+
 ## The windowed-feed rule
 
 The Azure RSS exposes only the most recent 200 updates. An item's **absence

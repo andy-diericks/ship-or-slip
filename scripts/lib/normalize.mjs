@@ -20,6 +20,7 @@ import { parseRss } from './rss.mjs';
  * @property {string[]} products
  * @property {string[]} phases
  * @property {string[]} clouds
+ * @property {string[]} [platforms] Desktop / Web / Mac / Mobile — M365 only
  * @property {string|null} updated Feed's own last-modified timestamp
  */
 
@@ -55,6 +56,9 @@ export function normalizeM365(raw) {
         products: names(container.products),
         phases: names(container.releasePhase),
         clouds: names(container.cloudInstances),
+        // Captured so scope changes can be detected: a feature quietly losing
+        // "Mac" or "Mobile" is a cut that touches no date (see diff.mjs).
+        platforms: names(container.platforms),
         updated: r.modified ? String(r.modified) : null,
       };
     });

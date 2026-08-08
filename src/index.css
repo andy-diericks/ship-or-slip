@@ -368,6 +368,13 @@ button {
   min-width: 0;
 }
 
+/* The headline of a scope change: what was lost or gained. Carries the tone
+   colour because the direction is the point. */
+.event__scope {
+  font-weight: 600;
+  font-size: 13px;
+}
+
 /* ── item page ──────────────────────────────────────────────────────── */
 
 .back {
