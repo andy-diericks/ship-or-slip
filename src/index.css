@@ -359,6 +359,15 @@ button {
   font-size: 12px;
 }
 
+/* A rename shows the previous title. It can be long, so it wraps rather than
+   forcing the row wide, and stays quiet — the new title is the heading. */
+.event__was {
+  font-style: italic;
+  color: var(--muted);
+  flex: 1 1 100%;
+  min-width: 0;
+}
+
 /* ── item page ──────────────────────────────────────────────────────── */
 
 .back {

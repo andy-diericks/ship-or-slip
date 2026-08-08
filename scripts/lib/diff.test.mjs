@@ -140,6 +140,108 @@ describe('diffSnapshots — Azure retirements', () => {
   });
 });
 
+describe('diffSnapshots — preview dates (the leading indicator)', () => {
+  it('reports a preview date slipping, separately from GA', () => {
+    const events = diffSnapshots(
+      [m365({ preview: '2026-06' })],
+      [m365({ preview: '2026-08' })],
+      { ts: TS },
+    );
+    expect(events).toHaveLength(1);
+    expect(events[0]).toMatchObject({
+      type: 'preview_slipped',
+      from: '2026-06',
+      to: '2026-08',
+      months: 2,
+    });
+  });
+
+  it('reports a preview date being pulled in', () => {
+    const events = diffSnapshots(
+      [m365({ preview: '2026-08' })],
+      [m365({ preview: '2026-06' })],
+      { ts: TS },
+    );
+    expect(events[0]).toMatchObject({ type: 'preview_pulled_in', months: -2 });
+  });
+
+  it('reports a preview date appearing where there was none', () => {
+    const events = diffSnapshots([m365()], [m365({ preview: '2026-06' })], { ts: TS });
+    expect(events[0]).toMatchObject({ type: 'preview_set', to: '2026-06', from: null });
+  });
+
+  it('stays silent when a preview date is withdrawn', () => {
+    expect(diffSnapshots([m365({ preview: '2026-06' })], [m365()], { ts: TS })).toEqual([]);
+  });
+
+  it('reports preview and GA independently when both move', () => {
+    const events = diffSnapshots(
+      [m365({ preview: '2026-06' })],
+      [m365({ preview: '2026-08', date: '2026-12' })],
+      { ts: TS },
+    );
+    expect(types(events)).toEqual(['preview_slipped', 'slipped']);
+  });
+
+  it('says nothing about previews for a source that has none', () => {
+    expect(diffSnapshots([azure()], [azure()], { ts: TS, windowed: true })).toEqual([]);
+  });
+});
+
+describe('diffSnapshots — renames (the quiet scope cut)', () => {
+  it('reports a changed title, keeping both versions', () => {
+    const events = diffSnapshots(
+      [m365({ title: 'Planner: refresh for Web, Desktop and Mobile' })],
+      [m365({ title: 'Planner: refresh for Web' })],
+      { ts: TS },
+    );
+    expect(events).toHaveLength(1);
+    expect(events[0]).toMatchObject({
+      type: 'renamed',
+      from: 'Planner: refresh for Web, Desktop and Mobile',
+      to: 'Planner: refresh for Web',
+    });
+  });
+
+  it('carries the new title as the event title', () => {
+    const events = diffSnapshots([m365()], [m365({ title: 'New name' })], { ts: TS });
+    expect(events[0].title).toBe('New name');
+  });
+
+  it('ignores whitespace reflow, which Microsoft does constantly', () => {
+    const events = diffSnapshots(
+      [m365({ title: 'Planner:  refresh' })],
+      [m365({ title: 'Planner: refresh' })],
+      { ts: TS },
+    );
+    expect(events).toEqual([]);
+  });
+
+  it('ignores leading and trailing whitespace', () => {
+    expect(diffSnapshots([m365({ title: ' A ' })], [m365({ title: 'A' })], { ts: TS })).toEqual([]);
+  });
+
+  it('does not fire when a title is empty on either side', () => {
+    expect(diffSnapshots([m365({ title: '' })], [m365()], { ts: TS })).toEqual([]);
+    expect(diffSnapshots([m365()], [m365({ title: '' })], { ts: TS })).toEqual([]);
+  });
+
+  it('reports a rename alongside a slip when both happen', () => {
+    const events = diffSnapshots(
+      [m365()],
+      [m365({ title: 'Renamed thing', date: '2026-12' })],
+      { ts: TS },
+    );
+    expect(types(events)).toEqual(['renamed', 'slipped']);
+  });
+
+  it('has no magnitude — a rename is not a distance', () => {
+    const events = diffSnapshots([m365()], [m365({ title: 'Other' })], { ts: TS });
+    expect(events[0].months).toBeNull();
+    expect(events[0].days).toBeNull();
+  });
+});
+
 describe('mergeSnapshot', () => {
   it('replaces wholesale for a complete feed', () => {
     expect(mergeSnapshot([m365(), m365({ id: 'm365:2' })], [m365()])).toHaveLength(1);

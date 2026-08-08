@@ -58,12 +58,16 @@ export function ItemPage({ id, timeline, onBack }: Props) {
                 <span className="timeline__when">{formatDay(point.ts)}</span>
                 <span>
                   <span className={`badge tone-${meta.tone}`}>{meta.label}</span>{' '}
-                  {(point.from || point.to) && (
-                    <span className="event__move">
-                      {formatDate(point.from)}
-                      <span className="event__arrow"> → </span>
-                      {formatDate(point.to)}
-                    </span>
+                  {point.type === 'renamed' ? (
+                    <span className="event__was">was “{point.from}”</span>
+                  ) : (
+                    (point.from || point.to) && (
+                      <span className="event__move">
+                        {formatDate(point.from)}
+                        <span className="event__arrow"> → </span>
+                        {formatDate(point.to)}
+                      </span>
+                    )
                   )}
                 </span>
               </li>

@@ -35,7 +35,21 @@ export const EVENT_TYPES = /** @type {const} */ ([
   'retirement_announced',
   'retirement_moved',
   'date_added',
+  'preview_slipped',
+  'preview_pulled_in',
+  'preview_set',
+  'renamed',
 ]);
+
+/**
+ * Titles differing only in whitespace are not renames.
+ *
+ * Microsoft reflows its own copy constantly — a double space collapsing is not
+ * news, and reporting it would bury the renames that actually mean something.
+ * Case is deliberately preserved: "Preview" becoming "preview" is noise, but
+ * "GA" becoming "Ga" would signal an editorial pass worth seeing.
+ */
+const canonicalTitle = (title) => String(title ?? '').replace(/\s+/g, ' ').trim();
 
 const byId = (items) => new Map(items.map((i) => [i.id, i]));
 
@@ -113,6 +127,33 @@ export function diffSnapshots(prev, next, options = {}) {
       }
       // A date vanishing is left unreported: the feed does this transiently and
       // it says less than a slip does.
+    }
+
+    // The preview date is a leading indicator: it slips weeks before GA does,
+    // and the feed exposes it on every item. Tracked with the same vocabulary
+    // as the GA date so the two read alike.
+    if (old.preview !== item.preview) {
+      if (old.preview && item.preview) {
+        const months = monthsBetween(old.preview, item.preview);
+        events.push({
+          ...base(item, ts, (months ?? 0) > 0 ? 'preview_slipped' : 'preview_pulled_in'),
+          from: old.preview,
+          to: item.preview,
+          months,
+        });
+      } else if (item.preview) {
+        events.push({ ...base(item, ts, 'preview_set'), to: item.preview });
+      }
+      // A preview date being withdrawn is left unreported, for the same reason
+      // a withdrawn GA date is: the feed does it transiently and it says less
+      // than a slip does.
+    }
+
+    if (canonicalTitle(old.title) !== canonicalTitle(item.title) && old.title && item.title) {
+      // Titles get rewritten to narrow scope without touching a date — the
+      // quietest way a commitment shrinks. Both versions are kept so the
+      // change speaks for itself.
+      events.push({ ...base(item, ts, 'renamed'), from: old.title, to: item.title });
     }
 
     if (old.status !== item.status && item.status) {

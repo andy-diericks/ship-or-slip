@@ -80,16 +80,83 @@ a league table built on 23 events is a lie with a chart on it.*
 - **F2 — Document the JSON files as a public API.** They are already served
   with open CORS; this costs a README section. *(low)*
 
+## G · Signals already captured and thrown away
+
+*`normalize.mjs` stores `preview`, `products`, `phases` and `clouds` on every
+item. `diff.mjs` compared only `date` and `status`. Everything here is a matter
+of using what is already fetched.*
+
+- ~~**G1 — Preview-date tracking.**~~ **Built 2026-08-08.** 422 of 1,819 items
+  carry a preview date, and it moves before GA does.
+- **G2 — Scope-cut detection.** Diff the `platforms` / `clouds` / `phases`
+  arrays. An item quietly losing "GCC High" or dropping "Mobile" is a scope cut
+  that currently produces no event at all. Nobody reports these. *(med)* ⭐⭐
+- ~~**G3 — Title-change tracking.**~~ **Built 2026-08-08.** Whitespace-only
+  changes ignored.
+- **G4 — Product reassignment** — an item moving between product families,
+  which often signals a reorg or a quiet deprioritisation. *(low)*
+
+## H · Correlation
+
+- **H1 — Conference cohorts.** Build (May) and Ignite (November) drive
+  announcement spikes; the Azure feed already tags items "Microsoft Build".
+  Track what was promised at a conference against what shipped. An annual,
+  quotable story. *(med)* ⭐⭐
+- **H2 — Fiscal-year bunching.** Microsoft's FY starts in July. Do dates
+  cluster at FY and quarter boundaries, and do June promises slip more? *(med)*
+- **H3 — Cross-source linkage** — connect an Azure retirement to the roadmap
+  item that replaces it. *(high)*
+- **H4 — Copilot index.** Around 31% of the roadmap is Copilot. Is AI slipping
+  more or less than everything else? One honest number with real news value.
+  *(med)*
+
+## I · Trust and provenance
+
+- **I1 — Receipts.** Link every event to the `data`-branch commit that recorded
+  it. Turns "we say it slipped" into an auditable claim, using commit history
+  that already exists. *(low)* ⭐
+- **I2 — Back up the `data` branch.** It is irreplaceable, single-homed, and
+  one force-push from gone. Weekly mirror to a release asset or second repo.
+  ADR 0003 calls this the entire asset. *(low)* ⭐⭐
+- **I3 — Compaction policy** for when the monthly archives grow large. *(low)*
+- **I4 — Correction log.** If a bad run ever gets through, record the
+  correction openly rather than silently rewriting. Append-only integrity
+  applies to our own mistakes too. *(low)*
+
+## J · Distribution and reach
+
+- **J1 — Outbound webhook** — post slips to Teams or Slack via a URL held in a
+  GitHub secret. *(low)* ⭐
+- **J2 — Embeddable SVG badge** per product, e.g. "Teams: 0.4mo median slip".
+  Other people's READMEs then link back. *(med)*
+- **J3 — Pre-rendered item pages** for search engines; hash routing is
+  invisible to crawlers today. *(med)*
+- **J4 — Annual review** generated from the archive. *(med)*
+
+## K · Experience, second pass
+
+- **K1 — "Since your last visit"** highlighting, via a `localStorage`
+  timestamp. No backend. *(low)*
+- **K2 — Arbitrary date comparison**: what changed between two dates. *(med)*
+- **K3 — Sparkline per feed row** showing that item's date history inline. *(med)*
+- **K4 — Command palette** (`Cmd-K`) to jump to a product or feature. *(low)*
+
 ---
 
 ## Suggested order
 
 1. ~~E1, the anomaly guard~~ — done. Everything else rests on the archive being
    trustworthy.
-2. **C1 (RSS)** — an afternoon, and it is how people find this kind of site.
-3. **A2 (Azure launches)** — widens coverage using data already fetched.
-4. Let the archive accumulate for two or three months.
-5. **B1 (slip league table)** — the headline feature, once there is something
+2. ~~G1 and G3~~ — done. Cheap, and they deepen the record *from the next run
+   onward*, which is the argument for doing this kind of work early: history
+   not captured today cannot be recovered later.
+3. **I2 (back up the data branch)** — the archive is now genuinely valuable and
+   still exists in exactly one place.
+4. **G2 (scope cuts)** — the most interesting unbuilt idea here.
+5. **C1 (RSS)** — an afternoon, and it is how people find this kind of site.
+6. **A2 (Azure launches)** — widens coverage using data already fetched.
+7. Let the archive accumulate for two or three months.
+8. **B1 (slip league table)** — the headline feature, once there is something
    real to measure.
 
 ## Not doing

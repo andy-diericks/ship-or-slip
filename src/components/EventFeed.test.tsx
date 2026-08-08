@@ -75,6 +75,35 @@ describe('EventFeed', () => {
     expect(screen.queryByText(/months/)).not.toBeInTheDocument();
   });
 
+  it('shows the previous title on a rename, not two titles round an arrow', () => {
+    render(
+      <EventFeed
+        events={[event({
+          type: 'renamed',
+          title: 'Planner: refresh for Web',
+          from: 'Planner: refresh for Web, Desktop and Mobile',
+          to: 'Planner: refresh for Web',
+          months: null,
+        })]}
+        onOpen={vi.fn()}
+      />,
+    );
+    expect(screen.getByText('Planner: refresh for Web')).toBeInTheDocument();
+    expect(screen.getByText(/was .Planner: refresh for Web, Desktop and Mobile./)).toBeInTheDocument();
+    expect(screen.queryByText('→')).not.toBeInTheDocument();
+  });
+
+  it('labels a preview slip distinctly from a GA slip', () => {
+    render(
+      <EventFeed
+        events={[event({ type: 'preview_slipped', from: '2026-06', to: '2026-08', months: 2 })]}
+        onOpen={vi.fn()}
+      />,
+    );
+    expect(screen.getByText('Preview slipped')).toBeInTheDocument();
+    expect(screen.getByText('+2 months')).toBeInTheDocument();
+  });
+
   it('explains an empty result rather than showing a blank page', () => {
     render(<EventFeed events={[]} onOpen={vi.fn()} />);
     expect(screen.getByText(/nothing matches those filters/i)).toBeInTheDocument();

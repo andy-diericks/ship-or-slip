@@ -51,7 +51,20 @@ those fields and no history whatsoever. Every event this project records exists
 because the previous snapshot was kept.
 
 Event types: `slipped`, `pulled_in`, `shipped`, `cancelled`, `status_changed`,
-`dropped`, `added`, `date_added`, `retirement_announced`, `retirement_moved`.
+`dropped`, `added`, `date_added`, `retirement_announced`, `retirement_moved`,
+`preview_slipped`, `preview_pulled_in`, `preview_set`, `renamed`.
+
+**Preview dates are tracked separately from GA.** `publicPreviewDate` is
+present on roughly a quarter of roadmap items and moves before the GA date
+does, which makes it the leading indicator: a preview slipping is often the
+first visible sign that GA will follow. It uses the same vocabulary as the GA
+date so the two read alike.
+
+**Renames are events.** A title rewritten from "for Web, Desktop and Mobile" to
+"for Web" is a scope cut that touches no date and would otherwise be invisible.
+Both versions are recorded so the change speaks for itself. Titles differing
+only in whitespace are ignored — Microsoft reflows its own copy constantly, and
+that noise would bury the renames that mean something.
 
 ## The windowed-feed rule
 

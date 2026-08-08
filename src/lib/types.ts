@@ -13,7 +13,11 @@ export type EventType =
   | 'added'
   | 'retirement_announced'
   | 'retirement_moved'
-  | 'date_added';
+  | 'date_added'
+  | 'preview_slipped'
+  | 'preview_pulled_in'
+  | 'preview_set'
+  | 'renamed';
 
 export interface ChangeEvent {
   ts: string;
@@ -81,9 +85,15 @@ export const EVENT_META: Record<
   cancelled: { label: 'Cancelled', tone: 'drop', weight: 2 },
   retirement_moved: { label: 'Retirement moved', tone: 'retire', weight: 3 },
   retirement_announced: { label: 'Retirement announced', tone: 'retire', weight: 4 },
-  pulled_in: { label: 'Pulled in', tone: 'pull', weight: 5 },
-  shipped: { label: 'Shipped', tone: 'ship', weight: 6 },
-  added: { label: 'Added', tone: 'add', weight: 7 },
-  date_added: { label: 'Date set', tone: 'add', weight: 8 },
-  status_changed: { label: 'Status changed', tone: 'drop', weight: 9 },
+  // The preview date moves before the GA date does — a slip here is the early
+  // warning, so it ranks just below the real thing rather than with the noise.
+  preview_slipped: { label: 'Preview slipped', tone: 'slip', weight: 5 },
+  renamed: { label: 'Renamed', tone: 'drop', weight: 6 },
+  pulled_in: { label: 'Pulled in', tone: 'pull', weight: 7 },
+  preview_pulled_in: { label: 'Preview pulled in', tone: 'pull', weight: 8 },
+  shipped: { label: 'Shipped', tone: 'ship', weight: 9 },
+  added: { label: 'Added', tone: 'add', weight: 10 },
+  date_added: { label: 'Date set', tone: 'add', weight: 11 },
+  preview_set: { label: 'Preview dated', tone: 'add', weight: 12 },
+  status_changed: { label: 'Status changed', tone: 'drop', weight: 13 },
 };

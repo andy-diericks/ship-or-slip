@@ -159,6 +159,45 @@ Append-only. Newest at the bottom. Read the tail before starting work.
   on months of accumulated history. Building it now would produce a chart that
   lies confidently. Left explicitly in the backlog with that warning attached.
 
+## 2026-08-08 — preview dates and renames (G1, G3)
+
+- **The observation behind both:** `normalize.mjs` has been storing `preview`,
+  `products`, `phases` and `clouds` on every item since day one, and `diff.mjs`
+  compared only `date` and `status`. Two useful signals were being fetched and
+  thrown away on every run.
+
+- **G1 — preview dates.** `publicPreviewDate` is present on 422 of 1,819 items
+  and moves before the GA date does, so a preview slip is an early warning that
+  GA will follow. New types `preview_slipped`, `preview_pulled_in`,
+  `preview_set`, using the same vocabulary as the GA date. A withdrawn preview
+  date stays unreported, matching the existing rule for withdrawn GA dates.
+
+- **G3 — renames.** A title rewritten from "for Web, Desktop and Mobile" to
+  "for Web" is a scope cut that touches no date. Both versions are recorded.
+  Whitespace-only differences are ignored — Microsoft reflows copy constantly
+  and that noise would bury the real ones.
+
+- **UI:** a rename shows the new title as the heading and *was "old title"*
+  beneath, rather than two long titles either side of an arrow. Preview events
+  rank just below their GA equivalents in the tile order.
+
+- **Verified against live data**, not just fixtures: cloned the real `data`
+  branch, rewound three genuine preview dates and one real title, and added a
+  whitespace-only variant of another item's own title. Result: 3
+  `preview_slipped`, 1 `renamed`, whitespace correctly ignored.
+
+- **A check I got wrong first time**, worth recording: my initial verification
+  replaced an item's title wholesale rather than adding whitespace to its own
+  title, so it reported 2 renames and I briefly thought the normalisation had
+  failed. The code was right; the check was wrong. Re-run properly before
+  concluding anything from a hand-built fixture.
+
+- **Backlog extended** with epics G–K: scope-cut detection (G2, the most
+  interesting unbuilt idea), correlation work (conference cohorts, fiscal-year
+  bunching, a Copilot index), provenance, distribution and a second pass on
+  experience. I2 — backing up the `data` branch — is now the top priority: the
+  archive has become genuinely valuable and exists in exactly one place.
+
 - **Nice confirmation:** with data 14 hours old the freshness badge went amber
   on the live site, exactly as designed — the staleness was visible on the
   page before it was visible in the Actions tab.

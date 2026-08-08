@@ -17,7 +17,12 @@ export function groupByDay(events: ChangeEvent[]): { day: string; events: Change
 function EventRow({ event, onOpen }: { event: ChangeEvent; onOpen: (id: string) => void }) {
   const meta = EVENT_META[event.type];
   const magnitude = formatMagnitude(event);
-  const showsMove = event.from != null || event.to != null;
+  // A rename's from/to are titles, not dates. Rendering them through the date
+  // formatter would technically work — it passes unparseable values through —
+  // but two full titles either side of an arrow is unreadable. The heading
+  // already carries the new title, so only the old one needs showing.
+  const isRename = event.type === 'renamed';
+  const showsMove = !isRename && (event.from != null || event.to != null);
 
   return (
     <button type="button" className="event" onClick={() => onOpen(event.id)}>
@@ -29,6 +34,10 @@ function EventRow({ event, onOpen }: { event: ChangeEvent; onOpen: (id: string) 
 
       <div className="event__meta">
         <span className={`badge tone-${meta.tone}`}>{meta.label}</span>
+
+        {isRename && event.from && (
+          <span className="event__was">was “{event.from}”</span>
+        )}
 
         {showsMove && (
           <span className="event__move">
