@@ -55,7 +55,10 @@ tokens → Fine-grained tokens → Generate new token**:
 - **Expiry:** set a reminder — when it lapses the pipeline goes quiet, and the
   only symptom is the freshness badge slowly going amber then red.
 
-**Then the job.** cron-job.org → **Create cronjob**:
+**Then the job.** cron-job.org → **Create cronjob**. On the *Advanced* tab,
+leave **"Requires HTTP authentication" OFF** — that is Basic auth, which
+GitHub's REST API no longer accepts. The token travels in an `Authorization`
+header instead, set up below.
 
 | Field | Value |
 |---|---|
@@ -75,7 +78,20 @@ Content-Type: application/json
 
 A successful dispatch returns **HTTP 204 No Content** with an empty body.
 cron-job.org treats 2xx as success, so a failing token shows up as a failed job
-in its dashboard rather than silently doing nothing.
+in its dashboard rather than silently doing nothing. What the other codes mean:
+
+| Code | Cause |
+|---|---|
+| `204` | Worked. A run should appear in the Actions tab within seconds. |
+| `401` | Bad token, or a missing `Bearer ` prefix on the header value. |
+| `403` | Token lacks *Actions: read and write*. |
+| `404` | Token is not scoped to this repository, or the workflow filename is wrong. |
+| `422` | The `ref` in the body does not exist — it must be `main`. |
+
+Also on the job: turn on **failure notifications**, and **save responses** if
+offered. A `204` has an empty body so saved responses tell you little while
+things work — but the day the token expires, the recorded `401` and its JSON
+message turn "why did it stop" into a five-second answer.
 
 Two details worth knowing. The `:37` is deliberate — nothing depends on it now
 that GitHub's scheduler is out of the picture, but it keeps the runs off the
@@ -102,9 +118,17 @@ Run **Actions → Fetch and diff → Run workflow** manually. A successful run
 either commits a new snapshot to the `data` branch or logs "Nothing changed."
 Then confirm the site loads and the freshness badge is green.
 
-After the external job has had one window to fire, check that a run appears
-that nobody triggered by hand. Until that happens, the pipeline is not actually
-autonomous — everything before it only proves the parts work when pushed.
+To confirm the *dispatcher* specifically, wait for a window to pass and check
+that a run appeared that nobody clicked. One trap: a dispatch authenticated
+with a personal access token records the **token owner** as the triggering
+actor, exactly as a manual click does — so `triggering_actor` cannot tell the
+two apart. Judge by timing instead: a run landing a minute or so after a
+scheduled slot, when nobody was at a keyboard, is the dispatcher.
+
+The freshness badge is the standing check. It grades the data's age against the
+six-hourly cadence, so if the dispatcher stops, the site says so on its own —
+amber after a missed window, red after several. Nobody has to remember to open
+the Actions tab.
 
 ## Base path
 

@@ -95,6 +95,34 @@ Append-only. Newest at the bottom. Read the tail before starting work.
   in the Actions tab. This was already observed working when data went 14
   hours stale.
 
+## 2026-08-08 — the first real events, and the thesis holds
+
+- **Dispatcher live.** Token and cron-job.org job created by the human. The
+  pipeline ran and, for the first time, the diff found actual changes:
+  **23 events** — 13 added, 7 slipped, 2 cancelled, 1 status change.
+
+- **What it caught**, none of which exists anywhere else now that Microsoft
+  has overwritten the old values:
+  - *Microsoft Places support for GCCH and DoD*: March CY2026 → October CY2026
+    (**+7 months**)
+  - *Edge Enhanced Security Mode Plus*: July → December CY2026 (**+5 months**)
+  - *Teams: book appointments from chat*: **cancelled while already
+    "Rolling out"** — the most interesting shape of event the differ can
+    produce, and one no roadmap page will ever admit to
+  - Three Copilot features each slipping August → September in the same run
+
+- **Documentation gotcha found the hard way:** cron-job.org's "Requires HTTP
+  authentication" toggle is Basic auth, which GitHub's REST API no longer
+  accepts. The token belongs in an `Authorization: Bearer` header. Written
+  into `docs/setup.md` along with a table of what each response code means.
+
+- **A verification trap, also documented:** a dispatch authenticated with a PAT
+  records the *token owner* as `triggering_actor`, identically to a manual
+  click. So that field cannot prove a run was autonomous — only timing can.
+
+- **Still worth confirming:** a run landing squarely on a scheduled slot with
+  nobody at a keyboard. The runs so far cluster around manual testing.
+
 - **Nice confirmation:** with data 14 hours old the freshness badge went amber
   on the live site, exactly as designed — the staleness was visible on the
   page before it was visible in the Actions tab.
