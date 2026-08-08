@@ -74,7 +74,37 @@ tests:
 A feed that cannot be fetched, or that parses to zero items, leaves its
 snapshot untouched and records a warning that the dashboard surfaces. Treating
 a fetch failure as "everything disappeared" would fabricate thousands of
-events. A run with one dead feed is a successful run for the other.
+events.
+
+## The anomaly guard
+
+The rule above covers a feed being *down*. It does not cover a feed being
+*different* — a renamed field, a changed id scheme, a reshaped payload. Those
+parse cleanly and produce a diff in which everything Microsoft ever promised
+appears to have moved at once.
+
+That is the one failure this project cannot absorb. A missed run costs hours of
+detection; a thousand fabricated events poison the archive permanently, because
+the archive is append-only and Microsoft will not re-serve the old values for us
+to reconstruct the truth from.
+
+So `scripts/lib/anomaly.mjs` holds any run where **both**: at least 50 events
+were produced, **and** they exceed 25% of the items in the previous snapshot.
+Both conditions are needed — the ratio alone punishes small sources, the count
+alone punishes large ones. When held, that source's snapshot and events are not
+written, the baseline is preserved for the next run to diff against, a warning
+is recorded for the dashboard, and the process exits non-zero.
+
+The non-zero exit is deliberate and reserved for this case alone. A dead feed
+is transient and self-healing, so it stays a warning; a feed that changed shape
+needs a person, and a red run plus GitHub's mail about it is how that person
+gets summoned. Everything healthy is still written first — the exit code
+escalates, it does not discard.
+
+`--force` accepts a held run, for when the change is genuinely real.
+
+The guard is deliberately blunt. A clever detector that occasionally lets a bad
+run through is worth less than a crude one that stops the line and asks. A run with one dead feed is a successful run for the other.
 
 The first run for a source **seeds** its snapshot and emits no events —
 otherwise the archive would open with 1,800 spurious "added" entries.

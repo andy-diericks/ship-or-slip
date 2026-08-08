@@ -64,9 +64,20 @@ All five must pass. `--dry-run` writes nothing, so it is always safe.
   cannot be re-fetched from Microsoft.
 - **A failed fetch leaves the snapshot alone.** Never let an empty or errored
   feed be diffed as if everything disappeared.
-- **Never push directly to `main`.** Work on a branch, open a PR.
+- **Never weaken the anomaly guard to make a run pass.** If `anomaly.mjs` holds
+  a run, the answer is to look at the feed, not to raise the threshold. Its
+  tests encode real failure shapes (a renamed id field, a changed status
+  vocabulary) — treat them as specifications, not obstacles.
 - Never add secrets, tokens or credentials to the repo.
 - Adding a dependency to `scripts/` needs an ADR change first (ADR 0001).
+
+## Working agreement
+
+Commit **directly to `main`**. The owner has asked not to be sent pull
+requests for this repository, so a PR per change is friction rather than
+review. This is a deliberate exception to how the sibling projects work, and
+it raises the bar on everything else: run the full check list below before
+pushing, because nothing else stands between you and the published site.
 
 ## When you are uncertain
 

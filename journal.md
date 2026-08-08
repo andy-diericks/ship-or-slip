@@ -123,6 +123,42 @@ Append-only. Newest at the bottom. Read the tail before starting work.
 - **Still worth confirming:** a run landing squarely on a scheduled slot with
   nobody at a keyboard. The runs so far cluster around manual testing.
 
+- **Cron config verified.** `37 1,7,13,19 * * *` in Europe/Brussels, failure
+  notification after 1 failure, alert on auto-disable. My earlier suspicion of
+  a UTC/Brussels mismatch was wrong — the 09:38 Brussels run was another manual
+  test, not the cron firing late. First real window: 13:37 Brussels.
+
+## 2026-08-08 — anomaly guard (E1), product vision
+
+- **Did:** Built `scripts/lib/anomaly.mjs` and wired it into `fetch.mjs`. A run
+  is held when it produces ≥50 events **and** they exceed 25% of the previous
+  snapshot. Held sources write nothing — no snapshot, no events — keep their
+  baseline for the next diff, record a dashboard warning, and the process exits
+  non-zero. `--force` accepts a held run. 16 new tests; 182 total.
+
+- **Why both thresholds:** ratio alone punishes small sources (40 events against
+  10 tracked items is 400% but harmless), count alone punishes large ones.
+
+- **Verified end to end**, not just in unit tests: shifted every id in a seeded
+  snapshot to imitate Microsoft renaming the id field, ran the pipeline, and
+  confirmed it held 210 events, wrote nothing, left the snapshot untouched,
+  recorded the warning, and exited 1 — while the healthy Azure source still
+  processed normally. Then confirmed `--force` accepts the same run and marks it
+  `forced: true` in the index.
+
+- **Why exit non-zero here but not for a dead feed:** a dead feed is transient
+  and self-healing, so it stays a warning. A feed that changed shape needs a
+  human, and a red run plus GitHub's mail is how that human is summoned.
+
+- **Also:** added `docs/product-vision.md` (backlog A–F with sizes, a suggested
+  order, and an explicit "not doing" list), and recorded in CLAUDE.md that this
+  repo commits straight to `main` — the owner does not want PRs here. The old
+  "never push directly to main" rule contradicted how the project actually runs.
+
+- **Noticed for later:** all of epic B (slip statistics, league tables) is gated
+  on months of accumulated history. Building it now would produce a chart that
+  lies confidently. Left explicitly in the backlog with that warning attached.
+
 - **Nice confirmation:** with data 14 hours old the freshness badge went amber
   on the live site, exactly as designed — the staleness was visible on the
   page before it was visible in the Actions tab.

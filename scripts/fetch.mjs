@@ -5,17 +5,24 @@
 //   node scripts/fetch.mjs --data-dir=path     write somewhere else
 //   node scripts/fetch.mjs --offline           use ./fixtures, touch no network
 //   node scripts/fetch.mjs --dry-run           report what would change, write nothing
+//   node scripts/fetch.mjs --force             accept a run the anomaly guard held
 //
 // A run never fails the build over one bad feed: a source that cannot be
 // fetched is recorded as a warning and its snapshot is left untouched, so the
 // next successful run diffs against real data rather than against an empty
 // list. Treating a fetch failure as "everything disappeared" would fabricate
 // thousands of events.
+//
+// The same instinct, one level up: a feed that parses cleanly but has *changed
+// shape* produces a plausible-looking diff in which everything moved at once.
+// The anomaly guard holds those runs instead of writing them — see
+// scripts/lib/anomaly.mjs.
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { normalizeM365, normalizeAzure } from './lib/normalize.mjs';
 import { diffSnapshots, mergeSnapshot } from './lib/diff.mjs';
+import { detectAnomaly } from './lib/anomaly.mjs';
 import {
   readSnapshot, writeSnapshot, appendEvents, rebuildRecent,
   updateTimelines, writeIndex, countByType,
@@ -29,6 +36,7 @@ const option = (name, fallback) =>
 const DATA_DIR = path.resolve(option('data-dir', '.data'));
 const OFFLINE = flag('offline');
 const DRY_RUN = flag('dry-run');
+const FORCE = flag('force');
 const FIXTURES = path.resolve('fixtures');
 
 const SOURCES = {
@@ -83,6 +91,7 @@ async function main() {
   const snapshots = {};
   /** @type {import('./lib/diff.mjs').ChangeEvent[]} */
   let allEvents = [];
+  let anomalyHeld = false;
 
   for (const [name, source] of Object.entries(SOURCES)) {
     const previous = readSnapshot(DATA_DIR, name);
@@ -107,6 +116,21 @@ async function main() {
     // rather than reporting 1,800 features as brand-new events.
     const seeding = previous.length === 0;
     const events = seeding ? [] : diffSnapshots(previous, items, { ts, windowed: source.windowed });
+
+    // A diff this large is a changed feed, not a changed roadmap. Hold it: the
+    // snapshot stays put so the next run re-diffs against the same known-good
+    // baseline, and nothing enters the append-only archive that would have to
+    // be lived with forever.
+    const anomaly = FORCE ? { flagged: false } : detectAnomaly(events.length, previous.length);
+    if (anomaly.flagged) {
+      warnings.push(`${name}: ${anomaly.reason}`);
+      sourceMeta[name] = { count: previous.length, fetched: ts, ok: false, held: true };
+      snapshots[name] = previous;
+      anomalyHeld = true;
+      console.error(`${name}: HELD — ${anomaly.reason}`);
+      continue;
+    }
+
     const merged = mergeSnapshot(previous, items, { windowed: source.windowed });
 
     allEvents = allEvents.concat(events);
@@ -117,6 +141,7 @@ async function main() {
       ok: true,
       windowed: source.windowed,
       ...(seeding ? { seeded: true } : {}),
+      ...(FORCE && events.length ? { forced: true } : {}),
     };
 
     console.log(
@@ -151,6 +176,18 @@ async function main() {
 
   console.log(`\nWrote ${DATA_DIR} — ${allEvents.length} new event(s), ${recent.length} in recent feed.`);
   for (const w of warnings) console.warn(`  warning: ${w}`);
+
+  // A held run exits non-zero on purpose, and only for an anomaly. A dead feed
+  // is transient and self-healing, so it stays a warning; a feed that changed
+  // shape needs a person to look at it before any more data is written. The
+  // red run in the Actions tab (and GitHub's mail about it) is that summons.
+  // Everything healthy has already been written above — the exit code escalates,
+  // it does not discard.
+  if (anomalyHeld) {
+    console.error('\nA source was held by the anomaly guard. Inspect the feed, then re-run');
+    console.error('with --force if the change is genuine. Nothing was written for that source.');
+    process.exitCode = 1;
+  }
 }
 
 main().catch((error) => {
