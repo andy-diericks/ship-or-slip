@@ -1,6 +1,7 @@
 import type { Timeline } from '../lib/types';
 import { EVENT_META, SOURCE_LABELS } from '../lib/types';
 import { formatDate, formatDay } from '../lib/format';
+import { featureId, sourceLink } from '../../scripts/lib/links.mjs';
 
 interface Props {
   id: string;
@@ -41,7 +42,13 @@ export function ItemPage({ id, timeline, onBack }: Props) {
         {SOURCE_LABELS[timeline.source]}
         {timeline.products.length > 0 && ` · ${timeline.products.join(', ')}`}
         {' · '}
-        <a href={timeline.link} target="_blank" rel="noreferrer">
+        {/* The id Microsoft uses on its own site — the thing to paste into
+            their search, and the reason this page is quotable. */}
+        <span className="item__id" title="Microsoft's own id for this item">
+          {timeline.source === 'azure' ? 'Update' : 'Roadmap'} ID {featureId(id)}
+        </span>
+        {' · '}
+        <a href={sourceLink(id, timeline.source)} target="_blank" rel="noreferrer">
           Microsoft's page for this item
         </a>
       </p>

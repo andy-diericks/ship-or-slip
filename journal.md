@@ -315,6 +315,43 @@ Three layers, weakest threat last.
   valid, the grammar was not. Fixed with a singular/plural helper and a test
   named for it.
 
+## 2026-08-08 — links, ids, and a challenge that held up
+
+- **The challenge:** the human asked how we could claim Purview feature 558683
+  was cancelled, since Microsoft's roadmap card shows "PREVIEW AVAILABLE April
+  2026 / ROLLOUT START July 2026". Checked the API rather than defending the
+  claim: `status` is literally `"Cancelled"`, and the description reads *"We
+  have decided not to move forward with this change."* We were right — and the
+  card is a good demonstration of the product's point, since it leads with two
+  dates and buries the cancellation mid-paragraph.
+
+- **A real bug in the same message:** our roadmap links used
+  `?featureid=<id>`, which loads the roadmap without selecting the feature.
+  The working parameter is `?searchterms=<id>`. Both return HTTP 200 because
+  the page is client-rendered, so curl could not distinguish them — the human's
+  hand test was the evidence, and the test comment says so.
+
+- **Fixed by deriving rather than storing.** Every archived event carries a
+  `link` captured when it was recorded, so fixing only `normalize.mjs` would
+  have left all existing history broken. `scripts/lib/links.mjs` derives the
+  URL from the namespaced id, and the app and feed both call it — repairing
+  the past as well as the future.
+
+- **One definition, not two.** The app imports `links.mjs` directly from
+  `scripts/lib/` rather than keeping a TypeScript copy. This is exactly why
+  ADR 0001 chose a single npm project: the predecessor hand-mirrored its
+  equivalent and the copies drifted.
+
+- **Also added:** Microsoft's own id, shown on the item page ("Roadmap ID
+  558683" / "Update ID" for Azure), in each feed row as `#558683`, and in the
+  Atom summary. It is the key someone pastes into Microsoft's search, which
+  makes our pages quotable.
+
+- **Four tests failed after the change** — all of them asserting the old,
+  wrong behaviour. Updated to the new contract rather than worked around; the
+  ItemPage test now deliberately holds a stale stored link to prove derivation
+  overrides it.
+
 - **Nice confirmation:** with data 14 hours old the freshness badge went amber
   on the live site, exactly as designed — the staleness was visible on the
   page before it was visible in the Actions tab.

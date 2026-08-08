@@ -28,11 +28,29 @@ describe('ItemPage', () => {
     expect(rows[0]).toHaveTextContent('1 Jul 2026');
   });
 
-  it('links out to the Microsoft page', () => {
-    render(<ItemPage id="m365:1" timeline={timeline} onBack={vi.fn()} />);
+  it('derives the Microsoft link from the id, not from the stored link', () => {
+    // The stored link is deliberately a stale, wrong URL here: archived events
+    // captured one under an older rule, and deriving is what repairs them.
+    render(<ItemPage id="m365:558683" timeline={timeline} onBack={vi.fn()} />);
     expect(screen.getByRole('link', { name: /microsoft/i })).toHaveAttribute(
       'href',
-      'https://example.test/1',
+      'https://www.microsoft.com/microsoft-365/roadmap?searchterms=558683',
+    );
+  });
+
+  it('shows the roadmap id, so it can be looked up on Microsoft\'s own site', () => {
+    render(<ItemPage id="m365:558683" timeline={timeline} onBack={vi.fn()} />);
+    expect(screen.getByText(/Roadmap ID 558683/)).toBeInTheDocument();
+  });
+
+  it('calls it an Update ID for Azure items', () => {
+    render(
+      <ItemPage id="azure:567979" timeline={{ ...timeline, source: 'azure' }} onBack={vi.fn()} />,
+    );
+    expect(screen.getByText(/Update ID 567979/)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /microsoft/i })).toHaveAttribute(
+      'href',
+      'https://azure.microsoft.com/updates?id=567979',
     );
   });
 

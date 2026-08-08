@@ -359,6 +359,17 @@ button {
   font-size: 12px;
 }
 
+/* Microsoft's own id. Monospace because it gets copied and pasted into their
+   roadmap search, and quiet because it is a lookup key, not news. */
+.event__id,
+.item__id {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.item__id { font-size: 13px; }
+
 /* A rename shows the previous title. It can be long, so it wraps rather than
    forcing the row wide, and stays quiet — the new title is the heading. */
 .event__was {

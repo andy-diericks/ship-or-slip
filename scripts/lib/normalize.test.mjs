@@ -44,8 +44,10 @@ describe('normalizeM365', () => {
   });
 
   it('builds a link back to the roadmap entry', () => {
+    // searchterms, not featureid: the latter loads the roadmap without
+    // selecting the feature. See lib/links.mjs.
     const [item] = normalizeM365([roadmapItem()]);
-    expect(item.link).toContain('featureid=568792');
+    expect(item.link).toBe('https://www.microsoft.com/microsoft-365/roadmap?searchterms=568792');
   });
 
   it('keeps items whose availability date is blank', () => {

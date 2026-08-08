@@ -1,6 +1,7 @@
 import type { ChangeEvent } from '../lib/types';
 import { EVENT_META, SOURCE_LABELS } from '../lib/types';
 import { formatDate, formatMagnitude, formatDay } from '../lib/format';
+import { featureId } from '../../scripts/lib/links.mjs';
 
 /** Group consecutive events by the UTC day they were detected. */
 export function groupByDay(events: ChangeEvent[]): { day: string; events: ChangeEvent[] }[] {
@@ -69,6 +70,10 @@ function EventRow({ event, onOpen }: { event: ChangeEvent; onOpen: (id: string) 
         {event.products.slice(0, 3).map((product) => (
           <span key={product} className="event__product">{product}</span>
         ))}
+
+        <span className="event__id" title="Microsoft's own id for this item">
+          #{featureId(event.id)}
+        </span>
       </div>
     </button>
   );

@@ -17,6 +17,8 @@
  * announcements is a feed people unsubscribe from. What is left is the news
  * nobody else reports — things getting later, smaller, or disappearing.
  */
+import { featureId, sourceLink } from './links.mjs';
+
 export const NOTABLE_TYPES = new Set([
   'slipped',
   'cancelled',
@@ -70,12 +72,14 @@ export function entryTitle(event) {
   }
 }
 
-/** A plain-text body: the move, the product, the source. */
+/** A plain-text body: the move, the product, the source, the feed's own id. */
 export function entrySummary(event) {
   const parts = [];
   if (event.from || event.to) parts.push(`${event.from ?? '—'} → ${event.to ?? '—'}`);
   if (event.products?.length) parts.push(event.products.join(', '));
   parts.push(event.source === 'azure' ? 'Azure' : 'Microsoft 365');
+  // The roadmap id is how someone looks this up on Microsoft's own site.
+  parts.push(`ID ${featureId(event.id)}`);
   return parts.join(' · ');
 }
 
@@ -126,7 +130,9 @@ export function buildFeed({ events, generated, siteUrl, feedUrl, limit = FEED_LI
         `    <link rel="alternate" href="${escapeXml(link)}"/>`,
         `    <updated>${escapeXml(event.ts)}</updated>`,
         `    <summary>${escapeXml(entrySummary(event))}</summary>`,
-        event.link ? `    <link rel="related" href="${escapeXml(event.link)}"/>` : null,
+        // Derived, not taken from the stored event: a link recorded under an
+        // older, wrong rule would otherwise stay wrong forever.
+        `    <link rel="related" href="${escapeXml(sourceLink(event.id, event.source))}"/>`,
         '  </entry>',
       ].filter(Boolean).join('\n');
     })

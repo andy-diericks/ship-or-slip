@@ -113,8 +113,8 @@ describe('entryTitle', () => {
 });
 
 describe('entrySummary', () => {
-  it('carries the move, the product and the source', () => {
-    expect(entrySummary(event())).toBe('2026-09 → 2026-12 · Planner · Microsoft 365');
+  it('carries the move, the product, the source and the roadmap id', () => {
+    expect(entrySummary(event())).toBe('2026-09 → 2026-12 · Planner · Microsoft 365 · ID 1');
   });
 
   it('names Azure for retirement events', () => {
@@ -122,7 +122,8 @@ describe('entrySummary', () => {
   });
 
   it('copes with an event that has no move', () => {
-    expect(entrySummary(event({ from: null, to: null, products: [] }))).toBe('Microsoft 365');
+    expect(entrySummary(event({ from: null, to: null, products: [] })))
+      .toBe('Microsoft 365 · ID 1');
   });
 });
 

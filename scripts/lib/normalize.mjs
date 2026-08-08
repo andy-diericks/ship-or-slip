@@ -6,6 +6,7 @@
 
 import { parseRoadmapDate, parseRetirementDate } from './dates.mjs';
 import { parseRss } from './rss.mjs';
+import { sourceLink } from './links.mjs';
 
 /**
  * @typedef {object} TrackedItem
@@ -46,7 +47,7 @@ export function normalizeM365(raw) {
         id: `m365:${r.id}`,
         source: /** @type {'m365'} */ ('m365'),
         title: String(r.title ?? '').trim(),
-        link: `https://www.microsoft.com/microsoft-365/roadmap?featureid=${r.id}`,
+        link: sourceLink(`m365:${r.id}`, 'm365'),
         status: r.status ? String(r.status).trim() : null,
         date: parseRoadmapDate(r.publicDisclosureAvailabilityDate),
         dateRaw: r.publicDisclosureAvailabilityDate
