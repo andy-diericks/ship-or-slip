@@ -3,6 +3,7 @@ import { EVENT_META, SOURCE_LABELS } from '../lib/types';
 import { formatDate, formatMagnitude, formatDay } from '../lib/format';
 import { featureId } from '../../scripts/lib/links.mjs';
 import { MicrosoftNote } from './MicrosoftNote';
+import { EventContextLine } from './EventContext';
 
 /** Group consecutive events by the UTC day they were detected. */
 export function groupByDay(events: ChangeEvent[]): { day: string; events: ChangeEvent[] }[] {
@@ -85,6 +86,7 @@ function EventRow({ event, onOpen }: { event: ChangeEvent; onOpen: (id: string) 
         </span>
       </div>
 
+      <EventContextLine context={event.context} type={event.type} at={event.ts} />
       <MicrosoftNote note={event.note} />
     </div>
   );

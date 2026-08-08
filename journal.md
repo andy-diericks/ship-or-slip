@@ -395,6 +395,40 @@ Three layers, weakest threat last.
   heading structure. The row is now a `<div>` card whose title contains the
   button. Tempting to leave, since it "worked".
 
+## 2026-08-08 — how far it actually got
+
+- **The observation** (from the human, looking at Microsoft's card): the
+  cancelled Purview feature was not abandoned on paper. It had "Preview
+  available April 2026" and phases "General Availability, Preview". A feature
+  killed four months after a public preview is a different story from one
+  dropped before anyone saw it, and our bare "Cancelled" badge hid that.
+
+- **Did:** every event now embeds a `context` — preview date, rollout date,
+  release phases, status, as they stood at that moment. Embedded rather than
+  looked up, because the dashboard never loads the full snapshot and because
+  the stage *at the time* is what matters, not the stage today. `previewRaw`
+  is now captured too.
+
+- **`src/lib/lifecycle.ts`** turns that into a sentence, with a `lead` only
+  where it changes the meaning of the event: cancellations and drops get
+  "Preview had been available since April 2026" or "Preview was scheduled for
+  November 2026"; a slip gets no editorialising.
+
+- **Restating, not paraphrasing.** The UI uses Microsoft's own labels —
+  "Preview available", "Rollout start" — rather than our own vocabulary.
+  Rewording a source into different terminology is how small
+  misrepresentations start.
+
+- **It immediately separated the two cancellations we had**: Purview had a
+  preview from April; the Teams appointment-booking feature never had one at
+  all. Same badge, genuinely different events.
+
+- **Caught in review of my own output:** the first version rendered "Preview
+  had been available since April 2026 · Preview available April 2026" — the
+  lead and the facts saying the same thing. Fixed by dropping the bare preview
+  fact when the lead already carries it. Reading the rendered string, not just
+  the passing test, is what surfaced it.
+
 - **Nice confirmation:** with data 14 hours old the freshness badge went amber
   on the live site, exactly as designed — the staleness was visible on the
   page before it was visible in the Actions tab.

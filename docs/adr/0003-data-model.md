@@ -62,6 +62,20 @@ roadmap items that mostly sit still.
 | M365 roadmap (`api/v1/m365`, JSON) | all ~1,800 | `publicDisclosureAvailabilityDate`, parsed to `YYYY-MM` |
 | Azure updates (`api/v2/azure/rss`, RSS) | all ~200 in the window | retirements: a date parsed from the title or description. Other updates: their lifecycle category, mapped onto the same status vocabulary, so an Azure preview reaching GA produces `shipped` exactly as an M365 feature does |
 
+**Events carry the stage the feature had reached.** "Cancelled" alone is
+ambiguous: abandoned on paper, or killed after a public preview had been
+available for four months? Those are different stories, and Microsoft's own
+card shows "Preview available April 2026" beside a cancellation notice and
+leaves the reader to join them up. Every event therefore embeds a `context` —
+the preview date, the rollout date, the release phases and the status as they
+stood at that moment. Embedded rather than looked up, because the dashboard
+never loads the full snapshot, and because the stage *at the time* is what
+matters, not the stage today.
+
+The UI restates Microsoft's own labels — "Preview available", "Rollout start" —
+rather than inventing its own terminology. Paraphrasing a source into different
+words is how small misrepresentations begin.
+
 **Microsoft's own explanations are quoted, not paraphrased.** When Microsoft
 changes its mind it appends a line to the description — *"Updated August 7,
 2026: We have decided not to move forward with this change."* That sentence is

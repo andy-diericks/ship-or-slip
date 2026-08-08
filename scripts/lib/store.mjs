@@ -133,7 +133,14 @@ export function updateTimelines(dir, events, snapshots) {
     entry.title = item?.title ?? e.title;
     entry.link = item?.link ?? e.link;
     entry.products = item?.products ?? e.products;
-    const point = { ts: e.ts, type: e.type, from: e.from, to: e.to, note: e.note ?? null };
+    const point = {
+      ts: e.ts,
+      type: e.type,
+      from: e.from,
+      to: e.to,
+      note: e.note ?? null,
+      context: e.context ?? null,
+    };
     if (!entry.points.some((p) => p.ts === point.ts && p.type === point.type && p.to === point.to)) {
       entry.points.push(point);
     }

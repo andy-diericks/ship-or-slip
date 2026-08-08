@@ -3,6 +3,7 @@ import { EVENT_META, SOURCE_LABELS } from '../lib/types';
 import { formatDate, formatDay } from '../lib/format';
 import { featureId, sourceLink } from '../../scripts/lib/links.mjs';
 import { MicrosoftNote } from './MicrosoftNote';
+import { EventContextLine } from './EventContext';
 
 interface Props {
   id: string;
@@ -83,6 +84,7 @@ export function ItemPage({ id, timeline, onBack }: Props) {
                       </span>
                     )
                   )}
+                  <EventContextLine context={point.context} type={point.type} at={point.ts} />
                   <MicrosoftNote note={point.note} />
                 </span>
               </li>

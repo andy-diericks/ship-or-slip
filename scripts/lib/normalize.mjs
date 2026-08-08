@@ -19,6 +19,7 @@ import { parseUpdateNote } from './notes.mjs';
  * @property {string|null} date   The tracked date: `YYYY-MM` (M365 GA) or `YYYY-MM-DD` (Azure retirement)
  * @property {string|null} dateRaw What Microsoft actually wrote
  * @property {string|null} preview M365 public preview month, `YYYY-MM`
+ * @property {string|null} [previewRaw] What Microsoft wrote for the preview date
  * @property {string[]} products
  * @property {string[]} phases
  * @property {string[]} clouds
@@ -57,6 +58,7 @@ export function normalizeM365(raw) {
           ? String(r.publicDisclosureAvailabilityDate).trim()
           : null,
         preview: parseRoadmapDate(r.publicPreviewDate),
+        previewRaw: r.publicPreviewDate ? String(r.publicPreviewDate).trim() : null,
         products: names(container.products),
         phases: names(container.releasePhase),
         clouds: names(container.cloudInstances),

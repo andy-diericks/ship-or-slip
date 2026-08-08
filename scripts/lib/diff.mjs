@@ -107,7 +107,26 @@ function base(item, ts, type) {
     // between "we say it was cancelled" and "Microsoft said, on 7 August, that
     // they decided not to move forward".
     note: item.note ?? null,
+    // Where the feature stood when this happened. Without it a cancellation
+    // reads the same whether it was abandoned on paper or killed after a
+    // public preview had been available for months — and those are not the
+    // same story. Embedded rather than looked up, because the dashboard never
+    // loads the full snapshot.
+    context: lifecycleContext(item),
   };
+}
+
+/** The item's stage at the moment of an event. Empty fields are dropped. */
+function lifecycleContext(item) {
+  const context = {
+    ga: item.date ?? null,
+    gaRaw: item.dateRaw ?? null,
+    preview: item.preview ?? null,
+    previewRaw: item.previewRaw ?? null,
+    phases: item.phases?.length ? item.phases : null,
+    status: item.status ?? null,
+  };
+  return Object.values(context).some(Boolean) ? context : null;
 }
 
 /**

@@ -42,6 +42,26 @@ export interface ChangeEvent {
   dimension?: ScopeDimension;
   /** Microsoft's own "Updated <date>: …" explanation, when they gave one. */
   note?: UpdateNote | null;
+  /** Where the feature stood when this happened. */
+  context?: EventContext | null;
+}
+
+/**
+ * The item's stage at the moment of an event.
+ *
+ * Captured on the event rather than looked up, because the dashboard never
+ * loads the full snapshot — and because the stage at the time is what matters,
+ * not the stage today.
+ */
+export interface EventContext {
+  /** Microsoft's "Rollout start" date, `YYYY-MM`. */
+  ga: string | null;
+  gaRaw: string | null;
+  /** Microsoft's "Preview available" date, `YYYY-MM`. */
+  preview: string | null;
+  previewRaw: string | null;
+  phases: string[] | null;
+  status: string | null;
 }
 
 /** Microsoft's own explanation of a change, quoted verbatim. */
@@ -59,6 +79,7 @@ export interface TimelinePoint {
   from: string | null;
   to: string | null;
   note?: UpdateNote | null;
+  context?: EventContext | null;
 }
 
 export interface Timeline {

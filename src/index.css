@@ -330,6 +330,17 @@ button {
   border-radius: 2px;
 }
 
+/* Where the feature stood when this happened. */
+.event__context {
+  grid-column: 1 / -1;
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* On a cancellation, how far it got is the story, not a footnote. */
+.event__reach { color: var(--slip); }
+
 /* Microsoft speaking, not us. Set apart with a rule and italics so there is
    never any doubt whose sentence it is. */
 .msnote {
