@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Ship or Slip</title>
+  <subtitle>Every date Microsoft promised, and every date it moved.</subtitle>
+  <id>https://andy-diericks.github.io/ship-or-slip/</id>
+  <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
+  <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
+  <updated>2026-08-08T07:39:06.155Z</updated>
+  <entry>
+    <title>Slipped +5 months — Microsoft Edge: Enhanced Security Mode Plus</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A566871?t=slipped&amp;at=2026-08-08T07:39:06.155Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A566871"/>
+    <updated>2026-08-08T07:39:06.155Z</updated>
+    <summary>2026-07 → 2026-12 · Microsoft Edge · Microsoft 365</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?featureid=566871"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Microsoft Viva: Create and customize PBI reports</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A566317?t=slipped&amp;at=2026-08-08T07:39:06.155Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A566317"/>
+    <updated>2026-08-08T07:39:06.155Z</updated>
+    <summary>2026-07 → 2026-09 · Microsoft Viva · Microsoft 365</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?featureid=566317"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: Enhanced IntelliFrame with AI data channel for intelligent cameras</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A564969?t=slipped&amp;at=2026-08-08T07:39:06.155Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A564969"/>
+    <updated>2026-08-08T07:39:06.155Z</updated>
+    <summary>2026-09 → 2026-10 · Microsoft Teams · Microsoft 365</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?featureid=564969"/>
+  </entry>
+  <entry>
+    <title>Cancelled — Microsoft Purview: Data Catalog – Migration tool in Unified Catalog to migrate classic glossary terms to Unified Catalog</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A558683?t=cancelled&amp;at=2026-08-08T07:39:06.155Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A558683"/>
+    <updated>2026-08-08T07:39:06.155Z</updated>
+    <summary>In development → Cancelled · Microsoft Purview · Microsoft 365</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?featureid=558683"/>
+  </entry>
+  <entry>
+    <title>Cancelled — Microsoft Teams: Enable customers to book appointments from a live chat widget on your website</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A557172?t=cancelled&amp;at=2026-08-08T07:39:06.155Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A557172"/>
+    <updated>2026-08-08T07:39:06.155Z</updated>
+    <summary>Rolling out → Cancelled · Microsoft Teams · Microsoft 365</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?featureid=557172"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Copilot (Microsoft 365): Copilot Chat in Outlook expands to reason over inbox, calendar, and enterprise data</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A554934?t=slipped&amp;at=2026-08-08T07:39:06.155Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A554934"/>
+    <updated>2026-08-08T07:39:06.155Z</updated>
+    <summary>2026-08 → 2026-09 · Outlook, Microsoft Copilot (Microsoft 365) · Microsoft 365</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?featureid=554934"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Copilot (Microsoft 365): Planner capabilities in Copilot chat (M365 Copilot)</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A516577?t=slipped&amp;at=2026-08-08T07:39:06.155Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A516577"/>
+    <updated>2026-08-08T07:39:06.155Z</updated>
+    <summary>2026-08 → 2026-09 · Planner, Microsoft Copilot (Microsoft 365) · Microsoft 365</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?featureid=516577"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Copilot (Microsoft 365): Export Copilot metrics in the Copilot Dashboard</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A500872?t=slipped&amp;at=2026-08-08T07:39:06.155Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A500872"/>
+    <updated>2026-08-08T07:39:06.155Z</updated>
+    <summary>2026-08 → 2026-09 · Microsoft Viva, Microsoft Copilot (Microsoft 365) · Microsoft 365</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?featureid=500872"/>
+  </entry>
+  <entry>
+    <title>Slipped +7 months — Microsoft 365 app: Microsoft Places Support to GCCH and DoD</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A497998?t=slipped&amp;at=2026-08-08T07:39:06.155Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A497998"/>
+    <updated>2026-08-08T07:39:06.155Z</updated>
+    <summary>2026-03 → 2026-10 · Microsoft 365 · Microsoft 365</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?featureid=497998"/>
+  </entry>
+</feed>
