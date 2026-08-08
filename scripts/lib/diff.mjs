@@ -102,6 +102,11 @@ function base(item, ts, type) {
     toRaw: null,
     months: null,
     days: null,
+    // Microsoft's own explanation, carried onto the event so the archive holds
+    // the primary source alongside our reading of it. This is the difference
+    // between "we say it was cancelled" and "Microsoft said, on 7 August, that
+    // they decided not to move forward".
+    note: item.note ?? null,
   };
 }
 
@@ -132,7 +137,11 @@ export function diffSnapshots(prev, next, options = {}) {
     const old = before.get(item.id);
 
     if (!old) {
-      const type = item.source === 'azure' ? 'retirement_announced' : 'added';
+      // Azure carries both retirements and ordinary updates; only the former
+      // is a retirement announcement.
+      const type = item.source === 'azure' && item.kind !== 'update'
+        ? 'retirement_announced'
+        : 'added';
       events.push({
         ...base(item, ts, type),
         to: item.date,

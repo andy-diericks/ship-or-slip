@@ -352,6 +352,49 @@ Three layers, weakest threat last.
   ItemPage test now deliberately holds a stale stored link to prove derivation
   overrides it.
 
+## 2026-08-08 — Microsoft's own words, and Azure coverage (A2)
+
+- **Quoted explanations.** Microsoft appends "Updated August 7, 2026: We have
+  decided not to move forward with this change." to descriptions when they
+  change their mind. `notes.mjs` extracts the last such note; it rides on the
+  item and onto every event. The dashboard renders it as an attributed
+  blockquote — *"…" — Microsoft, 7 August 2026*. This is the strongest thing
+  the site shows: everywhere else the page reports what *we* concluded from two
+  snapshots; here Microsoft says it themselves.
+  - Only 19 of 1,819 items carry one, averaging 106 characters, so the storage
+    cost is nil. Whole descriptions would have tripled the snapshot.
+  - Microsoft's own typo, "Augut 7, 2026", still resolves — month names match
+    on their first three letters. `dateRaw` keeps their rendering; quoting a
+    source means not silently tidying it.
+  - Some are quietly damning: features marked *Launched* whose note reads
+    "This feature is still in development."
+
+- **A2.** Azure now tracks all 200 RSS items rather than the 10 retirements —
+  a 20× coverage increase from data already being fetched and discarded.
+  Lifecycle categories map onto the shared status vocabulary, so an Azure
+  preview reaching GA emits `shipped` exactly as an M365 feature does.
+
+- **The migration bug, and how it was caught.** Widening the scope produced 190
+  `added` events on the first run against the live store — and **the anomaly
+  guard held it**, exactly as designed. That was the guard earning its keep on
+  a change I made, not a hypothetical Microsoft one.
+  - The fix is a `scope` marker per source in `index.json`; when it changes the
+    next run re-seeds silently.
+  - My first attempt still failed, because the *existing* store has no marker
+    at all. Treating "absent" as unchanged floods; treating it as changed would
+    silently discard a run of real m365 events. So each source now declares
+    `legacyScope` — what an unmarked store was built under — consulted exactly
+    once. Verified against the live data branch: azure re-seeded 10 → 200 with
+    zero events and zero warnings, m365 diffed normally, and the second run
+    diffed normally too.
+
+- **An HTML validity bug I introduced and then fixed properly.** The quoted
+  note is a `<blockquote>`, and the event row was a `<button>` — which may only
+  contain phrasing content. That also exposed a pre-existing fault: the row's
+  `<h3>` was already invalid inside that button, and a screen reader lost the
+  heading structure. The row is now a `<div>` card whose title contains the
+  button. Tempting to leave, since it "worked".
+
 - **Nice confirmation:** with data 14 hours old the freshness badge went amber
   on the live site, exactly as designed — the staleness was visible on the
   page before it was visible in the Actions tab.

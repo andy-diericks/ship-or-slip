@@ -2,6 +2,7 @@ import type { ChangeEvent } from '../lib/types';
 import { EVENT_META, SOURCE_LABELS } from '../lib/types';
 import { formatDate, formatMagnitude, formatDay } from '../lib/format';
 import { featureId } from '../../scripts/lib/links.mjs';
+import { MicrosoftNote } from './MicrosoftNote';
 
 /** Group consecutive events by the UTC day they were detected. */
 export function groupByDay(events: ChangeEvent[]): { day: string; events: ChangeEvent[] }[] {
@@ -29,9 +30,17 @@ function EventRow({ event, onOpen }: { event: ChangeEvent; onOpen: (id: string) 
   const isScope = event.type === 'scope_reduced' || event.type === 'scope_expanded';
   const showsMove = !isRename && !isScope && (event.from != null || event.to != null);
 
+  // The card is a div, not a button. A button may only contain phrasing
+  // content, so the heading and the quoted note would both be invalid inside
+  // one — and a screen reader would lose the heading structure entirely. The
+  // title carries the real control; the card forwards clicks for the mouse.
   return (
-    <button type="button" className="event" onClick={() => onOpen(event.id)}>
-      <h3 className="event__title">{event.title}</h3>
+    <div className="event" onClick={() => onOpen(event.id)}>
+      <h3 className="event__title">
+        <button type="button" className="event__link" onClick={() => onOpen(event.id)}>
+          {event.title}
+        </button>
+      </h3>
 
       {magnitude && (
         <span className={`event__magnitude tone-${meta.tone}`}>{magnitude}</span>
@@ -75,7 +84,9 @@ function EventRow({ event, onOpen }: { event: ChangeEvent; onOpen: (id: string) 
           #{featureId(event.id)}
         </span>
       </div>
-    </button>
+
+      <MicrosoftNote note={event.note} />
+    </div>
   );
 }
 

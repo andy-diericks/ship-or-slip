@@ -2,6 +2,7 @@ import type { Timeline } from '../lib/types';
 import { EVENT_META, SOURCE_LABELS } from '../lib/types';
 import { formatDate, formatDay } from '../lib/format';
 import { featureId, sourceLink } from '../../scripts/lib/links.mjs';
+import { MicrosoftNote } from './MicrosoftNote';
 
 interface Props {
   id: string;
@@ -82,6 +83,7 @@ export function ItemPage({ id, timeline, onBack }: Props) {
                       </span>
                     )
                   )}
+                  <MicrosoftNote note={point.note} />
                 </span>
               </li>
             );

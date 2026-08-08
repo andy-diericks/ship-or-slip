@@ -91,14 +91,37 @@ describe('normalizeAzure', () => {
     const [item] = normalizeAzure(rss(azureItem()));
     expect(item.id).toBe('azure:567979');
     expect(item.source).toBe('azure');
+    expect(item.kind).toBe('retirement');
     expect(item.date).toBe('2026-09-01');
   });
 
-  it('discards ordinary updates', () => {
+  it('keeps ordinary updates too, marked as such (A2)', () => {
     const xml = rss(
-      azureItem({ guid: '1', title: 'Generally available: faster disks', categories: ['Storage'] }),
+      azureItem({ guid: '1', title: 'Generally available: faster disks', categories: ['Launched', 'Storage'] }),
     );
-    expect(normalizeAzure(xml)).toEqual([]);
+    const [item] = normalizeAzure(xml);
+    expect(item.kind).toBe('update');
+    expect(item.date).toBeNull();
+  });
+
+  it('maps the lifecycle category onto the shared status vocabulary', () => {
+    const launched = normalizeAzure(rss(azureItem({
+      guid: '1', title: 'Generally available: faster disks', categories: ['Launched', 'Storage'],
+    })))[0];
+    const preview = normalizeAzure(rss(azureItem({
+      guid: '2', title: 'Public preview: something', categories: ['In preview', 'Storage'],
+    })))[0];
+    expect(launched.status).toBe('Launched');
+    expect(preview.status).toBe('In preview');
+  });
+
+  it('gives a retirement no lifecycle status — its news is the date', () => {
+    expect(normalizeAzure(rss(azureItem()))[0].status).toBeNull();
+  });
+
+  it('leaves status null for an update with no lifecycle category', () => {
+    const xml = rss(azureItem({ guid: '1', title: 'Some news', categories: ['Storage'] }));
+    expect(normalizeAzure(xml)[0].status).toBeNull();
   });
 
   it('falls back to the description for the date', () => {

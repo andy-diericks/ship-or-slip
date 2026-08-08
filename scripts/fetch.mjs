@@ -25,7 +25,7 @@ import { diffSnapshots, mergeSnapshot } from './lib/diff.mjs';
 import { detectAnomaly } from './lib/anomaly.mjs';
 import {
   readSnapshot, writeSnapshot, appendEvents, rebuildRecent,
-  updateTimelines, writeIndex, countByType, writeFeed,
+  updateTimelines, writeIndex, countByType, writeFeed, readIndex,
 } from './lib/store.mjs';
 
 const args = process.argv.slice(2);
@@ -39,11 +39,24 @@ const DRY_RUN = flag('dry-run');
 const FORCE = flag('force');
 const FIXTURES = path.resolve('fixtures');
 
+// `scope` names what a source currently tracks. When it changes, that source's
+// next run is treated as a re-seed: widening what we watch would otherwise
+// report every newly-in-scope item as brand-new news, which is an artefact of
+// our change rather than anything Microsoft did. Bump the string whenever the
+// set of tracked items changes.
+//
+// `legacyScope` is what a store written before scope markers existed was built
+// under. Without it the first run after this change has nothing to compare
+// against: treating "no marker" as unchanged floods the archive, and treating
+// it as changed silently discards a run of real events from every source. It
+// is consulted exactly once per store, then the marker takes over.
 const SOURCES = {
   m365: {
     url: 'https://www.microsoft.com/releasecommunications/api/v1/m365',
     fixture: 'm365.json',
     windowed: false,
+    scope: 'roadmap:all',
+    legacyScope: 'roadmap:all', // unchanged — keep diffing normally
     parse: (text) => normalizeM365(JSON.parse(text)),
   },
   azure: {
@@ -51,6 +64,8 @@ const SOURCES = {
     fixture: 'azure.xml',
     // The RSS exposes only the most recent 200 updates.
     windowed: true,
+    scope: 'updates:all',
+    legacyScope: 'updates:retirements', // A2 widened this — re-seed once
     parse: (text) => normalizeAzure(text),
   },
 };
@@ -92,29 +107,44 @@ async function main() {
   /** @type {import('./lib/diff.mjs').ChangeEvent[]} */
   let allEvents = [];
   let anomalyHeld = false;
+  const previousIndex = readIndex(DATA_DIR);
 
   for (const [name, source] of Object.entries(SOURCES)) {
     const previous = readSnapshot(DATA_DIR, name);
+    // The scope the stored snapshot was built under. Preserved on every path
+    // that leaves the snapshot untouched, so a fetch failure cannot look like
+    // a scope change on the following run.
+    const previousScope = previousIndex?.sources?.[name]?.scope ?? source.legacyScope;
+    const untouched = { count: previous.length, ok: false, scope: previousScope };
+
     let items;
     try {
       items = source.parse(await loadSource(name));
     } catch (error) {
       warnings.push(`${name}: fetch failed — ${error.message}. Snapshot left unchanged.`);
-      sourceMeta[name] = { count: previous.length, fetched: null, ok: false };
+      sourceMeta[name] = { ...untouched, fetched: null };
       snapshots[name] = previous;
       continue;
     }
 
     if (!items.length) {
       warnings.push(`${name}: feed parsed to zero items. Snapshot left unchanged.`);
-      sourceMeta[name] = { count: previous.length, fetched: ts, ok: false };
+      sourceMeta[name] = { ...untouched, fetched: ts };
       snapshots[name] = previous;
       continue;
     }
 
     // First run has nothing to compare against — seed the snapshot silently
-    // rather than reporting 1,800 features as brand-new events.
-    const seeding = previous.length === 0;
+    // rather than reporting 1,800 features as brand-new events. The same
+    // applies when we widen what a source tracks: the newly-in-scope items are
+    // not news, they are us starting to look.
+    const scopeWidened = Boolean(previousScope) && previousScope !== source.scope;
+    const seeding = previous.length === 0 || scopeWidened;
+
+    if (scopeWidened) {
+      console.log(`${name}: scope changed (${previousScope} → ${source.scope}) — re-seeding, no diff`);
+    }
+
     const events = seeding ? [] : diffSnapshots(previous, items, { ts, windowed: source.windowed });
 
     // A diff this large is a changed feed, not a changed roadmap. Hold it: the
@@ -124,7 +154,7 @@ async function main() {
     const anomaly = FORCE ? { flagged: false } : detectAnomaly(events.length, previous.length);
     if (anomaly.flagged) {
       warnings.push(`${name}: ${anomaly.reason}`);
-      sourceMeta[name] = { count: previous.length, fetched: ts, ok: false, held: true };
+      sourceMeta[name] = { ...untouched, fetched: ts, held: true };
       snapshots[name] = previous;
       anomalyHeld = true;
       console.error(`${name}: HELD — ${anomaly.reason}`);
@@ -140,6 +170,7 @@ async function main() {
       fetched: ts,
       ok: true,
       windowed: source.windowed,
+      scope: source.scope,
       ...(seeding ? { seeded: true } : {}),
       ...(FORCE && events.length ? { forced: true } : {}),
     };

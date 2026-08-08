@@ -121,10 +121,48 @@ describe('diffSnapshots — appearance and disappearance', () => {
   });
 });
 
-describe('diffSnapshots — Azure retirements', () => {
+describe('diffSnapshots — Microsoft notes', () => {
+  const note = { date: '2026-08-07', dateRaw: 'August 7, 2026', text: 'We stopped.' };
+
+  it('carries the note onto the event, so the archive holds the primary source', () => {
+    const events = diffSnapshots(
+      [m365()],
+      [m365({ status: 'Cancelled', note })],
+      { ts: TS },
+    );
+    expect(events[0].type).toBe('cancelled');
+    expect(events[0].note).toEqual(note);
+  });
+
+  it('is null when Microsoft explained nothing', () => {
+    const events = diffSnapshots([m365()], [m365({ date: '2026-12' })], { ts: TS });
+    expect(events[0].note).toBeNull();
+  });
+
+  it('takes the note from the item that disappeared, on a drop', () => {
+    const events = diffSnapshots([m365({ note })], [], { ts: TS });
+    expect(events[0]).toMatchObject({ type: 'dropped' });
+    expect(events[0].note).toEqual(note);
+  });
+});
+
+describe('diffSnapshots — Azure retirements and updates (A2)', () => {
   it('reports a new retirement notice as announced', () => {
     const events = diffSnapshots([], [azure()], { ts: TS, windowed: true });
     expect(events[0]).toMatchObject({ type: 'retirement_announced', to: '2026-09-01' });
+  });
+
+  it('reports a new ordinary Azure update as added, not as a retirement', () => {
+    const update = azure({ id: 'azure:2', kind: 'update', date: null, dateRaw: null });
+    const events = diffSnapshots([], [update], { ts: TS, windowed: true });
+    expect(events[0].type).toBe('added');
+  });
+
+  it('reports an Azure preview reaching GA as shipped, same as an M365 feature', () => {
+    const before = azure({ kind: 'update', date: null, status: 'In preview' });
+    const after = azure({ kind: 'update', date: null, status: 'Launched' });
+    const events = diffSnapshots([before], [after], { ts: TS, windowed: true });
+    expect(events[0]).toMatchObject({ type: 'shipped', from: 'In preview', to: 'Launched' });
   });
 
   it('reports a moved retirement date in days, not months', () => {

@@ -24,8 +24,9 @@ that. Analytics built on one week of data would be noise dressed as insight.
 - **A1 — Power Platform release planner.** Publishes early-access and GA dates
   that move exactly like the M365 roadmap. One new normalizer, no pipeline
   change. *(med)* ⭐
-- **A2 — Azure non-retirement updates.** We currently discard ~190 of every 200
-  RSS items. Tracking GA and preview transitions widens coverage cheaply. *(low)*
+- ~~**A2 — Azure non-retirement updates.**~~ **Built 2026-08-08.** All 200 RSS
+  items now tracked; lifecycle categories map onto the shared status
+  vocabulary. Coverage went from 10 items to 200.
 - **A3 — Azure OpenAI model availability** per region, diffed from the public
   docs repository's git history. *(high)*
 - **A4 — Windows release health**: known issues and their resolution dates. *(med)*
@@ -113,7 +114,8 @@ of using what is already fetched.*
 
 - **I1 — Receipts.** Link every event to the `data`-branch commit that recorded
   it. Turns "we say it slipped" into an auditable claim, using commit history
-  that already exists. *(low)* ⭐
+  that already exists. *(low)* ⭐ *(Partly served already: events now carry
+  Microsoft's own quoted explanation where one exists.)*
 - ~~**I2 — Back up the `data` branch.**~~ **Built 2026-08-08.** Three layers: a
   ruleset blocking force-push and deletion (verified by attempting both),
   weekly verified git bundles on GitHub Releases, and `docs/recovery.md`.

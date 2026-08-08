@@ -57,10 +57,27 @@ roadmap items that mostly sit still.
 
 ## What is tracked, and what "changed" means
 
-| Source | Items tracked | Tracked date |
+| Source | Items tracked | Tracked signal |
 |---|---|---|
 | M365 roadmap (`api/v1/m365`, JSON) | all ~1,800 | `publicDisclosureAvailabilityDate`, parsed to `YYYY-MM` |
-| Azure updates (`api/v2/azure/rss`, RSS) | retirement notices only | retirement date parsed from the title or description, `YYYY-MM-DD` |
+| Azure updates (`api/v2/azure/rss`, RSS) | all ~200 in the window | retirements: a date parsed from the title or description. Other updates: their lifecycle category, mapped onto the same status vocabulary, so an Azure preview reaching GA produces `shipped` exactly as an M365 feature does |
+
+**Microsoft's own explanations are quoted, not paraphrased.** When Microsoft
+changes its mind it appends a line to the description — *"Updated August 7,
+2026: We have decided not to move forward with this change."* That sentence is
+extracted into `note` and carried onto the event, so the archive holds the
+primary source next to our reading of it. The dashboard renders it as an
+attributed quotation. Only the note is kept; whole descriptions across 1,800
+items would triple the snapshot for prose that never changes.
+
+**Scope changes re-seed rather than flood.** Each source declares a `scope`
+string recorded in `index.json`. When it changes, that source's next run is
+treated as a seed: widening what we watch would otherwise report every
+newly-in-scope item as news, which is an artefact of our change rather than
+anything Microsoft did. Widening Azure from retirements to all updates would
+have produced 190 false `added` events — the anomaly guard caught exactly that
+during development, which is how the gap was found. `legacyScope` names what a
+store written before markers existed was built under, and is consulted once.
 
 Microsoft publishes only the present tense: both feeds expose today's value of
 those fields and no history whatsoever. Every event this project records exists

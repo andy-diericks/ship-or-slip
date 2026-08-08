@@ -40,6 +40,17 @@ export interface ChangeEvent {
   days: number | null;
   /** Present on scope_reduced / scope_expanded: which tag list changed. */
   dimension?: ScopeDimension;
+  /** Microsoft's own "Updated <date>: …" explanation, when they gave one. */
+  note?: UpdateNote | null;
+}
+
+/** Microsoft's own explanation of a change, quoted verbatim. */
+export interface UpdateNote {
+  /** `YYYY-MM-DD`, when Microsoft says they changed it. */
+  date: string | null;
+  /** Microsoft's own rendering of that date, typos and all. */
+  dateRaw: string;
+  text: string;
 }
 
 export interface TimelinePoint {
@@ -47,6 +58,7 @@ export interface TimelinePoint {
   type: EventType;
   from: string | null;
   to: string | null;
+  note?: UpdateNote | null;
 }
 
 export interface Timeline {

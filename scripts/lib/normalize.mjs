@@ -7,6 +7,7 @@
 import { parseRoadmapDate, parseRetirementDate } from './dates.mjs';
 import { parseRss } from './rss.mjs';
 import { sourceLink } from './links.mjs';
+import { parseUpdateNote } from './notes.mjs';
 
 /**
  * @typedef {object} TrackedItem
@@ -22,6 +23,8 @@ import { sourceLink } from './links.mjs';
  * @property {string[]} phases
  * @property {string[]} clouds
  * @property {string[]} [platforms] Desktop / Web / Mac / Mobile — M365 only
+ * @property {import('./notes.mjs').UpdateNote|null} [note] Microsoft's own "Updated …" explanation
+ * @property {'retirement'|'update'} [kind] Azure only: what sort of notice this is
  * @property {string|null} updated Feed's own last-modified timestamp
  */
 
@@ -60,6 +63,8 @@ export function normalizeM365(raw) {
         // Captured so scope changes can be detected: a feature quietly losing
         // "Mac" or "Mobile" is a cut that touches no date (see diff.mjs).
         platforms: names(container.platforms),
+        // Microsoft's own words about a change, when they bothered to explain.
+        note: parseUpdateNote(r.description),
         updated: r.modified ? String(r.modified) : null,
       };
     });
@@ -89,33 +94,62 @@ const META_CATEGORIES = new Set([
 ]);
 
 /**
- * Normalize the Azure service-updates RSS feed, keeping only retirements.
+ * Azure's lifecycle categories, in the order a feature travels through them.
+ * Mapped onto the same status vocabulary the M365 roadmap uses, so a preview
+ * reaching general availability produces a `shipped` event from either source.
+ */
+const LIFECYCLE = new Map([
+  ['Launched', 'Launched'],
+  ['In preview', 'In preview'],
+  ['In development', 'In development'],
+]);
+
+function lifecycleStatus(categories) {
+  for (const category of categories ?? []) {
+    const status = LIFECYCLE.get(category);
+    if (status) return status;
+  }
+  return null;
+}
+
+/**
+ * Normalize the Azure service-updates RSS feed.
  *
- * The tracked date is the retirement date parsed from the title, falling back
- * to the description. Notices with no parseable date are still kept — knowing
- * a retirement was announced matters even before a date is attached, and one
- * appearing later is itself an event worth recording.
+ * Every update is kept, not just retirements. Retirements carry a tracked date
+ * parsed from the title or description; ordinary updates carry a lifecycle
+ * status instead, so an item moving from "In preview" to "Launched" is
+ * recorded with the same vocabulary as an M365 feature shipping.
+ *
+ * Notices with no parseable date are still kept — knowing a retirement was
+ * announced matters before a date is attached, and one appearing later is
+ * itself an event worth recording.
  *
  * @param {string} xml
  * @returns {TrackedItem[]}
  */
 export function normalizeAzure(xml) {
   return parseRss(xml)
-    .filter((item) => item.guid && isRetirement(item))
+    .filter((item) => item.guid)
     .map((item) => {
-      const date = parseRetirementDate(item.title) ?? parseRetirementDate(item.description);
+      const retirement = isRetirement(item);
+      const date = retirement
+        ? parseRetirementDate(item.title) ?? parseRetirementDate(item.description)
+        : null;
       return {
         id: `azure:${item.guid}`,
         source: /** @type {'azure'} */ ('azure'),
+        kind: /** @type {'retirement'|'update'} */ (retirement ? 'retirement' : 'update'),
         title: item.title,
-        link: item.link || `https://azure.microsoft.com/updates?id=${item.guid}`,
-        status: null,
+        link: sourceLink(`azure:${item.guid}`, 'azure'),
+        // A retirement's news is its date; an ordinary update's is its stage.
+        status: retirement ? null : lifecycleStatus(item.categories),
         date,
         dateRaw: date ? item.title : null,
         preview: null,
         products: item.categories.filter((c) => !META_CATEGORIES.has(c)),
         phases: [],
         clouds: [],
+        note: parseUpdateNote(item.description),
         updated: item.pubDate || null,
       };
     });
