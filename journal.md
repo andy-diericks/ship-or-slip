@@ -234,6 +234,51 @@ Append-only. Newest at the bottom. Read the tail before starting work.
   `scope_reduced` + `scope_expanded` on every affected item — thousands of
   events, which the anomaly guard holds. The two features cover each other.
 
+## 2026-08-08 — protecting the archive (I2)
+
+Three layers, weakest threat last.
+
+- **Layer 1 — prevention.** A repository ruleset `protect-data` on
+  `refs/heads/data`: `deletion` + `non_fast_forward`, no bypass actors.
+  **Verified by attempting both**: force-push rejected with `GH013`, deletion
+  rejected with 403, branch unmoved. A normal fast-forward append still
+  succeeds, which is the bot's path. Deliberately *not* enabling `update` or
+  `pull_request` rules — either would silently kill every refresh.
+
+- **Layer 2 — weekly bundles.** `fetch.yml` now bundles the `data` branch and
+  attaches it to a GitHub Release tagged `backup-YYYY-MM-DD`, keeping twelve.
+  Bundles rather than tarballs, so a restore returns the full history and its
+  provenance rather than a flat snapshot.
+
+- **Layer 3 — `docs/recovery.md`.** The restore procedure, with commands that
+  have been run rather than guessed, and a restore path that does *not* start
+  by disabling the ruleset.
+
+- **Design notes:**
+  - The schedule is derived from the releases that actually exist, not a marker
+    file, so the cadence cannot drift from reality. Pure logic in
+    `lib/backup.mjs`, 18 tests.
+  - It rides on `fetch.yml` rather than its own `schedule:`, because GitHub
+    cron does not fire on this repository at all. Reusing the trigger we know
+    works beats adding a second cron-job.org job.
+  - Pruning only happens on a run that also takes a backup, so a quiet week
+    never reduces the number of restore points.
+  - Retention refuses to touch any release not tagged `backup-`. Deleting a
+    real release because retention ran would be unforgivable; there is a test
+    named for exactly that.
+
+- **Two things proven by dry run rather than assumed:**
+  - **`git bundle create <file> data` omits HEAD** and the result cannot be
+    plain-cloned. Found when my first bundle failed to restore. The correct
+    form is `... data HEAD`.
+  - **The CI data checkout is shallow.** A bundle taken from it held *1*
+    commit; after `git fetch --unshallow`, 6. Without that step the "backup"
+    would have been a snapshot — precisely what bundles were chosen to avoid.
+
+- **The workflow restores every bundle before publishing it** — clones it,
+  parses `index.json`, checks the expected files exist. A backup that has not
+  been restored is a belief, and I had already been caught out by one.
+
 - **Nice confirmation:** with data 14 hours old the freshness badge went amber
   on the live site, exactly as designed — the staleness was visible on the
   page before it was visible in the Actions tab.

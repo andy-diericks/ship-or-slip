@@ -72,3 +72,89 @@ jobs:
           done
           echo "push failed after retries"
           exit 1
+
+      # ── Archive backup ────────────────────────────────────────────────────
+      # The data branch is the only irreplaceable thing in this project. A
+      # ruleset blocks force-pushes and deletion, which covers the accidents;
+      # this covers someone disabling that ruleset, and gives an off-branch
+      # restore point.
+      #
+      # It rides on this workflow rather than its own `schedule:`, because
+      # GitHub's scheduler does not fire on this repository at all (ADR 0003).
+      # Whether a backup is due is derived from the backups that actually
+      # exist, so the cadence cannot drift from reality.
+
+      - name: Plan the archive backup
+        id: plan
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release list --limit 100 --json tagName,createdAt > releases.json || echo '[]' > releases.json
+          node scripts/backup-plan.mjs < releases.json > plan.env
+          cat plan.env
+          cat plan.env >> "$GITHUB_OUTPUT"
+
+      - name: Bundle the archive and prove it restores
+        if: steps.plan.outputs.DUE == 'yes'
+        run: |
+          set -euo pipefail
+          # The data checkout is shallow; a bundle from it would carry no
+          # history, which is the whole point of using a bundle.
+          git -C .data fetch --unshallow origin data 2>/dev/null || true
+
+          # `HEAD` is load-bearing. `git bundle create <file> data` omits HEAD,
+          # and the resulting bundle cannot be plain-cloned — it fails with
+          # "remote HEAD refers to nonexistent ref". Found the hard way.
+          git -C .data bundle create "$RUNNER_TEMP/ship-or-slip-data.bundle" data HEAD
+
+          # Never publish a backup that has not been restored. A backup you
+          # have not restored is a belief, not a backup.
+          git clone -q "$RUNNER_TEMP/ship-or-slip-data.bundle" "$RUNNER_TEMP/restore"
+          node -e "
+            const fs = require('fs');
+            const dir = process.env.RUNNER_TEMP + '/restore';
+            const index = JSON.parse(fs.readFileSync(dir + '/index.json', 'utf8'));
+            if (!index.generated) throw new Error('restored index.json has no generated timestamp');
+            for (const f of ['recent.json', 'timelines.json', 'current/m365.json']) {
+              if (!fs.existsSync(dir + '/' + f)) throw new Error('restore is missing ' + f);
+            }
+            console.log('restore verified — index generated ' + index.generated);
+          "
+          echo "restored $(git -C "$RUNNER_TEMP/restore" rev-list --count HEAD) commit(s), \
+          $(du -h "$RUNNER_TEMP/ship-or-slip-data.bundle" | cut -f1) bundle"
+
+      - name: Publish the backup
+        if: steps.plan.outputs.DUE == 'yes'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.plan.outputs.TAG }}
+        run: |
+          gh release create "$TAG" "$RUNNER_TEMP/ship-or-slip-data.bundle" \
+            --title "Data archive — $TAG" \
+            --notes "$(cat <<'EOF'
+          Full git bundle of the `data` branch, including its complete history.
+
+          Microsoft's feeds are present-tense only: anything lost here cannot be
+          re-fetched. This is the restore point.
+
+          **Restore:**
+
+          ```bash
+          gh release download <this tag> --pattern '*.bundle'
+          git clone ship-or-slip-data.bundle restored-archive
+          ```
+
+          To put it back on the repository, see `docs/recovery.md`.
+          EOF
+          )"
+
+      - name: Prune old backups
+        if: steps.plan.outputs.DUE == 'yes' && steps.plan.outputs.DELETE != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          STALE: ${{ steps.plan.outputs.DELETE }}
+        run: |
+          for tag in $STALE; do
+            echo "pruning $tag"
+            gh release delete "$tag" --cleanup-tag --yes
+          done

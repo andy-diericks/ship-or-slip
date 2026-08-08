@@ -114,9 +114,9 @@ of using what is already fetched.*
 - **I1 — Receipts.** Link every event to the `data`-branch commit that recorded
   it. Turns "we say it slipped" into an auditable claim, using commit history
   that already exists. *(low)* ⭐
-- **I2 — Back up the `data` branch.** It is irreplaceable, single-homed, and
-  one force-push from gone. Weekly mirror to a release asset or second repo.
-  ADR 0003 calls this the entire asset. *(low)* ⭐⭐
+- ~~**I2 — Back up the `data` branch.**~~ **Built 2026-08-08.** Three layers: a
+  ruleset blocking force-push and deletion (verified by attempting both),
+  weekly verified git bundles on GitHub Releases, and `docs/recovery.md`.
 - **I3 — Compaction policy** for when the monthly archives grow large. *(low)*
 - **I4 — Correction log.** If a bad run ever gets through, record the
   correction openly rather than silently rewriting. Append-only integrity
@@ -151,8 +151,8 @@ of using what is already fetched.*
    not captured today cannot be recovered later.
 3. ~~G2 (scope cuts)~~ — done. All of epic G's already-captured-and-discarded
    signals are now used, except product reassignment (G4).
-4. **I2 (back up the data branch)** — the archive is now genuinely valuable and
-   still exists in exactly one place. The largest unaddressed risk here.
+4. ~~I2 (back up the data branch)~~ — done. The archive is now protected,
+   backed up weekly, and the restore is documented and exercised.
 5. **C1 (RSS)** — an afternoon, and it is how people find this kind of site.
 6. **A2 (Azure launches)** — widens coverage using data already fetched.
 7. Let the archive accumulate for two or three months.
