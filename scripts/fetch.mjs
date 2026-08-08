@@ -25,7 +25,7 @@ import { diffSnapshots, mergeSnapshot } from './lib/diff.mjs';
 import { detectAnomaly } from './lib/anomaly.mjs';
 import {
   readSnapshot, writeSnapshot, appendEvents, rebuildRecent,
-  updateTimelines, writeIndex, countByType,
+  updateTimelines, writeIndex, countByType, writeFeed,
 } from './lib/store.mjs';
 
 const args = process.argv.slice(2);
@@ -167,6 +167,7 @@ async function main() {
   if (allEvents.length) appendEvents(DATA_DIR, allEvents);
   const recent = rebuildRecent(DATA_DIR);
   updateTimelines(DATA_DIR, allEvents, snapshots);
+  writeFeed(DATA_DIR, recent, ts);
   writeIndex(DATA_DIR, {
     generated: ts,
     sources: sourceMeta,

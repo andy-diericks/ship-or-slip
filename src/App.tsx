@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
 import type { ChangeEvent, DataIndex, EventType, Timeline } from './lib/types';
-import { loadDashboard } from './lib/data';
+import { loadDashboard, FEED_URL } from './lib/data';
 import { applyFilters, queryToFilters, filtersToQuery, toggleFacet } from './lib/filters';
 import type { Filters } from './lib/filters';
 import { useRoute } from './lib/useRoute';
@@ -170,6 +170,10 @@ export default function App() {
           .map(([name, meta]) => `${meta.count} ${name === 'm365' ? 'Microsoft 365 roadmap items' : 'Azure retirements'}`)
           .join(' and ')}
         {' · '}last {state.index.recentDays} days shown
+        {' · '}
+        <a href={FEED_URL} target="_blank" rel="noreferrer">
+          Atom feed
+        </a>
         {' · '}
         <a href="https://github.com/andy-diericks/ship-or-slip" target="_blank" rel="noreferrer">
           source on GitHub

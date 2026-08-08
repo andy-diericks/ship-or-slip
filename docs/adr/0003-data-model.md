@@ -29,7 +29,23 @@ events/YYYY-MM.json   append-only monthly archive
 timelines.json        per-item change history, only for items that ever moved
 current/m365.json     running snapshot, the baseline the next diff compares against
 current/azure.json
+feed.xml              Atom feed of the notable events
 ```
+
+**The feed is generated here, not at build time.** A feed rebuilt only when the
+*code* changes would be days stale, and rebuilding the site on every data
+refresh is the coupling this ADR exists to prevent. The cost of putting it on
+the data branch is that `raw.githubusercontent.com` serves it as
+`text/plain` rather than `application/atom+xml`; readers discover it through
+the `<link rel="alternate">` tag in `index.html` and parse it by content, which
+works in practice. If a stricter reader ever objects, serve the same file
+through jsDelivr — it sets the correct type — rather than moving the feed into
+the build.
+
+The feed carries only *notable* events: slips, cancellations, drops, scope cuts
+and retirements. `added` and `shipped` are excluded on purpose — one ordinary
+run produced thirteen `added` events, and a feed that fires on routine
+announcements is one people unsubscribe from.
 
 `recent.json` is **derived** from the monthly archives on every run, never
 appended to. A corrected archive therefore always produces a corrected feed,

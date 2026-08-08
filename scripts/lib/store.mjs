@@ -7,9 +7,11 @@
 //   events/YYYY-MM.json   append-only monthly archive
 //   timelines.json        per-item date history, only for items that ever changed
 //   current/<source>.json the running snapshot the next diff compares against
+//   feed.xml              Atom feed of the notable events
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { buildFeed } from './feed.mjs';
 
 /** How much history the dashboard's single request covers. */
 export const RECENT_DAYS = 90;
@@ -148,6 +150,25 @@ export function writeIndex(dir, { sources, totals, warnings, generated }) {
     totals,
     warnings: warnings ?? [],
   });
+}
+
+/** Where the published site lives — the feed links back to it. */
+export const SITE_URL = 'https://andy-diericks.github.io/ship-or-slip/';
+export const FEED_URL =
+  'https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml';
+
+/**
+ * Write the Atom feed.
+ *
+ * Derived from the recent events on every run, like `recent.json` — never
+ * appended to, so a corrected archive always yields a corrected feed.
+ */
+export function writeFeed(dir, events, generated) {
+  const xml = buildFeed({ events, generated, siteUrl: SITE_URL, feedUrl: FEED_URL });
+  const file = path.join(dir, 'feed.xml');
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, xml);
+  return xml;
 }
 
 /** Roll up event counts by type, for the dashboard's hero row. */

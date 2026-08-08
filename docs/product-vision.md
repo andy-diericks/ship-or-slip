@@ -48,8 +48,8 @@ a league table built on 23 events is a lie with a chart on it.*
 
 ## C · Distribution
 
-- **C1 — RSS/Atom feed** of slips and cancellations. The cheapest distribution
-  for this audience. *(low)* ⭐
+- ~~**C1 — RSS/Atom feed.**~~ **Built 2026-08-08.** Atom, on the data branch so
+  it refreshes with the data. Notable events only.
 - **C2 — Weekly digest** page and archive, generated as Markdown + JSON. *(med)*
 - **C3 — Per-event OG images**, so a shared link previews the actual slip. *(med)*
 - **C4 — "Biggest slips this month"** auto-generated summary. *(low)*
@@ -153,7 +153,7 @@ of using what is already fetched.*
    signals are now used, except product reassignment (G4).
 4. ~~I2 (back up the data branch)~~ — done. The archive is now protected,
    backed up weekly, and the restore is documented and exercised.
-5. **C1 (RSS)** — an afternoon, and it is how people find this kind of site.
+5. ~~C1 (RSS)~~ — done.
 6. **A2 (Azure launches)** — widens coverage using data already fetched.
 7. Let the archive accumulate for two or three months.
 8. **B1 (slip league table)** — the headline feature, once there is something

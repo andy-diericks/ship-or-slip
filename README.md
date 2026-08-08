@@ -28,6 +28,9 @@ Ship or Slip keeps yesterday's copy and diffs it. Nothing else does.
 Roughly 1,800 Microsoft 365 roadmap items and every Azure retirement notice,
 checked every six hours.
 
+**📡 Atom feed:** [slips, scope cuts and cancellations](https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml)
+— notable changes only, no routine announcements.
+
 ## How it works
 
 There is no backend. Two public feeds go in, a diff comes out, a static page

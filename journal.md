@@ -279,6 +279,42 @@ Three layers, weakest threat last.
   parses `index.json`, checks the expected files exist. A backup that has not
   been restored is a belief, and I had already been caught out by one.
 
+- **Verified by full recovery drill**: downloaded the published bundle from the
+  Releases page and restored it per `docs/recovery.md`. 7 commits, 23 events,
+  1,819 items, the 7-month Places slip and both cancellations all intact.
+  109 KB for the whole archive and its history.
+
+## 2026-08-08 — Atom feed (C1)
+
+- **Did:** `scripts/lib/feed.mjs` builds an Atom document; the pipeline writes
+  `feed.xml` to the data branch on every run. Linked from `index.html` via
+  `<link rel="alternate">` and from the dashboard footer. 27 new tests.
+
+- **Where it lives, and why.** On the `data` branch, not in the build. A feed
+  regenerated only when the *code* changes would be days stale, and rebuilding
+  the site on every data refresh is precisely the coupling ADR 0003 forbids.
+  The price is that raw.githubusercontent serves it as `text/plain`; readers
+  find it via the alternate link and parse by content, which works. jsDelivr is
+  the escape hatch if a strict reader ever objects — noted in the ADR so nobody
+  "fixes" this by moving the feed into the build.
+
+- **Atom over RSS 2.0:** unambiguous dates, and entry identity is a
+  first-class field. That last part matters here — the same feature slips
+  repeatedly, and each occurrence must be a distinct entry or readers either
+  re-notify forever or silently swallow the news. The id carries item, type
+  and timestamp.
+
+- **Only notable events.** Slips, cancellations, drops, scope cuts,
+  retirements. `added` and `shipped` are excluded: one ordinary run produced
+  thirteen `added` events, and a feed that fires on routine announcements gets
+  unsubscribed from. Verified on the real archive: 23 events → 9 entries.
+
+- **Validated by parsing, not eyeballing** — `xml.etree` over the generated
+  file, checking the root element, the `rel=self` link, entry count and id
+  uniqueness. That is also how I caught **"Slipped +1 months"**: the XML was
+  valid, the grammar was not. Fixed with a singular/plural helper and a test
+  named for it.
+
 - **Nice confirmation:** with data 14 hours old the freshness badge went amber
   on the live site, exactly as designed — the staleness was visible on the
   page before it was visible in the Actions tab.

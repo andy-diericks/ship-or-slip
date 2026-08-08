@@ -9,6 +9,14 @@
       content="Every date Microsoft promised, and every date it moved. A running history of Microsoft 365 roadmap slips, ships, drops and Azure retirements."
     />
     <meta name="color-scheme" content="dark light" />
+    <!-- The feed lives on the data branch, so it refreshes with the data
+         rather than with the site. Readers discover it through this tag. -->
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="Ship or Slip — slips, cuts and cancellations"
+      href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"
+    />
     <meta property="og:title" content="Ship or Slip" />
     <meta property="og:description" content="Every date Microsoft promised, and every date it moved." />
     <meta property="og:type" content="website" />

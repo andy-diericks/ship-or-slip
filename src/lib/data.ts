@@ -14,6 +14,14 @@ const DEFAULT_BASE =
 export const DATA_BASE: string =
   (import.meta.env.VITE_DATA_BASE as string | undefined)?.replace(/\/$/, '') ?? DEFAULT_BASE;
 
+/**
+ * The Atom feed, written by the pipeline alongside the data.
+ *
+ * Always the real published feed, never the local override — a dev server
+ * pointed at a scratch directory should still link somewhere subscribable.
+ */
+export const FEED_URL = `${DEFAULT_BASE}/feed.xml`;
+
 async function getJson<T>(path: string, signal?: AbortSignal): Promise<T> {
   const response = await fetch(`${DATA_BASE}/${path}`, { signal });
   if (!response.ok) throw new Error(`Could not load ${path} (HTTP ${response.status})`);
