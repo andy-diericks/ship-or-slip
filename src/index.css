@@ -492,6 +492,51 @@ button {
   50% { opacity: 0.55; }
 }
 
+/* Persistent navigation between the feed and the registers. */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: -8px 0 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav__link {
+  padding: 8px 12px;
+  min-height: 40px;
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.nav__link:hover { color: var(--text); }
+
+.nav__link--on {
+  color: var(--text);
+  font-weight: 600;
+  border-bottom-color: var(--accent);
+}
+
+/* Microsoft's claim set against Microsoft's own contradiction of it. */
+.contradiction {
+  grid-column: 1 / -1;
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.contradiction__claim { color: var(--muted); }
+
+.contradiction__vs {
+  color: var(--slip);
+  font-weight: 600;
+  padding: 0 8px;
+}
+
+.contradiction__evidence { color: var(--text); font-style: italic; }
+
 /* The register is the site's strongest claim, so it gets a standing invitation
    rather than being buried in the footer. */
 .overdue-banner {

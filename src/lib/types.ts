@@ -133,13 +133,44 @@ export interface OverdueRegister {
   items: OverdueItem[];
 }
 
+/** An item whose own roadmap record disagrees with itself. */
+export interface Contradiction {
+  id: string;
+  title: string;
+  source: Source;
+  products: string[];
+  kind: 'launched_unshipped' | 'rolled_back' | 'launched_future';
+  claim: string;
+  evidence: string;
+  note: UpdateNote | null;
+}
+
+export const CONTRADICTION_LABELS: Record<Contradiction['kind'], string> = {
+  launched_unshipped: 'Marked launched, but not shipped',
+  rolled_back: 'Rolled back after release',
+  launched_future: 'Marked launched before its own rollout date',
+};
+
+export interface ContradictionSummary {
+  count: number;
+  byKind: Record<string, number>;
+}
+
+export interface ContradictionRegister {
+  generated: string;
+  month: string;
+  summary: ContradictionSummary;
+  items: Contradiction[];
+}
+
 export interface DataIndex {
   generated: string;
   recentDays: number;
   months: string[];
   sources: Record<string, SourceMeta>;
   totals: { recent: number; recentByType: Partial<Record<EventType, number>> };
-  overdue?: OverdueSummary;
+  overdue?: OverdueSummary | null;
+  contradictions?: ContradictionSummary | null;
   warnings: string[];
 }
 

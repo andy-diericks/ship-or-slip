@@ -13,6 +13,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { buildFeed } from './feed.mjs';
 import { computeOverdue, summariseOverdue } from './overdue.mjs';
+import { findContradictions, summariseContradictions } from './contradictions.mjs';
 
 /** How much history the dashboard's single request covers. */
 export const RECENT_DAYS = 90;
@@ -176,14 +177,23 @@ export function updateTimelines(dir, events, snapshots) {
   return timelines;
 }
 
-/** Write the manifest the dashboard reads first. */
-export function writeIndex(dir, { sources, totals, warnings, generated }) {
+/**
+ * Write the manifest the dashboard reads first.
+ *
+ * Note the explicit field list: anything not named here is silently dropped.
+ * That bit once already — the overdue summary was passed in and never written,
+ * so the dashboard banner that depends on it never appeared. Add the field
+ * here as well as at the call site.
+ */
+export function writeIndex(dir, { sources, totals, warnings, generated, overdue, contradictions }) {
   writeJson(path.join(dir, 'index.json'), {
     generated: generated ?? new Date().toISOString(),
     recentDays: RECENT_DAYS,
     months: listMonths(dir),
     sources,
     totals,
+    overdue: overdue ?? null,
+    contradictions: contradictions ?? null,
     warnings: warnings ?? [],
   });
 }
@@ -224,6 +234,24 @@ export function writeOverdue(dir, snapshots, generated) {
   const file = path.join(dir, 'overdue.json');
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, `${JSON.stringify({ generated, month, summary, items: overdue }, null, 0)}\n`);
+  return summary;
+}
+
+/**
+ * Write the contradictions register.
+ *
+ * Small enough to ship whole — five items today — but kept in its own file so
+ * it can grow without weighing on the dashboard's first load.
+ */
+export function writeContradictions(dir, snapshots, generated) {
+  const month = String(generated).slice(0, 7);
+  const items = Object.values(snapshots ?? {}).flat();
+  const found = findContradictions(items, month);
+  const summary = summariseContradictions(found);
+
+  const file = path.join(dir, 'contradictions.json');
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, `${JSON.stringify({ generated, month, summary, items: found }, null, 0)}\n`);
   return summary;
 }
 

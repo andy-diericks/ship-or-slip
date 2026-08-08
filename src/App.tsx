@@ -17,6 +17,7 @@ const ActivityChart = lazy(() => import('./components/ActivityChart'));
 // The register is the largest thing the site serves and most visits never open
 // it, so it stays out of the main bundle.
 const OverduePage = lazy(() => import('./components/OverduePage'));
+const ContradictionsPage = lazy(() => import('./components/ContradictionsPage'));
 
 type LoadState =
   | { status: 'loading' }
@@ -57,6 +58,29 @@ export default function App() {
   );
   const visible = useMemo(() => applyFilters(events, filters), [events, filters]);
 
+  // Persistent, not conditional. The registers are the site's strongest pages
+  // and must be reachable from anywhere — the banner below is an attention
+  // grab, this is navigation, and the two are not interchangeable.
+  const nav = state.status === 'ready' && (
+    <nav className="nav" aria-label="Registers">
+      <a href="#/" className={route.name === 'feed' ? 'nav__link nav__link--on' : 'nav__link'}>
+        Changes
+      </a>
+      <a
+        href="#/overdue"
+        className={route.name === 'overdue' ? 'nav__link nav__link--on' : 'nav__link'}
+      >
+        Overdue{state.index.overdue ? ` (${state.index.overdue.count})` : ''}
+      </a>
+      <a
+        href="#/contradictions"
+        className={route.name === 'contradictions' ? 'nav__link nav__link--on' : 'nav__link'}
+      >
+        Contradictions{state.index.contradictions ? ` (${state.index.contradictions.count})` : ''}
+      </a>
+    </nav>
+  );
+
   const header = (
     <header className="header">
       <div>
@@ -88,6 +112,7 @@ export default function App() {
     return (
       <div className="app">
         {header}
+        {nav}
         <div aria-busy="true" aria-label="Loading changes">
           <div className="skeleton" />
           <div className="skeleton" />
@@ -101,6 +126,7 @@ export default function App() {
     return (
       <div className="app">
         {header}
+        {nav}
         <div className="state">
           <p className="state__title">Could not load the change history</p>
           <p>{state.message}</p>
@@ -117,6 +143,7 @@ export default function App() {
     return (
       <div className="app">
         {header}
+        {nav}
         <ItemPage
           id={route.id}
           timeline={state.timelines[route.id]}
@@ -130,8 +157,21 @@ export default function App() {
     return (
       <div className="app">
         {header}
+        {nav}
         <Suspense fallback={<div className="skeleton" />}>
           <OverduePage onBack={() => navigate('/')} />
+        </Suspense>
+      </div>
+    );
+  }
+
+  if (route.name === 'contradictions') {
+    return (
+      <div className="app">
+        {header}
+        {nav}
+        <Suspense fallback={<div className="skeleton" />}>
+          <ContradictionsPage onBack={() => navigate('/')} />
         </Suspense>
       </div>
     );
@@ -143,6 +183,7 @@ export default function App() {
   return (
     <div className="app">
       {header}
+      {nav}
 
       {state.index.overdue && state.index.overdue.count > 0 && (
         <a

@@ -5,7 +5,9 @@
 // that branch directly over raw.githubusercontent.com, which serves permissive
 // CORS headers and caches for a few minutes.
 
-import type { ChangeEvent, DataIndex, Timeline, OverdueRegister } from './types';
+import type {
+  ChangeEvent, DataIndex, Timeline, OverdueRegister, ContradictionRegister,
+} from './types';
 
 const DEFAULT_BASE =
   'https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data';
@@ -43,6 +45,9 @@ export const loadTimelines = (signal?: AbortSignal) =>
  */
 export const loadOverdue = (signal?: AbortSignal) =>
   getJson<OverdueRegister>('overdue.json', signal);
+
+export const loadContradictions = (signal?: AbortSignal) =>
+  getJson<ContradictionRegister>('contradictions.json', signal);
 
 /**
  * Load the dashboard's data in one go.

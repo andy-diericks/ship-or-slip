@@ -471,3 +471,30 @@ Three layers, weakest threat last.
 - **Nice confirmation:** with data 14 hours old the freshness badge went amber
   on the live site, exactly as designed — the staleness was visible on the
   page before it was visible in the Actions tab.
+
+## 2026-08-08 — contradictions (L2), and a silently dropped field
+
+- **A bug that made a shipped feature invisible.** The overdue banner never
+  appeared, and it was not the UI: `writeIndex` destructures an explicit list
+  of fields and silently drops anything else. `overdue` was passed in and never
+  written. Fixed, with a comment on the function saying so — the same trap is
+  waiting for the next field anyone adds. Found by checking the live
+  `index.json` keys rather than by re-reading the React.
+
+- **Persistent nav** rather than only a banner. The banner carries a number and
+  grabs attention; navigation has to be there whether or not there is anything
+  to shout about, and from every page. Both now exist and they are not
+  interchangeable.
+
+- **L2, the contradiction register.** 5 items whose own record disagrees with
+  itself: 3 marked *Launched* while Microsoft's note says "still in
+  development", 1 marked *Launched* with a rollout date two months in the
+  future, and 1 admitting a rollback.
+  - Deliberately conservative. A false contradiction is far worse than a missed
+    one: the claim is that Microsoft contradicted itself, and it has to hold
+    every single time or the whole page is dismissible. Every rule fires only
+    on Microsoft's own words or their own dates — never on an inference of ours.
+  - The UI shows claim and contradiction side by side and asserts nothing
+    itself. It only puts two of their fields next to each other, which is the
+    only footing this stands on.
+  - An item matching several rules appears once, under the most specific.

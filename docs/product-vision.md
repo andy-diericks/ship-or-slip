@@ -34,6 +34,7 @@ busier is not on this list.
 | A2 | **Azure full coverage.** All 200 RSS items, not just the 10 retirements; lifecycle mapped onto the shared status vocabulary | High | ●○○ | ✅ |
 | G1 | **Preview-date tracking.** 422 items carry one, and it moves before GA does — the leading indicator | High | ●○○ | ✅ |
 | C1 | **Atom feed** of notable changes only — no routine announcements | High | ●○○ | ✅ |
+| L2 | **Contradiction register.** 5 items whose own record disagrees with itself — marked *Launched* while the note says "still in development", or launched before their own rollout date | High | ●○○ | ✅ |
 | G3 | **Rename tracking.** "for Web, Desktop and Mobile" → "for Web" is a scope cut in disguise | Medium | ●○○ | ✅ |
 | — | **Roadmap IDs and correct deep links** (`?searchterms=`, derived so past events are repaired too) | Medium | ●○○ | ✅ |
 
@@ -43,7 +44,6 @@ busier is not on this list.
 |---|---|---|---|---|
 | B1 | **Slip league table.** Median slip and on-time share per product. *Gated on months of history* | Very high | ●●○ | ⬜ |
 | H1 | **Conference cohorts.** What Build and Ignite promised versus what shipped. An annual, quotable story | Very high | ●●○ | ⬜ |
-| L2 | **Contradiction detector.** 3 items marked *Launched* whose own note says "still in development" | High | ●○○ | ⬜ |
 | J1 | **Teams/Slack webhook.** Push slips to a channel via a secret URL | High | ●○○ | ⬜ |
 | A1 | **Power Platform release planner.** Same shape as the M365 roadmap; one new normalizer | High | ●●○ | ⬜ |
 | F2 | **Document the JSON as a public API.** Already served with open CORS; costs a README section | High | ●○○ | ⬜ |
@@ -86,11 +86,10 @@ busier is not on this list.
 
 ## Suggested order
 
-1. **L2** — an afternoon, and it is the most quotable thing left.
-2. **J1** — makes the project useful daily rather than on visits.
-3. **F2** — free reach; the files are already public.
-4. **H1** — Ignite is in November; the Build cohort wants recording first.
-5. Let the archive accumulate, then **B1**.
+1. **J1** — makes the project useful daily rather than on visits.
+2. **F2** — free reach; the files are already public.
+3. **H1** — Ignite is in November; the Build cohort wants recording first.
+4. Let the archive accumulate, then **B1**.
 
 ## Not doing
 
