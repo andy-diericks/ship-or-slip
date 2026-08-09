@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import type { OverdueRegister, OverdueItem } from '../lib/types';
+import type { OverdueRegister, OverdueItem, Timeline } from '../lib/types';
 import { loadOverdue } from '../lib/data';
 import { formatDate } from '../lib/format';
 import { featureId } from '../../scripts/lib/links.mjs';
-import { MicrosoftNote } from './MicrosoftNote';
+import { RowDetails } from './RowDetails';
 
 /**
  * The overdue register.
@@ -15,7 +15,15 @@ import { MicrosoftNote } from './MicrosoftNote';
  * Loaded on demand rather than with the dashboard — it is by far the largest
  * file, and most visits never open it.
  */
-export function OverduePage({ onBack }: { onBack: () => void }) {
+export function OverduePage({
+  onBack,
+  timelines,
+  onOpenItem,
+}: {
+  onBack: () => void;
+  timelines: Record<string, Timeline>;
+  onOpenItem: (id: string) => void;
+}) {
   const [state, setState] = useState<
     { status: 'loading' } | { status: 'error'; message: string } | { status: 'ready'; data: OverdueRegister }
   >({ status: 'loading' });
@@ -109,17 +117,46 @@ export function OverduePage({ onBack }: { onBack: () => void }) {
       )}
 
       <div>
-        {visible.map((item) => <OverdueRow key={item.id} item={item} />)}
+        {visible.map((item) => (
+          <OverdueRow
+            key={item.id}
+            item={item}
+            hasTimeline={Boolean(timelines[item.id])}
+            onOpenTimeline={() => onOpenItem(item.id)}
+          />
+        ))}
       </div>
     </div>
   );
 }
 
-function OverdueRow({ item }: { item: OverdueItem }) {
+function OverdueRow({
+  item,
+  hasTimeline,
+  onOpenTimeline,
+}: {
+  item: OverdueItem;
+  hasTimeline: boolean;
+  onOpenTimeline: () => void;
+}) {
+  const [open, setOpen] = useState(false);
   const years = item.monthsLate >= 12;
+  const panelId = `overdue-${item.id.replace(/[^a-z0-9]/gi, '-')}`;
+
   return (
-    <div className="event">
-      <h3 className="event__title">{item.title}</h3>
+    <div className={open ? 'event event--open' : 'event'}>
+      <h3 className="event__title">
+        <button
+          type="button"
+          className="event__link"
+          aria-expanded={open}
+          aria-controls={panelId}
+          onClick={() => setOpen(!open)}
+        >
+          <span className="event__chevron" aria-hidden="true">{open ? '▾' : '▸'}</span>
+          {item.title}
+        </button>
+      </h3>
       <span className={`event__magnitude ${years ? 'tone-slip' : 'tone-drop'}`}>
         {item.monthsLate} {item.monthsLate === 1 ? 'month' : 'months'} late
       </span>
@@ -131,7 +168,24 @@ function OverdueRow({ item }: { item: OverdueItem }) {
         ))}
         <span className="event__id">#{featureId(item.id)}</span>
       </div>
-      <MicrosoftNote note={item.note} />
+
+      {open && (
+        <div id={panelId} className="event__panel">
+          <RowDetails
+            id={item.id}
+            source={item.source}
+            products={item.products}
+            note={item.note}
+            hasTimeline={hasTimeline}
+            onOpenTimeline={onOpenTimeline}
+            facts={[
+              { label: 'Promised for', value: item.dueRaw ?? formatDate(item.due) },
+              { label: 'How late', value: `${item.monthsLate} months` },
+              { label: 'Current status', value: item.status ?? 'Unknown' },
+            ]}
+          />
+        </div>
+      )}
     </div>
   );
 }

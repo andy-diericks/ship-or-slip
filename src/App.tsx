@@ -166,7 +166,11 @@ export default function App() {
         {header}
         {nav}
         <Suspense fallback={<div className="skeleton" />}>
-          <OverduePage onBack={() => navigate('/')} />
+          <OverduePage
+            onBack={() => navigate('/')}
+            timelines={state.timelines}
+            onOpenItem={(id) => navigate(`/item/${encodeURIComponent(id)}`)}
+          />
         </Suspense>
       </div>
     );
@@ -178,7 +182,11 @@ export default function App() {
         {header}
         {nav}
         <Suspense fallback={<div className="skeleton" />}>
-          <ContradictionsPage onBack={() => navigate('/')} />
+          <ContradictionsPage
+            onBack={() => navigate('/')}
+            timelines={state.timelines}
+            onOpenItem={(id) => navigate(`/item/${encodeURIComponent(id)}`)}
+          />
         </Suspense>
       </div>
     );

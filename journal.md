@@ -536,3 +536,28 @@ Three layers, weakest threat last.
   - Note the M365 feed already carries a little Power Platform incidentally
     (11 Copilot Studio, 2 Power Automate items) — real coverage still needs the
     release planner.
+
+## 2026-08-09 — register rows were dead links
+
+- **The bug:** rows on Overdue and Contradictions reuse the feed's `.event`
+  card — including the `cursor: pointer` added when the feed card became a div
+  — but carried no click handler at all. They looked interactive and did
+  nothing. A card that looks clickable and is not is worse than one that looks
+  inert.
+
+- **Why not simply navigate to the item page:** the registers are computed
+  from the current snapshot, so most of their rows describe items that have
+  never *changed* and therefore have no timeline entry. Clicking would have
+  landed the reader on "No history recorded for this item" — trading a dead
+  card for a dead end, and losing their place in a 578-row list.
+
+- **Did:** rows now expand in place. A chevron marks the affordance, the
+  heading holds a real button with `aria-expanded`/`aria-controls`, and the
+  panel shows what is actually known — promised date, how late, current
+  status, source, roadmap ID, products, Microsoft's note, and a link to their
+  page. The timeline is offered only when one exists; otherwise the panel says
+  plainly that nothing has been recorded yet, which is true and more useful
+  than a link to an empty page.
+
+- **Shared `RowDetails`** between both registers rather than duplicated, since
+  the two pages differ only in their facts.

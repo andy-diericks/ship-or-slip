@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import type { ContradictionRegister, Contradiction } from '../lib/types';
+import type { ContradictionRegister, Contradiction, Timeline } from '../lib/types';
 import { CONTRADICTION_LABELS } from '../lib/types';
 import { loadContradictions } from '../lib/data';
 import { formatDate } from '../lib/format';
 import { featureId } from '../../scripts/lib/links.mjs';
+import { RowDetails } from './RowDetails';
 
 /**
  * Items whose own record disagrees with itself.
@@ -12,7 +13,15 @@ import { featureId } from '../../scripts/lib/links.mjs';
  * by side. The page asserts nothing of its own — it only puts two of their
  * fields next to each other, which is the only way this stands up.
  */
-export function ContradictionsPage({ onBack }: { onBack: () => void }) {
+export function ContradictionsPage({
+  onBack,
+  timelines,
+  onOpenItem,
+}: {
+  onBack: () => void;
+  timelines: Record<string, Timeline>;
+  onOpenItem: (id: string) => void;
+}) {
   const [state, setState] = useState<
     | { status: 'loading' }
     | { status: 'error'; message: string }
@@ -90,24 +99,74 @@ export function ContradictionsPage({ onBack }: { onBack: () => void }) {
 
           <div>
             {items.map((item) => (
-              <div className="event" key={`${item.id}-${item.kind}`}>
-                <h3 className="event__title">{item.title}</h3>
-                <div className="event__meta">
-                  <span className="badge tone-slip">{CONTRADICTION_LABELS[item.kind] ?? item.kind}</span>
-                  {item.products.slice(0, 3).map((p) => (
-                    <span key={p} className="event__product">{p}</span>
-                  ))}
-                  <span className="event__id">#{featureId(item.id)}</span>
-                </div>
-                <p className="contradiction">
-                  <span className="contradiction__claim">{item.claim}</span>
-                  <span className="contradiction__vs">but</span>
-                  <span className="contradiction__evidence">{item.evidence}</span>
-                </p>
-              </div>
+              <ContradictionRow
+                key={`${item.id}-${item.kind}`}
+                item={item}
+                hasTimeline={Boolean(timelines[item.id])}
+                onOpenTimeline={() => onOpenItem(item.id)}
+              />
             ))}
           </div>
         </>
+      )}
+    </div>
+  );
+}
+
+function ContradictionRow({
+  item,
+  hasTimeline,
+  onOpenTimeline,
+}: {
+  item: Contradiction;
+  hasTimeline: boolean;
+  onOpenTimeline: () => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const panelId = `contradiction-${item.id.replace(/[^a-z0-9]/gi, '-')}-${item.kind}`;
+
+  return (
+    <div className={open ? 'event event--open' : 'event'}>
+      <h3 className="event__title">
+        <button
+          type="button"
+          className="event__link"
+          aria-expanded={open}
+          aria-controls={panelId}
+          onClick={() => setOpen(!open)}
+        >
+          <span className="event__chevron" aria-hidden="true">{open ? '▾' : '▸'}</span>
+          {item.title}
+        </button>
+      </h3>
+      <div className="event__meta">
+        <span className="badge tone-slip">{CONTRADICTION_LABELS[item.kind] ?? item.kind}</span>
+        {item.products.slice(0, 3).map((p) => (
+          <span key={p} className="event__product">{p}</span>
+        ))}
+        <span className="event__id">#{featureId(item.id)}</span>
+      </div>
+      <p className="contradiction">
+        <span className="contradiction__claim">{item.claim}</span>
+        <span className="contradiction__vs">but</span>
+        <span className="contradiction__evidence">{item.evidence}</span>
+      </p>
+
+      {open && (
+        <div id={panelId} className="event__panel">
+          <RowDetails
+            id={item.id}
+            source={item.source}
+            products={item.products}
+            note={item.note}
+            hasTimeline={hasTimeline}
+            onOpenTimeline={onOpenTimeline}
+            facts={[
+              { label: 'What the roadmap says', value: item.claim },
+              { label: 'What contradicts it', value: item.evidence },
+            ]}
+          />
+        </div>
       )}
     </div>
   );
