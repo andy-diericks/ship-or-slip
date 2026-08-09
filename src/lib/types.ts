@@ -102,6 +102,11 @@ export interface SourceMeta {
   ok: boolean;
   windowed?: boolean;
   seeded?: boolean;
+  /** Held by the anomaly guard — snapshot deliberately left untouched. */
+  held?: boolean;
+  /** What this source currently tracks; a change re-seeds it (ADR 0003). */
+  scope?: string;
+  forced?: boolean;
 }
 
 /** One item whose promised month passed without it arriving. */
@@ -163,6 +168,25 @@ export interface ContradictionRegister {
   items: Contradiction[];
 }
 
+/** One pipeline run, as recorded in `runs.json`. */
+export interface RunRecord {
+  ts: string;
+  sources: Record<string, { count: number; ok: boolean; held?: boolean; seeded?: boolean }>;
+  events: number;
+  byType: Record<string, number>;
+  warnings: string[];
+}
+
+export interface RunSummary {
+  total: number;
+  missedWindows: number;
+  medianGapHours: number | null;
+  lastRun: string | null;
+  hoursSinceLastRun?: number | null;
+  heldRuns: number;
+  warningRuns: number;
+}
+
 export interface DataIndex {
   generated: string;
   recentDays: number;
@@ -171,6 +195,7 @@ export interface DataIndex {
   totals: { recent: number; recentByType: Partial<Record<EventType, number>> };
   overdue?: OverdueSummary | null;
   contradictions?: ContradictionSummary | null;
+  runs?: RunSummary | null;
   warnings: string[];
 }
 

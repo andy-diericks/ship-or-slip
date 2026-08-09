@@ -26,7 +26,7 @@ import { detectAnomaly } from './lib/anomaly.mjs';
 import {
   readSnapshot, writeSnapshot, appendEvents, rebuildRecent,
   updateTimelines, writeIndex, countByType, writeFeed, readIndex, writeOverdue,
-  writeContradictions,
+  writeContradictions, recordRun,
 } from './lib/store.mjs';
 
 const args = process.argv.slice(2);
@@ -202,12 +202,21 @@ async function main() {
   writeFeed(DATA_DIR, recent, ts);
   const overdue = writeOverdue(DATA_DIR, snapshots, ts);
   const contradictions = writeContradictions(DATA_DIR, snapshots, ts);
+  // Recorded before the index so the health page can never show a run that
+  // is missing from its own history.
+  const runs = recordRun(DATA_DIR, {
+    generated: ts,
+    sourceMeta,
+    events: allEvents,
+    warnings,
+  });
   writeIndex(DATA_DIR, {
     generated: ts,
     sources: sourceMeta,
     totals: { recent: recent.length, recentByType: countByType(recent) },
     overdue,
     contradictions,
+    runs,
     warnings,
   });
 

@@ -18,6 +18,7 @@ const ActivityChart = lazy(() => import('./components/ActivityChart'));
 // it, so it stays out of the main bundle.
 const OverduePage = lazy(() => import('./components/OverduePage'));
 const ContradictionsPage = lazy(() => import('./components/ContradictionsPage'));
+const HealthPage = lazy(() => import('./components/HealthPage'));
 
 type LoadState =
   | { status: 'loading' }
@@ -77,6 +78,12 @@ export default function App() {
         className={route.name === 'contradictions' ? 'nav__link nav__link--on' : 'nav__link'}
       >
         Contradictions{state.index.contradictions ? ` (${state.index.contradictions.count})` : ''}
+      </a>
+      <a
+        href="#/health"
+        className={route.name === 'health' ? 'nav__link nav__link--on' : 'nav__link'}
+      >
+        Health
       </a>
     </nav>
   );
@@ -172,6 +179,18 @@ export default function App() {
         {nav}
         <Suspense fallback={<div className="skeleton" />}>
           <ContradictionsPage onBack={() => navigate('/')} />
+        </Suspense>
+      </div>
+    );
+  }
+
+  if (route.name === 'health') {
+    return (
+      <div className="app">
+        {header}
+        {nav}
+        <Suspense fallback={<div className="skeleton" />}>
+          <HealthPage index={state.index} onBack={() => navigate('/')} />
         </Suspense>
       </div>
     );

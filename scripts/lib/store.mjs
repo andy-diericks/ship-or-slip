@@ -14,6 +14,7 @@ import path from 'node:path';
 import { buildFeed } from './feed.mjs';
 import { computeOverdue, summariseOverdue } from './overdue.mjs';
 import { findContradictions, summariseContradictions } from './contradictions.mjs';
+import { appendRun, summariseRuns } from './runs.mjs';
 
 /** How much history the dashboard's single request covers. */
 export const RECENT_DAYS = 90;
@@ -185,7 +186,7 @@ export function updateTimelines(dir, events, snapshots) {
  * so the dashboard banner that depends on it never appeared. Add the field
  * here as well as at the call site.
  */
-export function writeIndex(dir, { sources, totals, warnings, generated, overdue, contradictions }) {
+export function writeIndex(dir, { sources, totals, warnings, generated, overdue, contradictions, runs }) {
   writeJson(path.join(dir, 'index.json'), {
     generated: generated ?? new Date().toISOString(),
     recentDays: RECENT_DAYS,
@@ -194,6 +195,7 @@ export function writeIndex(dir, { sources, totals, warnings, generated, overdue,
     totals,
     overdue: overdue ?? null,
     contradictions: contradictions ?? null,
+    runs: runs ?? null,
     warnings: warnings ?? [],
   });
 }
@@ -253,6 +255,38 @@ export function writeContradictions(dir, snapshots, generated) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, `${JSON.stringify({ generated, month, summary, items: found }, null, 0)}\n`);
   return summary;
+}
+
+/**
+ * Record this run in the log and return how the pipeline has been behaving.
+ *
+ * Written on every run including the quiet ones — a run that found nothing is
+ * exactly the evidence that the pipeline is alive, and omitting it would make
+ * a healthy quiet week indistinguishable from a dead dispatcher.
+ */
+export function recordRun(dir, { generated, sourceMeta, events, warnings }) {
+  const file = path.join(dir, 'runs.json');
+  const existing = readJson(file, []);
+  const sources = {};
+  for (const [name, meta] of Object.entries(sourceMeta ?? {})) {
+    sources[name] = {
+      count: meta.count,
+      ok: Boolean(meta.ok),
+      ...(meta.held ? { held: true } : {}),
+      ...(meta.seeded ? { seeded: true } : {}),
+    };
+  }
+
+  const runs = appendRun(existing, {
+    ts: generated,
+    sources,
+    events: events?.length ?? 0,
+    byType: countByType(events ?? []),
+    warnings: warnings ?? [],
+  });
+
+  writeJson(file, runs);
+  return summariseRuns(runs);
 }
 
 /** Roll up event counts by type, for the dashboard's hero row. */

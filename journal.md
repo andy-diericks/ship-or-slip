@@ -498,3 +498,41 @@ Three layers, weakest threat last.
     itself. It only puts two of their fields next to each other, which is the
     only footing this stands on.
   - An item matching several rules appears once, under the most specific.
+
+## 2026-08-09 — health page (E2); A1 blocked
+
+- **E2 shipped.** `#/health` answers *is the pipeline working*, which is a
+  different question from *what does it know* — and the one that went
+  unanswered for a day when GitHub's scheduler silently fired nothing.
+  - Needed a run log first: `runs.json` records every run, including the quiet
+    ones. A run that found nothing is precisely the evidence the pipeline is
+    alive; omitting it would make a healthy quiet week look like a dead
+    dispatcher.
+  - The page shows freshness, missed windows, median gap between runs,
+    per-source state (ok / failed / held / seeded / scope), the last 40 runs
+    with the gap that preceded each, and the archive inventory.
+  - **Gap detection is the point.** A gap over 9 hours against a 6-hour cadence
+    is flagged in red. That single column would have caught the day-one
+    scheduler failure in seconds instead of hours.
+  - Verified by seeding a synthetic log containing a 20-hour gap, a failed
+    source and a held run, then reading the rendered page — all three showed
+    correctly.
+
+- **A1 is blocked, not merely unbuilt.** Recorded here so nobody re-attempts it
+  blind:
+  - `releaseplans.microsoft.com` returns proxy 403 on CONNECT — the host is
+    unreachable from this environment entirely, so the API shape cannot be
+    discovered.
+  - No `releasecommunications` sibling exists: `powerapps`, `powerbi`,
+    `power-platform`, `dynamics` and `windows` all 404. Only `m365` and the
+    Azure RSS are served.
+  - `playbooks/add-a-source.md` step 1 says to capture a real sample first and
+    never to write a parser against documentation, because both current feeds
+    differ from their docs. Writing a Power Platform normalizer blind would
+    break the project's own rule and ship untested guesswork.
+  - Unblocking needs either an egress allowlist entry for
+    `releaseplans.microsoft.com`, or a hand-captured API response committed to
+    `fixtures/`.
+  - Note the M365 feed already carries a little Power Platform incidentally
+    (11 Copilot Studio, 2 Power Automate items) — real coverage still needs the
+    release planner.

@@ -2,15 +2,16 @@ import { useCallback, useEffect, useState } from 'react';
 
 /**
  * Hash routing, because GitHub Pages has no server to rewrite paths and a
- * refresh on a deep link must not 404. Two routes only:
+ * refresh on a deep link must not 404. The routes:
  *
  *   #/            the feed, with filters in the query string
  *   #/item/<id>   one feature's date history
  *   #/overdue     everything past its promised date
  *   #/contradictions  items whose own record disagrees with itself
+ *   #/health      whether the pipeline itself is working
  */
 export interface Route {
-  name: 'feed' | 'item' | 'overdue' | 'contradictions';
+  name: 'feed' | 'item' | 'overdue' | 'contradictions' | 'health';
   id: string;
   query: string;
 }
@@ -22,6 +23,7 @@ export function parseHash(hash: string): Route {
   if (item?.[1]) return { name: 'item', id: decodeURIComponent(item[1]), query };
   if (path === '/overdue') return { name: 'overdue', id: '', query };
   if (path === '/contradictions') return { name: 'contradictions', id: '', query };
+  if (path === '/health') return { name: 'health', id: '', query };
   return { name: 'feed', id: '', query };
 }
 

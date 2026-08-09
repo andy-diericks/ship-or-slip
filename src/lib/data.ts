@@ -6,7 +6,7 @@
 // CORS headers and caches for a few minutes.
 
 import type {
-  ChangeEvent, DataIndex, Timeline, OverdueRegister, ContradictionRegister,
+  ChangeEvent, DataIndex, Timeline, OverdueRegister, ContradictionRegister, RunRecord,
 } from './types';
 
 const DEFAULT_BASE =
@@ -48,6 +48,13 @@ export const loadOverdue = (signal?: AbortSignal) =>
 
 export const loadContradictions = (signal?: AbortSignal) =>
   getJson<ContradictionRegister>('contradictions.json', signal);
+
+/**
+ * The run log. Absent on a store written before run recording existed, which
+ * the health page reports as "no runs yet" rather than as an error.
+ */
+export const loadRuns = (signal?: AbortSignal) =>
+  getJson<RunRecord[]>('runs.json', signal).catch(() => [] as RunRecord[]);
 
 /**
  * Load the dashboard's data in one go.

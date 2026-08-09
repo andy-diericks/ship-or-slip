@@ -6,7 +6,7 @@ already been done and invites rebuilding it.
 
 - **Impact** — how much it changes what someone can learn here.
 - **Complexity** — ●○○ an afternoon · ●●○ a day or two · ●●● needs its own ADR.
-- **Status** — ✅ built · ⬜ not built.
+- **Status** — ✅ built · ⬜ not built · ⛔ blocked by something outside the code.
 
 ## What this is for
 
@@ -34,6 +34,7 @@ busier is not on this list.
 | A2 | **Azure full coverage.** All 200 RSS items, not just the 10 retirements; lifecycle mapped onto the shared status vocabulary | High | ●○○ | ✅ |
 | G1 | **Preview-date tracking.** 422 items carry one, and it moves before GA does — the leading indicator | High | ●○○ | ✅ |
 | C1 | **Atom feed** of notable changes only — no routine announcements | High | ●○○ | ✅ |
+| E2 | **Health page.** Run history with gap detection, per-source state, warnings, archive inventory — answers *is the pipeline working*, which the dashboard does not | High | ●●○ | ✅ |
 | L2 | **Contradiction register.** 5 items whose own record disagrees with itself — marked *Launched* while the note says "still in development", or launched before their own rollout date | High | ●○○ | ✅ |
 | G3 | **Rename tracking.** "for Web, Desktop and Mobile" → "for Web" is a scope cut in disguise | Medium | ●○○ | ✅ |
 | — | **Roadmap IDs and correct deep links** (`?searchterms=`, derived so past events are repaired too) | Medium | ●○○ | ✅ |
@@ -45,9 +46,8 @@ busier is not on this list.
 | B1 | **Slip league table.** Median slip and on-time share per product. *Gated on months of history* | Very high | ●●○ | ⬜ |
 | H1 | **Conference cohorts.** What Build and Ignite promised versus what shipped. An annual, quotable story | Very high | ●●○ | ⬜ |
 | J1 | **Teams/Slack webhook.** Push slips to a channel via a secret URL | High | ●○○ | ⬜ |
-| A1 | **Power Platform release planner.** Same shape as the M365 roadmap; one new normalizer | High | ●●○ | ⬜ |
+| A1 | **Power Platform release planner.** ⛔ **Blocked, not merely unbuilt** — `releaseplans.microsoft.com` is unreachable from the build environment (proxy 403), and no `releasecommunications` sibling endpoint exists (`powerapps`, `powerbi`, `dynamics` all 404). The playbook forbids writing a parser without a captured sample. Needs either an egress allowlist entry or a hand-captured API response | High | ●●○ | ⛔ |
 | F2 | **Document the JSON as a public API.** Already served with open CORS; costs a README section | High | ●○○ | ⬜ |
-| E2 | **Health page.** Run history, per-source status, warnings | Medium | ●○○ | ⬜ |
 | D1 | **Per-product pages** at `#/product/teams`, with that product's statistics | Medium | ●●○ | ⬜ |
 | L3 | **Preview→rollout gap.** 422 items have both dates; does the planned gap stretch? | Medium | ●●○ | ⬜ |
 | H4 | **Copilot index.** ~31% of the roadmap is Copilot. Is AI slipping more than the rest? | Medium | ●●○ | ⬜ |
