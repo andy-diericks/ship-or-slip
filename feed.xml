@@ -5,7 +5,39 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-08-08T07:39:06.155Z</updated>
+  <updated>2026-08-10T23:37:18.346Z</updated>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: Connect Teams meeting to existing Planner Plans</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561490?t=slipped&amp;at=2026-08-10T23:37:18.346Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561490"/>
+    <updated>2026-08-10T23:37:18.346Z</updated>
+    <summary>2026-08 → 2026-09 · Microsoft Teams, Planner · Microsoft 365 · ID 561490</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=561490"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Microsoft Copilot (Microsoft 365): Proactive push notifications for the Microsoft 365 Copilot mobile app</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A560339?t=slipped&amp;at=2026-08-10T23:37:18.346Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A560339"/>
+    <updated>2026-08-10T23:37:18.346Z</updated>
+    <summary>2026-07 → 2026-09 · Microsoft 365 app, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 560339</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=560339"/>
+  </entry>
+  <entry>
+    <title>Slipped +3 months — Outlook: User-initiated Copilot insights in classic Outlook</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A508524?t=slipped&amp;at=2026-08-10T23:37:18.346Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A508524"/>
+    <updated>2026-08-10T23:37:18.346Z</updated>
+    <summary>2026-06 → 2026-09 · Outlook · Microsoft 365 · ID 508524</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=508524"/>
+  </entry>
+  <entry>
+    <title>Cancelled — Microsoft Copilot (Microsoft 365):  Replace stock video footage with AI-Generated Images in Microsoft 365 Copilot</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A501570?t=cancelled&amp;at=2026-08-10T23:37:18.346Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A501570"/>
+    <updated>2026-08-10T23:37:18.346Z</updated>
+    <summary>In development → Cancelled · Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 501570</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=501570"/>
+  </entry>
   <entry>
     <title>Slipped +5 months — Microsoft Edge: Enhanced Security Mode Plus</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A566871?t=slipped&amp;at=2026-08-08T07:39:06.155Z</id>
