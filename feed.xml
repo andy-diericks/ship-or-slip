@@ -5,7 +5,71 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-08-10T23:37:18.346Z</updated>
+  <updated>2026-08-11T23:37:21.687Z</updated>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: See more messages on mobile</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568067?t=slipped&amp;at=2026-08-11T23:37:21.687Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568067"/>
+    <updated>2026-08-11T23:37:21.687Z</updated>
+    <summary>2026-09 → 2026-10 · Microsoft Teams · Microsoft 365 · ID 568067</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=568067"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Microsoft Purview: Endpoint Data Loss Prevention - Protect sensitive data over FTP and SFTP with Endpoint DLP</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A565868?t=slipped&amp;at=2026-08-11T23:37:21.687Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A565868"/>
+    <updated>2026-08-11T23:37:21.687Z</updated>
+    <summary>2026-08 → 2026-10 · Microsoft Purview · Microsoft 365 · ID 565868</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=565868"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Copilot (Microsoft 365): Get actionable suggestions from Copilot in your Copilot Page</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562351?t=slipped&amp;at=2026-08-11T23:37:21.687Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562351"/>
+    <updated>2026-08-11T23:37:21.687Z</updated>
+    <summary>2026-07 → 2026-08 · Microsoft 365 app, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 562351</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562351"/>
+  </entry>
+  <entry>
+    <title>Slipped +6 months — Microsoft Purview: Data Loss Prevention - Count of Labelled Documents Condition</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562342?t=slipped&amp;at=2026-08-11T23:37:21.687Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562342"/>
+    <updated>2026-08-11T23:37:21.687Z</updated>
+    <summary>2026-06 → 2026-12 · Microsoft Purview · Microsoft 365 · ID 562342</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562342"/>
+  </entry>
+  <entry>
+    <title>Slipped +6 months — Microsoft Purview: Data Loss Prevention - Reusable Global List for Exchange Online</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561919?t=slipped&amp;at=2026-08-11T23:37:21.687Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561919"/>
+    <updated>2026-08-11T23:37:21.687Z</updated>
+    <summary>2026-07 → 2027-01 · Microsoft Purview · Microsoft 365 · ID 561919</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=561919"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Purview: Data Lifecycle Management– Hard delete capability for OneDrive and SharePoint through secure priority cleanup workflows</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A558343?t=slipped&amp;at=2026-08-11T23:37:21.687Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A558343"/>
+    <updated>2026-08-11T23:37:21.687Z</updated>
+    <summary>2026-09 → 2026-10 · Microsoft Purview · Microsoft 365 · ID 558343</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=558343"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: Ability to separate out the Townhall attendee invites</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A476488?t=slipped&amp;at=2026-08-11T23:37:21.687Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A476488"/>
+    <updated>2026-08-11T23:37:21.687Z</updated>
+    <summary>2026-09 → 2026-10 · Microsoft Teams · Microsoft 365 · ID 476488</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=476488"/>
+  </entry>
+  <entry>
+    <title>Slipped +3 months — Microsoft Purview compliance portal:  eDiscovery (Premium) – Hold reports</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A93268?t=slipped&amp;at=2026-08-11T23:37:21.687Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A93268"/>
+    <updated>2026-08-11T23:37:21.687Z</updated>
+    <summary>2026-06 → 2026-09 · Microsoft Purview · Microsoft 365 · ID 93268</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=93268"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Teams: Connect Teams meeting to existing Planner Plans</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561490?t=slipped&amp;at=2026-08-10T23:37:18.346Z</id>
