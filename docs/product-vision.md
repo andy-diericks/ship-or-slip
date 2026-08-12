@@ -43,11 +43,16 @@ busier is not on this list.
 
 | ID | Feature | Impact | Cx | Status |
 |---|---|---|---|---|
+| M1 | **Record register counts in the run log.** ⏳ *Time-sensitive:* `runs.json` stores events and sources but not the overdue/contradiction counts, so the **overdue trend is being lost every day it is not recorded**. Ten minutes now, unrecoverable later — exactly the mistake this project exists to guard against | Very high | ●○○ | ⬜ |
 | B1 | **Slip league table.** Median slip and on-time share per product. *Gated on months of history* | Very high | ●●○ | ⬜ |
 | H1 | **Conference cohorts.** What Build and Ignite promised versus what shipped. An annual, quotable story | Very high | ●●○ | ⬜ |
+| M2 | **Retiring soon.** 7 Azure retirements are still ahead, 4 within twelve months. An actionable countdown of what is about to break — needs no history, small dataset | High | ●○○ | ⬜ |
+| M3 | **Search and product filter on the registers.** 578 overdue rows across 32 products, filterable by status alone today. The register is hard to use at that size | High | ●○○ | ⬜ |
 | J1 | **Teams/Slack webhook.** Push slips to a channel via a secret URL | High | ●○○ | ⬜ |
 | A1 | **Power Platform release planner.** ⛔ **Blocked, not merely unbuilt** — `releaseplans.microsoft.com` is unreachable from the build environment (proxy 403), and no `releasecommunications` sibling endpoint exists (`powerapps`, `powerbi`, `dynamics` all 404). The playbook forbids writing a parser without a captured sample. Needs either an egress allowlist entry or a hand-captured API response | High | ●●○ | ⛔ |
 | F2 | **Document the JSON as a public API.** Already served with open CORS; costs a README section | High | ●○○ | ⬜ |
+| M4 | **Deep-link an expanded row** (`#/overdue?open=382643`) so a specific finding can be shared | Medium | ●○○ | ⬜ |
+| M5 | **Backup status on the health page.** Closes the I2 loop — the weekly bundles exist but nothing surfaces when the last one was taken | Medium | ●○○ | ⬜ |
 | D1 | **Per-product pages** at `#/product/teams`, with that product's statistics | Medium | ●●○ | ⬜ |
 | L3 | **Preview→rollout gap.** 422 items have both dates; does the planned gap stretch? | Medium | ●●○ | ⬜ |
 | H4 | **Copilot index.** ~31% of the roadmap is Copilot. Is AI slipping more than the rest? | Medium | ●●○ | ⬜ |
@@ -86,10 +91,15 @@ busier is not on this list.
 
 ## Suggested order
 
-1. **J1** — makes the project useful daily rather than on visits.
-2. **F2** — free reach; the files are already public.
-3. **H1** — Ignite is in November; the Build cohort wants recording first.
-4. Let the archive accumulate, then **B1**.
+1. **M1 first, and soon.** Every day it is not recorded is a day of overdue-trend
+   data gone for good. It is a ten-minute change and it is the only item here
+   with a deadline.
+2. **M3** — the overdue register is the site's strongest page and currently
+   hard to search.
+3. **J1** — makes the project useful daily rather than on visits.
+4. **F2** — free reach; the files are already public.
+5. **H1** — Ignite is in November; the Build cohort wants recording first.
+6. Let the archive accumulate, then **B1**.
 
 ## Not doing
 
