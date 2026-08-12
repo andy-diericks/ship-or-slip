@@ -175,6 +175,15 @@ export interface RunRecord {
   events: number;
   byType: Record<string, number>;
   warnings: string[];
+  /**
+   * Register counts at this run. The registers are derived and overwritten
+   * every run, so this is the only place their history survives.
+   */
+  registers?: {
+    overdue?: number | null;
+    stillInDevelopment?: number | null;
+    contradictions?: number | null;
+  };
 }
 
 export interface RunSummary {

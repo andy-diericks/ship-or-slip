@@ -3,7 +3,9 @@ import type { DataIndex, RunRecord } from '../lib/types';
 import { loadRuns } from '../lib/data';
 import { formatAge, formatDay } from '../lib/format';
 import { gradeFreshness } from './FreshnessBadge';
-import { runGaps, summariseRuns, MISSED_AFTER_HOURS, EXPECTED_INTERVAL_HOURS } from '../../scripts/lib/runs.mjs';
+import {
+  runGaps, summariseRuns, overdueTrend, MISSED_AFTER_HOURS, EXPECTED_INTERVAL_HOURS,
+} from '../../scripts/lib/runs.mjs';
 
 /**
  * Is the pipeline working?
@@ -31,6 +33,7 @@ export function HealthPage({ index, onBack }: { index: DataIndex; onBack: () => 
   const grade = gradeFreshness(index.generated, index.warnings.length > 0);
   const gaps = runs ? runGaps(runs) : [];
   const summary = runs ? summariseRuns(runs) : null;
+  const trend = runs ? overdueTrend(runs) : [];
 
   return (
     <div>
@@ -137,6 +140,48 @@ export function HealthPage({ index, onBack }: { index: DataIndex; onBack: () => 
           </div>
         )}
       </section>
+
+      {/* The registers are derived and overwritten each run, so this series is
+          the only place their history survives. It starts thin on purpose —
+          runs from before it was recorded are omitted rather than shown as
+          zero, which would draw a climb that never happened. */}
+      {trend.length > 0 && (
+        <section className="panel">
+          <h3 className="panel__title">
+            Overdue over time ({trend.length} {trend.length === 1 ? 'reading' : 'readings'})
+          </h3>
+          {trend.length === 1 ? (
+            <p style={{ margin: 0, fontSize: 14, color: 'var(--muted)' }}>
+              {trend[0]?.overdue} overdue at the first recorded reading. A trend needs
+              at least two — check back after the next run.
+            </p>
+          ) : (
+            <div className="table-scroll">
+              <table className="table">
+                <thead>
+                  <tr><th>When</th><th>Overdue</th><th>Change</th><th>Still in development</th></tr>
+                </thead>
+                <tbody>
+                  {[...trend].reverse().slice(0, 20).map((point, i, list) => {
+                    const previous = list[i + 1];
+                    const delta = previous ? point.overdue - previous.overdue : null;
+                    return (
+                      <tr key={point.ts}>
+                        <td title={point.ts}>{formatDay(point.ts)} {point.ts.slice(11, 16)}</td>
+                        <td className="num">{point.overdue}</td>
+                        <td className={`num ${delta && delta > 0 ? 'tone-slip' : delta && delta < 0 ? 'tone-pull' : ''}`}>
+                          {delta === null ? '—' : delta > 0 ? `+${delta}` : delta}
+                        </td>
+                        <td className="num">{point.stillInDevelopment ?? '—'}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </section>
+      )}
 
       <section className="panel">
         <h3 className="panel__title">Archive</h3>

@@ -561,3 +561,37 @@ Three layers, weakest threat last.
 
 - **Shared `RowDetails`** between both registers rather than duplicated, since
   the two pages differ only in their facts.
+
+## 2026-08-12 — register counts recorded (M1), register filters (M3)
+
+- **M1 was the urgent one, and it proved itself immediately.** `overdue.json`
+  and `contradictions.json` are *derived* and overwritten on every run, so the
+  counts were being destroyed four times a day. The trend — is Microsoft's
+  backlog of late features growing or shrinking? — was unrecoverable. Each run
+  now records the counts in `runs.json`.
+  - Within an hour of shipping it, the count moved **578 → 555** (and
+    still-in-development 347 → 338). That change would have left no trace. It
+  is the same failure this whole project documents, committed against
+    ourselves.
+  - `overdueTrend()` **omits** runs with no recorded count rather than reading
+    them as zero. Treating a missing measurement as a measurement of nothing
+    would draw a climb from zero that never happened — inventing history to
+    fill a gap is precisely what we exist to catch.
+  - Surfaced on the health page as "Overdue over time", with a per-reading
+    delta. With one reading it says so plainly instead of drawing a line.
+
+- **M3.** The overdue register had 555 rows across 32 products and filtered by
+  status alone, which made the strongest page the least usable. Now search
+  (titles and product names), product chips and status chips, with a
+  "Showing N of M" count. Verified live: 555 → 126 for "teams", → 61 for the
+  Outlook chip.
+  - Filter logic lives in `src/lib/registerFilter.ts`, shared by both
+    registers and unit-tested, rather than written twice.
+  - Deliberately the same shapes and behaviour as the main feed's filter bar,
+    so the registers are not a second interface to learn.
+
+- **A dead control I caught before shipping it:** I first passed the
+  contradiction *kinds* as status chips. `Contradiction` has `kind`, not
+  `status`, so they would have filtered nothing. Removed — the kind tiles
+  already serve as the category view, and a chip that does nothing is worse
+  than no chip. The bar only appears on that register above eight rows anyway.

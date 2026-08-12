@@ -26,6 +26,8 @@ busier is not on this list.
 | ID | Feature | Impact | Cx | Status |
 |---|---|---|---|---|
 | L1 | **Overdue register.** 578 items past their promised date, 347 still "in development", worst 28 months late. Needs no history — the strongest page on the site | Very high | ●●○ | ✅ |
+| M1 | **Register counts in the run log.** The registers are derived and overwritten each run, so this series is the only place their history survives. Surfaced as an "overdue over time" table on the health page; readings from before it existed are omitted rather than shown as zero | Very high | ●○○ | ✅ |
+| M3 | **Search and product filter on the registers.** 555 overdue rows across 32 products; shared filter logic, same shapes as the main feed | High | ●○○ | ✅ |
 | E1 | **Anomaly guard.** Holds any run whose diff is implausibly large, so a Microsoft schema change cannot poison an append-only archive | Very high | ●●○ | ✅ |
 | I2 | **Archive protection.** Ruleset blocking force-push and deletion, weekly verified git bundles on Releases, `docs/recovery.md` | Very high | ●○○ | ✅ |
 | — | **Microsoft's quoted notes.** Their own "Updated 7 August: we have decided not to move forward" carried onto events and shown attributed | Very high | ●○○ | ✅ |
@@ -43,11 +45,9 @@ busier is not on this list.
 
 | ID | Feature | Impact | Cx | Status |
 |---|---|---|---|---|
-| M1 | **Record register counts in the run log.** ⏳ *Time-sensitive:* `runs.json` stores events and sources but not the overdue/contradiction counts, so the **overdue trend is being lost every day it is not recorded**. Ten minutes now, unrecoverable later — exactly the mistake this project exists to guard against | Very high | ●○○ | ⬜ |
 | B1 | **Slip league table.** Median slip and on-time share per product. *Gated on months of history* | Very high | ●●○ | ⬜ |
 | H1 | **Conference cohorts.** What Build and Ignite promised versus what shipped. An annual, quotable story | Very high | ●●○ | ⬜ |
 | M2 | **Retiring soon.** 7 Azure retirements are still ahead, 4 within twelve months. An actionable countdown of what is about to break — needs no history, small dataset | High | ●○○ | ⬜ |
-| M3 | **Search and product filter on the registers.** 578 overdue rows across 32 products, filterable by status alone today. The register is hard to use at that size | High | ●○○ | ⬜ |
 | J1 | **Teams/Slack webhook.** Push slips to a channel via a secret URL | High | ●○○ | ⬜ |
 | A1 | **Power Platform release planner.** ⛔ **Blocked, not merely unbuilt** — `releaseplans.microsoft.com` is unreachable from the build environment (proxy 403), and no `releasecommunications` sibling endpoint exists (`powerapps`, `powerbi`, `dynamics` all 404). The playbook forbids writing a parser without a captured sample. Needs either an egress allowlist entry or a hand-captured API response | High | ●●○ | ⛔ |
 | F2 | **Document the JSON as a public API.** Already served with open CORS; costs a README section | High | ●○○ | ⬜ |
@@ -91,15 +91,10 @@ busier is not on this list.
 
 ## Suggested order
 
-1. **M1 first, and soon.** Every day it is not recorded is a day of overdue-trend
-   data gone for good. It is a ten-minute change and it is the only item here
-   with a deadline.
-2. **M3** — the overdue register is the site's strongest page and currently
-   hard to search.
-3. **J1** — makes the project useful daily rather than on visits.
-4. **F2** — free reach; the files are already public.
-5. **H1** — Ignite is in November; the Build cohort wants recording first.
-6. Let the archive accumulate, then **B1**.
+1. **J1** — makes the project useful daily rather than on visits.
+2. **F2** — free reach; the files are already public.
+3. **H1** — Ignite is in November; the Build cohort wants recording first.
+4. Let the archive accumulate, then **B1**.
 
 ## Not doing
 

@@ -1,5 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { appendRun, runGaps, summariseRuns, RUN_HISTORY, MISSED_AFTER_HOURS } from './runs.mjs';
+import {
+  appendRun, runGaps, summariseRuns, overdueTrend, RUN_HISTORY, MISSED_AFTER_HOURS,
+} from './runs.mjs';
 
 const run = (ts, overrides = {}) => ({
   ts,
@@ -97,5 +99,39 @@ describe('summariseRuns', () => {
   it('handles an empty log', () => {
     expect(summariseRuns([], now)).toMatchObject({ total: 0, missedWindows: 0, lastRun: null });
     expect(summariseRuns(undefined, now).total).toBe(0);
+  });
+});
+
+describe('overdueTrend', () => {
+  const withCounts = (ts, overdue, stillInDevelopment = 347) =>
+    run(ts, { registers: { overdue, stillInDevelopment, contradictions: 5 } });
+
+  it('returns the series oldest first, ready to plot', () => {
+    const runs = [withCounts('2026-08-09T12:00:00Z', 580), withCounts('2026-08-08T12:00:00Z', 578)];
+    expect(overdueTrend(runs).map((p) => p.overdue)).toEqual([578, 580]);
+  });
+
+  it('OMITS runs that recorded no count, rather than reading them as zero', () => {
+    // Runs predating this feature have no measurement. Treating them as zero
+    // would draw a phantom climb from nothing — exactly the kind of invented
+    // history this project exists to catch.
+    const runs = [withCounts('2026-08-09T12:00:00Z', 578), run('2026-08-08T12:00:00Z')];
+    const series = overdueTrend(runs);
+    expect(series).toHaveLength(1);
+    expect(series[0].overdue).toBe(578);
+  });
+
+  it('carries the still-in-development subset when present', () => {
+    expect(overdueTrend([withCounts('2026-08-09T12:00:00Z', 578, 347)])[0].stillInDevelopment).toBe(347);
+  });
+
+  it('reports a null subset rather than guessing when it was not recorded', () => {
+    const partial = run('2026-08-09T12:00:00Z', { registers: { overdue: 578 } });
+    expect(overdueTrend([partial])[0].stillInDevelopment).toBeNull();
+  });
+
+  it('handles an empty log', () => {
+    expect(overdueTrend([])).toEqual([]);
+    expect(overdueTrend(undefined)).toEqual([]);
   });
 });

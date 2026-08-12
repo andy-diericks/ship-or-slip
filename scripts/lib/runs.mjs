@@ -28,6 +28,13 @@ export const MISSED_AFTER_HOURS = EXPECTED_INTERVAL_HOURS * 1.5;
  * @property {number} events
  * @property {Record<string, number>} byType
  * @property {string[]} warnings
+ * @property {{overdue?: number|null, stillInDevelopment?: number|null, contradictions?: number|null}} [registers]
+ *   The register counts at this run. Recorded because `overdue.json` is
+ *   *derived* and overwritten every run: without a per-run snapshot of the
+ *   count, the trend — is Microsoft's backlog of late features growing or
+ *   shrinking? — is destroyed each time and can never be reconstructed. The
+ *   same failure this whole project exists to document, committed against
+ *   ourselves.
  */
 
 /**
@@ -102,4 +109,28 @@ export function summariseRuns(runs, now = new Date()) {
     heldRuns: list.filter((r) => Object.values(r.sources ?? {}).some((s) => s?.held)).length,
     warningRuns: list.filter((r) => (r.warnings ?? []).length > 0).length,
   };
+}
+
+/**
+ * The overdue count over time, oldest first, for plotting.
+ *
+ * Only runs that recorded a count appear: runs from before this was captured
+ * are omitted rather than treated as zero, because a missing measurement is
+ * not a measurement of nothing. Showing a phantom climb from zero would be a
+ * lie of exactly the kind this project is built to catch.
+ *
+ * @param {RunRecord[]} runs newest first
+ * @returns {{ts: string, overdue: number, stillInDevelopment: number|null}[]}
+ */
+export function overdueTrend(runs) {
+  return (runs ?? [])
+    .filter((r) => typeof r?.registers?.overdue === 'number')
+    .map((r) => ({
+      ts: r.ts,
+      overdue: r.registers.overdue,
+      stillInDevelopment: typeof r.registers.stillInDevelopment === 'number'
+        ? r.registers.stillInDevelopment
+        : null,
+    }))
+    .sort((a, b) => String(a.ts).localeCompare(String(b.ts)));
 }

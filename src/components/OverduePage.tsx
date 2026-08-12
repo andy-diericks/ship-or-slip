@@ -4,6 +4,11 @@ import { loadOverdue } from '../lib/data';
 import { formatDate } from '../lib/format';
 import { featureId } from '../../scripts/lib/links.mjs';
 import { RowDetails } from './RowDetails';
+import { RegisterFilterBar } from './RegisterFilterBar';
+import {
+  applyRegisterFilter, registerProducts, EMPTY_REGISTER_FILTER,
+} from '../lib/registerFilter';
+import type { RegisterFilter } from '../lib/registerFilter';
 
 /**
  * The overdue register.
@@ -27,7 +32,7 @@ export function OverduePage({
   const [state, setState] = useState<
     { status: 'loading' } | { status: 'error'; message: string } | { status: 'ready'; data: OverdueRegister }
   >({ status: 'loading' });
-  const [statusFilter, setStatusFilter] = useState<string | null>(null);
+  const [filter, setFilter] = useState<RegisterFilter>(EMPTY_REGISTER_FILTER);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -69,7 +74,8 @@ export function OverduePage({
 
   const { summary, items, month } = state.data;
   const statuses = Object.entries(summary.byStatus).sort((a, b) => b[1] - a[1]);
-  const visible = statusFilter ? items.filter((i) => i.status === statusFilter) : items;
+  const visible = applyRegisterFilter(items, filter);
+  const products = registerProducts(items);
 
   return (
     <div>
@@ -97,23 +103,21 @@ export function OverduePage({
         </div>
       </div>
 
-      {statuses.length > 1 && (
-        <section className="filters" aria-label="Filter by status">
-          <div className="filters__row">
-            <span className="filters__legend">Status</span>
-            {statuses.map(([status, count]) => (
-              <button
-                key={status}
-                type="button"
-                className="chip"
-                aria-pressed={statusFilter === status}
-                onClick={() => setStatusFilter(statusFilter === status ? null : status)}
-              >
-                {status} ({count})
-              </button>
-            ))}
-          </div>
-        </section>
+      <RegisterFilterBar
+        filter={filter}
+        onChange={setFilter}
+        products={products}
+        statuses={statuses}
+        resultCount={visible.length}
+        totalCount={items.length}
+        searchLabel="Search overdue features and products…"
+      />
+
+      {visible.length === 0 && (
+        <div className="state">
+          <p className="state__title">Nothing matches those filters</p>
+          <p>Try clearing a facet, or widening the search.</p>
+        </div>
       )}
 
       <div>

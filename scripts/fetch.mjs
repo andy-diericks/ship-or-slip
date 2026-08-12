@@ -209,6 +209,8 @@ async function main() {
     sourceMeta,
     events: allEvents,
     warnings,
+    overdue,
+    contradictions,
   });
   writeIndex(DATA_DIR, {
     generated: ts,

@@ -5,6 +5,11 @@ import { loadContradictions } from '../lib/data';
 import { formatDate } from '../lib/format';
 import { featureId } from '../../scripts/lib/links.mjs';
 import { RowDetails } from './RowDetails';
+import { RegisterFilterBar } from './RegisterFilterBar';
+import {
+  applyRegisterFilter, registerProducts, EMPTY_REGISTER_FILTER,
+} from '../lib/registerFilter';
+import type { RegisterFilter } from '../lib/registerFilter';
 
 /**
  * Items whose own record disagrees with itself.
@@ -27,6 +32,7 @@ export function ContradictionsPage({
     | { status: 'error'; message: string }
     | { status: 'ready'; data: ContradictionRegister }
   >({ status: 'loading' });
+  const [filter, setFilter] = useState<RegisterFilter>(EMPTY_REGISTER_FILTER);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -97,8 +103,26 @@ export function ContradictionsPage({
             ))}
           </div>
 
+          {/* Only worth filtering once the register is big enough to hide
+              something. At five rows it would be noise.
+
+              The kind tiles above already act as the category view, and
+              `kind` is not `status`, so no status chips here — a chip that
+              filtered nothing would be worse than no chip. */}
+          {items.length > 8 && (
+            <RegisterFilterBar
+              filter={filter}
+              onChange={setFilter}
+              products={registerProducts(items)}
+              statuses={[]}
+              resultCount={applyRegisterFilter(items, filter).length}
+              totalCount={items.length}
+              searchLabel="Search contradictions…"
+            />
+          )}
+
           <div>
-            {items.map((item) => (
+            {applyRegisterFilter(items, filter).map((item) => (
               <ContradictionRow
                 key={`${item.id}-${item.kind}`}
                 item={item}

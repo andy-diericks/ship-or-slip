@@ -264,7 +264,7 @@ export function writeContradictions(dir, snapshots, generated) {
  * exactly the evidence that the pipeline is alive, and omitting it would make
  * a healthy quiet week indistinguishable from a dead dispatcher.
  */
-export function recordRun(dir, { generated, sourceMeta, events, warnings }) {
+export function recordRun(dir, { generated, sourceMeta, events, warnings, overdue, contradictions }) {
   const file = path.join(dir, 'runs.json');
   const existing = readJson(file, []);
   const sources = {};
@@ -283,6 +283,13 @@ export function recordRun(dir, { generated, sourceMeta, events, warnings }) {
     events: events?.length ?? 0,
     byType: countByType(events ?? []),
     warnings: warnings ?? [],
+    // The registers are derived and overwritten every run. Without this, their
+    // history is destroyed on each pass and the trend can never be recovered.
+    registers: {
+      overdue: overdue?.count ?? null,
+      stillInDevelopment: overdue?.stillInDevelopment ?? null,
+      contradictions: contradictions?.count ?? null,
+    },
   });
 
   writeJson(file, runs);
