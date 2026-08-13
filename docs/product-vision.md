@@ -87,14 +87,39 @@ busier is not on this list.
 | A4 | **Windows release health** — known issues and resolution dates | Low | ●●○ | ⬜ |
 | H3 | **Cross-source linkage** — an Azure retirement to its replacement | Low | ●●● | ⬜ |
 
+## Ambition — beyond the original scope
+
+*Ideas that widen what the site is, rather than deepening what it already
+does. Same test applies: does it make the record more trustworthy or more
+useful? Anything that only adds surface area is still excluded.*
+
+| ID | Feature | Impact | Cx | Status |
+|---|---|---|---|---|
+| N1 | **Calendar feed (`.ics`).** Subscribe in Outlook to upcoming rollout and retirement dates. A static file the pipeline writes, exactly like `feed.xml` — and the single most *useful* thing for the audience this site actually has: people who run Microsoft estates and need retirements in their calendar | Very high | ●○○ | ⬜ |
+| N2 | **Tenant filter.** Pick your cloud (Worldwide / GCC / GCC High / DoD) and platforms, see only what affects you. `clouds` and `platforms` are already captured on every item and used only for scope-cut detection today | Very high | ●○○ | ⬜ |
+| N3 | **Multi-vendor punctuality index.** Track Google Workspace, Slack and Atlassian release notes alongside Microsoft and answer "who actually ships on time?". This changes the category of the product — from a Microsoft tracker to a benchmark nobody publishes. ⚠ Needs a captured sample per feed: those hosts are unreachable from the dev environment, though GitHub runners can fetch them fine | Very high | ●●● | ⬜ |
+| N4 | **"My stack" profile.** Choose the products you care about once; every page filters to them. `localStorage` only, no backend. Subsumes D2 | High | ●●○ | ⬜ |
+| N5 | **Executive one-pager.** A single screen built to be screenshotted into a slide: what slipped, what is overdue, what is about to retire. Print stylesheet so it exports cleanly to PDF | High | ●●○ | ⬜ |
+| N6 | **Weekly narrative, auto-written.** Template-generated prose — "Microsoft moved 12 dates this week; the largest was…". No LLM: deterministic text from the archive, so it can never invent a fact | High | ●●○ | ⬜ |
+| N7 | **Embeddable widget.** A script or iframe others can drop into an intranet page showing their products' roadmap health. Distribution that arrives on someone else's site | Medium | ●●○ | ⬜ |
+| N8 | **Full description history.** Keep every version of an item's description, not only the trailing note — a wayback for the roadmap text itself | Medium | ●●○ | ⬜ |
+| N9 | **Performance budget in CI.** Fail the build if first-paint JS grows past a threshold. The bundle is 165 kB today and there is nothing stopping it drifting | Medium | ●○○ | ⬜ |
+| N10 | **Accessibility audit + keyboard shortcuts.** ADR 0002 commits to touch targets and non-colour-only meaning; nothing verifies either automatically | Medium | ●●○ | ⬜ |
+| N11 | **Team correlation.** Which Microsoft product groups slip together? A Purview slip predicting a Teams slip would be a genuinely novel finding | Medium | ●●● | ⬜ |
+| N12 | **French and Dutch translations.** The audience is largely Belgian; the site is English-only. Real cost: every UI string doubles as a maintenance surface | Low | ●●○ | ⬜ |
+
+
 ---
 
 ## Suggested order
 
-1. **J1** — makes the project useful daily rather than on visits.
-2. **F2** — free reach; the files are already public.
-3. **H1** — Ignite is in November; the Build cohort wants recording first.
-4. Let the archive accumulate, then **B1**.
+1. **N1 (calendar feed)** — the most useful thing on this list for the people
+   who actually read the site, and it is an afternoon.
+2. **N2 (tenant filter)** — the data is already captured; it just is not offered.
+3. **J1** — makes the project useful daily rather than on visits.
+4. **F2** — free reach; the files are already public.
+5. **H1** — Ignite is in November; the Build cohort wants recording first.
+6. Let the archive accumulate, then **B1**.
 
 ## Not doing
 
