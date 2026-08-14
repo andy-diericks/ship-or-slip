@@ -30,6 +30,7 @@ timelines.json        per-item change history, only for items that ever moved
 current/m365.json     running snapshot, the baseline the next diff compares against
 current/azure.json
 feed.xml              Atom feed of the notable events
+calendar.ics          iCalendar of the dated Azure retirements
 ```
 
 **The feed is generated here, not at build time.** A feed rebuilt only when the
@@ -54,6 +55,33 @@ and the two cannot drift.
 `timelines.json` holds only items with at least one recorded event, so it stays
 proportional to the interesting part of the data rather than to the ~1,800
 roadmap items that mostly sit still.
+
+### `calendar.ics`
+
+The calendar carries **only dated Azure retirements** — nine of them today. It
+is the one class of item on the site with a real deadline attached: a roadmap
+month is a hope, a retirement date is the day something stops working. Rollout
+months are deliberately excluded, because putting ~1,800 aspirational
+month-precision entries into someone's calendar would make the subscription
+useless within a week.
+
+Like the feed, it is **derived on every run, never appended to**. Each event's
+`UID` is `<item id>@ship-or-slip`, stable for the life of the item, so a
+retirement whose date moves updates in place in every subscriber's calendar
+rather than leaving a stale entry sitting beside a corrected one. That stability
+is the whole reason the UID is built from the source id and not from anything
+that can change.
+
+Entries are all-day `VALUE=DATE` events with an exclusive `DTEND` (RFC 5545 —
+the day *after* the retirement), and `TRANSP:TRANSPARENT` so a subscription
+never marks anyone busy. `X-PUBLISHED-TTL` and `REFRESH-INTERVAL` are both six
+hours, matching the pipeline's cadence; a client that polls faster only wastes
+its own requests.
+
+The same `text/plain` caveat as the feed applies, and matters less: calendar
+clients fetch by URL and parse by content. The site offers the link as
+`webcal:` so a click subscribes instead of downloading a copy that never
+updates again.
 
 ## What is tracked, and what "changed" means
 

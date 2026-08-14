@@ -15,6 +15,8 @@ import { buildFeed } from './feed.mjs';
 import { computeOverdue, summariseOverdue } from './overdue.mjs';
 import { findContradictions, summariseContradictions } from './contradictions.mjs';
 import { appendRun, summariseRuns } from './runs.mjs';
+import { buildCalendar } from './ics.mjs';
+import { sourceLink } from './links.mjs';
 
 /** How much history the dashboard's single request covers. */
 export const RECENT_DAYS = 90;
@@ -204,6 +206,29 @@ export function writeIndex(dir, { sources, totals, warnings, generated, overdue,
 export const SITE_URL = 'https://andy-diericks.github.io/ship-or-slip/';
 export const FEED_URL =
   'https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml';
+export const CALENDAR_URL =
+  'https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/calendar.ics';
+
+/**
+ * Write the calendar of dated retirements.
+ *
+ * Derived on every run like the feed, so an item whose retirement date moves
+ * updates in every subscriber's calendar rather than leaving a stale entry
+ * beside a corrected one.
+ */
+export function writeCalendar(dir, snapshots, generated) {
+  const items = Object.values(snapshots ?? {}).flat();
+  const ics = buildCalendar({
+    items,
+    generated,
+    siteUrl: SITE_URL,
+    link: (item) => sourceLink(item.id, item.source),
+  });
+  const file = path.join(dir, 'calendar.ics');
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, ics);
+  return items.filter((i) => i?.kind === 'retirement' && i.date).length;
+}
 
 /**
  * Write the Atom feed.

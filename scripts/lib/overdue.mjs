@@ -59,6 +59,11 @@ export function computeOverdue(items, nowMonth) {
       status: i.status ?? null,
       monthsLate: monthsBetween(i.date, nowMonth) ?? 0,
       note: i.note ?? null,
+      // Carried so a reader can ask "does this affect *my* tenant?". The
+      // fields were already captured for scope-cut detection and were
+      // otherwise going unused by the registers.
+      clouds: i.clouds?.length ? i.clouds : null,
+      platforms: i.platforms?.length ? i.platforms : null,
     }))
     .sort((a, b) => b.monthsLate - a.monthsLate || a.title.localeCompare(b.title));
 }

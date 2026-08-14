@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
 import type { ChangeEvent, DataIndex, EventType, Timeline } from './lib/types';
-import { loadDashboard, FEED_URL } from './lib/data';
+import { loadDashboard, FEED_URL, CALENDAR_URL, CALENDAR_WEBCAL } from './lib/data';
 import { applyFilters, queryToFilters, filtersToQuery, toggleFacet } from './lib/filters';
 import type { Filters } from './lib/filters';
 import { useRoute } from './lib/useRoute';
@@ -270,6 +270,13 @@ export default function App() {
           Atom feed
         </a>
         {' · '}
+        {/* webcal: so a click subscribes rather than downloading a copy that
+            never updates. The https: link is there for anyone whose calendar
+            wants a plain URL to paste. */}
+        <a href={CALENDAR_WEBCAL}>retirement calendar</a>
+        {' ('}
+        <a href={CALENDAR_URL} target="_blank" rel="noreferrer">.ics</a>
+        {') · '}
         <a href="https://github.com/andy-diericks/ship-or-slip" target="_blank" rel="noreferrer">
           source on GitHub
         </a>

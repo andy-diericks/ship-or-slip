@@ -7,7 +7,7 @@ import { featureId } from '../../scripts/lib/links.mjs';
 import { RowDetails } from './RowDetails';
 import { RegisterFilterBar } from './RegisterFilterBar';
 import {
-  applyRegisterFilter, registerProducts, EMPTY_REGISTER_FILTER,
+  applyRegisterFilter, registerProducts, registerFacet, EMPTY_REGISTER_FILTER,
 } from '../lib/registerFilter';
 import type { RegisterFilter } from '../lib/registerFilter';
 
@@ -117,6 +117,8 @@ export function ContradictionsPage({
               statuses={[]}
               resultCount={applyRegisterFilter(items, filter).length}
               totalCount={items.length}
+              clouds={registerFacet(items, 'clouds')}
+              platforms={registerFacet(items, 'platforms')}
               searchLabel="Search contradictions…"
             />
           )}

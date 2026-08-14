@@ -96,6 +96,8 @@ export function findContradictions(items, nowMonth) {
       source: item.source,
       products: item.products ?? [],
       note: item.note ?? null,
+      clouds: item.clouds?.length ? item.clouds : null,
+      platforms: item.platforms?.length ? item.platforms : null,
       ...verdict,
     });
   }

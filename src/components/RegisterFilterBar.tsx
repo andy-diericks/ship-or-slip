@@ -14,6 +14,8 @@ export function RegisterFilterBar({
   onChange,
   products,
   statuses,
+  clouds = [],
+  platforms = [],
   resultCount,
   totalCount,
   searchLabel,
@@ -22,6 +24,8 @@ export function RegisterFilterBar({
   onChange: (next: RegisterFilter) => void;
   products: string[];
   statuses: [string, number][];
+  clouds?: string[];
+  platforms?: string[];
   resultCount: number;
   totalCount: number;
   searchLabel: string;
@@ -51,6 +55,42 @@ export function RegisterFilterBar({
               onClick={() => set({ status: filter.status === status ? null : status })}
             >
               {status} ({count})
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* The tenant facets lead, because "does this affect me?" is asked before
+          "which product is it?" by anyone who runs an estate. */}
+      {clouds.length > 1 && (
+        <div className="filters__row">
+          <span className="filters__legend">Cloud</span>
+          {clouds.map((cloud) => (
+            <button
+              key={cloud}
+              type="button"
+              className="chip"
+              aria-pressed={filter.clouds.includes(cloud)}
+              onClick={() => set({ clouds: toggleProduct(filter.clouds, cloud) })}
+            >
+              {cloud}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {platforms.length > 1 && (
+        <div className="filters__row">
+          <span className="filters__legend">Platform</span>
+          {platforms.map((platform) => (
+            <button
+              key={platform}
+              type="button"
+              className="chip"
+              aria-pressed={filter.platforms.includes(platform)}
+              onClick={() => set({ platforms: toggleProduct(filter.platforms, platform) })}
+            >
+              {platform}
             </button>
           ))}
         </div>

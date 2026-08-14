@@ -595,3 +595,47 @@ Three layers, weakest threat last.
   `status`, so they would have filtered nothing. Removed — the kind tiles
   already serve as the category view, and a chip that does nothing is worse
   than no chip. The bar only appears on that register above eight rows anyway.
+
+## 2026-08-14 — N1, N2: the calendar and the tenant filter
+
+- **N1, the retirement calendar.** `calendar.ics` on the data branch, written
+  every run alongside `feed.xml`, offered from the README and the site footer
+  over `webcal:` so a click subscribes rather than downloading a copy that
+  never updates again.
+  - **Only dated Azure retirements** — nine of them. Rollout months were the
+    obvious thing to include and the wrong one: ~1,800 month-precision entries
+    that mean "we hope" would make the subscription useless inside a week. A
+    retirement date is the one thing here with a real deadline behind it.
+  - `UID` is `<item id>@ship-or-slip`, stable for the life of the item, and
+    the file is **derived every run, never appended to**. A retirement whose
+    date moves therefore moves *in place* in the subscriber's calendar. The
+    alternative — a corrected entry sitting next to the stale one it replaced —
+    would be this project reproducing the exact failure it documents.
+  - All-day `VALUE=DATE` events with an exclusive `DTEND` per RFC 5545, and
+    `TRANSP:TRANSPARENT`, so subscribing never marks anyone busy.
+  - **Line folding is measured in octets, not characters.** RFC 5545 says 75
+    octets; the titles carry em-dashes, and folding on character count would
+    have split a multi-byte character down the middle and produced a file some
+    parsers reject and others render as mojibake. `foldLine` walks back off
+    UTF-8 continuation bytes before cutting. Verified on the real output: max
+    physical line 75 octets, 109 logical lines, balanced BEGIN/END, 9 unique
+    UIDs, CRLF throughout.
+
+- **N2, the tenant filter.** Cloud and platform chips on both registers.
+  `clouds` and `platforms` were already captured on every item and used only
+  for scope-cut detection — the data was there, it just was not offered.
+  - The tenant chips render **above** the product chips. Anyone running an
+    estate asks "does this affect me?" before "which product is it?", and the
+    order of the rows should answer in that order.
+  - **An item with no recorded clouds is kept, not hidden.** Microsoft leaving
+    the field blank is not evidence the item excludes your cloud. Filtering it
+    out would quietly narrow the register on missing data, which is the
+    opposite of what a tenant filter is for — its whole job is to be sure you
+    see everything that touches you. There is a test pinning this.
+  - Live shape, from a real run: 550 overdue rows, all 550 carrying clouds
+    (Worldwide 499, GCC 162, GCC High 142, DoD 131) and 549 carrying platforms
+    across nine values.
+
+- Both verified end to end against a fresh clone of the `data` branch rather
+  than fixtures: 1 real event, `calendar.ics` written, the tenant fields
+  materialised in both registers. 398 tests, lint, typecheck and build green.

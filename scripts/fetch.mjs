@@ -26,7 +26,7 @@ import { detectAnomaly } from './lib/anomaly.mjs';
 import {
   readSnapshot, writeSnapshot, appendEvents, rebuildRecent,
   updateTimelines, writeIndex, countByType, writeFeed, readIndex, writeOverdue,
-  writeContradictions, recordRun,
+  writeContradictions, recordRun, writeCalendar,
 } from './lib/store.mjs';
 
 const args = process.argv.slice(2);
@@ -202,6 +202,7 @@ async function main() {
   writeFeed(DATA_DIR, recent, ts);
   const overdue = writeOverdue(DATA_DIR, snapshots, ts);
   const contradictions = writeContradictions(DATA_DIR, snapshots, ts);
+  const calendarEvents = writeCalendar(DATA_DIR, snapshots, ts);
   // Recorded before the index so the health page can never show a run that
   // is missing from its own history.
   const runs = recordRun(DATA_DIR, {
@@ -230,6 +231,7 @@ async function main() {
     `contradictions: ${contradictions.count} item(s) whose own record disagrees with itself ` +
     `${JSON.stringify(contradictions.byKind)}`,
   );
+  console.log(`calendar: ${calendarEvents} dated retirement(s)`);
 
   console.log(`\nWrote ${DATA_DIR} — ${allEvents.length} new event(s), ${recent.length} in recent feed.`);
   for (const w of warnings) console.warn(`  warning: ${w}`);

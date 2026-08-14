@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
-  applyRegisterFilter, registerProducts, hasRegisterFilter, toggleProduct,
+  applyRegisterFilter, registerProducts, registerFacet, hasRegisterFilter, toggleProduct,
   EMPTY_REGISTER_FILTER,
 } from './registerFilter';
 
@@ -71,6 +71,103 @@ describe('applyRegisterFilter', () => {
 
   it('handles an empty or missing list', () => {
     expect(applyRegisterFilter([], EMPTY_REGISTER_FILTER)).toEqual([]);
+  });
+});
+
+describe('the tenant facets', () => {
+  const tenanted = [
+    { title: 'GCC High only', products: ['Teams'], clouds: ['GCC High'], platforms: ['Web'] },
+    {
+      title: 'Everywhere',
+      products: ['Teams'],
+      clouds: ['Worldwide (Standard Multi-Tenant)', 'GCC', 'GCC High', 'DoD'],
+      platforms: ['Web', 'Desktop', 'iOS'],
+    },
+    { title: 'Commercial only', products: ['Outlook'], clouds: ['Worldwide (Standard Multi-Tenant)'], platforms: ['Desktop'] },
+    { title: 'Unrecorded', products: ['Word'] },
+  ];
+
+  it('keeps only the items in the selected cloud', () => {
+    const out = applyRegisterFilter(tenanted, { ...EMPTY_REGISTER_FILTER, clouds: ['GCC High'] });
+    expect(out.map((r) => r.title)).toEqual(['GCC High only', 'Everywhere', 'Unrecorded']);
+  });
+
+  it('keeps an item with no recorded clouds, because silence is not exclusion', () => {
+    // The point of the filter is to be sure you see everything that touches
+    // you. Dropping an item because Microsoft left the field blank would do
+    // the opposite, quietly.
+    const out = applyRegisterFilter(tenanted, { ...EMPTY_REGISTER_FILTER, clouds: ['DoD'] });
+    expect(out.map((r) => r.title)).toContain('Unrecorded');
+  });
+
+  it('treats several clouds as OR', () => {
+    const out = applyRegisterFilter(tenanted, {
+      ...EMPTY_REGISTER_FILTER,
+      clouds: ['GCC', 'DoD'],
+    });
+    expect(out.map((r) => r.title)).toEqual(['Everywhere', 'Unrecorded']);
+  });
+
+  it('filters by platform', () => {
+    const out = applyRegisterFilter(tenanted, { ...EMPTY_REGISTER_FILTER, platforms: ['iOS'] });
+    expect(out.map((r) => r.title)).toEqual(['Everywhere', 'Unrecorded']);
+  });
+
+  it('ANDs cloud against platform', () => {
+    const out = applyRegisterFilter(tenanted, {
+      ...EMPTY_REGISTER_FILTER,
+      clouds: ['GCC High'],
+      platforms: ['Desktop'],
+    });
+    expect(out.map((r) => r.title)).toEqual(['Everywhere', 'Unrecorded']);
+  });
+
+  it('ANDs the tenant facets against the others', () => {
+    const out = applyRegisterFilter(tenanted, {
+      ...EMPTY_REGISTER_FILTER,
+      clouds: ['GCC High'],
+      products: ['Outlook'],
+    });
+    expect(out).toEqual([]);
+  });
+
+  it('notices the tenant facets as active filters', () => {
+    expect(hasRegisterFilter({ ...EMPTY_REGISTER_FILTER, clouds: ['DoD'] })).toBe(true);
+    expect(hasRegisterFilter({ ...EMPTY_REGISTER_FILTER, platforms: ['Web'] })).toBe(true);
+  });
+});
+
+describe('registerFacet', () => {
+  const tenanted = [
+    { title: 'a', products: [], clouds: ['GCC', 'DoD'], platforms: ['Web'] },
+    { title: 'b', products: [], clouds: ['GCC'], platforms: ['Web', 'Mac'] },
+    { title: 'c', products: [] },
+  ];
+
+  it('ranks by frequency', () => {
+    expect(registerFacet(tenanted, 'clouds')).toEqual(['GCC', 'DoD']);
+    expect(registerFacet(tenanted, 'platforms')).toEqual(['Web', 'Mac']);
+  });
+
+  it('breaks ties alphabetically, so the chip order is stable run to run', () => {
+    const tied = [
+      { title: 'a', products: [], clouds: ['Worldwide (Standard Multi-Tenant)'] },
+      { title: 'b', products: [], clouds: ['GCC'] },
+    ];
+    expect(registerFacet(tied, 'clouds')).toEqual(['GCC', 'Worldwide (Standard Multi-Tenant)']);
+  });
+
+  it('is unlimited, unlike the product list — there are four clouds, not thirty-two', () => {
+    const many = Array.from({ length: 20 }, (_, i) => ({
+      title: `row ${i}`, products: [], clouds: [`cloud ${i}`],
+    }));
+    expect(registerFacet(many, 'clouds')).toHaveLength(20);
+  });
+
+  it('handles rows that never recorded the facet', () => {
+    expect(registerFacet([{ title: 'a', products: [] }], 'clouds')).toEqual([]);
+    expect(registerFacet([{ title: 'a', products: [], clouds: null }], 'clouds')).toEqual([]);
+    expect(registerFacet([], 'platforms')).toEqual([]);
   });
 });
 

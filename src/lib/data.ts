@@ -24,6 +24,15 @@ export const DATA_BASE: string =
  */
 export const FEED_URL = `${DEFAULT_BASE}/feed.xml`;
 
+/**
+ * The retirement calendar, for the same reason.
+ *
+ * Offered over `webcal:` as well as `https:` in the UI — the scheme is what
+ * makes a desktop calendar subscribe rather than download a dead copy.
+ */
+export const CALENDAR_URL = `${DEFAULT_BASE}/calendar.ics`;
+export const CALENDAR_WEBCAL = CALENDAR_URL.replace(/^https:/, 'webcal:');
+
 async function getJson<T>(path: string, signal?: AbortSignal): Promise<T> {
   const response = await fetch(`${DATA_BASE}/${path}`, { signal });
   if (!response.ok) throw new Error(`Could not load ${path} (HTTP ${response.status})`);

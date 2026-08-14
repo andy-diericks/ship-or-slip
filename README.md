@@ -31,6 +31,12 @@ checked every six hours.
 **📡 Atom feed:** [slips, scope cuts and cancellations](https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml)
 — notable changes only, no routine announcements.
 
+**📅 Retirement calendar:** [subscribe](webcal://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/calendar.ics)
+— every dated Azure retirement as an all-day event, rewritten every run so a
+date that moves moves in your calendar too. If your client wants a plain URL to
+paste, use the
+[`https:` form](https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/calendar.ics).
+
 ## How it works
 
 There is no backend. Two public feeds go in, a diff comes out, a static page

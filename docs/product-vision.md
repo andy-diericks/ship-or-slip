@@ -25,6 +25,8 @@ busier is not on this list.
 
 | ID | Feature | Impact | Cx | Status |
 |---|---|---|---|---|
+| N1 | **Calendar feed (`.ics`).** The 9 dated Azure retirements as all-day events, subscribable in Outlook over `webcal:`. Rewritten every run with a stable UID per item, so a retirement whose date moves moves in the subscriber's calendar instead of duplicating. Rollout months are excluded on purpose — 1,800 aspirational entries would make the subscription useless | Very high | ●○○ | ✅ |
+| N2 | **Tenant filter.** Cloud (Worldwide / GCC / GCC High / DoD) and platform chips on both registers, above the product chips — "does this affect me?" is asked before "which product is it?". An item with no recorded clouds is kept, not hidden: silence is not exclusion | Very high | ●○○ | ✅ |
 | L1 | **Overdue register.** 578 items past their promised date, 347 still "in development", worst 28 months late. Needs no history — the strongest page on the site | Very high | ●●○ | ✅ |
 | M1 | **Register counts in the run log.** The registers are derived and overwritten each run, so this series is the only place their history survives. Surfaced as an "overdue over time" table on the health page; readings from before it existed are omitted rather than shown as zero | Very high | ●○○ | ✅ |
 | M3 | **Search and product filter on the registers.** 555 overdue rows across 32 products; shared filter logic, same shapes as the main feed | High | ●○○ | ✅ |
@@ -95,8 +97,6 @@ useful? Anything that only adds surface area is still excluded.*
 
 | ID | Feature | Impact | Cx | Status |
 |---|---|---|---|---|
-| N1 | **Calendar feed (`.ics`).** Subscribe in Outlook to upcoming rollout and retirement dates. A static file the pipeline writes, exactly like `feed.xml` — and the single most *useful* thing for the audience this site actually has: people who run Microsoft estates and need retirements in their calendar | Very high | ●○○ | ⬜ |
-| N2 | **Tenant filter.** Pick your cloud (Worldwide / GCC / GCC High / DoD) and platforms, see only what affects you. `clouds` and `platforms` are already captured on every item and used only for scope-cut detection today | Very high | ●○○ | ⬜ |
 | N3 | **Multi-vendor punctuality index.** Track Google Workspace, Slack and Atlassian release notes alongside Microsoft and answer "who actually ships on time?". This changes the category of the product — from a Microsoft tracker to a benchmark nobody publishes. ⚠ Needs a captured sample per feed: those hosts are unreachable from the dev environment, though GitHub runners can fetch them fine | Very high | ●●● | ⬜ |
 | N4 | **"My stack" profile.** Choose the products you care about once; every page filters to them. `localStorage` only, no backend. Subsumes D2 | High | ●●○ | ⬜ |
 | N5 | **Executive one-pager.** A single screen built to be screenshotted into a slide: what slipped, what is overdue, what is about to retire. Print stylesheet so it exports cleanly to PDF | High | ●●○ | ⬜ |
@@ -113,11 +113,13 @@ useful? Anything that only adds surface area is still excluded.*
 
 ## Suggested order
 
-1. **N1 (calendar feed)** — the most useful thing on this list for the people
-   who actually read the site, and it is an afternoon.
-2. **N2 (tenant filter)** — the data is already captured; it just is not offered.
-3. **J1** — makes the project useful daily rather than on visits.
-4. **F2** — free reach; the files are already public.
+1. **M2 (retiring soon)** — the calendar now carries the same nine retirements,
+   so the on-site countdown is mostly presentation over data that is already
+   derived. Cheap, and it closes the loop N1 opened.
+2. **J1** — makes the project useful daily rather than on visits.
+3. **F2** — free reach; the files are already public.
+4. **N4 ("my stack" profile)** — the register facets exist now; remembering the
+   choice across pages and visits is the remaining step.
 5. **H1** — Ignite is in November; the Build cohort wants recording first.
 6. Let the archive accumulate, then **B1**.
 

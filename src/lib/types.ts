@@ -120,6 +120,8 @@ export interface OverdueItem {
   status: string | null;
   monthsLate: number;
   note: UpdateNote | null;
+  clouds?: string[] | null;
+  platforms?: string[] | null;
 }
 
 export interface OverdueSummary {
@@ -148,6 +150,8 @@ export interface Contradiction {
   claim: string;
   evidence: string;
   note: UpdateNote | null;
+  clouds?: string[] | null;
+  platforms?: string[] | null;
 }
 
 export const CONTRADICTION_LABELS: Record<Contradiction['kind'], string> = {
