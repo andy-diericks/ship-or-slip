@@ -5,7 +5,15 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-08-18T23:37:18.637Z</updated>
+  <updated>2026-08-19T17:37:22.001Z</updated>
+  <entry>
+    <title>Retirement moved -31 days — Retirement: Azure VMware Solution AV36 Node Retirement now on August 30, 2027</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A503883?t=retirement_moved&amp;at=2026-08-19T17:37:22.001Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A503883"/>
+    <updated>2026-08-19T17:37:22.001Z</updated>
+    <summary>2027-09-30 → 2027-08-30 · Compute, Azure VMware Solution · Azure · ID 503883</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=503883"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Teams: Updated header and dashboard for chats and channels on mobile</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567461?t=slipped&amp;at=2026-08-18T23:37:18.637Z</id>
@@ -397,13 +405,5 @@
     <updated>2026-08-11T23:37:21.687Z</updated>
     <summary>2026-07 → 2026-08 · Microsoft 365 app, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 562351</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562351"/>
-  </entry>
-  <entry>
-    <title>Slipped +6 months — Microsoft Purview: Data Loss Prevention - Count of Labelled Documents Condition</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562342?t=slipped&amp;at=2026-08-11T23:37:21.687Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562342"/>
-    <updated>2026-08-11T23:37:21.687Z</updated>
-    <summary>2026-06 → 2026-12 · Microsoft Purview · Microsoft 365 · ID 562342</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562342"/>
   </entry>
 </feed>
