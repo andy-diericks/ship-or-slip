@@ -1,0 +1,33 @@
+{
+  "version": "2022-12-01",
+  "channel": "stable",
+  "title": "Azure OpenAI Service API",
+  "specVersion": "2022-12-01",
+  "dialect": "3.0.0",
+  "operations": {
+    "POST /deployments/{deployment-id}/completions": {
+      "operationId": "Completions_Create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    },
+    "POST /deployments/{deployment-id}/embeddings": {
+      "operationId": "embeddings_create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    }
+  },
+  "schemas": {
+    "errorResponse": {
+      "required": [],
+      "properties": [
+        "error"
+      ],
+      "enums": {}
+    }
+  },
+  "file": "inference.json"
+}

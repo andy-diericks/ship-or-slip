@@ -1,0 +1,100 @@
+{
+  "generated": "2026-08-19T19:33:23.072Z",
+  "summary": {
+    "tracked": 6,
+    "changesThisRun": 0,
+    "freshnessOnly": 0
+  },
+  "docs": [
+    {
+      "path": "articles/foundry-classic/openai/concepts/assistants.md",
+      "title": "Azure OpenAI in Microsoft Foundry Models Assistants API concepts (classic)",
+      "msDate": "2025-09-24",
+      "hash": "24d54f8011d298b9",
+      "bytes": 10181,
+      "resolvedBytes": 10488,
+      "includes": [
+        "articles/foundry-classic/includes/classic-banner.md",
+        "articles/foundry-classic/includes/classic-links.md",
+        "articles/foundry-classic/openai/includes/agent-service.md"
+      ],
+      "missingIncludes": []
+    },
+    {
+      "path": "articles/foundry-classic/openai/how-to/assistant.md",
+      "title": "How to create Assistants with Azure OpenAI in Microsoft Foundry Models (classic)",
+      "msDate": "2026-02-17",
+      "hash": "60e529b963787f93",
+      "bytes": 33000,
+      "resolvedBytes": 33261,
+      "includes": [
+        "articles/foundry-classic/includes/classic-banner.md",
+        "articles/foundry-classic/includes/classic-links.md",
+        "articles/foundry-classic/openai/includes/agent-service.md"
+      ],
+      "missingIncludes": []
+    },
+    {
+      "path": "articles/foundry/agents/quickstarts/responses-api.md",
+      "title": "Quickstart: Build agents using the Responses API",
+      "msDate": "2026-07-07",
+      "hash": "5721f2cd58607fc1",
+      "bytes": 19412,
+      "resolvedBytes": 18773,
+      "includes": [],
+      "missingIncludes": []
+    },
+    {
+      "path": "articles/foundry/openai/how-to/batch.md",
+      "title": "How to use global batch processing with Azure OpenAI in Microsoft Foundry Models",
+      "msDate": "2026-05-13",
+      "hash": "417fe899bce8bbf2",
+      "bytes": 594,
+      "resolvedBytes": 95897,
+      "includes": [
+        "articles/foundry/openai/includes/how-to-batch-content.md",
+        "articles/foundry/openai/includes/model-matrix/global-batch.md",
+        "articles/foundry/openai/includes/model-matrix/global-batch-datazone.md",
+        "articles/foundry/openai/includes/batch/batch-studio.md",
+        "articles/foundry/includes/foundry-sign-in.md",
+        "articles/foundry/includes/foundry-link.md",
+        "articles/foundry/openai/includes/batch/batch-python.md",
+        "articles/foundry/openai/includes/batch/~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md",
+        "articles/foundry/openai/includes/batch/batch-rest.md",
+        "articles/foundry/openai/includes/batch/~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md",
+        "articles/foundry/openai/includes/global-batch-limits.md"
+      ],
+      "missingIncludes": [
+        "articles/foundry/openai/includes/batch/~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md"
+      ]
+    },
+    {
+      "path": "articles/foundry/openai/how-to/chatgpt.md",
+      "title": "Work with chat completion models",
+      "msDate": "2026-08-06",
+      "hash": "4e645afa50d5d35b",
+      "bytes": 2966,
+      "resolvedBytes": 45438,
+      "includes": [
+        "articles/foundry/openai/includes/how-to-chatgpt-1.md",
+        "articles/foundry/openai/includes/chat-completion-python.md",
+        "articles/foundry/openai/includes/chat-completion-dotnet.md"
+      ],
+      "missingIncludes": []
+    },
+    {
+      "path": "articles/foundry/openai/how-to/responses.md",
+      "title": "Use the Azure OpenAI Responses API",
+      "msDate": "2026-08-18",
+      "hash": "87dd2d4a77154bcf",
+      "bytes": 581,
+      "resolvedBytes": 138276,
+      "includes": [
+        "articles/foundry/openai/includes/how-to-responses-content.md"
+      ],
+      "missingIncludes": []
+    }
+  ],
+  "changes": [],
+  "warnings": []
+}

@@ -1,0 +1,284 @@
+{
+  "version": "2023-08-01-preview",
+  "channel": "preview",
+  "title": "Azure OpenAI Service API",
+  "specVersion": "2023-08-01-preview",
+  "dialect": "3.0.0",
+  "operations": {
+    "POST /deployments/{deployment-id}/completions": {
+      "operationId": "Completions_Create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    },
+    "POST /deployments/{deployment-id}/embeddings": {
+      "operationId": "embeddings_create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    },
+    "POST /deployments/{deployment-id}/chat/completions": {
+      "operationId": "ChatCompletions_Create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    },
+    "POST /deployments/{deployment-id}/extensions/chat/completions": {
+      "operationId": "ExtensionsChatCompletions_Create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    }
+  },
+  "schemas": {
+    "errorResponse": {
+      "required": [],
+      "properties": [
+        "error"
+      ],
+      "enums": {}
+    },
+    "errorBase": {
+      "required": [],
+      "properties": [
+        "code",
+        "message"
+      ],
+      "enums": {}
+    },
+    "error": {
+      "required": [],
+      "properties": [
+        "code",
+        "inner_error",
+        "message",
+        "param",
+        "type"
+      ],
+      "enums": {}
+    },
+    "innerError": {
+      "required": [],
+      "properties": [
+        "code",
+        "content_filter_results"
+      ],
+      "enums": {}
+    },
+    "innerErrorCode": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "ResponsibleAIPolicyViolation"
+        ]
+      }
+    },
+    "contentFilterResult": {
+      "required": [
+        "filtered",
+        "severity"
+      ],
+      "properties": [
+        "filtered",
+        "severity"
+      ],
+      "enums": {
+        "severity": [
+          "high",
+          "low",
+          "medium",
+          "safe"
+        ]
+      }
+    },
+    "contentFilterResults": {
+      "required": [],
+      "properties": [
+        "error",
+        "hate",
+        "self_harm",
+        "sexual",
+        "violence"
+      ],
+      "enums": {}
+    },
+    "promptFilterResult": {
+      "required": [],
+      "properties": [
+        "content_filter_results",
+        "prompt_index"
+      ],
+      "enums": {}
+    },
+    "promptFilterResults": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionsRequestCommon": {
+      "required": [],
+      "properties": [
+        "frequency_penalty",
+        "logit_bias",
+        "max_tokens",
+        "presence_penalty",
+        "stop",
+        "stream",
+        "temperature",
+        "top_p",
+        "user"
+      ],
+      "enums": {}
+    },
+    "createChatCompletionRequest": {
+      "required": [
+        "messages"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionFunctions": {
+      "required": [
+        "name"
+      ],
+      "properties": [
+        "description",
+        "name",
+        "parameters"
+      ],
+      "enums": {}
+    },
+    "chatCompletionFunctionParameters": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionRequestMessage": {
+      "required": [
+        "role"
+      ],
+      "properties": [
+        "content",
+        "function_call",
+        "name",
+        "role"
+      ],
+      "enums": {
+        "role": [
+          "assistant",
+          "function",
+          "system",
+          "user"
+        ]
+      }
+    },
+    "createChatCompletionResponse": {
+      "required": [
+        "choices",
+        "created",
+        "id",
+        "model",
+        "object"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionResponseMessage": {
+      "required": [
+        "role"
+      ],
+      "properties": [
+        "content",
+        "function_call",
+        "role"
+      ],
+      "enums": {
+        "role": [
+          "assistant",
+          "function",
+          "system",
+          "user"
+        ]
+      }
+    },
+    "extensionsChatCompletionsRequest": {
+      "required": [
+        "messages"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "dataSource": {
+      "required": [
+        "type"
+      ],
+      "properties": [
+        "parameters",
+        "type"
+      ],
+      "enums": {}
+    },
+    "message": {
+      "required": [
+        "content",
+        "role"
+      ],
+      "properties": [
+        "content",
+        "context",
+        "end_turn",
+        "index",
+        "recipient",
+        "role"
+      ],
+      "enums": {
+        "role": [
+          "assistant",
+          "system",
+          "tool",
+          "user"
+        ]
+      }
+    },
+    "chatCompletionsResponseCommon": {
+      "required": [
+        "created",
+        "id",
+        "model",
+        "object"
+      ],
+      "properties": [
+        "created",
+        "id",
+        "model",
+        "object",
+        "usage"
+      ],
+      "enums": {}
+    },
+    "chatCompletionChoiceCommon": {
+      "required": [],
+      "properties": [
+        "finish_reason",
+        "index"
+      ],
+      "enums": {}
+    },
+    "extensionsChatCompletionChoice": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "extensionsChatCompletionsResponse": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    }
+  },
+  "file": "inference.json"
+}

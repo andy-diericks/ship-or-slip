@@ -1,0 +1,26 @@
+{
+  "version": "2022-03-01-preview",
+  "channel": "preview",
+  "title": "Azure OpenAI Service API",
+  "specVersion": "2022-03-01-preview",
+  "dialect": "3.0.0",
+  "operations": {
+    "POST /deployments/{deployment-id}/completions": {
+      "operationId": "completions_create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    }
+  },
+  "schemas": {
+    "errorResponse": {
+      "required": [],
+      "properties": [
+        "error"
+      ],
+      "enums": {}
+    }
+  },
+  "file": "inference.json"
+}

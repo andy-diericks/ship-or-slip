@@ -1,0 +1,2114 @@
+{
+  "version": "2024-03-01-preview",
+  "channel": "preview",
+  "title": "Azure OpenAI Service API",
+  "specVersion": "2024-03-01-preview",
+  "dialect": "3.0.0",
+  "operations": {
+    "POST /deployments/{deployment-id}/completions": {
+      "operationId": "Completions_Create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    },
+    "POST /deployments/{deployment-id}/embeddings": {
+      "operationId": "embeddings_create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    },
+    "POST /deployments/{deployment-id}/chat/completions": {
+      "operationId": "ChatCompletions_Create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    },
+    "POST /deployments/{deployment-id}/audio/transcriptions": {
+      "operationId": "Transcriptions_Create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    },
+    "POST /deployments/{deployment-id}/audio/translations": {
+      "operationId": "Translations_Create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    },
+    "POST /deployments/{deployment-id}/audio/speech": {
+      "operationId": "Speech_Create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    },
+    "POST /deployments/{deployment-id}/images/generations": {
+      "operationId": "ImageGenerations_Create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    },
+    "GET /assistants": {
+      "operationId": "List_Assistants",
+      "required": [
+        "api-version"
+      ]
+    },
+    "POST /assistants": {
+      "operationId": "Create_Assistant",
+      "required": [
+        "api-version"
+      ]
+    },
+    "GET /assistants/{assistant_id}": {
+      "operationId": "Get_Assistant",
+      "required": [
+        "api-version",
+        "assistant_id"
+      ]
+    },
+    "POST /assistants/{assistant_id}": {
+      "operationId": "Modify_Assistant",
+      "required": [
+        "api-version",
+        "assistant_id"
+      ]
+    },
+    "DELETE /assistants/{assistant_id}": {
+      "operationId": "Delete_Assistant",
+      "required": [
+        "api-version",
+        "assistant_id"
+      ]
+    },
+    "POST /threads": {
+      "operationId": "Create_Thread",
+      "required": [
+        "api-version"
+      ]
+    },
+    "GET /threads/{thread_id}": {
+      "operationId": "Get_Thread",
+      "required": [
+        "api-version",
+        "thread_id"
+      ]
+    },
+    "POST /threads/{thread_id}": {
+      "operationId": "Modify_Thread",
+      "required": [
+        "api-version",
+        "thread_id"
+      ]
+    },
+    "DELETE /threads/{thread_id}": {
+      "operationId": "Delete_Thread",
+      "required": [
+        "api-version",
+        "thread_id"
+      ]
+    },
+    "GET /threads/{thread_id}/messages": {
+      "operationId": "List_Messages",
+      "required": [
+        "api-version",
+        "thread_id"
+      ]
+    },
+    "POST /threads/{thread_id}/messages": {
+      "operationId": "Create_Message",
+      "required": [
+        "api-version",
+        "thread_id"
+      ]
+    },
+    "GET /threads/{thread_id}/messages/{message_id}": {
+      "operationId": "Get_Message",
+      "required": [
+        "api-version",
+        "message_id",
+        "thread_id"
+      ]
+    },
+    "POST /threads/{thread_id}/messages/{message_id}": {
+      "operationId": "Modify_Message",
+      "required": [
+        "api-version",
+        "message_id",
+        "thread_id"
+      ]
+    },
+    "POST /threads/runs": {
+      "operationId": "Create_Thread_And_Run",
+      "required": [
+        "api-version"
+      ]
+    },
+    "GET /threads/{thread_id}/runs": {
+      "operationId": "List_Runs",
+      "required": [
+        "api-version",
+        "thread_id"
+      ]
+    },
+    "POST /threads/{thread_id}/runs": {
+      "operationId": "Create_Run",
+      "required": [
+        "api-version",
+        "thread_id"
+      ]
+    },
+    "GET /threads/{thread_id}/runs/{run_id}": {
+      "operationId": "Get_Run",
+      "required": [
+        "api-version",
+        "run_id",
+        "thread_id"
+      ]
+    },
+    "POST /threads/{thread_id}/runs/{run_id}": {
+      "operationId": "Modify_Run",
+      "required": [
+        "api-version",
+        "run_id",
+        "thread_id"
+      ]
+    },
+    "POST /threads/{thread_id}/runs/{run_id}/submit_tool_outputs": {
+      "operationId": "Submit_Tool_Outputs_To_Run",
+      "required": [
+        "api-version",
+        "run_id",
+        "thread_id"
+      ]
+    },
+    "POST /threads/{thread_id}/runs/{run_id}/cancel": {
+      "operationId": "Cancel_Run",
+      "required": [
+        "api-version",
+        "run_id",
+        "thread_id"
+      ]
+    },
+    "GET /threads/{thread_id}/runs/{run_id}/steps": {
+      "operationId": "List_Run_Steps",
+      "required": [
+        "api-version",
+        "run_id",
+        "thread_id"
+      ]
+    },
+    "GET /threads/{thread_id}/runs/{run_id}/steps/{step_id}": {
+      "operationId": "Get_Run_Step",
+      "required": [
+        "api-version",
+        "run_id",
+        "step_id",
+        "thread_id"
+      ]
+    },
+    "GET /assistants/{assistant_id}/files": {
+      "operationId": "List_Assistant_Files",
+      "required": [
+        "api-version",
+        "assistant_id"
+      ]
+    },
+    "POST /assistants/{assistant_id}/files": {
+      "operationId": "Create_Assistant_File",
+      "required": [
+        "api-version",
+        "assistant_id"
+      ]
+    },
+    "GET /assistants/{assistant_id}/files/{file_id}": {
+      "operationId": "Get_Assistant_File",
+      "required": [
+        "api-version",
+        "assistant_id",
+        "file_id"
+      ]
+    },
+    "DELETE /assistants/{assistant_id}/files/{file_id}": {
+      "operationId": "Delete_Assistant_File",
+      "required": [
+        "api-version",
+        "assistant_id",
+        "file_id"
+      ]
+    },
+    "GET /threads/{thread_id}/messages/{message_id}/files": {
+      "operationId": "List_Message_Files",
+      "required": [
+        "api-version",
+        "message_id",
+        "thread_id"
+      ]
+    },
+    "GET /threads/{thread_id}/messages/{message_id}/files/{file_id}": {
+      "operationId": "Get_Message_File",
+      "required": [
+        "api-version",
+        "file_id",
+        "message_id",
+        "thread_id"
+      ]
+    }
+  },
+  "schemas": {
+    "errorResponse": {
+      "required": [],
+      "properties": [
+        "error"
+      ],
+      "enums": {}
+    },
+    "errorBase": {
+      "required": [],
+      "properties": [
+        "code",
+        "message"
+      ],
+      "enums": {}
+    },
+    "error": {
+      "required": [],
+      "properties": [
+        "inner_error",
+        "param",
+        "type"
+      ],
+      "enums": {}
+    },
+    "innerError": {
+      "required": [],
+      "properties": [
+        "code",
+        "content_filter_results"
+      ],
+      "enums": {}
+    },
+    "innerErrorCode": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "ResponsibleAIPolicyViolation"
+        ]
+      }
+    },
+    "dalleErrorResponse": {
+      "required": [],
+      "properties": [
+        "error"
+      ],
+      "enums": {}
+    },
+    "dalleError": {
+      "required": [],
+      "properties": [
+        "inner_error",
+        "param",
+        "type"
+      ],
+      "enums": {}
+    },
+    "dalleInnerError": {
+      "required": [],
+      "properties": [
+        "code",
+        "content_filter_results",
+        "revised_prompt"
+      ],
+      "enums": {}
+    },
+    "contentFilterResultBase": {
+      "required": [
+        "filtered"
+      ],
+      "properties": [
+        "filtered"
+      ],
+      "enums": {}
+    },
+    "contentFilterSeverityResult": {
+      "required": [
+        "filtered",
+        "severity"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "contentFilterDetectedResult": {
+      "required": [
+        "detected",
+        "filtered"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "contentFilterDetectedWithCitationResult": {
+      "required": [
+        "detected",
+        "filtered"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "contentFilterIdResult": {
+      "required": [
+        "filtered",
+        "id"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "contentFilterResultsBase": {
+      "required": [],
+      "properties": [
+        "custom_blocklists",
+        "error",
+        "hate",
+        "profanity",
+        "self_harm",
+        "sexual",
+        "violence"
+      ],
+      "enums": {}
+    },
+    "contentFilterPromptResults": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "contentFilterChoiceResults": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "promptFilterResult": {
+      "required": [],
+      "properties": [
+        "content_filter_results",
+        "prompt_index"
+      ],
+      "enums": {}
+    },
+    "promptFilterResults": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "dalleContentFilterResults": {
+      "required": [],
+      "properties": [
+        "hate",
+        "self_harm",
+        "sexual",
+        "violence"
+      ],
+      "enums": {}
+    },
+    "dalleFilterResults": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionsRequestCommon": {
+      "required": [],
+      "properties": [
+        "frequency_penalty",
+        "logit_bias",
+        "max_tokens",
+        "presence_penalty",
+        "stop",
+        "stream",
+        "temperature",
+        "top_p",
+        "user"
+      ],
+      "enums": {}
+    },
+    "createChatCompletionRequest": {
+      "required": [
+        "messages"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionResponseFormat": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "json_object",
+          "text"
+        ]
+      }
+    },
+    "chatCompletionFunction": {
+      "required": [
+        "name"
+      ],
+      "properties": [
+        "description",
+        "name",
+        "parameters"
+      ],
+      "enums": {}
+    },
+    "chatCompletionFunctionParameters": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionRequestMessage": {
+      "required": [
+        "role"
+      ],
+      "properties": [
+        "role"
+      ],
+      "enums": {}
+    },
+    "chatCompletionRequestMessageRole": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "assistant",
+          "function",
+          "system",
+          "tool",
+          "user"
+        ]
+      }
+    },
+    "chatCompletionRequestMessageSystem": {
+      "required": [
+        "content"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionRequestMessageUser": {
+      "required": [
+        "content"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionRequestMessageContentPart": {
+      "required": [
+        "type"
+      ],
+      "properties": [
+        "type"
+      ],
+      "enums": {}
+    },
+    "chatCompletionRequestMessageContentPartType": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "image_url",
+          "text"
+        ]
+      }
+    },
+    "chatCompletionRequestMessageContentPartText": {
+      "required": [
+        "text"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionRequestMessageContentPartImage": {
+      "required": [
+        "url"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "imageDetailLevel": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "auto",
+          "high",
+          "low"
+        ]
+      }
+    },
+    "chatCompletionRequestMessageAssistant": {
+      "required": [
+        "content"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "azureChatExtensionConfiguration": {
+      "required": [
+        "type"
+      ],
+      "properties": [
+        "type"
+      ],
+      "enums": {}
+    },
+    "azureChatExtensionType": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "azure_cosmos_db",
+          "azure_ml_index",
+          "azure_search",
+          "elasticsearch",
+          "pinecone"
+        ]
+      }
+    },
+    "azureSearchChatExtensionConfiguration": {
+      "required": [
+        "parameters"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "azureSearchChatExtensionParameters": {
+      "required": [
+        "authentication",
+        "endpoint",
+        "index_name"
+      ],
+      "properties": [
+        "authentication",
+        "embedding_dependency",
+        "endpoint",
+        "fields_mapping",
+        "filter",
+        "in_scope",
+        "index_name",
+        "query_type",
+        "role_information",
+        "semantic_configuration",
+        "strictness",
+        "top_n_documents"
+      ],
+      "enums": {}
+    },
+    "azureSearchIndexFieldMappingOptions": {
+      "required": [],
+      "properties": [
+        "content_fields",
+        "content_fields_separator",
+        "filepath_field",
+        "image_vector_fields",
+        "title_field",
+        "url_field",
+        "vector_fields"
+      ],
+      "enums": {}
+    },
+    "azureSearchQueryType": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "semantic",
+          "simple",
+          "vector",
+          "vector_semantic_hybrid",
+          "vector_simple_hybrid"
+        ]
+      }
+    },
+    "azureMachineLearningIndexChatExtensionConfiguration": {
+      "required": [
+        "parameters"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "azureMachineLearningIndexChatExtensionParameters": {
+      "required": [
+        "authentication",
+        "name",
+        "project_resource_id",
+        "version"
+      ],
+      "properties": [
+        "authentication",
+        "filter",
+        "in_scope",
+        "name",
+        "project_resource_id",
+        "role_information",
+        "strictness",
+        "top_n_documents",
+        "version"
+      ],
+      "enums": {}
+    },
+    "azureCosmosDBChatExtensionConfiguration": {
+      "required": [
+        "parameters"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "azureCosmosDBChatExtensionParameters": {
+      "required": [
+        "authentication",
+        "container_name",
+        "database_name",
+        "embedding_dependency",
+        "fields_mapping",
+        "index_name"
+      ],
+      "properties": [
+        "authentication",
+        "container_name",
+        "database_name",
+        "embedding_dependency",
+        "fields_mapping",
+        "in_scope",
+        "index_name",
+        "role_information",
+        "strictness",
+        "top_n_documents"
+      ],
+      "enums": {}
+    },
+    "azureCosmosDBFieldMappingOptions": {
+      "required": [
+        "content_fields",
+        "vector_fields"
+      ],
+      "properties": [
+        "content_fields",
+        "content_fields_separator",
+        "filepath_field",
+        "title_field",
+        "url_field",
+        "vector_fields"
+      ],
+      "enums": {}
+    },
+    "elasticsearchChatExtensionConfiguration": {
+      "required": [
+        "parameters"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "elasticsearchChatExtensionParameters": {
+      "required": [
+        "authentication",
+        "endpoint",
+        "index_name"
+      ],
+      "properties": [
+        "authentication",
+        "embedding_dependency",
+        "endpoint",
+        "fields_mapping",
+        "in_scope",
+        "index_name",
+        "query_type",
+        "role_information",
+        "strictness",
+        "top_n_documents"
+      ],
+      "enums": {}
+    },
+    "elasticsearchIndexFieldMappingOptions": {
+      "required": [],
+      "properties": [
+        "content_fields",
+        "content_fields_separator",
+        "filepath_field",
+        "title_field",
+        "url_field",
+        "vector_fields"
+      ],
+      "enums": {}
+    },
+    "elasticsearchQueryType": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "simple",
+          "vector"
+        ]
+      }
+    },
+    "pineconeChatExtensionConfiguration": {
+      "required": [
+        "parameters"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "pineconeChatExtensionParameters": {
+      "required": [
+        "authentication",
+        "embedding_dependency",
+        "environment",
+        "fields_mapping",
+        "index_name"
+      ],
+      "properties": [
+        "authentication",
+        "embedding_dependency",
+        "environment",
+        "fields_mapping",
+        "in_scope",
+        "index_name",
+        "role_information",
+        "strictness",
+        "top_n_documents"
+      ],
+      "enums": {}
+    },
+    "pineconeFieldMappingOptions": {
+      "required": [
+        "content_fields"
+      ],
+      "properties": [
+        "content_fields",
+        "content_fields_separator",
+        "filepath_field",
+        "title_field",
+        "url_field"
+      ],
+      "enums": {}
+    },
+    "onYourDataAuthenticationOptions": {
+      "required": [
+        "type"
+      ],
+      "properties": [
+        "type"
+      ],
+      "enums": {}
+    },
+    "onYourDataAuthenticationType": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "access_token",
+          "api_key",
+          "connection_string",
+          "encoded_api_key",
+          "key_and_key_id",
+          "system_assigned_managed_identity",
+          "user_assigned_managed_identity"
+        ]
+      }
+    },
+    "onYourDataApiKeyAuthenticationOptions": {
+      "required": [
+        "key"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "onYourDataConnectionStringAuthenticationOptions": {
+      "required": [
+        "connection_string"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "onYourDataKeyAndKeyIdAuthenticationOptions": {
+      "required": [
+        "key",
+        "key_id"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "onYourDataEncodedApiKeyAuthenticationOptions": {
+      "required": [
+        "encoded_api_key"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "onYourDataAccessTokenAuthenticationOptions": {
+      "required": [
+        "access_token"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "onYourDataSystemAssignedManagedIdentityAuthenticationOptions": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "onYourDataUserAssignedManagedIdentityAuthenticationOptions": {
+      "required": [
+        "managed_identity_resource_id"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "onYourDataVectorizationSource": {
+      "required": [
+        "type"
+      ],
+      "properties": [
+        "type"
+      ],
+      "enums": {}
+    },
+    "onYourDataVectorizationSourceType": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "deployment_name",
+          "endpoint",
+          "model_id"
+        ]
+      }
+    },
+    "onYourDataEndpointVectorizationSource": {
+      "required": [
+        "authentication",
+        "endpoint"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "onYourDataDeploymentNameVectorizationSource": {
+      "required": [
+        "deployment_name"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "onYourDataModelIdVectorizationSource": {
+      "required": [
+        "model_id"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "azureChatExtensionsMessageContext": {
+      "required": [],
+      "properties": [
+        "citations",
+        "intent"
+      ],
+      "enums": {}
+    },
+    "citation": {
+      "required": [
+        "content"
+      ],
+      "properties": [
+        "chunk_id",
+        "content",
+        "filepath",
+        "title",
+        "url"
+      ],
+      "enums": {}
+    },
+    "chatCompletionMessageToolCall": {
+      "required": [
+        "function",
+        "id",
+        "type"
+      ],
+      "properties": [
+        "function",
+        "id",
+        "type"
+      ],
+      "enums": {}
+    },
+    "toolCallType": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "function"
+        ]
+      }
+    },
+    "chatCompletionRequestMessageTool": {
+      "required": [
+        "content",
+        "tool_call_id"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionRequestMessageFunction": {
+      "required": [
+        "content",
+        "function_call_id"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "createChatCompletionResponse": {
+      "required": [
+        "choices",
+        "created",
+        "id",
+        "model",
+        "object"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionChoiceLogProbs": {
+      "required": [
+        "content"
+      ],
+      "properties": [
+        "content"
+      ],
+      "enums": {}
+    },
+    "chatCompletionTokenLogprob": {
+      "required": [
+        "bytes",
+        "logprob",
+        "token",
+        "top_logprobs"
+      ],
+      "properties": [
+        "bytes",
+        "logprob",
+        "token",
+        "top_logprobs"
+      ],
+      "enums": {}
+    },
+    "chatCompletionResponseMessage": {
+      "required": [],
+      "properties": [
+        "content",
+        "context",
+        "function_call",
+        "role",
+        "tool_calls"
+      ],
+      "enums": {}
+    },
+    "chatCompletionResponseMessageRole": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "assistant"
+        ]
+      }
+    },
+    "chatCompletionToolChoiceOption": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionNamedToolChoice": {
+      "required": [],
+      "properties": [
+        "function",
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "function"
+        ]
+      }
+    },
+    "chatCompletionFunctionCall": {
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": [
+        "arguments",
+        "name"
+      ],
+      "enums": {}
+    },
+    "chatCompletionsResponseCommon": {
+      "required": [
+        "created",
+        "id",
+        "model",
+        "object"
+      ],
+      "properties": [
+        "created",
+        "id",
+        "model",
+        "object",
+        "system_fingerprint",
+        "usage"
+      ],
+      "enums": {}
+    },
+    "chatCompletionResponseObject": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "chat.completion"
+        ]
+      }
+    },
+    "completionUsage": {
+      "required": [
+        "completion_tokens",
+        "prompt_tokens",
+        "total_tokens"
+      ],
+      "properties": [
+        "completion_tokens",
+        "prompt_tokens",
+        "total_tokens"
+      ],
+      "enums": {}
+    },
+    "chatCompletionTool": {
+      "required": [
+        "function",
+        "type"
+      ],
+      "properties": [
+        "function",
+        "type"
+      ],
+      "enums": {}
+    },
+    "chatCompletionToolType": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "function"
+        ]
+      }
+    },
+    "chatCompletionChoiceCommon": {
+      "required": [],
+      "properties": [
+        "finish_reason",
+        "index"
+      ],
+      "enums": {}
+    },
+    "createTranslationRequest": {
+      "required": [
+        "file"
+      ],
+      "properties": [
+        "file",
+        "prompt",
+        "response_format",
+        "temperature"
+      ],
+      "enums": {}
+    },
+    "audioResponse": {
+      "required": [
+        "text"
+      ],
+      "properties": [
+        "text"
+      ],
+      "enums": {}
+    },
+    "audioVerboseResponse": {
+      "required": [
+        "text"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "audioResponseFormat": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "json",
+          "srt",
+          "text",
+          "verbose_json",
+          "vtt"
+        ]
+      }
+    },
+    "createTranscriptionRequest": {
+      "required": [
+        "file"
+      ],
+      "properties": [
+        "file",
+        "language",
+        "prompt",
+        "response_format",
+        "temperature"
+      ],
+      "enums": {}
+    },
+    "audioSegment": {
+      "required": [],
+      "properties": [
+        "avg_logprob",
+        "compression_ratio",
+        "end",
+        "id",
+        "no_speech_prob",
+        "seek",
+        "start",
+        "temperature",
+        "text",
+        "tokens"
+      ],
+      "enums": {}
+    },
+    "createSpeechRequest": {
+      "required": [
+        "input",
+        "voice"
+      ],
+      "properties": [
+        "input",
+        "response_format",
+        "speed",
+        "voice"
+      ],
+      "enums": {
+        "voice": [
+          "alloy",
+          "echo",
+          "fable",
+          "nova",
+          "onyx",
+          "shimmer"
+        ],
+        "response_format": [
+          "aac",
+          "flac",
+          "mp3",
+          "opus"
+        ]
+      }
+    },
+    "imageQuality": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "hd",
+          "standard"
+        ]
+      }
+    },
+    "imagesResponseFormat": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "b64_json",
+          "url"
+        ]
+      }
+    },
+    "imageSize": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "1024x1024",
+          "1024x1792",
+          "1792x1024"
+        ]
+      }
+    },
+    "imageStyle": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "natural",
+          "vivid"
+        ]
+      }
+    },
+    "imageGenerationsRequest": {
+      "required": [
+        "prompt"
+      ],
+      "properties": [
+        "n",
+        "prompt",
+        "quality",
+        "response_format",
+        "size",
+        "style",
+        "user"
+      ],
+      "enums": {}
+    },
+    "generateImagesResponse": {
+      "required": [
+        "created",
+        "data"
+      ],
+      "properties": [
+        "created",
+        "data"
+      ],
+      "enums": {}
+    },
+    "imageResult": {
+      "required": [],
+      "properties": [
+        "b64_json",
+        "content_filter_results",
+        "prompt_filter_results",
+        "revised_prompt",
+        "url"
+      ],
+      "enums": {}
+    },
+    "enhancement": {
+      "required": [],
+      "properties": [
+        "grounding"
+      ],
+      "enums": {}
+    },
+    "line": {
+      "required": [
+        "spans",
+        "text"
+      ],
+      "properties": [
+        "spans",
+        "text"
+      ],
+      "enums": {}
+    },
+    "span": {
+      "required": [
+        "length",
+        "offset",
+        "polygon",
+        "text"
+      ],
+      "properties": [
+        "length",
+        "offset",
+        "polygon",
+        "text"
+      ],
+      "enums": {}
+    },
+    "assistantObject": {
+      "required": [
+        "created_at",
+        "description",
+        "file_ids",
+        "id",
+        "instructions",
+        "metadata",
+        "model",
+        "name",
+        "object",
+        "tools"
+      ],
+      "properties": [
+        "created_at",
+        "description",
+        "file_ids",
+        "id",
+        "instructions",
+        "metadata",
+        "model",
+        "name",
+        "object",
+        "tools"
+      ],
+      "enums": {
+        "object": [
+          "assistant"
+        ]
+      }
+    },
+    "createAssistantRequest": {
+      "required": [
+        "model"
+      ],
+      "properties": [
+        "description",
+        "file_ids",
+        "instructions",
+        "metadata",
+        "model",
+        "name",
+        "tools"
+      ],
+      "enums": {}
+    },
+    "modifyAssistantRequest": {
+      "required": [],
+      "properties": [
+        "description",
+        "file_ids",
+        "instructions",
+        "metadata",
+        "model",
+        "name",
+        "tools"
+      ],
+      "enums": {}
+    },
+    "deleteAssistantResponse": {
+      "required": [
+        "deleted",
+        "id",
+        "object"
+      ],
+      "properties": [
+        "deleted",
+        "id",
+        "object"
+      ],
+      "enums": {
+        "object": [
+          "assistant.deleted"
+        ]
+      }
+    },
+    "listAssistantsResponse": {
+      "required": [
+        "data",
+        "first_id",
+        "has_more",
+        "last_id",
+        "object"
+      ],
+      "properties": [
+        "data",
+        "first_id",
+        "has_more",
+        "last_id",
+        "object"
+      ],
+      "enums": {}
+    },
+    "assistantToolsCode": {
+      "required": [
+        "type"
+      ],
+      "properties": [
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "code_interpreter"
+        ]
+      }
+    },
+    "assistantToolsRetrieval": {
+      "required": [
+        "type"
+      ],
+      "properties": [
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "retrieval"
+        ]
+      }
+    },
+    "assistantToolsFunction": {
+      "required": [
+        "function",
+        "type"
+      ],
+      "properties": [
+        "function",
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "function"
+        ]
+      }
+    },
+    "runObject": {
+      "required": [
+        "assistant_id",
+        "cancelled_at",
+        "completed_at",
+        "created_at",
+        "expires_at",
+        "failed_at",
+        "file_ids",
+        "id",
+        "instructions",
+        "last_error",
+        "metadata",
+        "model",
+        "object",
+        "required_action",
+        "started_at",
+        "status",
+        "thread_id",
+        "tools"
+      ],
+      "properties": [
+        "assistant_id",
+        "cancelled_at",
+        "completed_at",
+        "created_at",
+        "expires_at",
+        "failed_at",
+        "file_ids",
+        "id",
+        "instructions",
+        "last_error",
+        "metadata",
+        "model",
+        "object",
+        "required_action",
+        "started_at",
+        "status",
+        "thread_id",
+        "tools"
+      ],
+      "enums": {
+        "object": [
+          "thread.run"
+        ],
+        "status": [
+          "cancelled",
+          "cancelling",
+          "completed",
+          "expired",
+          "failed",
+          "in_progress",
+          "queued",
+          "requires_action"
+        ]
+      }
+    },
+    "createRunRequest": {
+      "required": [
+        "assistant_id",
+        "thread_id"
+      ],
+      "properties": [
+        "assistant_id",
+        "instructions",
+        "metadata",
+        "model",
+        "tools"
+      ],
+      "enums": {}
+    },
+    "listRunsResponse": {
+      "required": [
+        "data",
+        "first_id",
+        "has_more",
+        "last_id",
+        "object"
+      ],
+      "properties": [
+        "data",
+        "first_id",
+        "has_more",
+        "last_id",
+        "object"
+      ],
+      "enums": {}
+    },
+    "modifyRunRequest": {
+      "required": [],
+      "properties": [
+        "metadata"
+      ],
+      "enums": {}
+    },
+    "submitToolOutputsRunRequest": {
+      "required": [
+        "tool_outputs"
+      ],
+      "properties": [
+        "tool_outputs"
+      ],
+      "enums": {}
+    },
+    "runToolCallObject": {
+      "required": [
+        "function",
+        "id",
+        "type"
+      ],
+      "properties": [
+        "function",
+        "id",
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "function"
+        ]
+      }
+    },
+    "createThreadAndRunRequest": {
+      "required": [
+        "assistant_id",
+        "thread_id"
+      ],
+      "properties": [
+        "assistant_id",
+        "instructions",
+        "metadata",
+        "model",
+        "thread",
+        "tools"
+      ],
+      "enums": {}
+    },
+    "threadObject": {
+      "required": [
+        "created_at",
+        "id",
+        "metadata",
+        "object"
+      ],
+      "properties": [
+        "created_at",
+        "id",
+        "metadata",
+        "object"
+      ],
+      "enums": {
+        "object": [
+          "thread"
+        ]
+      }
+    },
+    "createThreadRequest": {
+      "required": [],
+      "properties": [
+        "messages",
+        "metadata"
+      ],
+      "enums": {}
+    },
+    "modifyThreadRequest": {
+      "required": [],
+      "properties": [
+        "metadata"
+      ],
+      "enums": {}
+    },
+    "deleteThreadResponse": {
+      "required": [
+        "deleted",
+        "id",
+        "object"
+      ],
+      "properties": [
+        "deleted",
+        "id",
+        "object"
+      ],
+      "enums": {
+        "object": [
+          "thread.deleted"
+        ]
+      }
+    },
+    "listThreadsResponse": {
+      "required": [
+        "data",
+        "first_id",
+        "has_more",
+        "last_id",
+        "object"
+      ],
+      "properties": [
+        "data",
+        "first_id",
+        "has_more",
+        "last_id",
+        "object"
+      ],
+      "enums": {}
+    },
+    "messageObject": {
+      "required": [
+        "assistant_id",
+        "content",
+        "created_at",
+        "file_ids",
+        "id",
+        "metadata",
+        "object",
+        "role",
+        "run_id",
+        "thread_id"
+      ],
+      "properties": [
+        "assistant_id",
+        "content",
+        "created_at",
+        "file_ids",
+        "id",
+        "metadata",
+        "object",
+        "role",
+        "run_id",
+        "thread_id"
+      ],
+      "enums": {
+        "object": [
+          "thread.message"
+        ],
+        "role": [
+          "assistant",
+          "user"
+        ]
+      }
+    },
+    "createMessageRequest": {
+      "required": [
+        "content",
+        "role"
+      ],
+      "properties": [
+        "content",
+        "file_ids",
+        "metadata",
+        "role"
+      ],
+      "enums": {
+        "role": [
+          "user"
+        ]
+      }
+    },
+    "modifyMessageRequest": {
+      "required": [],
+      "properties": [
+        "metadata"
+      ],
+      "enums": {}
+    },
+    "deleteMessageResponse": {
+      "required": [
+        "deleted",
+        "id",
+        "object"
+      ],
+      "properties": [
+        "deleted",
+        "id",
+        "object"
+      ],
+      "enums": {
+        "object": [
+          "thread.message.deleted"
+        ]
+      }
+    },
+    "listMessagesResponse": {
+      "required": [
+        "data",
+        "first_id",
+        "has_more",
+        "last_id",
+        "object"
+      ],
+      "properties": [
+        "data",
+        "first_id",
+        "has_more",
+        "last_id",
+        "object"
+      ],
+      "enums": {}
+    },
+    "messageContentImageFileObject": {
+      "required": [
+        "image_file",
+        "type"
+      ],
+      "properties": [
+        "image_file",
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "image_file"
+        ]
+      }
+    },
+    "messageContentTextObject": {
+      "required": [
+        "text",
+        "type"
+      ],
+      "properties": [
+        "text",
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "text"
+        ]
+      }
+    },
+    "messageContentTextAnnotationsFileCitationObject": {
+      "required": [
+        "end_index",
+        "file_citation",
+        "start_index",
+        "text",
+        "type"
+      ],
+      "properties": [
+        "end_index",
+        "file_citation",
+        "start_index",
+        "text",
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "file_citation"
+        ]
+      }
+    },
+    "messageContentTextAnnotationsFilePathObject": {
+      "required": [
+        "end_index",
+        "file_path",
+        "start_index",
+        "text",
+        "type"
+      ],
+      "properties": [
+        "end_index",
+        "file_path",
+        "start_index",
+        "text",
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "file_path"
+        ]
+      }
+    },
+    "runStepObject": {
+      "required": [
+        "assistant_id",
+        "cancelled_at",
+        "completed_at",
+        "created_at",
+        "expired_at",
+        "failed_at",
+        "id",
+        "last_error",
+        "metadata",
+        "object",
+        "run_id",
+        "status",
+        "step_details",
+        "thread_id",
+        "type"
+      ],
+      "properties": [
+        "assistant_id",
+        "cancelled_at",
+        "completed_at",
+        "created_at",
+        "expired_at",
+        "failed_at",
+        "id",
+        "last_error",
+        "metadata",
+        "object",
+        "run_id",
+        "status",
+        "step_details",
+        "thread_id",
+        "type"
+      ],
+      "enums": {
+        "object": [
+          "assistant.run.step"
+        ],
+        "type": [
+          "message_creation",
+          "tool_calls"
+        ],
+        "status": [
+          "cancelled",
+          "completed",
+          "expired",
+          "failed",
+          "in_progress"
+        ]
+      }
+    },
+    "listRunStepsResponse": {
+      "required": [
+        "data",
+        "first_id",
+        "has_more",
+        "last_id",
+        "object"
+      ],
+      "properties": [
+        "data",
+        "first_id",
+        "has_more",
+        "last_id",
+        "object"
+      ],
+      "enums": {}
+    },
+    "runStepDetailsMessageCreationObject": {
+      "required": [
+        "message_creation",
+        "type"
+      ],
+      "properties": [
+        "message_creation",
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "message_creation"
+        ]
+      }
+    },
+    "runStepDetailsToolCallsObject": {
+      "required": [
+        "tool_calls",
+        "type"
+      ],
+      "properties": [
+        "tool_calls",
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "tool_calls"
+        ]
+      }
+    },
+    "runStepDetailsToolCallsCodeObject": {
+      "required": [
+        "code_interpreter",
+        "id",
+        "type"
+      ],
+      "properties": [
+        "code_interpreter",
+        "id",
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "code_interpreter"
+        ]
+      }
+    },
+    "runStepDetailsToolCallsCodeOutputLogsObject": {
+      "required": [
+        "logs",
+        "type"
+      ],
+      "properties": [
+        "logs",
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "logs"
+        ]
+      }
+    },
+    "runStepDetailsToolCallsCodeOutputImageObject": {
+      "required": [
+        "image",
+        "type"
+      ],
+      "properties": [
+        "image",
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "image"
+        ]
+      }
+    },
+    "runStepDetailsToolCallsRetrievalObject": {
+      "required": [
+        "id",
+        "retrieval",
+        "type"
+      ],
+      "properties": [
+        "id",
+        "retrieval",
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "retrieval"
+        ]
+      }
+    },
+    "runStepDetailsToolCallsFunctionObject": {
+      "required": [
+        "function",
+        "id",
+        "type"
+      ],
+      "properties": [
+        "function",
+        "id",
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "function"
+        ]
+      }
+    },
+    "assistantFileObject": {
+      "required": [
+        "assistant_id",
+        "created_at",
+        "id",
+        "object"
+      ],
+      "properties": [
+        "assistant_id",
+        "created_at",
+        "id",
+        "object"
+      ],
+      "enums": {
+        "object": [
+          "assistant.file"
+        ]
+      }
+    },
+    "createAssistantFileRequest": {
+      "required": [
+        "file_id"
+      ],
+      "properties": [
+        "file_id"
+      ],
+      "enums": {}
+    },
+    "deleteAssistantFileResponse": {
+      "required": [
+        "deleted",
+        "id",
+        "object"
+      ],
+      "properties": [
+        "deleted",
+        "id",
+        "object"
+      ],
+      "enums": {
+        "object": [
+          "assistant.file.deleted"
+        ]
+      }
+    },
+    "listAssistantFilesResponse": {
+      "required": [
+        "data",
+        "first_id",
+        "has_more",
+        "items",
+        "last_id",
+        "object"
+      ],
+      "properties": [
+        "data",
+        "first_id",
+        "has_more",
+        "last_id",
+        "object"
+      ],
+      "enums": {}
+    },
+    "messageFileObject": {
+      "required": [
+        "created_at",
+        "id",
+        "message_id",
+        "object"
+      ],
+      "properties": [
+        "created_at",
+        "id",
+        "message_id",
+        "object"
+      ],
+      "enums": {
+        "object": [
+          "thread.message.file"
+        ]
+      }
+    },
+    "listMessageFilesResponse": {
+      "required": [
+        "data",
+        "first_id",
+        "has_more",
+        "items",
+        "last_id",
+        "object"
+      ],
+      "properties": [
+        "data",
+        "first_id",
+        "has_more",
+        "last_id",
+        "object"
+      ],
+      "enums": {}
+    }
+  },
+  "file": "inference.json"
+}

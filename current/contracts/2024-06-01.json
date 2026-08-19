@@ -1,0 +1,894 @@
+{
+  "version": "2024-06-01",
+  "channel": "stable",
+  "title": "Azure OpenAI Service API",
+  "specVersion": "2024-06-01",
+  "dialect": "3.0.0",
+  "operations": {
+    "POST /deployments/{deployment-id}/completions": {
+      "operationId": "Completions_Create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    },
+    "POST /deployments/{deployment-id}/embeddings": {
+      "operationId": "embeddings_create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    },
+    "POST /deployments/{deployment-id}/chat/completions": {
+      "operationId": "ChatCompletions_Create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    },
+    "POST /deployments/{deployment-id}/audio/transcriptions": {
+      "operationId": "Transcriptions_Create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    },
+    "POST /deployments/{deployment-id}/audio/translations": {
+      "operationId": "Translations_Create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    },
+    "POST /deployments/{deployment-id}/images/generations": {
+      "operationId": "ImageGenerations_Create",
+      "required": [
+        "api-version",
+        "deployment-id"
+      ]
+    }
+  },
+  "schemas": {
+    "errorResponse": {
+      "required": [],
+      "properties": [
+        "error"
+      ],
+      "enums": {}
+    },
+    "errorBase": {
+      "required": [],
+      "properties": [
+        "code",
+        "message"
+      ],
+      "enums": {}
+    },
+    "error": {
+      "required": [],
+      "properties": [
+        "inner_error",
+        "param",
+        "type"
+      ],
+      "enums": {}
+    },
+    "innerError": {
+      "required": [],
+      "properties": [
+        "code",
+        "content_filter_results"
+      ],
+      "enums": {}
+    },
+    "innerErrorCode": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "ResponsibleAIPolicyViolation"
+        ]
+      }
+    },
+    "dalleErrorResponse": {
+      "required": [],
+      "properties": [
+        "error"
+      ],
+      "enums": {}
+    },
+    "dalleError": {
+      "required": [],
+      "properties": [
+        "inner_error",
+        "param",
+        "type"
+      ],
+      "enums": {}
+    },
+    "dalleInnerError": {
+      "required": [],
+      "properties": [
+        "code",
+        "content_filter_results",
+        "revised_prompt"
+      ],
+      "enums": {}
+    },
+    "contentFilterResultBase": {
+      "required": [
+        "filtered"
+      ],
+      "properties": [
+        "filtered"
+      ],
+      "enums": {}
+    },
+    "contentFilterSeverityResult": {
+      "required": [
+        "filtered",
+        "severity"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "contentFilterDetectedResult": {
+      "required": [
+        "detected",
+        "filtered"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "contentFilterDetectedWithCitationResult": {
+      "required": [
+        "detected",
+        "filtered"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "contentFilterResultsBase": {
+      "required": [],
+      "properties": [
+        "error",
+        "hate",
+        "profanity",
+        "self_harm",
+        "sexual",
+        "violence"
+      ],
+      "enums": {}
+    },
+    "contentFilterPromptResults": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "contentFilterChoiceResults": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "promptFilterResult": {
+      "required": [],
+      "properties": [
+        "content_filter_results",
+        "prompt_index"
+      ],
+      "enums": {}
+    },
+    "promptFilterResults": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "dalleContentFilterResults": {
+      "required": [],
+      "properties": [
+        "hate",
+        "self_harm",
+        "sexual",
+        "violence"
+      ],
+      "enums": {}
+    },
+    "dalleFilterResults": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionsRequestCommon": {
+      "required": [],
+      "properties": [
+        "frequency_penalty",
+        "logit_bias",
+        "max_tokens",
+        "presence_penalty",
+        "stop",
+        "stream",
+        "temperature",
+        "top_p",
+        "user"
+      ],
+      "enums": {}
+    },
+    "createChatCompletionRequest": {
+      "required": [
+        "messages"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionResponseFormat": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "json_object",
+          "text"
+        ]
+      }
+    },
+    "chatCompletionFunction": {
+      "required": [
+        "name"
+      ],
+      "properties": [
+        "description",
+        "name",
+        "parameters"
+      ],
+      "enums": {}
+    },
+    "chatCompletionFunctionParameters": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionRequestMessage": {
+      "required": [
+        "role"
+      ],
+      "properties": [
+        "role"
+      ],
+      "enums": {}
+    },
+    "chatCompletionRequestMessageRole": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "assistant",
+          "function",
+          "system",
+          "tool",
+          "user"
+        ]
+      }
+    },
+    "chatCompletionRequestMessageSystem": {
+      "required": [
+        "content"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionRequestMessageUser": {
+      "required": [
+        "content"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionRequestMessageContentPart": {
+      "required": [
+        "type"
+      ],
+      "properties": [
+        "type"
+      ],
+      "enums": {}
+    },
+    "chatCompletionRequestMessageContentPartType": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "image_url",
+          "text"
+        ]
+      }
+    },
+    "chatCompletionRequestMessageContentPartText": {
+      "required": [
+        "text"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionRequestMessageContentPartImage": {
+      "required": [
+        "url"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "imageDetailLevel": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "auto",
+          "high",
+          "low"
+        ]
+      }
+    },
+    "chatCompletionRequestMessageAssistant": {
+      "required": [
+        "content"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "azureChatExtensionConfiguration": {
+      "required": [
+        "type"
+      ],
+      "properties": [
+        "type"
+      ],
+      "enums": {}
+    },
+    "azureChatExtensionType": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "azure_cosmos_db",
+          "azure_search"
+        ]
+      }
+    },
+    "azureSearchChatExtensionConfiguration": {
+      "required": [
+        "parameters"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "azureSearchChatExtensionParameters": {
+      "required": [
+        "authentication",
+        "endpoint",
+        "index_name"
+      ],
+      "properties": [
+        "authentication",
+        "embedding_dependency",
+        "endpoint",
+        "fields_mapping",
+        "filter",
+        "in_scope",
+        "index_name",
+        "query_type",
+        "role_information",
+        "semantic_configuration",
+        "strictness",
+        "top_n_documents"
+      ],
+      "enums": {}
+    },
+    "azureSearchIndexFieldMappingOptions": {
+      "required": [],
+      "properties": [
+        "content_fields",
+        "content_fields_separator",
+        "filepath_field",
+        "title_field",
+        "url_field",
+        "vector_fields"
+      ],
+      "enums": {}
+    },
+    "azureSearchQueryType": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "semantic",
+          "simple",
+          "vector",
+          "vector_semantic_hybrid",
+          "vector_simple_hybrid"
+        ]
+      }
+    },
+    "azureCosmosDBChatExtensionConfiguration": {
+      "required": [
+        "parameters"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "azureCosmosDBChatExtensionParameters": {
+      "required": [
+        "authentication",
+        "container_name",
+        "database_name",
+        "embedding_dependency",
+        "fields_mapping",
+        "index_name"
+      ],
+      "properties": [
+        "authentication",
+        "container_name",
+        "database_name",
+        "embedding_dependency",
+        "fields_mapping",
+        "in_scope",
+        "index_name",
+        "role_information",
+        "strictness",
+        "top_n_documents"
+      ],
+      "enums": {}
+    },
+    "azureCosmosDBFieldMappingOptions": {
+      "required": [
+        "content_fields",
+        "vector_fields"
+      ],
+      "properties": [
+        "content_fields",
+        "content_fields_separator",
+        "filepath_field",
+        "title_field",
+        "url_field",
+        "vector_fields"
+      ],
+      "enums": {}
+    },
+    "onYourDataAuthenticationOptions": {
+      "required": [
+        "type"
+      ],
+      "properties": [
+        "type"
+      ],
+      "enums": {}
+    },
+    "onYourDataAuthenticationType": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "api_key",
+          "connection_string",
+          "system_assigned_managed_identity",
+          "user_assigned_managed_identity"
+        ]
+      }
+    },
+    "onYourDataApiKeyAuthenticationOptions": {
+      "required": [
+        "key"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "onYourDataConnectionStringAuthenticationOptions": {
+      "required": [
+        "connection_string"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "onYourDataSystemAssignedManagedIdentityAuthenticationOptions": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "onYourDataUserAssignedManagedIdentityAuthenticationOptions": {
+      "required": [
+        "managed_identity_resource_id"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "onYourDataVectorizationSource": {
+      "required": [
+        "type"
+      ],
+      "properties": [
+        "type"
+      ],
+      "enums": {}
+    },
+    "onYourDataVectorizationSourceType": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "deployment_name",
+          "endpoint"
+        ]
+      }
+    },
+    "onYourDataDeploymentNameVectorizationSource": {
+      "required": [
+        "deployment_name"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "onYourDataEndpointVectorizationSource": {
+      "required": [
+        "authentication",
+        "endpoint"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "azureChatExtensionsMessageContext": {
+      "required": [],
+      "properties": [
+        "citations",
+        "intent"
+      ],
+      "enums": {}
+    },
+    "citation": {
+      "required": [
+        "content"
+      ],
+      "properties": [
+        "chunk_id",
+        "content",
+        "filepath",
+        "title",
+        "url"
+      ],
+      "enums": {}
+    },
+    "chatCompletionMessageToolCall": {
+      "required": [
+        "function",
+        "id",
+        "type"
+      ],
+      "properties": [
+        "function",
+        "id",
+        "type"
+      ],
+      "enums": {}
+    },
+    "toolCallType": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "function"
+        ]
+      }
+    },
+    "chatCompletionRequestMessageTool": {
+      "required": [
+        "content",
+        "tool_call_id"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionRequestMessageFunction": {
+      "required": [
+        "content",
+        "function_call_id"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "createChatCompletionResponse": {
+      "required": [
+        "choices",
+        "created",
+        "id",
+        "model",
+        "object"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionChoiceLogProbs": {
+      "required": [
+        "content"
+      ],
+      "properties": [
+        "content"
+      ],
+      "enums": {}
+    },
+    "chatCompletionTokenLogprob": {
+      "required": [
+        "bytes",
+        "logprob",
+        "token",
+        "top_logprobs"
+      ],
+      "properties": [
+        "bytes",
+        "logprob",
+        "token",
+        "top_logprobs"
+      ],
+      "enums": {}
+    },
+    "chatCompletionResponseMessage": {
+      "required": [],
+      "properties": [
+        "content",
+        "context",
+        "function_call",
+        "role",
+        "tool_calls"
+      ],
+      "enums": {}
+    },
+    "chatCompletionResponseMessageRole": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "assistant"
+        ]
+      }
+    },
+    "chatCompletionToolChoiceOption": {
+      "required": [],
+      "properties": [],
+      "enums": {}
+    },
+    "chatCompletionNamedToolChoice": {
+      "required": [],
+      "properties": [
+        "function",
+        "type"
+      ],
+      "enums": {
+        "type": [
+          "function"
+        ]
+      }
+    },
+    "chatCompletionFunctionCall": {
+      "required": [
+        "arguments",
+        "name"
+      ],
+      "properties": [
+        "arguments",
+        "name"
+      ],
+      "enums": {}
+    },
+    "chatCompletionsResponseCommon": {
+      "required": [
+        "created",
+        "id",
+        "model",
+        "object"
+      ],
+      "properties": [
+        "created",
+        "id",
+        "model",
+        "object",
+        "system_fingerprint",
+        "usage"
+      ],
+      "enums": {}
+    },
+    "chatCompletionResponseObject": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "chat.completion"
+        ]
+      }
+    },
+    "completionUsage": {
+      "required": [
+        "completion_tokens",
+        "prompt_tokens",
+        "total_tokens"
+      ],
+      "properties": [
+        "completion_tokens",
+        "prompt_tokens",
+        "total_tokens"
+      ],
+      "enums": {}
+    },
+    "chatCompletionTool": {
+      "required": [
+        "function",
+        "type"
+      ],
+      "properties": [
+        "function",
+        "type"
+      ],
+      "enums": {}
+    },
+    "chatCompletionToolType": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "function"
+        ]
+      }
+    },
+    "chatCompletionChoiceCommon": {
+      "required": [],
+      "properties": [
+        "finish_reason",
+        "index"
+      ],
+      "enums": {}
+    },
+    "createTranslationRequest": {
+      "required": [
+        "file"
+      ],
+      "properties": [
+        "file",
+        "prompt",
+        "response_format",
+        "temperature"
+      ],
+      "enums": {}
+    },
+    "audioResponse": {
+      "required": [
+        "text"
+      ],
+      "properties": [
+        "text"
+      ],
+      "enums": {}
+    },
+    "audioVerboseResponse": {
+      "required": [
+        "text"
+      ],
+      "properties": [],
+      "enums": {}
+    },
+    "audioResponseFormat": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "json",
+          "srt",
+          "text",
+          "verbose_json",
+          "vtt"
+        ]
+      }
+    },
+    "createTranscriptionRequest": {
+      "required": [
+        "file"
+      ],
+      "properties": [
+        "file",
+        "language",
+        "prompt",
+        "response_format",
+        "temperature"
+      ],
+      "enums": {}
+    },
+    "audioSegment": {
+      "required": [],
+      "properties": [
+        "avg_logprob",
+        "compression_ratio",
+        "end",
+        "id",
+        "no_speech_prob",
+        "seek",
+        "start",
+        "temperature",
+        "text",
+        "tokens"
+      ],
+      "enums": {}
+    },
+    "imageQuality": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "hd",
+          "standard"
+        ]
+      }
+    },
+    "imagesResponseFormat": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "b64_json",
+          "url"
+        ]
+      }
+    },
+    "imageSize": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "1024x1024",
+          "1024x1792",
+          "1792x1024"
+        ]
+      }
+    },
+    "imageStyle": {
+      "required": [],
+      "properties": [],
+      "enums": {
+        "": [
+          "natural",
+          "vivid"
+        ]
+      }
+    },
+    "imageGenerationsRequest": {
+      "required": [
+        "prompt"
+      ],
+      "properties": [
+        "n",
+        "prompt",
+        "quality",
+        "response_format",
+        "size",
+        "style",
+        "user"
+      ],
+      "enums": {}
+    },
+    "generateImagesResponse": {
+      "required": [
+        "created",
+        "data"
+      ],
+      "properties": [
+        "created",
+        "data"
+      ],
+      "enums": {}
+    },
+    "imageResult": {
+      "required": [],
+      "properties": [
+        "b64_json",
+        "content_filter_results",
+        "prompt_filter_results",
+        "revised_prompt",
+        "url"
+      ],
+      "enums": {}
+    }
+  },
+  "file": "inference.json"
+}

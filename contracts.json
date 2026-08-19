@@ -1,0 +1,205 @@
+{
+  "generated": "2026-08-19T19:33:23.072Z",
+  "summary": {
+    "versions": 27,
+    "operations": 602,
+    "schemas": 3242,
+    "changesThisRun": 0,
+    "breakingThisRun": 0,
+    "undocumented": 0
+  },
+  "versions": [
+    {
+      "version": "2025-04-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 52,
+      "schemas": 342
+    },
+    {
+      "version": "2025-03-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 49,
+      "schemas": 333
+    },
+    {
+      "version": "2025-02-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 42,
+      "schemas": 218
+    },
+    {
+      "version": "2025-01-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 42,
+      "schemas": 218
+    },
+    {
+      "version": "2024-12-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 42,
+      "schemas": 215
+    },
+    {
+      "version": "2024-10-21",
+      "channel": "stable",
+      "file": "inference.json",
+      "operations": 6,
+      "schemas": 99
+    },
+    {
+      "version": "2024-10-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 42,
+      "schemas": 211
+    },
+    {
+      "version": "2024-09-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 42,
+      "schemas": 209
+    },
+    {
+      "version": "2024-08-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 42,
+      "schemas": 208
+    },
+    {
+      "version": "2024-07-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 42,
+      "schemas": 194
+    },
+    {
+      "version": "2024-06-01",
+      "channel": "stable",
+      "file": "inference.json",
+      "operations": 6,
+      "schemas": 86
+    },
+    {
+      "version": "2024-05-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 42,
+      "schemas": 187
+    },
+    {
+      "version": "2024-04-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 35,
+      "schemas": 149
+    },
+    {
+      "version": "2024-03-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 35,
+      "schemas": 148
+    },
+    {
+      "version": "2024-02-15-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 35,
+      "schemas": 148
+    },
+    {
+      "version": "2024-02-01",
+      "channel": "stable",
+      "file": "inference.json",
+      "operations": 6,
+      "schemas": 84
+    },
+    {
+      "version": "2023-12-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 7,
+      "schemas": 67
+    },
+    {
+      "version": "2023-10-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 6,
+      "schemas": 29
+    },
+    {
+      "version": "2023-09-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 6,
+      "schemas": 29
+    },
+    {
+      "version": "2023-08-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 4,
+      "schemas": 23
+    },
+    {
+      "version": "2023-07-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 4,
+      "schemas": 23
+    },
+    {
+      "version": "2023-06-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 4,
+      "schemas": 17
+    },
+    {
+      "version": "2023-05-15",
+      "channel": "stable",
+      "file": "inference.json",
+      "operations": 3,
+      "schemas": 1
+    },
+    {
+      "version": "2023-03-15-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 3,
+      "schemas": 1
+    },
+    {
+      "version": "2022-12-01",
+      "channel": "stable",
+      "file": "inference.json",
+      "operations": 2,
+      "schemas": 1
+    },
+    {
+      "version": "2022-06-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 2,
+      "schemas": 1
+    },
+    {
+      "version": "2022-03-01-preview",
+      "channel": "preview",
+      "file": "inference.json",
+      "operations": 1,
+      "schemas": 1
+    }
+  ],
+  "changes": [],
+  "findings": [],
+  "warnings": []
+}
