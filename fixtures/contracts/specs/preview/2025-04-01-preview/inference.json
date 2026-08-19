@@ -1,0 +1,564 @@
+{
+ "openapi": "3.1.0",
+ "info": {
+  "title": "Azure OpenAI Service API",
+  "version": "2025-04-01-preview"
+ },
+ "paths": {
+  "/vector_stores/{vector_store_id}/file_batches": {
+   "post": {
+    "operationId": "Create_Vector_Store_File_Batch",
+    "tags": [
+     "Vector Stores"
+    ],
+    "summary": "Create a vector store file batch.",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "vector_store_id",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "example": "vs_abc123"
+      },
+      "description": "The ID of the vector store for which to create a File Batch.\n"
+     },
+     {
+      "in": "query",
+      "name": "api-version",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "example": "2025-04-01-preview"
+      },
+      "description": "api version"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/createVectorStoreFileBatchRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/vectorStoreFileBatchObject"
+        }
+       }
+      }
+     }
+    },
+    "x-ms-examples": {
+     "Create a vector store file batch.": {
+      "$ref": "./examples/create_vector_store_file_batch.json"
+     }
+    }
+   }
+  },
+  "/vector_stores/{vector_store_id}/file_batches/{batch_id}": {
+   "get": {
+    "operationId": "Get_Vector_Store_File_Batch",
+    "tags": [
+     "Vector Stores"
+    ],
+    "summary": "Retrieves a vector store file batch.",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "vector_store_id",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "example": "vs_abc123"
+      },
+      "description": "The ID of the vector store that the file batch belongs to."
+     },
+     {
+      "in": "path",
+      "name": "batch_id",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "example": "vs_b_abc123"
+      },
+      "description": "The ID of the file batch being retrieved."
+     },
+     {
+      "in": "query",
+      "name": "api-version",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "example": "2025-04-01-preview"
+      },
+      "description": "api version"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/vectorStoreFileBatchObject"
+        }
+       }
+      }
+     }
+    },
+    "x-ms-examples": {
+     "Retrieve a vector store file batch.": {
+      "$ref": "./examples/retrieve_vector_store_file_batch.json"
+     }
+    }
+   }
+  },
+  "/vector_stores/{vector_store_id}/file_batches/{batch_id}/cancel": {
+   "post": {
+    "operationId": "Cancel_Vector_Store_File_Batch",
+    "tags": [
+     "Vector Stores"
+    ],
+    "summary": "Cancel a vector store file batch. This attempts to cancel the processing of files in this batch as soon as possible.",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "vector_store_id",
+      "required": true,
+      "schema": {
+       "type": "string"
+      },
+      "description": "The ID of the vector store that the file batch belongs to."
+     },
+     {
+      "in": "path",
+      "name": "batch_id",
+      "required": true,
+      "schema": {
+       "type": "string"
+      },
+      "description": "The ID of the file batch to cancel."
+     },
+     {
+      "in": "query",
+      "name": "api-version",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "example": "2025-04-01-preview"
+      },
+      "description": "api version"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/vectorStoreFileBatchObject"
+        }
+       }
+      }
+     }
+    },
+    "x-ms-examples": {
+     "Cancel a vector store file batch.": {
+      "$ref": "./examples/cancel_vector_store_file_batch.json"
+     }
+    }
+   }
+  },
+  "/vector_stores/{vector_store_id}/file_batches/{batch_id}/files": {
+   "get": {
+    "operationId": "List_Vector_Store_File_Batch_Files",
+    "tags": [
+     "Vector Stores"
+    ],
+    "summary": "Returns a list of vector store files in a batch.",
+    "parameters": [
+     {
+      "name": "vector_store_id",
+      "in": "path",
+      "description": "The ID of the vector store that the files belong to.",
+      "required": true,
+      "schema": {
+       "type": "string"
+      }
+     },
+     {
+      "name": "batch_id",
+      "in": "path",
+      "description": "The ID of the file batch that the files belong to.",
+      "required": true,
+      "schema": {
+       "type": "string"
+      }
+     },
+     {
+      "name": "limit",
+      "in": "query",
+      "description": "A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.\n",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "default": 20
+      }
+     },
+     {
+      "name": "order",
+      "in": "query",
+      "description": "Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.\n",
+      "schema": {
+       "type": "string",
+       "default": "desc",
+       "enum": [
+        "asc",
+        "desc"
+       ],
+       "x-ms-enum": {
+        "name": "ListVectorStoreFilesOrder",
+        "modelAsString": true,
+        "values": [
+         {
+          "value": "asc"
+         },
+         {
+          "value": "desc"
+         }
+        ]
+       }
+      }
+     },
+     {
+      "name": "after",
+      "in": "query",
+      "description": "A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.\n",
+      "schema": {
+       "type": "string"
+      }
+     },
+     {
+      "name": "before",
+      "in": "query",
+      "description": "A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.\n",
+      "schema": {
+       "type": "string"
+      }
+     },
+     {
+      "name": "filter",
+      "in": "query",
+      "description": "Filter by file status. One of `in_progress`, `completed`, `failed`, `cancelled`.",
+      "schema": {
+       "type": "string",
+       "enum": [
+        "in_progress",
+        "completed",
+        "failed",
+        "cancelled"
+       ],
+       "x-ms-enum": {
+        "name": "ListVectorStoreFilesFilter",
+        "modelAsString": true,
+        "values": [
+         {
+          "value": "in_progress"
+         },
+         {
+          "value": "completed"
+         },
+         {
+          "value": "failed"
+         },
+         {
+          "value": "cancelled"
+         }
+        ]
+       }
+      }
+     },
+     {
+      "in": "query",
+      "name": "api-version",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "example": "2025-04-01-preview"
+      },
+      "description": "api version"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/listVectorStoreFilesResponse"
+        }
+       }
+      }
+     }
+    },
+    "x-ms-examples": {
+     "List all vector store files in a batch.": {
+      "$ref": "./examples/list_vector_store_files.json"
+     }
+    }
+   }
+  },
+  "/responses": {
+   "post": {
+    "summary": "Creates a model response. Provide [text](/docs/guides/text) or\n[image](/docs/guides/images) inputs to generate [text](/docs/guides/text)\nor [JSON](/docs/guides/structured-outputs) outputs. Have the model call\nyour own [custom code](/docs/guides/function-calling) or use built-in\n[tools](/docs/guides/tools) like [web search](/docs/guides/tools-web-search)\nor [file search](/docs/guides/tools-file-search) to use your own data\nas input for the model's response.\n",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/createResponse"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/response"
+        }
+       },
+       "text/event-stream": {
+        "schema": {
+         "$ref": "#/components/schemas/responseStreamEvent"
+        }
+       }
+      }
+     },
+     "default": {
+      "description": "Service unavailable",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/errorResponse"
+        }
+       }
+      },
+      "headers": {
+       "apim-request-id": {
+        "description": "Request ID for troubleshooting purposes",
+        "schema": {
+         "type": "string"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "components": {
+  "schemas": {
+   "InputText": {
+    "type": "object",
+    "title": "Text input",
+    "description": "A text input to the model.\n",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "The type of the input item. Always `input_text`.\n",
+      "enum": [
+       "input_text"
+      ],
+      "x-stainless-const": true
+     },
+     "text": {
+      "type": "string",
+      "description": "The text input to the model.\n"
+     }
+    },
+    "required": [
+     "type",
+     "text"
+    ]
+   },
+   "OutputText": {
+    "type": "object",
+    "title": "Output text",
+    "description": "A text output from the model.\n",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "The type of the output text. Always `output_text`.\n",
+      "enum": [
+       "output_text"
+      ],
+      "x-stainless-const": true
+     },
+     "text": {
+      "type": "string",
+      "description": "The text output from the model.\n"
+     },
+     "annotations": {
+      "type": "array",
+      "description": "The annotations of the text output.\n",
+      "items": {
+       "x-oaiExpandable": true,
+       "$ref": "#/components/schemas/Annotation"
+      }
+     }
+    },
+    "required": [
+     "type",
+     "text",
+     "annotations"
+    ]
+   },
+   "EasyInputMessage": {
+    "type": "object",
+    "title": "Input message",
+    "description": "A message input to the model with a role indicating instruction following\nhierarchy. Instructions given with the `developer` or `system` role take\nprecedence over instructions given with the `user` role. Messages with the\n`assistant` role are presumed to have been generated by the model in previous\ninteractions.\n",
+    "properties": {
+     "role": {
+      "type": "string",
+      "description": "The role of the message input. One of `user`, `assistant`, `system`, or\n`developer`.\n",
+      "enum": [
+       "user",
+       "assistant",
+       "system",
+       "developer"
+      ]
+     },
+     "content": {
+      "description": "Text, image, or audio input to the model, used to generate a response.\nCan also contain previous assistant responses.\n",
+      "x-oaiExpandable": true,
+      "oneOf": [
+       {
+        "type": "string",
+        "title": "Text input",
+        "description": "A text input to the model.\n"
+       },
+       {
+        "$ref": "#/components/schemas/InputMessageContentList"
+       }
+      ]
+     },
+     "type": {
+      "type": "string",
+      "description": "The type of the message input. Always `message`.\n",
+      "enum": [
+       "message"
+      ],
+      "x-stainless-const": true
+     }
+    },
+    "required": [
+     "role",
+     "content"
+    ]
+   },
+   "InputMessage": {
+    "type": "object",
+    "title": "Input message",
+    "description": "A message input to the model with a role indicating instruction following\nhierarchy. Instructions given with the `developer` or `system` role take\nprecedence over instructions given with the `user` role.\n",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "The type of the message input. Always set to `message`.\n",
+      "enum": [
+       "message"
+      ],
+      "x-stainless-const": true
+     },
+     "role": {
+      "type": "string",
+      "description": "The role of the message input. One of `user`, `system`, or `developer`.\n",
+      "enum": [
+       "user",
+       "system",
+       "developer"
+      ]
+     },
+     "status": {
+      "type": "string",
+      "description": "The status of item. One of `in_progress`, `completed`, or\n`incomplete`. Populated when items are returned via API.\n",
+      "enum": [
+       "in_progress",
+       "completed",
+       "incomplete"
+      ]
+     },
+     "content": {
+      "$ref": "#/components/schemas/InputMessageContentList"
+     }
+    },
+    "required": [
+     "role",
+     "content"
+    ]
+   },
+   "OutputMessage": {
+    "type": "object",
+    "title": "Output message",
+    "description": "An output message from the model.\n",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The unique ID of the output message.\n"
+     },
+     "type": {
+      "type": "string",
+      "description": "The type of the output message. Always `message`.\n",
+      "enum": [
+       "message"
+      ],
+      "x-stainless-const": true
+     },
+     "role": {
+      "type": "string",
+      "description": "The role of the output message. Always `assistant`.\n",
+      "enum": [
+       "assistant"
+      ],
+      "x-stainless-const": true
+     },
+     "content": {
+      "type": "array",
+      "description": "The content of the output message.\n",
+      "x-oaiExpandable": true,
+      "items": {
+       "x-oaiExpandable": true,
+       "$ref": "#/components/schemas/OutputContent"
+      }
+     },
+     "status": {
+      "type": "string",
+      "description": "The status of the message input. One of `in_progress`, `completed`, or\n`incomplete`. Populated when input items are returned via API.\n",
+      "enum": [
+       "in_progress",
+       "completed",
+       "incomplete"
+      ]
+     }
+    },
+    "required": [
+     "id",
+     "type",
+     "role",
+     "content",
+     "status"
+    ]
+   }
+  }
+ }
+}

@@ -9,9 +9,10 @@ import { useCallback, useEffect, useState } from 'react';
  *   #/overdue     everything past its promised date
  *   #/contradictions  items whose own record disagrees with itself
  *   #/health      whether the pipeline itself is working
+ *   #/contracts   api-version contract changes, and what the docs do not say
  */
 export interface Route {
-  name: 'feed' | 'item' | 'overdue' | 'contradictions' | 'health';
+  name: 'feed' | 'item' | 'overdue' | 'contradictions' | 'health' | 'contracts';
   id: string;
   query: string;
 }
@@ -24,6 +25,7 @@ export function parseHash(hash: string): Route {
   if (path === '/overdue') return { name: 'overdue', id: '', query };
   if (path === '/contradictions') return { name: 'contradictions', id: '', query };
   if (path === '/health') return { name: 'health', id: '', query };
+  if (path === '/contracts') return { name: 'contracts', id: '', query };
   return { name: 'feed', id: '', query };
 }
 

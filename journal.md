@@ -639,3 +639,78 @@ Three layers, weakest threat last.
 - Both verified end to end against a fresh clone of the `data` branch rather
   than fixtures: 1 real event, `calendar.ics` written, the tenant fields
   materialised in both registers. 398 tests, lint, typecheck and build green.
+
+## 2026-08-19 — N13, N14: watching the contract, and the silence around it
+
+Prompted by a developer's post: Azure AI Foundry's Responses API started
+rejecting payloads it had accepted the day before, twice in ten days, with the
+new requirement documented nowhere.
+
+- **Reading the spec first changed the story.** `OutputText` has always
+  required `annotations`; `InputText` has never required it. The *contract* did
+  not move at all — the runtime began enforcing a rule that was already written
+  down, against replayed assistant items it had previously let through. Worth
+  recording because the obvious feature ("diff the spec, you'd have caught it")
+  would **not** have caught this one, and building it while implying otherwise
+  would have been selling something the tool cannot do.
+
+- **N13, the contract diff.** 27 published api-versions of the Azure OpenAI
+  spec, 602 operations, 3,242 schemas, snapshotted daily and compared against
+  *their own* previous snapshot. Never version-to-version: two versions
+  differing is them doing their job; one version differing from itself is the
+  finding, breaking or not, because the promise attached to a pinned
+  `api-version` is that it does not move.
+  - **Enumeration is discovered, not hardcoded.** `git clone --filter=tree:0
+    --depth 1 --no-checkout` is ~200 KB and `git ls-tree` of one directory
+    costs ~10 MB and two seconds — so one of the largest repositories on GitHub
+    is listed without cloning it. A new api-version appearing is its own event.
+  - The directory's `readme.md` also declares the version list, and it is
+    **stale**: it stops at `2025-01-01-preview` while `2025-03` and `2025-04`
+    sit on disk beside it. Reading versions from it — the obvious choice —
+    would have silently missed every recent version.
+  - I had written that these specs are Swagger 2.0. They are **OpenAPI 3.x**,
+    and the dialect itself moves (3.0.0 through 2025-01, 3.1.0 by 2025-04).
+    Corrected; `definitions` is still read for the Azure specs that do use it.
+
+- **N14, docs-vs-contract divergence.** The tracked pages from
+  `MicrosoftDocs/azure-ai-docs`, hashed and dated, set beside the contract
+  changes that should be described in them.
+  - **The include indirection nearly made this useless.**
+    `articles/foundry/openai/how-to/responses.md` is **581 bytes** — front
+    matter, a heading, and one `[!INCLUDE]` pointing at 138 KB of actual
+    documentation. Three of the six tracked pages are stubs like this;
+    `batch.md` is 594 bytes resolving to 95,897. Hashing the article path would
+    have reported half the corpus as unchanged forever, which is a confident
+    wrong answer and worse than not watching. Includes are resolved
+    transitively, and both sizes are stored so a regression to stub-hashing is
+    visible in the data rather than silent.
+  - **The content hash deliberately excludes the front matter**, so `ms.date`
+    can be compared against it. That gap is the second feature: a date bumped
+    over byte-identical content is a page asserting it was reviewed when
+    nothing was; content moving under a stale date is the inverse.
+  - **Correlation shows its working and asserts nothing.** The map from API
+    surface to doc path is hand-written — three of my first five guessed paths
+    were wrong, and Assistants turns out to be documented only under
+    `foundry-classic`. An unmapped surface produces no finding rather than a
+    guess, and "we track no page for this" is kept distinct from "this is
+    undocumented", because only the second is an accusation.
+  - Verified end to end by simulating the incident in the fixture: the
+    `annotations` requirement landing produces one finding naming the symbol,
+    the two pages searched, and `❌ does not mention it` against each.
+
+- **Two anomaly guards, both earned during the build.** Running offline against
+  a directory still holding a live snapshot produced **384 changes across a
+  surface of 394** — 97% of a pinned version apparently rewritten, and 83 false
+  "undocumented" findings. Held now, per version, and the snapshot is refused
+  along with the diff: writing the suspect surface while dropping its changes
+  would adopt it as the next baseline and lose the evidence and the alarm
+  together. The docs half has the matching guard for a partially materialised
+  checkout, which would otherwise record every unread page as removed.
+
+- **One brittleness fixed on the way:** `git checkout` fails the entire
+  invocation on a single unknown pathspec, so one stale entry in the map took
+  all six pages down and reported "docs unavailable". Checked out one at a time
+  now, with the bad path as a warning.
+
+- 483 tests, lint, typecheck and build green. A real round takes ~25 seconds
+  and adds four paths to the data branch, touching none of the roadmap files.

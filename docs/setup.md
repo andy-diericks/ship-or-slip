@@ -112,6 +112,29 @@ curl -i -X POST \
 
 `204` means it worked — check the Actions tab for the run it started.
 
+### The daily contract watch
+
+`contracts.yml` (ADR 0004) needs a **second cron-job.org job**, identical to
+the first except for two fields:
+
+| Field | Value |
+|---|---|
+| Title | `Ship or Slip — contract watch` |
+| URL | `https://api.github.com/repos/andy-diericks/ship-or-slip/actions/workflows/contracts.yml/dispatches` |
+| Schedule | once a day — `05:17` is fine, and off the hour for the same reason |
+
+Everything else — method, headers, body, the same token — is unchanged. The
+token already carries *Actions: read and write* for the whole repository, so it
+dispatches this workflow without any change.
+
+It is deliberately daily rather than six-hourly: specs and docs move through
+pull requests and a publishing pipeline, so a faster poll adds nothing and
+multiplies the cost of enumerating the spec repository.
+
+If this job is never created, nothing breaks and nothing silently rots — the
+contract page keeps showing the last snapshot it has, and its "generated"
+timestamp shows how old that is.
+
 ## 5 · Check it works
 
 Run **Actions → Fetch and diff → Run workflow** manually. A successful run

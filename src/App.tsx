@@ -19,6 +19,7 @@ const ActivityChart = lazy(() => import('./components/ActivityChart'));
 const OverduePage = lazy(() => import('./components/OverduePage'));
 const ContradictionsPage = lazy(() => import('./components/ContradictionsPage'));
 const HealthPage = lazy(() => import('./components/HealthPage'));
+const ContractsPage = lazy(() => import('./components/ContractsPage'));
 
 type LoadState =
   | { status: 'loading' }
@@ -78,6 +79,12 @@ export default function App() {
         className={route.name === 'contradictions' ? 'nav__link nav__link--on' : 'nav__link'}
       >
         Contradictions{state.index.contradictions ? ` (${state.index.contradictions.count})` : ''}
+      </a>
+      <a
+        href="#/contracts"
+        className={route.name === 'contracts' ? 'nav__link nav__link--on' : 'nav__link'}
+      >
+        Contracts
       </a>
       <a
         href="#/health"
@@ -187,6 +194,18 @@ export default function App() {
             timelines={state.timelines}
             onOpenItem={(id) => navigate(`/item/${encodeURIComponent(id)}`)}
           />
+        </Suspense>
+      </div>
+    );
+  }
+
+  if (route.name === 'contracts') {
+    return (
+      <div className="app">
+        {header}
+        {nav}
+        <Suspense fallback={<div className="skeleton" />}>
+          <ContractsPage onBack={() => navigate('/')} />
         </Suspense>
       </div>
     );

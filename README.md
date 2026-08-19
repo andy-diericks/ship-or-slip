@@ -37,6 +37,23 @@ date that moves moves in your calendar too. If your client wants a plain URL to
 paste, use the
 [`https:` form](https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/calendar.ics).
 
+## The contract watch
+
+A second, daily pipeline watches something the roadmap feeds never mention:
+whether a published `api-version` is still what it was. Azure pins its APIs to
+a version, and the promise that carries is that the version does not move.
+
+Every published version of the Azure OpenAI spec — 27 of them, 602 operations
+and 3,242 schemas — is snapshotted and compared **against its own previous
+snapshot**, never against another version. Alongside it, the pages in
+`MicrosoftDocs/azure-ai-docs` that should describe each surface are tracked, so
+a contract change can be set beside the documentation that does or does not
+mention it.
+
+The site never says *"Microsoft hid this"*. It shows the symbol that changed,
+the pages searched, and whether each one mentions it — a claim you can check in
+two clicks. See [ADR 0004](docs/adr/0004-contract-and-docs-watch.md).
+
 ## How it works
 
 There is no backend. Two public feeds go in, a diff comes out, a static page
@@ -64,7 +81,7 @@ best-effort trigger.
 ```bash
 npm ci
 npm run dev                    # the dashboard, against the live data branch
-npm test                       # 166 tests across the pipeline and the UI
+npm test                       # 483 tests across the pipelines and the UI
 ```
 
 Working on the pipeline:
@@ -72,6 +89,9 @@ Working on the pipeline:
 ```bash
 node scripts/fetch.mjs --offline --dry-run   # parse the checked-in fixtures, write nothing
 node scripts/fetch.mjs --data-dir=.data      # a real run into a local directory
+
+node scripts/contracts.mjs --offline --dry-run   # the contract and docs watch
+node scripts/contracts.mjs --data-dir=.data      # a real round (~25s, clones two repos treelessly)
 ```
 
 Then point the dev server at that local run:
@@ -95,6 +115,12 @@ VITE_DATA_BASE=/preview-data npm run dev     # after copying .data into public/p
 - Both feeds are public but undocumented as APIs. If Microsoft changes their
   shape, the pipeline records a warning and leaves the last good snapshot
   untouched rather than writing nonsense.
+- **The contract watch sees the contract, not the runtime.** It reports when a
+  published `api-version` changes. It cannot see a server that starts enforcing
+  a rule the spec already contained — which is a real way people get broken,
+  and needs live probing to catch (backlog N15).
+- **The spec-to-docs map is hand-written and short.** An API surface nobody has
+  mapped produces no finding rather than a guess.
 
 ## Documentation
 
@@ -103,6 +129,7 @@ VITE_DATA_BASE=/preview-data npm run dev     # after copying .data into public/p
 | [ADR 0001](docs/adr/0001-tech-stack.md) | Tech stack, and why the pipeline has no dependencies |
 | [ADR 0002](docs/adr/0002-design-system.md) | Design tokens, both themes, accessibility rules |
 | [ADR 0003](docs/adr/0003-data-model.md) | Data model, the `data` branch, the windowed-feed rule |
+| [ADR 0004](docs/adr/0004-contract-and-docs-watch.md) | The contract watch, the include indirection, why correlation is evidence |
 | [docs/setup.md](docs/setup.md) | One-time repository setup |
 | [CLAUDE.md](CLAUDE.md) | Briefing for AI sessions working on this repo |
 

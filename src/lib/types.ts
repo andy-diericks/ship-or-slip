@@ -246,3 +246,132 @@ export const EVENT_META: Record<
   preview_set: { label: 'Preview dated', tone: 'add', weight: 14 },
   status_changed: { label: 'Status changed', tone: 'drop', weight: 15 },
 };
+
+// ---------------------------------------------------------------------------
+// The contract and documentation watch (ADR 0004).
+//
+// A second data domain, written by `scripts/contracts.mjs` and deliberately
+// kept out of the roadmap event stream: these have no rollout month, no product
+// and no slip in months, and folding them into `ChangeEvent` would produce
+// either a shapeless union or a feed nobody can read.
+
+export type ContractChangeType =
+  | 'required_added'
+  | 'required_removed'
+  | 'property_added'
+  | 'property_removed'
+  | 'enum_added'
+  | 'enum_removed'
+  | 'operation_added'
+  | 'operation_removed'
+  | 'schema_added'
+  | 'schema_removed'
+  | 'version_added';
+
+/** Who a change breaks: the caller sending requests, or the consumer reading responses. */
+export type BreakingFor = 'caller' | 'consumer' | null;
+
+export interface ContractChange {
+  ts: string;
+  version: string;
+  channel: 'preview' | 'stable';
+  type: ContractChangeType;
+  target: string;
+  breaking: BreakingFor;
+  field?: string;
+  value?: string;
+}
+
+export interface ContractVersion {
+  version: string;
+  channel: 'preview' | 'stable';
+  file: string;
+  operations: number;
+  schemas: number;
+}
+
+/** One tracked documentation page, as it stands now. */
+export interface DocState {
+  path: string;
+  title: string | null;
+  /** Microsoft's own freshness claim from the front matter, `YYYY-MM-DD`. */
+  msDate: string | null;
+  hash: string;
+  bytes: number;
+  /** Size after includes are resolved — far larger than `bytes` for stub pages. */
+  resolvedBytes: number;
+  includes: string[];
+  missingIncludes: string[];
+}
+
+export interface DocChange {
+  ts: string;
+  type: 'doc_updated' | 'doc_changed_silently' | 'doc_freshness_only' | 'doc_added' | 'doc_removed';
+  path: string;
+  title: string | null;
+  from?: string | null;
+  to?: string | null;
+}
+
+/**
+ * A contract change paired with the documentation that should describe it.
+ *
+ * `docs[].mentions` is the evidence and the whole point: the finding shows
+ * which pages were searched and whether each one mentions the symbol, so the
+ * claim can be checked rather than taken.
+ */
+export interface DivergenceFinding {
+  kind: 'undocumented' | 'documented';
+  surface: string;
+  surfaceLabel: string;
+  version: string | null;
+  change: ContractChange;
+  symbol: string;
+  docs: { path: string; title: string | null; msDate: string | null; mentions: boolean }[];
+}
+
+export interface ContractRegister {
+  generated: string;
+  summary: {
+    versions: number;
+    operations: number;
+    schemas: number;
+    changesThisRun: number;
+    breakingThisRun: number;
+    undocumented: number;
+  };
+  versions: ContractVersion[];
+  changes: ContractChange[];
+  findings: DivergenceFinding[];
+  warnings: string[];
+}
+
+export interface DocRegister {
+  generated: string;
+  summary: { tracked: number; changesThisRun: number; freshnessOnly: number };
+  docs: DocState[];
+  changes: DocChange[];
+  warnings: string[];
+}
+
+export const CONTRACT_CHANGE_LABELS: Record<ContractChangeType, string> = {
+  required_added: 'Became required',
+  required_removed: 'No longer required',
+  property_added: 'Property added',
+  property_removed: 'Property removed',
+  enum_added: 'Value added',
+  enum_removed: 'Value removed',
+  operation_added: 'Operation added',
+  operation_removed: 'Operation removed',
+  schema_added: 'Schema added',
+  schema_removed: 'Schema removed',
+  version_added: 'New api-version',
+};
+
+export const DOC_CHANGE_LABELS: Record<DocChange['type'], string> = {
+  doc_updated: 'Updated',
+  doc_changed_silently: 'Changed without updating its own date',
+  doc_freshness_only: 'Date bumped, content identical',
+  doc_added: 'Added',
+  doc_removed: 'Removed',
+};

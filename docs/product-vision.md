@@ -27,6 +27,8 @@ busier is not on this list.
 |---|---|---|---|---|
 | N1 | **Calendar feed (`.ics`).** The 9 dated Azure retirements as all-day events, subscribable in Outlook over `webcal:`. Rewritten every run with a stable UID per item, so a retirement whose date moves moves in the subscriber's calendar instead of duplicating. Rollout months are excluded on purpose — 1,800 aspirational entries would make the subscription useless | Very high | ●○○ | ✅ |
 | N2 | **Tenant filter.** Cloud (Worldwide / GCC / GCC High / DoD) and platform chips on both registers, above the product chips — "does this affect me?" is asked before "which product is it?". An item with no recorded clouds is kept, not hidden: silence is not exclusion | Very high | ●○○ | ✅ |
+| N13 | **API contract diff.** Snapshot the public Azure OpenAI OpenAPI per `api-version` and diff it. The headline finding is not "a field changed" but *a frozen `api-version` changed after publication* — the thing Azure promises never happens and nobody archives. Versions are enumerated from the spec repo itself, so a new `api-version` appearing is an event in its own right | Very high | ●●○ | ✅ |
+| N14 | **Docs-vs-contract divergence.** `MicrosoftDocs/azure-ai-docs` is public. Correlate a contract change against the doc page that should describe it and surface *shipped undocumented*. Also catches `ms.date` bumped with byte-identical content — a page claiming it was reviewed when nothing was | Very high | ●●○ | ✅ |
 | L1 | **Overdue register.** 578 items past their promised date, 347 still "in development", worst 28 months late. Needs no history — the strongest page on the site | Very high | ●●○ | ✅ |
 | M1 | **Register counts in the run log.** The registers are derived and overwritten each run, so this series is the only place their history survives. Surfaced as an "overdue over time" table on the health page; readings from before it existed are omitted rather than shown as zero | Very high | ●○○ | ✅ |
 | M3 | **Search and product filter on the registers.** 555 overdue rows across 32 products; shared filter logic, same shapes as the main feed | High | ●○○ | ✅ |
@@ -106,6 +108,7 @@ useful? Anything that only adds surface area is still excluded.*
 | N9 | **Performance budget in CI.** Fail the build if first-paint JS grows past a threshold. The bundle is 165 kB today and there is nothing stopping it drifting | Medium | ●○○ | ⬜ |
 | N10 | **Accessibility audit + keyboard shortcuts.** ADR 0002 commits to touch targets and non-colour-only meaning; nothing verifies either automatically | Medium | ●●○ | ⬜ |
 | N11 | **Team correlation.** Which Microsoft product groups slip together? A Purview slip predicting a Teams slip would be a genuinely novel finding | Medium | ●●● | ⬜ |
+| N15 | **Contract-vs-reality probe.** Send one minimal known-good payload per `api-version` on a schedule and record the day the response changes. The only thing on this list that catches a runtime turning stricter than its own contract — which is what actually breaks people. Needs a key, costs money per run, varies by region and tenant, and a probe failing for billing reasons must never be recorded as "Microsoft broke it". Deserves its own ADR | Very high | ●●● | ⬜ |
 | N12 | **French and Dutch translations.** The audience is largely Belgian; the site is English-only. Real cost: every UI string doubles as a maintenance surface | Low | ●●○ | ⬜ |
 
 
@@ -116,6 +119,9 @@ useful? Anything that only adds surface area is still excluded.*
 1. **M2 (retiring soon)** — the calendar now carries the same nine retirements,
    so the on-site countdown is mostly presentation over data that is already
    derived. Cheap, and it closes the loop N1 opened.
+   *(N15 is the highest-value item on the list and the only one that catches a
+   runtime turning stricter than its own contract — but it needs a key, a
+   budget and its own ADR, so it is not the next thing to pick up.)*
 2. **J1** — makes the project useful daily rather than on visits.
 3. **F2** — free reach; the files are already public.
 4. **N4 ("my stack" profile)** — the register facets exist now; remembering the

@@ -7,6 +7,7 @@
 
 import type {
   ChangeEvent, DataIndex, Timeline, OverdueRegister, ContradictionRegister, RunRecord,
+  ContractRegister, DocRegister,
 } from './types';
 
 const DEFAULT_BASE =
@@ -84,3 +85,16 @@ export async function loadDashboard(signal?: AbortSignal): Promise<{
   ]);
   return { index, events, timelines };
 }
+
+/**
+ * The contract and documentation registers (ADR 0004).
+ *
+ * Written by a separate, daily pipeline, so on a store that has never run it
+ * they are simply absent. That is not an error — it is a site whose contract
+ * watch has not run yet — so the page distinguishes "no data" from "failed".
+ */
+export const loadContracts = (signal?: AbortSignal) =>
+  getJson<ContractRegister>('contracts.json', signal);
+
+export const loadDocs = (signal?: AbortSignal) =>
+  getJson<DocRegister>('docs.json', signal);

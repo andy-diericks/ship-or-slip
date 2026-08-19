@@ -1,0 +1,76 @@
+name: Contract and docs watch
+
+# The second data domain (ADR 0004): published API contracts, and whether the
+# documentation that should describe them says anything.
+#
+# Daily, not six-hourly. The roadmap is checked four times a day because a date
+# can be edited in place at any moment and catching that edit is the product.
+# Specs and docs move through pull requests and a publishing pipeline; checking
+# more often adds no fidelity and multiplies the cost of enumerating the spec
+# repository.
+#
+# Triggered externally, like `fetch.yml`, by a cron-job.org job POSTing to this
+# workflow's dispatches endpoint — see docs/setup.md. GitHub's own `schedule:`
+# has never fired once on this repository, so it is declared here only as a
+# fallback that costs nothing and is not relied on. If the external job is not
+# configured, this watch does not run: there is no silent degradation, the
+# contract page simply keeps reporting the last snapshot it has.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '17 5 * * *'
+
+concurrency:
+  group: contracts
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Check out the data branch
+        uses: actions/checkout@v4
+        with:
+          ref: data
+          path: .data
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # Zero dependencies here too. The only external tools are git and fetch,
+      # both of which the runner already has.
+      - name: Snapshot the contracts and the documentation
+        run: node scripts/contracts.mjs --data-dir=.data
+
+      - name: Commit the new snapshot
+        working-directory: .data
+        run: |
+          git config user.name  "ship-or-slip-bot"
+          git config user.email "actions@github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git commit -m "Contract watch $(date -u +%Y-%m-%dT%H:%MZ)"
+          # `fetch.yml` writes the same branch on its own schedule, so unlike
+          # that workflow this one can genuinely conflict. Rebase and retry.
+          for attempt in 1 2 3 4; do
+            if git push origin HEAD:data; then
+              echo "pushed"
+              exit 0
+            fi
+            echo "push attempt $attempt failed — rebasing and retrying"
+            sleep $((attempt * 4))
+            git pull --rebase origin data || true
+          done
+          echo "push failed after retries"
+          exit 1
