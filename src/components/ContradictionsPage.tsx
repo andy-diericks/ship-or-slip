@@ -33,6 +33,10 @@ export function ContradictionsPage({
     | { status: 'ready'; data: ContradictionRegister }
   >({ status: 'loading' });
   const [filter, setFilter] = useState<RegisterFilter>(EMPTY_REGISTER_FILTER);
+  // Kept local rather than added to the shared RegisterFilter: `kind` exists
+  // only on this register, and widening the shared shape for it would put a
+  // dead field on the overdue page.
+  const [kind, setKind] = useState<Contradiction['kind'] | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -74,6 +78,8 @@ export function ContradictionsPage({
   }
 
   const { items, month, summary } = state.data;
+  const visible = applyRegisterFilter(items, filter)
+    .filter((item) => !kind || item.kind === kind);
 
   return (
     <div>
@@ -92,22 +98,36 @@ export function ContradictionsPage({
         </div>
       ) : (
         <>
-          <div className="tiles">
-            {Object.entries(summary.byKind).map(([kind, count]) => (
-              <div key={kind} className="tile tone-slip">
-                <div className="tile__value">{count}</div>
-                <div className="tile__label">
-                  {CONTRADICTION_LABELS[kind as Contradiction['kind']] ?? kind}
-                </div>
-              </div>
-            ))}
+          {/* Tiles double as filters, exactly as on the feed: the number you
+              just read is the set you get when you click it. Counts come from
+              the unfiltered summary so the tiles do not renumber under the
+              reader as they narrow. */}
+          <div className="tiles" role="group" aria-label="Filter by contradiction kind">
+            {Object.entries(summary.byKind).map(([tileKind, count]) => {
+              const selected = kind === tileKind;
+              return (
+                <button
+                  key={tileKind}
+                  type="button"
+                  className="tile tone-slip"
+                  aria-pressed={selected}
+                  onClick={() =>
+                    setKind(selected ? null : (tileKind as Contradiction['kind']))}
+                >
+                  <div className="tile__value">{count}</div>
+                  <div className="tile__label">
+                    {CONTRADICTION_LABELS[tileKind as Contradiction['kind']] ?? tileKind}
+                  </div>
+                </button>
+              );
+            })}
           </div>
 
-          {/* Only worth filtering once the register is big enough to hide
-              something. At five rows it would be noise.
+          {/* The search and product bar is only worth showing once the
+              register is big enough to hide something; at five rows it would
+              be noise. The kind tiles above carry the filtering until then.
 
-              The kind tiles above already act as the category view, and
-              `kind` is not `status`, so no status chips here — a chip that
+              Still no status chips: `kind` is not `status`, and a chip that
               filtered nothing would be worse than no chip. */}
           {items.length > 8 && (
             <RegisterFilterBar
@@ -115,7 +135,7 @@ export function ContradictionsPage({
               onChange={setFilter}
               products={registerProducts(items)}
               statuses={[]}
-              resultCount={applyRegisterFilter(items, filter).length}
+              resultCount={visible.length}
               totalCount={items.length}
               clouds={registerFacet(items, 'clouds')}
               platforms={registerFacet(items, 'platforms')}
@@ -123,8 +143,24 @@ export function ContradictionsPage({
             />
           )}
 
+          {visible.length !== items.length && (
+            <div className="filters__row" role="status">
+              <span className="filters__legend">
+                Showing {visible.length} of {items.length}
+                {kind ? ` — ${CONTRADICTION_LABELS[kind]}` : ''}
+              </span>
+              <button
+                type="button"
+                className="chip chip--clear"
+                onClick={() => { setKind(null); setFilter(EMPTY_REGISTER_FILTER); }}
+              >
+                Clear filters
+              </button>
+            </div>
+          )}
+
           <div>
-            {applyRegisterFilter(items, filter).map((item) => (
+            {visible.map((item) => (
               <ContradictionRow
                 key={`${item.id}-${item.kind}`}
                 item={item}

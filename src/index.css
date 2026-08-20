@@ -190,7 +190,23 @@ button {
 }
 
 .tile:hover { transform: translateY(-1px); }
-.tile[aria-pressed='true'] { background: var(--surface-2); }
+
+/* A selected tile has to read as selected at a glance, because it is the only
+   thing on screen saying why the list below is shorter than the count above.
+   Background alone was too quiet: the border and the ring carry it. */
+.tile[aria-pressed='true'] {
+  background: var(--surface-2);
+  border-color: currentcolor;
+  box-shadow: inset 0 0 0 1px currentcolor;
+}
+
+/* The dot is a second, non-colour cue — a filter state that only differs by
+   hue is invisible to a reader who cannot separate those hues. */
+.tile[aria-pressed='true'] .tile__label::after {
+  content: ' ●';
+  font-size: 10px;
+  vertical-align: middle;
+}
 
 .tile__value {
   font-family: var(--mono);

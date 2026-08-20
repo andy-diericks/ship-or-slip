@@ -714,3 +714,32 @@ new requirement documented nowhere.
 
 - 483 tests, lint, typecheck and build green. A real round takes ~25 seconds
   and adds four paths to the data branch, touching none of the roadmap files.
+
+## 2026-08-20 — The contradiction tiles were decoration
+
+Reported: clicking the kind tiles on Contradictions did nothing. Correct
+report — they were plain `<div>`s. The feed's hero tiles have doubled as
+filters since the beginning ("the number you just read is the set you get when
+you click it"); this register simply never adopted the pattern, and a code
+comment claiming the tiles "already act as the category view" made it read as
+deliberate.
+
+- Tiles are now buttons with `aria-pressed`, matching `HeroTiles` exactly.
+  Clicking one filters, clicking it again clears, clicking another replaces.
+- **Counts stay at their unfiltered totals.** A facet list that renumbers as
+  you narrow it is disorienting — the same rule the product chips already
+  follow. Pinned by a test.
+- The second half of the report was the more useful half: *show visually that
+  the content is filtered.* A shorter list with nothing explaining why reads as
+  missing data, not as a filter. So there is now a `role="status"` line —
+  "Showing 1 of 5 — Rolled back after release" — with a Clear button, and the
+  pressed tile gains a border ring rather than only a slightly different
+  background.
+- The ring is paired with a `●` on the label. A selection that differs from its
+  neighbours only by colour is not a selection for everyone who reads it.
+- `kind` is held as local page state rather than added to the shared
+  `RegisterFilter`: it exists only on this register, and widening the shared
+  shape would put a dead field on the overdue page.
+
+The page had no tests at all before this, which is how a dead control shipped.
+It has nine now.
