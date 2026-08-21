@@ -5,7 +5,23 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-08-20T23:37:17.037Z</updated>
+  <updated>2026-08-21T23:37:21.002Z</updated>
+  <entry>
+    <title>Slipped +1 month — Microsoft Edge: Sign in to Edge with a Google account</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A565860?t=slipped&amp;at=2026-08-21T23:37:21.002Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A565860"/>
+    <updated>2026-08-21T23:37:21.002Z</updated>
+    <summary>2026-08 → 2026-09 · Microsoft Edge · Microsoft 365 · ID 565860</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=565860"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: Preloaded video for Teams Events and Meetings</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562340?t=slipped&amp;at=2026-08-21T23:37:21.002Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562340"/>
+    <updated>2026-08-21T23:37:21.002Z</updated>
+    <summary>2026-09 → 2026-10 · Microsoft Teams · Microsoft 365 · ID 562340</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562340"/>
+  </entry>
   <entry>
     <title>Slipped +3 months — Microsoft Edge: Import Google account data anytime from Settings</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568365?t=slipped&amp;at=2026-08-20T23:37:17.037Z</id>
@@ -390,21 +406,5 @@ meetings with Facilitator in Teams Rooms on Android</title>
     <updated>2026-08-13T23:37:18.391Z</updated>
     <summary>In development → Cancelled · Excel, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 499659</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=499659"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Excel: =COPILOT Function</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A499658?t=slipped&amp;at=2026-08-13T23:37:18.391Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A499658"/>
-    <updated>2026-08-13T23:37:18.391Z</updated>
-    <summary>2026-12 → 2027-01 · Excel, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 499658</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=499658"/>
-  </entry>
-  <entry>
-    <title>Cancelled — Excel: =COPILOT Function</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A499658?t=cancelled&amp;at=2026-08-13T23:37:18.391Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A499658"/>
-    <updated>2026-08-13T23:37:18.391Z</updated>
-    <summary>In development → Cancelled · Excel, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 499658</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=499658"/>
   </entry>
 </feed>
