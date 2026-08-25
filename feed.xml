@@ -5,7 +5,39 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-08-24T23:37:20.359Z</updated>
+  <updated>2026-08-25T23:37:21.671Z</updated>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: Proximity join support for attendees in Teams events from Teams Rooms on Windows and Android</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568781?t=slipped&amp;at=2026-08-25T23:37:21.671Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568781"/>
+    <updated>2026-08-25T23:37:21.671Z</updated>
+    <summary>2026-09 → 2026-10 · Microsoft Teams · Microsoft 365 · ID 568781</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=568781"/>
+  </entry>
+  <entry>
+    <title>Slipped +6 months — Microsoft Purview: Data Loss Prevention - Reduce policy sync status SLA on the Purview UI from 2 hours to 30 mins</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562994?t=slipped&amp;at=2026-08-25T23:37:21.671Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562994"/>
+    <updated>2026-08-25T23:37:21.671Z</updated>
+    <summary>2026-06 → 2026-12 · Microsoft Purview · Microsoft 365 · ID 562994</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562994"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Purview: Data Lifecycle Management – Archive SharePoint files under retention</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561208?t=slipped&amp;at=2026-08-25T23:37:21.671Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561208"/>
+    <updated>2026-08-25T23:37:21.671Z</updated>
+    <summary>2026-09 → 2026-10 · Microsoft Purview · Microsoft 365 · ID 561208</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=561208"/>
+  </entry>
+  <entry>
+    <title>Slipped +5 months — Outlook: 1-year and 2-year options for email sync window (Offline settings)</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A560535?t=slipped&amp;at=2026-08-25T23:37:21.671Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A560535"/>
+    <updated>2026-08-25T23:37:21.671Z</updated>
+    <summary>2026-06 → 2026-11 · Outlook · Microsoft 365 · ID 560535</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=560535"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Purview: Data Security Investigations – analyze files tied to endpoint DLP alerts</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A558547?t=slipped&amp;at=2026-08-24T23:37:20.359Z</id>
@@ -374,37 +406,5 @@ meetings with Facilitator in Teams Rooms on Android</title>
     <updated>2026-08-14T23:37:21.367Z</updated>
     <summary>2026-07 → — · Microsoft Purview · Microsoft 365 · ID 558683</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=558683"/>
-  </entry>
-  <entry>
-    <title>Dropped from the roadmap — Microsoft Teams: Run SMB admin tasks faster with Microsoft 365 Admin Agent in Microsoft Teams</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A558255?t=dropped&amp;at=2026-08-14T23:37:21.367Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A558255"/>
-    <updated>2026-08-14T23:37:21.367Z</updated>
-    <summary>2026-08 → — · Microsoft Teams · Microsoft 365 · ID 558255</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=558255"/>
-  </entry>
-  <entry>
-    <title>Dropped from the roadmap — Microsoft Teams: Enable customers to book appointments from a live chat widget on your website</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A557172?t=dropped&amp;at=2026-08-14T23:37:21.367Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A557172"/>
-    <updated>2026-08-14T23:37:21.367Z</updated>
-    <summary>2026-05 → — · Microsoft Teams · Microsoft 365 · ID 557172</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=557172"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Teams: Teams events attendance and engagement report policy</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567466?t=slipped&amp;at=2026-08-13T23:37:18.391Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567466"/>
-    <updated>2026-08-13T23:37:18.391Z</updated>
-    <summary>2026-09 → 2026-10 · Microsoft Teams · Microsoft 365 · ID 567466</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=567466"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Teams: Personal message reminders for chat and channels</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A565869?t=slipped&amp;at=2026-08-13T23:37:18.391Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A565869"/>
-    <updated>2026-08-13T23:37:18.391Z</updated>
-    <summary>2026-09 → 2026-10 · Microsoft Teams · Microsoft 365 · ID 565869</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=565869"/>
   </entry>
 </feed>
