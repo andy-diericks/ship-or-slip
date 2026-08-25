@@ -24,14 +24,15 @@
   "articles/foundry/openai/how-to/chatgpt.md": {
     "path": "articles/foundry/openai/how-to/chatgpt.md",
     "title": "Work with chat completion models",
-    "msDate": "2026-08-06",
-    "hash": "4e645afa50d5d35b",
-    "bytes": 2966,
-    "resolvedBytes": 45438,
+    "msDate": "2026-08-24",
+    "hash": "d9b093259d0953aa",
+    "bytes": 3499,
+    "resolvedBytes": 56409,
     "includes": [
       "articles/foundry/openai/includes/how-to-chatgpt-1.md",
       "articles/foundry/openai/includes/chat-completion-python.md",
-      "articles/foundry/openai/includes/chat-completion-dotnet.md"
+      "articles/foundry/openai/includes/chat-completion-dotnet.md",
+      "articles/foundry/openai/includes/chat-completion-javascript.md"
     ],
     "missingIncludes": []
   },
