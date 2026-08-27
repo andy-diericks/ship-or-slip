@@ -1,8 +1,8 @@
 {
-  "generated": "2026-08-26T05:50:18.969Z",
+  "generated": "2026-08-27T16:30:27.219Z",
   "summary": {
     "tracked": 6,
-    "changesThisRun": 0,
+    "changesThisRun": 2,
     "freshnessOnly": 0
   },
   "docs": [
@@ -10,9 +10,9 @@
       "path": "articles/foundry-classic/openai/concepts/assistants.md",
       "title": "Azure OpenAI in Microsoft Foundry Models Assistants API concepts (classic)",
       "msDate": "2025-09-24",
-      "hash": "24d54f8011d298b9",
+      "hash": "d7d1a3671968cd99",
       "bytes": 10181,
-      "resolvedBytes": 10488,
+      "resolvedBytes": 10444,
       "includes": [
         "articles/foundry-classic/includes/classic-banner.md",
         "articles/foundry-classic/includes/classic-links.md",
@@ -24,9 +24,9 @@
       "path": "articles/foundry-classic/openai/how-to/assistant.md",
       "title": "How to create Assistants with Azure OpenAI in Microsoft Foundry Models (classic)",
       "msDate": "2026-02-17",
-      "hash": "60e529b963787f93",
+      "hash": "194259a8df0c46f7",
       "bytes": 33000,
-      "resolvedBytes": 33261,
+      "resolvedBytes": 33217,
       "includes": [
         "articles/foundry-classic/includes/classic-banner.md",
         "articles/foundry-classic/includes/classic-links.md",
@@ -97,6 +97,22 @@
     }
   ],
   "changes": [
+    {
+      "ts": "2026-08-27T16:30:27.219Z",
+      "type": "doc_changed_silently",
+      "path": "articles/foundry-classic/openai/how-to/assistant.md",
+      "title": "How to create Assistants with Azure OpenAI in Microsoft Foundry Models (classic)",
+      "from": "2026-02-17",
+      "to": "2026-02-17"
+    },
+    {
+      "ts": "2026-08-27T16:30:27.219Z",
+      "type": "doc_changed_silently",
+      "path": "articles/foundry-classic/openai/concepts/assistants.md",
+      "title": "Azure OpenAI in Microsoft Foundry Models Assistants API concepts (classic)",
+      "from": "2025-09-24",
+      "to": "2025-09-24"
+    },
     {
       "ts": "2026-08-25T05:47:43.886Z",
       "type": "doc_updated",
