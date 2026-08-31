@@ -5,7 +5,15 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-08-28T23:37:19.739Z</updated>
+  <updated>2026-08-31T23:37:19.612Z</updated>
+  <entry>
+    <title>Cancelled — Microsoft Copilot (Microsoft 365): Chat History Filtering by Copilot Experience</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A559601?t=cancelled&amp;at=2026-08-31T23:37:19.612Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A559601"/>
+    <updated>2026-08-31T23:37:19.612Z</updated>
+    <summary>In development → Cancelled · Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 559601</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=559601"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Teams: App centric management in Teams Admin Center to manage the Apps access for tenants, end-users, and groups in DoD</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A569434?t=slipped&amp;at=2026-08-28T23:37:19.739Z</id>
@@ -399,13 +407,5 @@ meetings with Facilitator in Teams Rooms on Android</title>
     <updated>2026-08-18T05:37:18.482Z</updated>
     <summary>2027-01 → — · Excel, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 499659</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=499659"/>
-  </entry>
-  <entry>
-    <title>Dropped from the roadmap — Excel: =COPILOT Function</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A499658?t=dropped&amp;at=2026-08-18T05:37:18.482Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A499658"/>
-    <updated>2026-08-18T05:37:18.482Z</updated>
-    <summary>2027-01 → — · Excel, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 499658</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=499658"/>
   </entry>
 </feed>
