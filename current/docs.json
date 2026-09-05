@@ -3,9 +3,9 @@
     "path": "articles/foundry/openai/how-to/responses.md",
     "title": "Use the Azure OpenAI Responses API",
     "msDate": "2026-08-18",
-    "hash": "87dd2d4a77154bcf",
+    "hash": "ae444fb21eb18014",
     "bytes": 581,
-    "resolvedBytes": 138276,
+    "resolvedBytes": 140122,
     "includes": [
       "articles/foundry/openai/includes/how-to-responses-content.md"
     ],
