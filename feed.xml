@@ -5,7 +5,47 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-09-03T23:37:21.120Z</updated>
+  <updated>2026-09-09T05:37:22.206Z</updated>
+  <entry>
+    <title>Slipped +1 month — Outlook: Categorize Emails by Dragging Them onto a Favorite Category</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567319?t=slipped&amp;at=2026-09-09T05:37:22.206Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567319"/>
+    <updated>2026-09-09T05:37:22.206Z</updated>
+    <summary>2026-09 → 2026-10 · Outlook · Microsoft 365 · ID 567319</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=567319"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Microsoft Purview: Data Lifecycle Management - DLM Meter Change</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A560324?t=slipped&amp;at=2026-09-09T05:37:22.206Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A560324"/>
+    <updated>2026-09-09T05:37:22.206Z</updated>
+    <summary>2026-10 → 2026-12 · Microsoft Purview · Microsoft 365 · ID 560324</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=560324"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Microsoft Edge: Allow M365 authentication popups in work profiles</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561035?t=slipped&amp;at=2026-09-09T05:37:22.206Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561035"/>
+    <updated>2026-09-09T05:37:22.206Z</updated>
+    <summary>2026-09 → 2026-11 · Microsoft Edge · Microsoft 365 · ID 561035</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=561035"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Microsoft Viva: Copilot Analytics - Export metrics in the Copilot Dashboard at Day Level</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A547749?t=slipped&amp;at=2026-09-09T05:37:22.206Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A547749"/>
+    <updated>2026-09-09T05:37:22.206Z</updated>
+    <summary>2026-09 → 2026-11 · Microsoft Viva, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 547749</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=547749"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Purview compliance portal: Data Lifecycle Management - Introduction of secure workflow to bypass legal holds and retention policies</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A392838?t=slipped&amp;at=2026-09-09T05:37:22.206Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A392838"/>
+    <updated>2026-09-09T05:37:22.206Z</updated>
+    <summary>2026-09 → 2026-10 · Microsoft Purview · Microsoft 365 · ID 392838</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=392838"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Edge: Automatically unsubscribe users from notifications sent by scam and malicious sites</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568366?t=slipped&amp;at=2026-09-03T23:37:21.120Z</id>
@@ -366,45 +406,5 @@ meetings with Facilitator in Teams Rooms on Android</title>
     <updated>2026-08-27T23:37:20.381Z</updated>
     <summary>2026-09 → 2026-10 · Microsoft Teams · Microsoft 365 · ID 502520</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=502520"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Teams: Pop out calls into a new browser window</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A569206?t=slipped&amp;at=2026-08-27T05:37:19.002Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A569206"/>
-    <updated>2026-08-27T05:37:19.002Z</updated>
-    <summary>2026-09 → 2026-10 · Microsoft Teams · Microsoft 365 · ID 569206</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=569206"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Teams: Granular channel notification controls</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A565132?t=slipped&amp;at=2026-08-27T05:37:19.002Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A565132"/>
-    <updated>2026-08-27T05:37:19.002Z</updated>
-    <summary>2026-09 → 2026-10 · Microsoft Teams · Microsoft 365 · ID 565132</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=565132"/>
-  </entry>
-  <entry>
-    <title>Slipped +2 months — Microsoft Teams: Facilitator detects and answers questions</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A558341?t=slipped&amp;at=2026-08-27T05:37:19.002Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A558341"/>
-    <updated>2026-08-27T05:37:19.002Z</updated>
-    <summary>2026-09 → 2026-11 · Microsoft Teams, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 558341</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=558341"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Teams: Centralized notification settings for channels</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A557970?t=slipped&amp;at=2026-08-27T05:37:19.002Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A557970"/>
-    <updated>2026-08-27T05:37:19.002Z</updated>
-    <summary>2026-09 → 2026-10 · Microsoft Teams · Microsoft 365 · ID 557970</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=557970"/>
-  </entry>
-  <entry>
-    <title>Slipped +2 months — Microsoft Purview: Compliance Manager-Purview Compliance Manager integration with Microsoft Foundry for automated mapping of AI regulations and evaluation of Compliance controls for Foundry Agents</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A536576?t=slipped&amp;at=2026-08-27T05:37:19.002Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A536576"/>
-    <updated>2026-08-27T05:37:19.002Z</updated>
-    <summary>2026-08 → 2026-10 · Microsoft Purview · Microsoft 365 · ID 536576</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=536576"/>
   </entry>
 </feed>
