@@ -1,39 +1,11 @@
 {
-  "generated": "2026-09-10T09:43:18.508Z",
+  "generated": "2026-09-11T09:41:01.126Z",
   "summary": {
-    "tracked": 6,
-    "changesThisRun": 0,
+    "tracked": 4,
+    "changesThisRun": 3,
     "freshnessOnly": 0
   },
   "docs": [
-    {
-      "path": "articles/foundry-classic/openai/concepts/assistants.md",
-      "title": "Azure OpenAI in Microsoft Foundry Models Assistants API concepts (classic)",
-      "msDate": "2025-09-24",
-      "hash": "d7d1a3671968cd99",
-      "bytes": 10181,
-      "resolvedBytes": 10444,
-      "includes": [
-        "articles/foundry-classic/includes/classic-banner.md",
-        "articles/foundry-classic/includes/classic-links.md",
-        "articles/foundry-classic/openai/includes/agent-service.md"
-      ],
-      "missingIncludes": []
-    },
-    {
-      "path": "articles/foundry-classic/openai/how-to/assistant.md",
-      "title": "How to create Assistants with Azure OpenAI in Microsoft Foundry Models (classic)",
-      "msDate": "2026-02-17",
-      "hash": "194259a8df0c46f7",
-      "bytes": 33000,
-      "resolvedBytes": 33217,
-      "includes": [
-        "articles/foundry-classic/includes/classic-banner.md",
-        "articles/foundry-classic/includes/classic-links.md",
-        "articles/foundry-classic/openai/includes/agent-service.md"
-      ],
-      "missingIncludes": []
-    },
     {
       "path": "articles/foundry/agents/quickstarts/responses-api.md",
       "title": "Quickstart: Build agents using the Responses API",
@@ -87,9 +59,9 @@
       "path": "articles/foundry/openai/how-to/responses.md",
       "title": "Use the Azure OpenAI Responses API",
       "msDate": "2026-08-18",
-      "hash": "ae444fb21eb18014",
+      "hash": "1cbd5fb7168aa379",
       "bytes": 581,
-      "resolvedBytes": 140122,
+      "resolvedBytes": 140221,
       "includes": [
         "articles/foundry/openai/includes/how-to-responses-content.md"
       ],
@@ -97,6 +69,26 @@
     }
   ],
   "changes": [
+    {
+      "ts": "2026-09-11T09:41:01.126Z",
+      "type": "doc_changed_silently",
+      "path": "articles/foundry/openai/how-to/responses.md",
+      "title": "Use the Azure OpenAI Responses API",
+      "from": "2026-08-18",
+      "to": "2026-08-18"
+    },
+    {
+      "ts": "2026-09-11T09:41:01.126Z",
+      "type": "doc_removed",
+      "path": "articles/foundry-classic/openai/how-to/assistant.md",
+      "title": "How to create Assistants with Azure OpenAI in Microsoft Foundry Models (classic)"
+    },
+    {
+      "ts": "2026-09-11T09:41:01.126Z",
+      "type": "doc_removed",
+      "path": "articles/foundry-classic/openai/concepts/assistants.md",
+      "title": "Azure OpenAI in Microsoft Foundry Models Assistants API concepts (classic)"
+    },
     {
       "ts": "2026-09-05T09:04:47.552Z",
       "type": "doc_changed_silently",
@@ -130,5 +122,34 @@
       "to": "2026-08-24"
     }
   ],
-  "warnings": []
+  "warnings": [
+    "2022-03-01-preview: HTTP 429",
+    "2022-06-01-preview: HTTP 429",
+    "2022-12-01: HTTP 429",
+    "2023-03-15-preview: HTTP 429",
+    "2023-05-15: HTTP 429",
+    "2023-06-01-preview: HTTP 429",
+    "2023-07-01-preview: HTTP 429",
+    "2023-09-01-preview: HTTP 429",
+    "2023-10-01-preview: HTTP 429",
+    "2024-02-01: HTTP 429",
+    "2024-02-15-preview: HTTP 429",
+    "2024-03-01-preview: HTTP 429",
+    "2024-04-01-preview: HTTP 429",
+    "2024-05-01-preview: HTTP 429",
+    "2024-06-01: HTTP 429",
+    "2024-08-01-preview: HTTP 429",
+    "2024-09-01-preview: HTTP 429",
+    "2024-10-01-preview: HTTP 429",
+    "2024-10-21: HTTP 429",
+    "2024-12-01-preview: HTTP 429",
+    "2025-01-01-preview: HTTP 429",
+    "2025-02-01-preview: HTTP 429",
+    "2025-03-01-preview: HTTP 429",
+    "2025-04-01-preview: HTTP 429",
+    "doc path not in the repo: articles/foundry-classic/openai/how-to/assistant.md",
+    "doc path not in the repo: articles/foundry-classic/openai/concepts/assistants.md",
+    "doc missing: articles/foundry-classic/openai/how-to/assistant.md",
+    "doc missing: articles/foundry-classic/openai/concepts/assistants.md"
+  ]
 }
