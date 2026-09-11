@@ -5,7 +5,55 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-09-10T23:37:21.400Z</updated>
+  <updated>2026-09-11T23:37:19.015Z</updated>
+  <entry>
+    <title>Cancelled — Microsoft 365: [Education] Control access to Learning Activities and Teach</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568370?t=cancelled&amp;at=2026-09-11T23:37:19.015Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568370"/>
+    <updated>2026-09-11T23:37:19.015Z</updated>
+    <summary>In development → Cancelled · Microsoft 365 · Microsoft 365 · ID 568370</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=568370"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: Teams events attendance and engagement report policy</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567466?t=slipped&amp;at=2026-09-11T23:37:19.015Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567466"/>
+    <updated>2026-09-11T23:37:19.015Z</updated>
+    <summary>2026-10 → 2026-11 · Microsoft Teams · Microsoft 365 · ID 567466</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=567466"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Access: Cascading combo and list boxes with LinkMasterFields/LinkChildFields</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561328?t=slipped&amp;at=2026-09-11T23:37:19.015Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561328"/>
+    <updated>2026-09-11T23:37:19.015Z</updated>
+    <summary>2026-08 → 2026-09 · Access · Microsoft 365 · ID 561328</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=561328"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Copilot (Microsoft 365): Edit with Copilot in Excel (Web, Win32, Mac) - GCC</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A542181?t=slipped&amp;at=2026-09-11T23:37:19.015Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A542181"/>
+    <updated>2026-09-11T23:37:19.015Z</updated>
+    <summary>2026-09 → 2026-10 · Excel, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 542181</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=542181"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Edge: Adding support for viewing Sensitivity labels applied to a Microsoft Information Protection (MIP) Protected PDF</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A489232?t=slipped&amp;at=2026-09-11T23:37:19.015Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A489232"/>
+    <updated>2026-09-11T23:37:19.015Z</updated>
+    <summary>2026-09 → 2026-10 · Microsoft Edge · Microsoft 365 · ID 489232</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=489232"/>
+  </entry>
+  <entry>
+    <title>Retirement announced — Retirement: Azure Linux with OS Guard in Azure Kubernetes Service</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A571257?t=retirement_announced&amp;at=2026-09-11T23:37:19.015Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A571257"/>
+    <updated>2026-09-11T23:37:19.015Z</updated>
+    <summary>— → 2026-12-10 · Azure · ID 571257</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=571257"/>
+  </entry>
   <entry>
     <title>Scope cut (Platforms lost: Linux) — Microsoft Teams: Upgraded call history in Teams Calls app</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570843?t=scope_reduced&amp;at=2026-09-10T23:37:21.400Z</id>
@@ -357,53 +405,5 @@
     <updated>2026-09-01T23:37:18.733Z</updated>
     <summary>2026-08 → 2026-09 · Microsoft Viva · Microsoft 365 · ID 566699</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=566699"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — OneNote: Multimodal capture in Copilot Notebooks (Windows)</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A566322?t=slipped&amp;at=2026-09-01T23:37:18.733Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A566322"/>
-    <updated>2026-09-01T23:37:18.733Z</updated>
-    <summary>2026-08 → 2026-09 · OneNote, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 566322</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=566322"/>
-  </entry>
-  <entry>
-    <title>Slipped +4 months — Microsoft Copilot (Microsoft 365): Generate documents using forms in SharePoint with Power Automate</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561026?t=slipped&amp;at=2026-09-01T23:37:18.733Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561026"/>
-    <updated>2026-09-01T23:37:18.733Z</updated>
-    <summary>2026-06 → 2026-10 · Power Automate, SharePoint, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 561026</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=561026"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Copilot (Microsoft 365): Copilot Chat can now better match search results from Scanned PDFs and from text inside images embedded in Word, Excel, and PowerPoint</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A559613?t=slipped&amp;at=2026-09-01T23:37:18.733Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A559613"/>
-    <updated>2026-09-01T23:37:18.733Z</updated>
-    <summary>2026-08 → 2026-09 · Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 559613</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=559613"/>
-  </entry>
-  <entry>
-    <title>Slipped +2 months — Outlook: Share Word, Excel, and PowerPoint local files via the new Outlook for Windows</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A557675?t=slipped&amp;at=2026-09-01T23:37:18.733Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A557675"/>
-    <updated>2026-09-01T23:37:18.733Z</updated>
-    <summary>2026-09 → 2026-11 · Outlook · Microsoft 365 · ID 557675</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=557675"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Outlook: User-initiated Copilot insights in classic Outlook</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A508524?t=slipped&amp;at=2026-09-01T23:37:18.733Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A508524"/>
-    <updated>2026-09-01T23:37:18.733Z</updated>
-    <summary>2026-09 → 2026-10 · Outlook · Microsoft 365 · ID 508524</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=508524"/>
-  </entry>
-  <entry>
-    <title>Slipped +3 months — Microsoft Copilot (Microsoft 365): Domain exclusion for web grounding</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A503144?t=slipped&amp;at=2026-09-01T23:37:18.733Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A503144"/>
-    <updated>2026-09-01T23:37:18.733Z</updated>
-    <summary>2026-06 → 2026-09 · Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 503144</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=503144"/>
   </entry>
 </feed>
