@@ -1,8 +1,8 @@
 {
-  "generated": "2026-09-11T09:41:01.126Z",
+  "generated": "2026-09-12T09:21:37.524Z",
   "summary": {
     "tracked": 4,
-    "changesThisRun": 3,
+    "changesThisRun": 0,
     "freshnessOnly": 0
   },
   "docs": [
@@ -123,30 +123,6 @@
     }
   ],
   "warnings": [
-    "2022-03-01-preview: HTTP 429",
-    "2022-06-01-preview: HTTP 429",
-    "2022-12-01: HTTP 429",
-    "2023-03-15-preview: HTTP 429",
-    "2023-05-15: HTTP 429",
-    "2023-06-01-preview: HTTP 429",
-    "2023-07-01-preview: HTTP 429",
-    "2023-09-01-preview: HTTP 429",
-    "2023-10-01-preview: HTTP 429",
-    "2024-02-01: HTTP 429",
-    "2024-02-15-preview: HTTP 429",
-    "2024-03-01-preview: HTTP 429",
-    "2024-04-01-preview: HTTP 429",
-    "2024-05-01-preview: HTTP 429",
-    "2024-06-01: HTTP 429",
-    "2024-08-01-preview: HTTP 429",
-    "2024-09-01-preview: HTTP 429",
-    "2024-10-01-preview: HTTP 429",
-    "2024-10-21: HTTP 429",
-    "2024-12-01-preview: HTTP 429",
-    "2025-01-01-preview: HTTP 429",
-    "2025-02-01-preview: HTTP 429",
-    "2025-03-01-preview: HTTP 429",
-    "2025-04-01-preview: HTTP 429",
     "doc path not in the repo: articles/foundry-classic/openai/how-to/assistant.md",
     "doc path not in the repo: articles/foundry-classic/openai/concepts/assistants.md",
     "doc missing: articles/foundry-classic/openai/how-to/assistant.md",
