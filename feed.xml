@@ -5,7 +5,55 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-09-21T23:37:52.908Z</updated>
+  <updated>2026-09-22T23:37:18.461Z</updated>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: Multi-line call history tabs in the Calls app</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570962?t=slipped&amp;at=2026-09-22T23:37:18.461Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570962"/>
+    <updated>2026-09-22T23:37:18.461Z</updated>
+    <summary>2025-10 → 2025-11 · Microsoft Teams · Microsoft 365 · ID 570962</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=570962"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: Upgraded call history in Teams Calls app</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570843?t=slipped&amp;at=2026-09-22T23:37:18.461Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570843"/>
+    <updated>2026-09-22T23:37:18.461Z</updated>
+    <summary>2026-10 → 2026-11 · Microsoft Teams · Microsoft 365 · ID 570843</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=570843"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: Analytics for desk utilization on Teams Pro Management portal</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570648?t=slipped&amp;at=2026-09-22T23:37:18.461Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570648"/>
+    <updated>2026-09-22T23:37:18.461Z</updated>
+    <summary>2026-10 → 2026-11 · Microsoft Teams · Microsoft 365 · ID 570648</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=570648"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: Improved organization for muted and meeting chats</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A559605?t=slipped&amp;at=2026-09-22T23:37:18.461Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A559605"/>
+    <updated>2026-09-22T23:37:18.461Z</updated>
+    <summary>2026-09 → 2026-10 · Microsoft Teams · Microsoft 365 · ID 559605</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=559605"/>
+  </entry>
+  <entry>
+    <title>Cancelled — Built‑in AI Interpreter for Calls on Teams Phone Devices</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A553594?t=cancelled&amp;at=2026-09-22T23:37:18.461Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A553594"/>
+    <updated>2026-09-22T23:37:18.461Z</updated>
+    <summary>In development → Cancelled · Microsoft Teams · Microsoft 365 · ID 553594</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=553594"/>
+  </entry>
+  <entry>
+    <title>Retirement announced — Retirement: Support for Node.js 22 ends on April 30, 2027</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A572771?t=retirement_announced&amp;at=2026-09-22T23:37:18.461Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A572771"/>
+    <updated>2026-09-22T23:37:18.461Z</updated>
+    <summary>— → 2027-04-30 · Compute, Containers, Internet of Things, Azure Functions, Compliance, Security · Azure · ID 572771</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=572771"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Purview: Data Lifecycle Management - Ensure regulatory compliance by deleting inactive OneDrives and mailboxes for departing employees</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A566527?t=slipped&amp;at=2026-09-21T23:37:52.908Z</id>
@@ -357,53 +405,5 @@
     <updated>2026-09-14T23:37:17.653Z</updated>
     <summary>2026-07 → 2026-10 · Access · Microsoft 365 · ID 561854</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=561854"/>
-  </entry>
-  <entry>
-    <title>Cancelled — Microsoft 365: [Education] Control access to Learning Activities and Teach</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568370?t=cancelled&amp;at=2026-09-11T23:37:19.015Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568370"/>
-    <updated>2026-09-11T23:37:19.015Z</updated>
-    <summary>In development → Cancelled · Microsoft 365 · Microsoft 365 · ID 568370</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=568370"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Teams: Teams events attendance and engagement report policy</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567466?t=slipped&amp;at=2026-09-11T23:37:19.015Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567466"/>
-    <updated>2026-09-11T23:37:19.015Z</updated>
-    <summary>2026-10 → 2026-11 · Microsoft Teams · Microsoft 365 · ID 567466</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=567466"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Access: Cascading combo and list boxes with LinkMasterFields/LinkChildFields</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561328?t=slipped&amp;at=2026-09-11T23:37:19.015Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561328"/>
-    <updated>2026-09-11T23:37:19.015Z</updated>
-    <summary>2026-08 → 2026-09 · Access · Microsoft 365 · ID 561328</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=561328"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Copilot (Microsoft 365): Edit with Copilot in Excel (Web, Win32, Mac) - GCC</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A542181?t=slipped&amp;at=2026-09-11T23:37:19.015Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A542181"/>
-    <updated>2026-09-11T23:37:19.015Z</updated>
-    <summary>2026-09 → 2026-10 · Excel, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 542181</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=542181"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Edge: Adding support for viewing Sensitivity labels applied to a Microsoft Information Protection (MIP) Protected PDF</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A489232?t=slipped&amp;at=2026-09-11T23:37:19.015Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A489232"/>
-    <updated>2026-09-11T23:37:19.015Z</updated>
-    <summary>2026-09 → 2026-10 · Microsoft Edge · Microsoft 365 · ID 489232</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=489232"/>
-  </entry>
-  <entry>
-    <title>Retirement announced — Retirement: Azure Linux with OS Guard in Azure Kubernetes Service</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A571257?t=retirement_announced&amp;at=2026-09-11T23:37:19.015Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A571257"/>
-    <updated>2026-09-11T23:37:19.015Z</updated>
-    <summary>— → 2026-12-10 · Azure · ID 571257</summary>
-    <link rel="related" href="https://azure.microsoft.com/updates?id=571257"/>
   </entry>
 </feed>
