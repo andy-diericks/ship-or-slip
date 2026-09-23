@@ -5,7 +5,39 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-09-23T17:37:24.552Z</updated>
+  <updated>2026-09-23T23:37:21.251Z</updated>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: Facilitator Can Join Channel Meetings</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568936?t=slipped&amp;at=2026-09-23T23:37:21.251Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568936"/>
+    <updated>2026-09-23T23:37:21.251Z</updated>
+    <summary>2026-10 → 2026-11 · Microsoft Teams · Microsoft 365 · ID 568936</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=568936"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: Additional health signals available for Teams Rooms on Android on Pro Management Portal</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A566856?t=slipped&amp;at=2026-09-23T23:37:21.251Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A566856"/>
+    <updated>2026-09-23T23:37:21.251Z</updated>
+    <summary>2026-10 → 2026-11 · Microsoft Teams · Microsoft 365 · ID 566856</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=566856"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: SharePoint app in Teams</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567314?t=slipped&amp;at=2026-09-23T23:37:21.251Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567314"/>
+    <updated>2026-09-23T23:37:21.251Z</updated>
+    <summary>2026-09 → 2026-10 · Microsoft Teams, SharePoint · Microsoft 365 · ID 567314</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=567314"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: Preloaded video for Teams Events and Meetings</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562340?t=slipped&amp;at=2026-09-23T23:37:21.251Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562340"/>
+    <updated>2026-09-23T23:37:21.251Z</updated>
+    <summary>2026-10 → 2026-11 · Microsoft Teams · Microsoft 365 · ID 562340</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562340"/>
+  </entry>
   <entry>
     <title>Retirement announced — Retirement: Support for PowerShell 7.4 ends on November 10, 2026</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A572770?t=retirement_announced&amp;at=2026-09-23T17:37:24.552Z</id>
@@ -373,37 +405,5 @@
     <updated>2026-09-14T23:37:17.653Z</updated>
     <summary>2026-10 → 2026-11 · Microsoft Teams · Microsoft 365 · ID 568067</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=568067"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Planner: Capabilities in Microsoft Cowork</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567315?t=slipped&amp;at=2026-09-14T23:37:17.653Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567315"/>
-    <updated>2026-09-14T23:37:17.653Z</updated>
-    <summary>2026-09 → 2026-10 · Planner, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 567315</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=567315"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft 365 app: New Copilot Notebooks design in the Microsoft 365 Copilot App (iOS)</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A566318?t=slipped&amp;at=2026-09-14T23:37:17.653Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A566318"/>
-    <updated>2026-09-14T23:37:17.653Z</updated>
-    <summary>2026-08 → 2026-09 · Microsoft 365 app · Microsoft 365 · ID 566318</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=566318"/>
-  </entry>
-  <entry>
-    <title>Slipped +3 months — Microsoft Purview: Endpoint Data Loss Prevention – Ability to protect files stored in the excluded folders in Windows</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562992?t=slipped&amp;at=2026-09-14T23:37:17.653Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562992"/>
-    <updated>2026-09-14T23:37:17.653Z</updated>
-    <summary>2026-09 → 2026-12 · Microsoft Purview · Microsoft 365 · ID 562992</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562992"/>
-  </entry>
-  <entry>
-    <title>Slipped +3 months — Microsoft Purview: Endpoint Data Loss Prevention - Allow customer to scope JIT Audit to specific user or user group</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562991?t=slipped&amp;at=2026-09-14T23:37:17.653Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562991"/>
-    <updated>2026-09-14T23:37:17.653Z</updated>
-    <summary>2026-09 → 2026-12 · Microsoft Purview · Microsoft 365 · ID 562991</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562991"/>
   </entry>
 </feed>
