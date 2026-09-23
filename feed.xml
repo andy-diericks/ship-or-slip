@@ -5,7 +5,23 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-09-22T23:37:18.461Z</updated>
+  <updated>2026-09-23T17:37:24.552Z</updated>
+  <entry>
+    <title>Retirement announced — Retirement: Support for PowerShell 7.4 ends on November 10, 2026</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A572770?t=retirement_announced&amp;at=2026-09-23T17:37:24.552Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A572770"/>
+    <updated>2026-09-23T17:37:24.552Z</updated>
+    <summary>— → 2026-11-10 · Compute, Containers, Internet of Things, Azure Functions, Compliance, Security · Azure · ID 572770</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=572770"/>
+  </entry>
+  <entry>
+    <title>Retirement announced — Retirement: Support for .NET 8 and .NET 9 ends on November 10, 2026—upgrade your apps to .NET 10</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A572838?t=retirement_announced&amp;at=2026-09-23T17:37:24.552Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A572838"/>
+    <updated>2026-09-23T17:37:24.552Z</updated>
+    <summary>— → 2026-11-10 · Compute, Containers, Internet of Things, Azure Functions, Compliance, Security · Azure · ID 572838</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=572838"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Teams: Multi-line call history tabs in the Calls app</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570962?t=slipped&amp;at=2026-09-22T23:37:18.461Z</id>
@@ -389,21 +405,5 @@
     <updated>2026-09-14T23:37:17.653Z</updated>
     <summary>2026-09 → 2026-12 · Microsoft Purview · Microsoft 365 · ID 562991</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562991"/>
-  </entry>
-  <entry>
-    <title>Slipped +2 months — Access: Zooming for Continuous Forms and Multiple-Items Forms</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561856?t=slipped&amp;at=2026-09-14T23:37:17.653Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561856"/>
-    <updated>2026-09-14T23:37:17.653Z</updated>
-    <summary>2026-06 → 2026-08 · Access · Microsoft 365 · ID 561856</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=561856"/>
-  </entry>
-  <entry>
-    <title>Slipped +3 months — Access: Rounded corners on Access form controls</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561854?t=slipped&amp;at=2026-09-14T23:37:17.653Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561854"/>
-    <updated>2026-09-14T23:37:17.653Z</updated>
-    <summary>2026-07 → 2026-10 · Access · Microsoft 365 · ID 561854</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=561854"/>
   </entry>
 </feed>
