@@ -5,7 +5,15 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-09-23T23:37:21.251Z</updated>
+  <updated>2026-09-24T23:37:25.236Z</updated>
+  <entry>
+    <title>Retirement announced — Retirement: Azure Communication Services (ACS) standalone services will be retired on September 30, 2028</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A557117?t=retirement_announced&amp;at=2026-09-24T23:37:25.236Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A557117"/>
+    <updated>2026-09-24T23:37:25.236Z</updated>
+    <summary>— → 2028-09-30 · Mobile, Web, Azure Communication Services · Azure · ID 557117</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=557117"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Teams: Facilitator Can Join Channel Meetings</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568936?t=slipped&amp;at=2026-09-23T23:37:21.251Z</id>
@@ -397,13 +405,5 @@
     <updated>2026-09-16T05:37:19.419Z</updated>
     <summary>In development → Cancelled · Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 530577</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=530577"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Teams: See more messages on mobile</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568067?t=slipped&amp;at=2026-09-14T23:37:17.653Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568067"/>
-    <updated>2026-09-14T23:37:17.653Z</updated>
-    <summary>2026-10 → 2026-11 · Microsoft Teams · Microsoft 365 · ID 568067</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=568067"/>
   </entry>
 </feed>
