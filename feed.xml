@@ -5,7 +5,15 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-09-29T23:37:19.572Z</updated>
+  <updated>2026-09-30T17:37:22.695Z</updated>
+  <entry>
+    <title>Retirement announced — Retirement: Transition to using standard tests for single-step availability testing in Azure Monitor application insights by September 30, 2028</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3Atransition-to-using-standard-tests-for-singlestep-availability-testing-in-azure-monitor-application-insights-by-30-september?t=retirement_announced&amp;at=2026-09-30T17:37:22.695Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3Atransition-to-using-standard-tests-for-singlestep-availability-testing-in-azure-monitor-application-insights-by-30-september"/>
+    <updated>2026-09-30T17:37:22.695Z</updated>
+    <summary>— → 2028-09-30 · DevOps, Management and governance, Application Insights, Azure Monitor · Azure · ID transition-to-using-standard-tests-for-singlestep-availability-testing-in-azure-monitor-application-insights-by-30-september</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=transition-to-using-standard-tests-for-singlestep-availability-testing-in-azure-monitor-application-insights-by-30-september"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Copilot (Microsoft M365): Delegated prompt publishing for organization prompts</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A569425?t=slipped&amp;at=2026-09-29T23:37:19.572Z</id>
@@ -398,13 +406,5 @@ meetings with Facilitator in Teams Rooms on Android</title>
     <updated>2026-09-21T23:37:52.908Z</updated>
     <summary>2027-01 → 2027-02 · Microsoft Purview · Microsoft 365 · ID 562343</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562343"/>
-  </entry>
-  <entry>
-    <title>Slipped +3 months — SharePoint: eSignature for Microsoft 365 - Recipient groups</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A560822?t=slipped&amp;at=2026-09-21T23:37:52.908Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A560822"/>
-    <updated>2026-09-21T23:37:52.908Z</updated>
-    <summary>2026-09 → 2026-12 · Microsoft 365, SharePoint · Microsoft 365 · ID 560822</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=560822"/>
   </entry>
 </feed>
