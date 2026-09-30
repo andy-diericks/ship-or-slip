@@ -1,8 +1,8 @@
 {
-  "generated": "2026-09-29T11:22:03.941Z",
+  "generated": "2026-09-30T11:09:57.678Z",
   "summary": {
     "tracked": 4,
-    "changesThisRun": 0,
+    "changesThisRun": 1,
     "freshnessOnly": 0
   },
   "docs": [
@@ -59,9 +59,9 @@
       "path": "articles/foundry/openai/how-to/responses.md",
       "title": "Use the Azure OpenAI Responses API",
       "msDate": "2026-08-18",
-      "hash": "bf53db047ff9f4fe",
+      "hash": "a958c8c85744d5fa",
       "bytes": 581,
-      "resolvedBytes": 140298,
+      "resolvedBytes": 140338,
       "includes": [
         "articles/foundry/openai/includes/how-to-responses-content.md"
       ],
@@ -69,6 +69,14 @@
     }
   ],
   "changes": [
+    {
+      "ts": "2026-09-30T11:09:57.678Z",
+      "type": "doc_changed_silently",
+      "path": "articles/foundry/openai/how-to/responses.md",
+      "title": "Use the Azure OpenAI Responses API",
+      "from": "2026-08-18",
+      "to": "2026-08-18"
+    },
     {
       "ts": "2026-09-23T09:58:43.014Z",
       "type": "doc_changed_silently",
