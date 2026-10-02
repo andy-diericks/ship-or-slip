@@ -5,7 +5,15 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-10-01T23:37:18.721Z</updated>
+  <updated>2026-10-02T23:37:18.830Z</updated>
+  <entry>
+    <title>Slipped +2 months — Microsoft Edge: Improvements to site permissions user interfaces</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A552598?t=slipped&amp;at=2026-10-02T23:37:18.830Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A552598"/>
+    <updated>2026-10-02T23:37:18.830Z</updated>
+    <summary>2026-08 → 2026-10 · Microsoft Edge · Microsoft 365 · ID 552598</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=552598"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Edge: Updated performance information in tab hover cards</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A571692?t=slipped&amp;at=2026-10-01T23:37:18.721Z</id>
@@ -397,13 +405,5 @@
     <updated>2026-09-28T23:37:19.175Z</updated>
     <summary>2026-10 → 2026-11 · Microsoft Viva · Microsoft 365 · ID 498923</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=498923"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Purview compliance portal: Information Protection - Sensitivity label grouping modernization</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A386901?t=slipped&amp;at=2026-09-28T23:37:19.175Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A386901"/>
-    <updated>2026-09-28T23:37:19.175Z</updated>
-    <summary>2026-10 → 2026-11 · Microsoft Purview · Microsoft 365 · ID 386901</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=386901"/>
   </entry>
 </feed>
