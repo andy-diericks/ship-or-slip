@@ -5,7 +5,15 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-10-06T05:37:20.174Z</updated>
+  <updated>2026-10-06T17:37:22.806Z</updated>
+  <entry>
+    <title>Retirement announced — Retirement: Always Encrypted with Intel SGX Enclaves</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A569236?t=retirement_announced&amp;at=2026-10-06T17:37:22.806Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A569236"/>
+    <updated>2026-10-06T17:37:22.806Z</updated>
+    <summary>— → 2027-10-31 · Databases, Hybrid + multicloud, Azure SQL Database · Azure · ID 569236</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=569236"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Teams: Connect Teams meeting to existing Planner Plans</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561490?t=slipped&amp;at=2026-10-06T05:37:20.174Z</id>
@@ -397,13 +405,5 @@
     <updated>2026-09-29T23:37:19.572Z</updated>
     <summary>— → 2027-08-27 · Azure · ID 570046</summary>
     <link rel="related" href="https://azure.microsoft.com/updates?id=570046"/>
-  </entry>
-  <entry>
-    <title>Retirement announced — Retirement: Azure IoT Central will be retired on September 20, 2029</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A569914?t=retirement_announced&amp;at=2026-09-29T23:37:19.572Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A569914"/>
-    <updated>2026-09-29T23:37:19.572Z</updated>
-    <summary>— → 2029-09-20 · Internet of Things, Azure IoT Central · Azure · ID 569914</summary>
-    <link rel="related" href="https://azure.microsoft.com/updates?id=569914"/>
   </entry>
 </feed>
