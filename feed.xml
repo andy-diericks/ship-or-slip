@@ -5,7 +5,87 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-10-06T17:37:22.806Z</updated>
+  <updated>2026-10-06T23:37:20.926Z</updated>
+  <entry>
+    <title>Scope cut (Platforms lost: Android, iOS) — Microsoft Teams: Third-party synthetic audio and video (deepfake) detection in Microsoft Teams</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573451?t=scope_reduced&amp;at=2026-10-06T23:37:20.926Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573451"/>
+    <updated>2026-10-06T23:37:20.926Z</updated>
+    <summary>Android, Desktop, iOS, Mac → Desktop, Mac, Web · Microsoft Teams · Microsoft 365 · ID 573451</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=573451"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Microsoft Purview: Data Loss Prevention-Upgraded inline protection for Microsoft Entra-managed apps in Edge for Business</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A571397?t=slipped&amp;at=2026-10-06T23:37:20.926Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A571397"/>
+    <updated>2026-10-06T23:37:20.926Z</updated>
+    <summary>2027-01 → 2027-03 · Microsoft Purview · Microsoft 365 · ID 571397</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=571397"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Viva: Copilot Analytics - Agent value insights in Agent 365 Dashboard</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570847?t=slipped&amp;at=2026-10-06T23:37:20.926Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570847"/>
+    <updated>2026-10-06T23:37:20.926Z</updated>
+    <summary>2026-10 → 2026-11 · Microsoft Viva · Microsoft 365 · ID 570847</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=570847"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Planner: AI-generated Status Reports in Planner Agent</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567886?t=slipped&amp;at=2026-10-06T23:37:20.926Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567886"/>
+    <updated>2026-10-06T23:37:20.926Z</updated>
+    <summary>2026-09 → 2026-10 · Planner, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 567886</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=567886"/>
+  </entry>
+  <entry>
+    <title>Slipped +3 months — Microsoft Purview: Data Loss Prevention - Collection and DLP Policies for Intune-Policy Managed Apps</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567311?t=slipped&amp;at=2026-10-06T23:37:20.926Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567311"/>
+    <updated>2026-10-06T23:37:20.926Z</updated>
+    <summary>2026-11 → 2027-02 · Microsoft Purview · Microsoft 365 · ID 567311</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=567311"/>
+  </entry>
+  <entry>
+    <title>Scope cut (Clouds lost: GCC, GCC High, DoD) — Microsoft 365: Pay-as-you-go storage for OneDrive</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562352?t=scope_reduced&amp;at=2026-10-06T23:37:20.926Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562352"/>
+    <updated>2026-10-06T23:37:20.926Z</updated>
+    <summary>Worldwide (Standard Multi-Tenant), GCC, GCC High, DoD → Worldwide (Standard Multi-Tenant) · OneDrive · Microsoft 365 · ID 562352</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562352"/>
+  </entry>
+  <entry>
+    <title>Slipped +10 months — Microsoft Purview compliance portal: Optical character recognition (OCR) support for SharePoint Online and OneDrive for Business</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A160010?t=slipped&amp;at=2026-10-06T23:37:20.926Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A160010"/>
+    <updated>2026-10-06T23:37:20.926Z</updated>
+    <summary>2026-06 → 2027-04 · Microsoft Purview · Microsoft 365 · ID 160010</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=160010"/>
+  </entry>
+  <entry>
+    <title>Retirement announced — Retirement: Pod name dimension in AKS pod platform metrics</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A570232?t=retirement_announced&amp;at=2026-10-06T23:37:20.926Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A570232"/>
+    <updated>2026-10-06T23:37:20.926Z</updated>
+    <summary>— → 2027-09-30 · Compute, Containers, Azure Kubernetes Service (AKS) · Azure · ID 570232</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=570232"/>
+  </entry>
+  <entry>
+    <title>Retirement announced — Retirement: Azure App Service on Azure Stack Hub</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A568178?t=retirement_announced&amp;at=2026-10-06T23:37:20.926Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A568178"/>
+    <updated>2026-10-06T23:37:20.926Z</updated>
+    <summary>— → 2029-09-30 · Compute, Mobile, Web, Hybrid + multicloud, App Service, Azure Stack Hub · Azure · ID 568178</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=568178"/>
+  </entry>
+  <entry>
+    <title>Retirement announced — Retirement: Support for Java 8, 11 and 17 will end on September 1, 2027</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A568585?t=retirement_announced&amp;at=2026-10-06T23:37:20.926Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A568585"/>
+    <updated>2026-10-06T23:37:20.926Z</updated>
+    <summary>— → 2027-09-01 · Compute, Mobile, Web, App Service · Azure · ID 568585</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=568585"/>
+  </entry>
   <entry>
     <title>Retirement announced — Retirement: Always Encrypted with Intel SGX Enclaves</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A569236?t=retirement_announced&amp;at=2026-10-06T17:37:22.806Z</id>
@@ -325,85 +405,5 @@
     <updated>2026-09-30T17:37:22.695Z</updated>
     <summary>— → 2028-09-30 · DevOps, Management and governance, Application Insights, Azure Monitor · Azure · ID transition-to-using-standard-tests-for-singlestep-availability-testing-in-azure-monitor-application-insights-by-30-september</summary>
     <link rel="related" href="https://azure.microsoft.com/updates?id=transition-to-using-standard-tests-for-singlestep-availability-testing-in-azure-monitor-application-insights-by-30-september"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Copilot (Microsoft M365): Delegated prompt publishing for organization prompts</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A569425?t=slipped&amp;at=2026-09-29T23:37:19.572Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A569425"/>
-    <updated>2026-09-29T23:37:19.572Z</updated>
-    <summary>2026-09 → 2026-10 · Microsoft 365 admin center, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 569425</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=569425"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Purview: Information Protection-Auto-labeling per-policy coverage report</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568935?t=slipped&amp;at=2026-09-29T23:37:19.572Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568935"/>
-    <updated>2026-09-29T23:37:19.572Z</updated>
-    <summary>2026-09 → 2026-10 · Microsoft Purview · Microsoft 365 · ID 568935</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=568935"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Purview: Data Loss Prevention - Data Security for non-Microsoft connected apps</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568075?t=slipped&amp;at=2026-09-29T23:37:19.572Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568075"/>
-    <updated>2026-09-29T23:37:19.572Z</updated>
-    <summary>2026-09 → 2026-10 · Microsoft Purview · Microsoft 365 · ID 568075</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=568075"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Teams: Personal message reminders for chat and channels</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A565869?t=slipped&amp;at=2026-09-29T23:37:19.572Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A565869"/>
-    <updated>2026-09-29T23:37:19.572Z</updated>
-    <summary>2026-10 → 2026-11 · Microsoft Teams · Microsoft 365 · ID 565869</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=565869"/>
-  </entry>
-  <entry>
-    <title>Slipped +2 months — Microsoft Purview: Insider Risk Management – Policy Recommendation Panel in IRM</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A560600?t=slipped&amp;at=2026-09-29T23:37:19.572Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A560600"/>
-    <updated>2026-09-29T23:37:19.572Z</updated>
-    <summary>2026-12 → 2027-02 · Microsoft Purview · Microsoft 365 · ID 560600</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=560600"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Viva: Copilot Analytics - Export metrics from Agent Dashboard</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A560538?t=slipped&amp;at=2026-09-29T23:37:19.572Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A560538"/>
-    <updated>2026-09-29T23:37:19.572Z</updated>
-    <summary>2026-09 → 2026-10 · Microsoft Viva, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 560538</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=560538"/>
-  </entry>
-  <entry>
-    <title>Slipped +3 months — Microsoft Copilot (Microsoft 365): Live subtitles on voice chat in Copilot when using the quick composer</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A502858?t=slipped&amp;at=2026-09-29T23:37:19.572Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A502858"/>
-    <updated>2026-09-29T23:37:19.572Z</updated>
-    <summary>2025-10 → 2026-01 · Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 502858</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=502858"/>
-  </entry>
-  <entry>
-    <title>Retirement announced — Retirement: Azure Functions v1 hosting model on Azure Container Apps</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A570800?t=retirement_announced&amp;at=2026-09-29T23:37:19.572Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A570800"/>
-    <updated>2026-09-29T23:37:19.572Z</updated>
-    <summary>— → 2027-09-29 · Containers, Azure Container Apps · Azure · ID 570800</summary>
-    <link rel="related" href="https://azure.microsoft.com/updates?id=570800"/>
-  </entry>
-  <entry>
-    <title>Retirement announced — Retirement: Azure Arc enabled System Center Virtual Machine Manager will be retired September 30, 2029</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A570283?t=retirement_announced&amp;at=2026-09-29T23:37:19.572Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A570283"/>
-    <updated>2026-09-29T23:37:19.572Z</updated>
-    <summary>— → 2029-09-30 · Azure · ID 570283</summary>
-    <link rel="related" href="https://azure.microsoft.com/updates?id=570283"/>
-  </entry>
-  <entry>
-    <title>Retirement announced — Retirement: Microsoft HPC Pack</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A570046?t=retirement_announced&amp;at=2026-09-29T23:37:19.572Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A570046"/>
-    <updated>2026-09-29T23:37:19.572Z</updated>
-    <summary>— → 2027-08-27 · Azure · ID 570046</summary>
-    <link rel="related" href="https://azure.microsoft.com/updates?id=570046"/>
   </entry>
 </feed>
