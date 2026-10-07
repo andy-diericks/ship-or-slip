@@ -5,7 +5,71 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-10-06T23:37:20.926Z</updated>
+  <updated>2026-10-07T23:37:19.734Z</updated>
+  <entry>
+    <title>Slipped +1 month — Microsoft Viva: Copilot Analytics - Agent value insights in Agent 365 Dashboard</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570847?t=slipped&amp;at=2026-10-07T23:37:19.734Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570847"/>
+    <updated>2026-10-07T23:37:19.734Z</updated>
+    <summary>2026-11 → 2026-12 · Microsoft Viva · Microsoft 365 · ID 570847</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=570847"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Microsoft Edge: Inline Switching for Workspaces</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568786?t=slipped&amp;at=2026-10-07T23:37:19.734Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568786"/>
+    <updated>2026-10-07T23:37:19.734Z</updated>
+    <summary>2026-09 → 2026-11 · Microsoft Edge · Microsoft 365 · ID 568786</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=568786"/>
+  </entry>
+  <entry>
+    <title>Cancelled — Microsoft Edge: Updated horizontal tab appearance</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568793?t=cancelled&amp;at=2026-10-07T23:37:19.734Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568793"/>
+    <updated>2026-10-07T23:37:19.734Z</updated>
+    <summary>In development → Cancelled · Microsoft Edge · Microsoft 365 · ID 568793</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=568793"/>
+  </entry>
+  <entry>
+    <title>Slipped +3 months — Microsoft Purview: Information Protection - Sensitivity Labels for Microsoft Entra Security Groups</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568217?t=slipped&amp;at=2026-10-07T23:37:19.734Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568217"/>
+    <updated>2026-10-07T23:37:19.734Z</updated>
+    <summary>2026-08 → 2026-11 · Microsoft Purview · Microsoft 365 · ID 568217</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=568217"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Microsoft Copilot (Microsoft 365): Workforce Insights Agent</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A515145?t=slipped&amp;at=2026-10-07T23:37:19.734Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A515145"/>
+    <updated>2026-10-07T23:37:19.734Z</updated>
+    <summary>2026-09 → 2026-11 · Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 515145</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=515145"/>
+  </entry>
+  <entry>
+    <title>Slipped +5 months — Microsoft Edge: Adding contextual nudges to the Microsoft 365 Copilot Chat icon</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A537284?t=slipped&amp;at=2026-10-07T23:37:19.734Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A537284"/>
+    <updated>2026-10-07T23:37:19.734Z</updated>
+    <summary>2026-06 → 2026-11 · Microsoft Edge, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 537284</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=537284"/>
+  </entry>
+  <entry>
+    <title>Slipped +3 months — Microsoft Copilot (Microsoft 365): Overview of recent comments and changes in Word</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A489825?t=slipped&amp;at=2026-10-07T23:37:19.734Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A489825"/>
+    <updated>2026-10-07T23:37:19.734Z</updated>
+    <summary>2026-06 → 2026-09 · Word, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 489825</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=489825"/>
+  </entry>
+  <entry>
+    <title>Scope cut (Clouds lost: DoD) — Microsoft Copilot (Microsoft 365): Overview of recent comments and changes in Word</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A489825?t=scope_reduced&amp;at=2026-10-07T23:37:19.734Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A489825"/>
+    <updated>2026-10-07T23:37:19.734Z</updated>
+    <summary>Worldwide (Standard Multi-Tenant), DoD → Worldwide (Standard Multi-Tenant) · Word, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 489825</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=489825"/>
+  </entry>
   <entry>
     <title>Scope cut (Platforms lost: Android, iOS) — Microsoft Teams: Third-party synthetic audio and video (deepfake) detection in Microsoft Teams</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573451?t=scope_reduced&amp;at=2026-10-06T23:37:20.926Z</id>
@@ -341,69 +405,5 @@
     <updated>2026-10-01T05:37:22.755Z</updated>
     <summary>2026-07 → 2026-10 · Microsoft Purview · Microsoft 365 · ID 561036</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=561036"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Teams: Chat for organizers and presenters in structured meetings and webinars on Teams Rooms on Windows</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A557165?t=slipped&amp;at=2026-10-01T05:37:22.755Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A557165"/>
-    <updated>2026-10-01T05:37:22.755Z</updated>
-    <summary>2026-10 → 2026-11 · Microsoft Teams · Microsoft 365 · ID 557165</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=557165"/>
-  </entry>
-  <entry>
-    <title>Slipped +3 months — Microsoft Copilot (Microsoft 365): Deep citations in Copilot</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A523223?t=slipped&amp;at=2026-10-01T05:37:22.755Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A523223"/>
-    <updated>2026-10-01T05:37:22.755Z</updated>
-    <summary>2026-11 → 2027-02 · Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 523223</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=523223"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — OneNote: Summary and Q&amp;A in OneNote Mobile with Copilot (Iphone)</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A422324?t=slipped&amp;at=2026-10-01T05:37:22.755Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A422324"/>
-    <updated>2026-10-01T05:37:22.755Z</updated>
-    <summary>2026-09 → 2026-10 · Microsoft Copilot (Microsoft 365), OneNote · Microsoft 365 · ID 422324</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=422324"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — OneNote: Summary and Q&amp;A in OneNote Mobile with Copilot (Android)</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A422323?t=slipped&amp;at=2026-10-01T05:37:22.755Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A422323"/>
-    <updated>2026-10-01T05:37:22.755Z</updated>
-    <summary>2026-09 → 2026-10 · Microsoft Copilot (Microsoft 365), OneNote · Microsoft 365 · ID 422323</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=422323"/>
-  </entry>
-  <entry>
-    <title>Retirement announced — Retirement: NVv3-series Azure Virtual Machines</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A573414?t=retirement_announced&amp;at=2026-09-30T23:37:19.497Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A573414"/>
-    <updated>2026-09-30T23:37:19.497Z</updated>
-    <summary>— → 2026-09-30 · Compute, Virtual Machines · Azure · ID 573414</summary>
-    <link rel="related" href="https://azure.microsoft.com/updates?id=573414"/>
-  </entry>
-  <entry>
-    <title>Retirement announced — Retirement: NVv4-series Azure Virtual Machines</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A573415?t=retirement_announced&amp;at=2026-09-30T23:37:19.497Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A573415"/>
-    <updated>2026-09-30T23:37:19.497Z</updated>
-    <summary>— → 2026-09-30 · Compute, Virtual Machines · Azure · ID 573415</summary>
-    <link rel="related" href="https://azure.microsoft.com/updates?id=573415"/>
-  </entry>
-  <entry>
-    <title>Retirement announced — Retirement: Dv3, Dsv3, Ev3, and Esv3 Azure VMs</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A572346?t=retirement_announced&amp;at=2026-09-30T23:37:19.497Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A572346"/>
-    <updated>2026-09-30T23:37:19.497Z</updated>
-    <summary>— → 2029-11-15 · Compute, Virtual Machines · Azure · ID 572346</summary>
-    <link rel="related" href="https://azure.microsoft.com/updates?id=572346"/>
-  </entry>
-  <entry>
-    <title>Retirement announced — Retirement: Transition to using standard tests for single-step availability testing in Azure Monitor application insights by September 30, 2028</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3Atransition-to-using-standard-tests-for-singlestep-availability-testing-in-azure-monitor-application-insights-by-30-september?t=retirement_announced&amp;at=2026-09-30T17:37:22.695Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3Atransition-to-using-standard-tests-for-singlestep-availability-testing-in-azure-monitor-application-insights-by-30-september"/>
-    <updated>2026-09-30T17:37:22.695Z</updated>
-    <summary>— → 2028-09-30 · DevOps, Management and governance, Application Insights, Azure Monitor · Azure · ID transition-to-using-standard-tests-for-singlestep-availability-testing-in-azure-monitor-application-insights-by-30-september</summary>
-    <link rel="related" href="https://azure.microsoft.com/updates?id=transition-to-using-standard-tests-for-singlestep-availability-testing-in-azure-monitor-application-insights-by-30-september"/>
   </entry>
 </feed>
