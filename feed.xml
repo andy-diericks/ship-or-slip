@@ -5,7 +5,23 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-10-07T23:37:19.734Z</updated>
+  <updated>2026-10-08T23:37:16.347Z</updated>
+  <entry>
+    <title>Retirement announced — Retirement: Microsoft Dev Box will be retired on September 18, 2028</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A567933?t=retirement_announced&amp;at=2026-10-08T23:37:16.347Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A567933"/>
+    <updated>2026-10-08T23:37:16.347Z</updated>
+    <summary>— → 2028-09-18 · Developer tools, DevOps, Virtual desktop infrastructure, Microsoft Dev Box · Azure · ID 567933</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=567933"/>
+  </entry>
+  <entry>
+    <title>Retirement announced — Retirement: Azure Deployment Environments will be retired on February 22, 2027</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A567934?t=retirement_announced&amp;at=2026-10-08T23:37:16.347Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A567934"/>
+    <updated>2026-10-08T23:37:16.347Z</updated>
+    <summary>— → 2027-02-22 · Developer tools, DevOps, Azure Deployment Environments · Azure · ID 567934</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=567934"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Viva: Copilot Analytics - Agent value insights in Agent 365 Dashboard</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570847?t=slipped&amp;at=2026-10-07T23:37:19.734Z</id>
@@ -389,21 +405,5 @@
     <updated>2026-10-01T05:37:22.755Z</updated>
     <summary>2026-10 → 2026-11 · Microsoft Teams · Microsoft 365 · ID 569433</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=569433"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Edge: Automatically unsubscribe users from notifications sent by scam and malicious sites</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568366?t=slipped&amp;at=2026-10-01T05:37:22.755Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568366"/>
-    <updated>2026-10-01T05:37:22.755Z</updated>
-    <summary>2026-10 → 2026-11 · Microsoft Edge · Microsoft 365 · ID 568366</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=568366"/>
-  </entry>
-  <entry>
-    <title>Slipped +3 months — Microsoft Purview: DSPM – New Microsoft Purview Data Security Posture Management Experience</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561036?t=slipped&amp;at=2026-10-01T05:37:22.755Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561036"/>
-    <updated>2026-10-01T05:37:22.755Z</updated>
-    <summary>2026-07 → 2026-10 · Microsoft Purview · Microsoft 365 · ID 561036</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=561036"/>
   </entry>
 </feed>
