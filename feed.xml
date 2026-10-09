@@ -5,7 +5,31 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-10-08T23:37:16.347Z</updated>
+  <updated>2026-10-09T05:37:54.623Z</updated>
+  <entry>
+    <title>Cancelled — Microsoft Teams: Tenant-level dashboard for Interpreter</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A565217?t=cancelled&amp;at=2026-10-09T05:37:54.623Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A565217"/>
+    <updated>2026-10-09T05:37:54.623Z</updated>
+    <summary>In development → Cancelled · Microsoft Teams · Microsoft 365 · ID 565217</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=565217"/>
+  </entry>
+  <entry>
+    <title>Slipped +3 months — Microsoft Purview: DSPM – New Microsoft Purview Data Security Posture Management Experience</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561036?t=slipped&amp;at=2026-10-09T05:37:54.623Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561036"/>
+    <updated>2026-10-09T05:37:54.623Z</updated>
+    <summary>2026-10 → 2027-01 · Microsoft Purview · Microsoft 365 · ID 561036</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=561036"/>
+  </entry>
+  <entry>
+    <title>Slipped +3 months — Outlook: Agents for Microsoft 365 Copilot available in Copilot Chat in Outlook for Mac</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A486696?t=slipped&amp;at=2026-10-09T05:37:54.623Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A486696"/>
+    <updated>2026-10-09T05:37:54.623Z</updated>
+    <summary>2025-12 → 2026-03 · Outlook · Microsoft 365 · ID 486696</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=486696"/>
+  </entry>
   <entry>
     <title>Retirement announced — Retirement: Microsoft Dev Box will be retired on September 18, 2028</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A567933?t=retirement_announced&amp;at=2026-10-08T23:37:16.347Z</id>
@@ -381,29 +405,5 @@
     <updated>2026-10-01T23:37:18.721Z</updated>
     <summary>— → 2029-10-31 · Compute, Linux Virtual Machines, Virtual Machines, Windows Virtual Machines · Azure · ID 569592</summary>
     <link rel="related" href="https://azure.microsoft.com/updates?id=569592"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Teams: Report a Message or an External User for Security Concern in Gov Clouds</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A569609?t=slipped&amp;at=2026-10-01T05:37:22.755Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A569609"/>
-    <updated>2026-10-01T05:37:22.755Z</updated>
-    <summary>2026-10 → 2026-11 · Microsoft Teams · Microsoft 365 · ID 569609</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=569609"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Teams: App centric management in Teams Admin Center to manage the Apps access for tenants, end-users, and groups in DoD</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A569434?t=slipped&amp;at=2026-10-01T05:37:22.755Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A569434"/>
-    <updated>2026-10-01T05:37:22.755Z</updated>
-    <summary>2026-10 → 2026-11 · Microsoft Teams · Microsoft 365 · ID 569434</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=569434"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Teams: App centric management in Teams Admin Center to manage the Apps access for tenants, end-users, and groups in GCC High</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A569433?t=slipped&amp;at=2026-10-01T05:37:22.755Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A569433"/>
-    <updated>2026-10-01T05:37:22.755Z</updated>
-    <summary>2026-10 → 2026-11 · Microsoft Teams · Microsoft 365 · ID 569433</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=569433"/>
   </entry>
 </feed>
