@@ -5,7 +5,55 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-10-09T05:37:54.623Z</updated>
+  <updated>2026-10-09T23:37:15.307Z</updated>
+  <entry>
+    <title>Scope cut (Release phase lost: Targeted Release) — Microsoft Teams: Chat for organizers and presenters in structured meetings and webinars on Teams Rooms on Android</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A574107?t=scope_reduced&amp;at=2026-10-09T23:37:15.307Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A574107"/>
+    <updated>2026-10-09T23:37:15.307Z</updated>
+    <summary>General Availability, Targeted Release → General Availability · Microsoft Teams · Microsoft 365 · ID 574107</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=574107"/>
+  </entry>
+  <entry>
+    <title>Slipped +5 months — SharePoint: Governance Reviews Dashboard for Site Owners</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A560541?t=slipped&amp;at=2026-10-09T23:37:15.307Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A560541"/>
+    <updated>2026-10-09T23:37:15.307Z</updated>
+    <summary>2026-06 → 2026-11 · SharePoint · Microsoft 365 · ID 560541</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=560541"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Microsoft Edge: Enterprise New Tab Page experience</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A536577?t=slipped&amp;at=2026-10-09T23:37:15.307Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A536577"/>
+    <updated>2026-10-09T23:37:15.307Z</updated>
+    <summary>2026-09 → 2026-11 · Microsoft Edge · Microsoft 365 · ID 536577</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=536577"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Microsoft Copilot (Microsoft 365): Viva Engage - Community Agent</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A499898?t=slipped&amp;at=2026-10-09T23:37:15.307Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A499898"/>
+    <updated>2026-10-09T23:37:15.307Z</updated>
+    <summary>2026-09 → 2026-11 · Microsoft Viva, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 499898</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=499898"/>
+  </entry>
+  <entry>
+    <title>Slipped +5 months — Microsoft Purview compliance portal: Data Loss Prevention - Optical character recognition (OCR) support for endpoint</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A160008?t=slipped&amp;at=2026-10-09T23:37:15.307Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A160008"/>
+    <updated>2026-10-09T23:37:15.307Z</updated>
+    <summary>2026-10 → 2027-03 · Microsoft Purview · Microsoft 365 · ID 160008</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=160008"/>
+  </entry>
+  <entry>
+    <title>Retirement announced — Retirement: Azure Key Vault Secrets Provider Extension for Azure Arc enabled Kubernetes clusters</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A570313?t=retirement_announced&amp;at=2026-10-09T23:37:15.307Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A570313"/>
+    <updated>2026-10-09T23:37:15.307Z</updated>
+    <summary>— → 2027-10-09 · Azure · ID 570313</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=570313"/>
+  </entry>
   <entry>
     <title>Cancelled — Microsoft Teams: Tenant-level dashboard for Interpreter</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A565217?t=cancelled&amp;at=2026-10-09T05:37:54.623Z</id>
@@ -357,53 +405,5 @@
     <updated>2026-10-01T23:37:18.721Z</updated>
     <summary>2026-04 → — · Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 530577</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=530577"/>
-  </entry>
-  <entry>
-    <title>Dropped from the roadmap — Microsoft Copilot (Microsoft 365): Copilot Chat - Session Persistence Enhancement</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A500638?t=dropped&amp;at=2026-10-01T23:37:18.721Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A500638"/>
-    <updated>2026-10-01T23:37:18.721Z</updated>
-    <summary>2025-12 → — · Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 500638</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=500638"/>
-  </entry>
-  <entry>
-    <title>Dropped from the roadmap — Microsoft Copilot (Microsoft 365): Content Sources in Copilot Chat</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A496596?t=dropped&amp;at=2026-10-01T23:37:18.721Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A496596"/>
-    <updated>2026-10-01T23:37:18.721Z</updated>
-    <summary>2026-07 → — · Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 496596</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=496596"/>
-  </entry>
-  <entry>
-    <title>Dropped from the roadmap — Microsoft Teams:  Interactive Agents for Teams Meetings and Calls</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A490564?t=dropped&amp;at=2026-10-01T23:37:18.721Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A490564"/>
-    <updated>2026-10-01T23:37:18.721Z</updated>
-    <summary>2026-09 → — · Microsoft Teams · Microsoft 365 · ID 490564</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=490564"/>
-  </entry>
-  <entry>
-    <title>Dropped from the roadmap — Microsoft Purview | Communication Compliance: Integration with Power Automate (GCC-High and DoD)</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A85606?t=dropped&amp;at=2026-10-01T23:37:18.721Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A85606"/>
-    <updated>2026-10-01T23:37:18.721Z</updated>
-    <summary>2025-11 → — · Microsoft Purview · Microsoft 365 · ID 85606</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=85606"/>
-  </entry>
-  <entry>
-    <title>Dropped from the roadmap — Outlook: Support for AppleScript in the New Outlook for Mac</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A88537?t=dropped&amp;at=2026-10-01T23:37:18.721Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A88537"/>
-    <updated>2026-10-01T23:37:18.721Z</updated>
-    <summary>2025-12 → — · Outlook · Microsoft 365 · ID 88537</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=88537"/>
-  </entry>
-  <entry>
-    <title>Retirement announced — Retirement: DCsv3 and DCdsv3-series Azure Virtual Machines will be retired on October 31, 2029</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A569592?t=retirement_announced&amp;at=2026-10-01T23:37:18.721Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A569592"/>
-    <updated>2026-10-01T23:37:18.721Z</updated>
-    <summary>— → 2029-10-31 · Compute, Linux Virtual Machines, Virtual Machines, Windows Virtual Machines · Azure · ID 569592</summary>
-    <link rel="related" href="https://azure.microsoft.com/updates?id=569592"/>
   </entry>
 </feed>
