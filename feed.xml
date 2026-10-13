@@ -5,7 +5,55 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-10-12T23:37:20.692Z</updated>
+  <updated>2026-10-13T23:37:17.837Z</updated>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: See more messages on mobile</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568067?t=slipped&amp;at=2026-10-13T23:37:17.837Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568067"/>
+    <updated>2026-10-13T23:37:17.837Z</updated>
+    <summary>2026-11 → 2026-12 · Microsoft Teams · Microsoft 365 · ID 568067</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=568067"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Edge: Upgraded Copilot new tab page</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A566703?t=slipped&amp;at=2026-10-13T23:37:17.837Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A566703"/>
+    <updated>2026-10-13T23:37:17.837Z</updated>
+    <summary>2026-10 → 2026-11 · Microsoft Edge, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 566703</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=566703"/>
+  </entry>
+  <entry>
+    <title>Scope cut (Clouds lost: GCC High, DoD) — Microsoft Teams: Preloaded video for Teams Events and Meetings</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562340?t=scope_reduced&amp;at=2026-10-13T23:37:17.837Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562340"/>
+    <updated>2026-10-13T23:37:17.837Z</updated>
+    <summary>Worldwide (Standard Multi-Tenant), GCC, GCC High, DoD → Worldwide (Standard Multi-Tenant), GCC · Microsoft Teams · Microsoft 365 · ID 562340</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562340"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Purview: Endpoint Data Loss Prevention - Policy Sync &amp; Device Health AI-Powered Investigation</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562016?t=slipped&amp;at=2026-10-13T23:37:17.837Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562016"/>
+    <updated>2026-10-13T23:37:17.837Z</updated>
+    <summary>2026-10 → 2026-11 · Microsoft Purview · Microsoft 365 · ID 562016</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562016"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Microsoft Purview: Information Protection- File Labeler and File Viewer for MacOS</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561327?t=slipped&amp;at=2026-10-13T23:37:17.837Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A561327"/>
+    <updated>2026-10-13T23:37:17.837Z</updated>
+    <summary>2026-11 → 2027-01 · Microsoft Purview · Microsoft 365 · ID 561327</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=561327"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Purview compliance portal: Data Lifecycle Management - Retention based on Last Accessed for files in OneDrive and SharePoint</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A472030?t=slipped&amp;at=2026-10-13T23:37:17.837Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A472030"/>
+    <updated>2026-10-13T23:37:17.837Z</updated>
+    <summary>2027-01 → 2027-02 · Microsoft Copilot (Microsoft 365), Microsoft Purview · Microsoft 365 · ID 472030</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=472030"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Copilot (Microsoft M365): Copilot Chat can now better match search results from text that appears inside images embedded in Word and PowerPoint files</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570469?t=slipped&amp;at=2026-10-12T23:37:20.692Z</id>
@@ -357,53 +405,5 @@
     <updated>2026-10-06T05:37:20.174Z</updated>
     <summary>2026-10 → 2027-02 · Microsoft Viva, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 506749</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=506749"/>
-  </entry>
-  <entry>
-    <title>Slipped +5 months — Microsoft Purview compliance portal: Cloud Attachments preservation for users on hold</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A493752?t=slipped&amp;at=2026-10-06T05:37:20.174Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A493752"/>
-    <updated>2026-10-06T05:37:20.174Z</updated>
-    <summary>2026-12 → 2027-05 · Microsoft Purview · Microsoft 365 · ID 493752</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=493752"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Edge: Adding support for viewing Sensitivity labels applied to a Microsoft Information Protection (MIP) Protected PDF</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A489232?t=slipped&amp;at=2026-10-06T05:37:20.174Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A489232"/>
-    <updated>2026-10-06T05:37:20.174Z</updated>
-    <summary>2026-10 → 2026-11 · Microsoft Edge · Microsoft 365 · ID 489232</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=489232"/>
-  </entry>
-  <entry>
-    <title>Cancelled — Microsoft Purview compliance portal: Data Loss Prevention - Just in time protection (JIT) on SharePoint</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A139457?t=cancelled&amp;at=2026-10-06T05:37:20.174Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A139457"/>
-    <updated>2026-10-06T05:37:20.174Z</updated>
-    <summary>In development → Cancelled · Microsoft Purview · Microsoft 365 · ID 139457</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=139457"/>
-  </entry>
-  <entry>
-    <title>Slipped +2 months — Microsoft Edge: Improvements to site permissions user interfaces</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A552598?t=slipped&amp;at=2026-10-02T23:37:18.830Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A552598"/>
-    <updated>2026-10-02T23:37:18.830Z</updated>
-    <summary>2026-08 → 2026-10 · Microsoft Edge · Microsoft 365 · ID 552598</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=552598"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Edge: Updated performance information in tab hover cards</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A571692?t=slipped&amp;at=2026-10-01T23:37:18.721Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A571692"/>
-    <updated>2026-10-01T23:37:18.721Z</updated>
-    <summary>2026-10 → 2026-11 · Microsoft Edge · Microsoft 365 · ID 571692</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=571692"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Viva: Engage Community feed improvements</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A513275?t=slipped&amp;at=2026-10-01T23:37:18.721Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A513275"/>
-    <updated>2026-10-01T23:37:18.721Z</updated>
-    <summary>2026-09 → 2026-10 · Microsoft Viva · Microsoft 365 · ID 513275</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=513275"/>
   </entry>
 </feed>
