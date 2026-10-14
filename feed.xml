@@ -5,7 +5,23 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-10-13T23:37:17.837Z</updated>
+  <updated>2026-10-14T23:37:15.122Z</updated>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: Express face enrollment</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570846?t=slipped&amp;at=2026-10-14T23:37:15.122Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570846"/>
+    <updated>2026-10-14T23:37:15.122Z</updated>
+    <summary>2026-11 → 2026-12 · Microsoft Teams · Microsoft 365 · ID 570846</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=570846"/>
+  </entry>
+  <entry>
+    <title>Cancelled — Microsoft Copilot (Microsoft 365): Expanded Agent Support in Copilot Notebooks</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A516041?t=cancelled&amp;at=2026-10-14T23:37:15.122Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A516041"/>
+    <updated>2026-10-14T23:37:15.122Z</updated>
+    <summary>In development → Cancelled · Microsoft 365 app, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 516041</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=516041"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Teams: See more messages on mobile</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568067?t=slipped&amp;at=2026-10-13T23:37:17.837Z</id>
@@ -389,21 +405,5 @@
     <updated>2026-10-06T05:37:20.174Z</updated>
     <summary>2026-08 → 2026-12 · Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 503771</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=503771"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Edge: PDF Viewer Performance Improvement and Minor Visual Updates</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A516043?t=slipped&amp;at=2026-10-06T05:37:20.174Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A516043"/>
-    <updated>2026-10-06T05:37:20.174Z</updated>
-    <summary>2026-10 → 2026-11 · Microsoft Edge · Microsoft 365 · ID 516043</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=516043"/>
-  </entry>
-  <entry>
-    <title>Slipped +4 months — Microsoft Viva: Copilot Analytics - Agent Dashboard.</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A506749?t=slipped&amp;at=2026-10-06T05:37:20.174Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A506749"/>
-    <updated>2026-10-06T05:37:20.174Z</updated>
-    <summary>2026-10 → 2027-02 · Microsoft Viva, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 506749</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=506749"/>
   </entry>
 </feed>
