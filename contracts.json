@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-17T09:20:19.743Z",
+  "generated": "2026-10-18T09:37:17.824Z",
   "summary": {
     "versions": 0,
     "operations": 0,
@@ -12,6 +12,6 @@
   "changes": [],
   "findings": [],
   "warnings": [
-    "docs repo unavailable: Command failed: git clone --quiet --filter=tree:0 --depth 1 --no-checkout https://github.com/MicrosoftDocs/azure-ai-docs.git /tmp/sos-contracts-rsFggU/docs\nfatal: could not read Username for 'https://github.com': No such device or address\n"
+    "docs repo unavailable: Command failed: git clone --quiet --filter=tree:0 --depth 1 --no-checkout https://github.com/MicrosoftDocs/azure-ai-docs.git /tmp/sos-contracts-f9ty2g/docs\nfatal: could not read Username for 'https://github.com': No such device or address\n"
   ]
 }
