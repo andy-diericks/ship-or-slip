@@ -5,7 +5,23 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-10-20T23:37:17.272Z</updated>
+  <updated>2026-10-22T05:37:20.123Z</updated>
+  <entry>
+    <title>Slipped +3 months — Microsoft Purview: Data Loss Prevention - SLA Based Alert Reporting Dashboard</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568372?t=slipped&amp;at=2026-10-22T05:37:20.123Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A568372"/>
+    <updated>2026-10-22T05:37:20.123Z</updated>
+    <summary>2026-10 → 2027-01 · Microsoft Purview · Microsoft 365 · ID 568372</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=568372"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Planner: Capabilities in Microsoft Cowork</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567315?t=slipped&amp;at=2026-10-22T05:37:20.123Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567315"/>
+    <updated>2026-10-22T05:37:20.123Z</updated>
+    <summary>2026-10 → 2026-11 · Planner, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 567315</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=567315"/>
+  </entry>
   <entry>
     <title>Scope cut (Platforms lost: Linux) — Microsoft Teams: Expanded Markdown support in Microsoft Teams</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A576199?t=scope_reduced&amp;at=2026-10-20T23:37:17.272Z</id>
@@ -389,21 +405,5 @@
     <updated>2026-10-13T23:37:17.837Z</updated>
     <summary>2026-10 → 2026-11 · Microsoft Edge, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 566703</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=566703"/>
-  </entry>
-  <entry>
-    <title>Scope cut (Clouds lost: GCC High, DoD) — Microsoft Teams: Preloaded video for Teams Events and Meetings</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562340?t=scope_reduced&amp;at=2026-10-13T23:37:17.837Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562340"/>
-    <updated>2026-10-13T23:37:17.837Z</updated>
-    <summary>Worldwide (Standard Multi-Tenant), GCC, GCC High, DoD → Worldwide (Standard Multi-Tenant), GCC · Microsoft Teams · Microsoft 365 · ID 562340</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562340"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Purview: Endpoint Data Loss Prevention - Policy Sync &amp; Device Health AI-Powered Investigation</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562016?t=slipped&amp;at=2026-10-13T23:37:17.837Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562016"/>
-    <updated>2026-10-13T23:37:17.837Z</updated>
-    <summary>2026-10 → 2026-11 · Microsoft Purview · Microsoft 365 · ID 562016</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562016"/>
   </entry>
 </feed>
