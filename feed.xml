@@ -5,7 +5,15 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-10-22T23:37:18.754Z</updated>
+  <updated>2026-10-23T23:37:16.420Z</updated>
+  <entry>
+    <title>Cancelled — Microsoft Copilot (Microsoft 365): Get actionable suggestions from Copilot in your Copilot Page</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562351?t=cancelled&amp;at=2026-10-23T23:37:16.420Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562351"/>
+    <updated>2026-10-23T23:37:16.420Z</updated>
+    <summary>In development → Cancelled · Microsoft 365 app, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 562351</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562351"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Teams: View files and conversations side by side</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A574094?t=slipped&amp;at=2026-10-22T23:37:18.754Z</id>
@@ -397,13 +405,5 @@
     <updated>2026-10-15T05:37:16.054Z</updated>
     <summary>2026-10 → — · Microsoft Purview · Microsoft 365 · ID 558436</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=558436"/>
-  </entry>
-  <entry>
-    <title>Dropped from the roadmap — Built‑in AI Interpreter for Calls on Teams Phone Devices</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A553594?t=dropped&amp;at=2026-10-15T05:37:16.054Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A553594"/>
-    <updated>2026-10-15T05:37:16.054Z</updated>
-    <summary>2026-10 → — · Microsoft Teams · Microsoft 365 · ID 553594</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=553594"/>
   </entry>
 </feed>
