@@ -5,7 +5,39 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-10-29T00:37:19.163Z</updated>
+  <updated>2026-10-30T00:37:19.132Z</updated>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: External presenter support for event group chat</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573706?t=slipped&amp;at=2026-10-30T00:37:19.132Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573706"/>
+    <updated>2026-10-30T00:37:19.132Z</updated>
+    <summary>2026-11 → 2026-12 · Microsoft Teams · Microsoft 365 · ID 573706</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=573706"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: Two presenters can share their screens or windows simultaneously in meetings</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A80239?t=slipped&amp;at=2026-10-30T00:37:19.132Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A80239"/>
+    <updated>2026-10-30T00:37:19.132Z</updated>
+    <summary>2026-11 → 2026-12 · Microsoft Teams · Microsoft 365 · ID 80239</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=80239"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: New sharing panel in meetings - improved content discovery and ease of sharing</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A502520?t=slipped&amp;at=2026-10-30T00:37:19.132Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A502520"/>
+    <updated>2026-10-30T00:37:19.132Z</updated>
+    <summary>2026-11 → 2026-12 · Microsoft Teams · Microsoft 365 · ID 502520</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=502520"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Microsoft Purview compliance portal: Scanner data export for custom reporting</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A494839?t=slipped&amp;at=2026-10-30T00:37:19.132Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A494839"/>
+    <updated>2026-10-30T00:37:19.132Z</updated>
+    <summary>2026-11 → 2027-01 · Microsoft Purview · Microsoft 365 · ID 494839</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=494839"/>
+  </entry>
   <entry>
     <title>Slipped +2 months — Microsoft Teams: Start side conversations during meetings</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573156?t=slipped&amp;at=2026-10-29T00:37:19.163Z</id>
@@ -373,37 +405,5 @@
     <updated>2026-10-20T05:37:16.578Z</updated>
     <summary>2026-09 → 2027-03 · Microsoft Purview · Microsoft 365 · ID 534609</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=534609"/>
-  </entry>
-  <entry>
-    <title>Dropped from the roadmap — Microsoft Teams: Workflows within File Chiclet</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A381643?t=dropped&amp;at=2026-10-20T05:37:16.578Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A381643"/>
-    <updated>2026-10-20T05:37:16.578Z</updated>
-    <summary>2024-10 → — · Microsoft Teams · Microsoft 365 · ID 381643</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=381643"/>
-  </entry>
-  <entry>
-    <title>Dropped from the roadmap — Microsoft Teams: Sensitivity label support for town hall and webinars (Premium)</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A409226?t=dropped&amp;at=2026-10-20T05:37:16.578Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A409226"/>
-    <updated>2026-10-20T05:37:16.578Z</updated>
-    <summary>2024-10 → — · Microsoft Teams · Microsoft 365 · ID 409226</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=409226"/>
-  </entry>
-  <entry>
-    <title>Dropped from the roadmap — Microsoft Teams: Performance improvements for anonymous users who join meetings in Edge</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A401117?t=dropped&amp;at=2026-10-20T05:37:16.578Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A401117"/>
-    <updated>2026-10-20T05:37:16.578Z</updated>
-    <summary>2024-11 → — · Microsoft Teams · Microsoft 365 · ID 401117</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=401117"/>
-  </entry>
-  <entry>
-    <title>Dropped from the roadmap — Microsoft Teams: Latest meeting experiences with performance improvements on web for Chrome (for anonymous join only)</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A401116?t=dropped&amp;at=2026-10-20T05:37:16.578Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A401116"/>
-    <updated>2026-10-20T05:37:16.578Z</updated>
-    <summary>2024-11 → — · Microsoft Teams · Microsoft 365 · ID 401116</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=401116"/>
   </entry>
 </feed>
