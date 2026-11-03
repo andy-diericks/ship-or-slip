@@ -5,7 +5,23 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-10-31T00:37:20.104Z</updated>
+  <updated>2026-11-03T00:37:18.175Z</updated>
+  <entry>
+    <title>Retirement announced — Retirement: OT security in Microsoft Defender for IoT</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A576255?t=retirement_announced&amp;at=2026-11-03T00:37:18.175Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A576255"/>
+    <updated>2026-11-03T00:37:18.175Z</updated>
+    <summary>— → 2029-10-01 · Azure · ID 576255</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=576255"/>
+  </entry>
+  <entry>
+    <title>Retirement announced — Retirement: Azure Fluid Relay</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A570498?t=retirement_announced&amp;at=2026-11-03T00:37:18.175Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A570498"/>
+    <updated>2026-11-03T00:37:18.175Z</updated>
+    <summary>— → 2027-02-02 · Web, Azure Fluid Relay · Azure · ID 570498</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=570498"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Teams: AI Interpreter for Teams Events</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A576711?t=slipped&amp;at=2026-10-31T00:37:20.104Z</id>
@@ -389,21 +405,5 @@
     <updated>2026-10-20T23:37:17.272Z</updated>
     <summary>2026-10 → 2026-11 · Microsoft Viva, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 560538</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=560538"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Teams: Organize important resources in chats and channels</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570646?t=slipped&amp;at=2026-10-20T05:37:16.578Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570646"/>
-    <updated>2026-10-20T05:37:16.578Z</updated>
-    <summary>2026-10 → 2026-11 · Microsoft Teams · Microsoft 365 · ID 570646</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=570646"/>
-  </entry>
-  <entry>
-    <title>Slipped +2 months — Microsoft Teams: Meeting Shared Files</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570427?t=slipped&amp;at=2026-10-20T05:37:16.578Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570427"/>
-    <updated>2026-10-20T05:37:16.578Z</updated>
-    <summary>2026-11 → 2027-01 · Microsoft Teams, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 570427</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=570427"/>
   </entry>
 </feed>
