@@ -5,7 +5,15 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-11-04T06:37:18.822Z</updated>
+  <updated>2026-11-04T18:37:17.195Z</updated>
+  <entry>
+    <title>Retirement announced — Retirement: Transition to Entra ID (formerly known as Azure AD) to query data from Azure Monitor application insights by March 31, 2027</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3Atransition-to-azure-ad-to-query-data-from-azure-monitor-application-insights-by-31-march-2026?t=retirement_announced&amp;at=2026-11-04T18:37:17.195Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3Atransition-to-azure-ad-to-query-data-from-azure-monitor-application-insights-by-31-march-2026"/>
+    <updated>2026-11-04T18:37:17.195Z</updated>
+    <summary>— → 2027-03-31 · DevOps, Management and governance, Application Insights, Azure Monitor · Azure · ID transition-to-azure-ad-to-query-data-from-azure-monitor-application-insights-by-31-march-2026</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=transition-to-azure-ad-to-query-data-from-azure-monitor-application-insights-by-31-march-2026"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Teams: Enhanced Copilot and AI controls for meetings</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A577399?t=slipped&amp;at=2026-11-04T06:37:18.822Z</id>
@@ -397,13 +405,5 @@
     <updated>2026-10-27T00:37:16.082Z</updated>
     <summary>In development → Cancelled · Microsoft 365 · Microsoft 365 · ID 558595</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=558595"/>
-  </entry>
-  <entry>
-    <title>Slipped +2 months — Microsoft Purview: Data Lifecycle Management– Hard delete capability for OneDrive and SharePoint through secure priority cleanup workflows</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A558343?t=slipped&amp;at=2026-10-27T00:37:16.082Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A558343"/>
-    <updated>2026-10-27T00:37:16.082Z</updated>
-    <summary>2026-09 → 2026-11 · Microsoft Purview · Microsoft 365 · ID 558343</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=558343"/>
   </entry>
 </feed>
