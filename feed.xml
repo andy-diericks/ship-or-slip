@@ -5,7 +5,15 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-11-05T06:37:16.932Z</updated>
+  <updated>2026-11-05T18:37:16.714Z</updated>
+  <entry>
+    <title>Retirement moved +120 days — Retirement: Azure Fluid Relay</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A570498?t=retirement_moved&amp;at=2026-11-05T18:37:16.714Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A570498"/>
+    <updated>2026-11-05T18:37:16.714Z</updated>
+    <summary>2027-02-02 → 2027-06-02 · Web, Azure Fluid Relay · Azure · ID 570498</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=570498"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Dynamics 365 Field Service: Improve mobile offline reliability across network conditions</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573242?t=slipped&amp;at=2026-11-05T06:37:16.932Z</id>
@@ -397,13 +405,5 @@
     <updated>2026-10-28T00:37:16.477Z</updated>
     <summary>In development → Cancelled · Microsoft 365 app, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 529843</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=529843"/>
-  </entry>
-  <entry>
-    <title>Slipped +2 months — Microsoft 365: PAYGO consumption-based meter for your extra SharePoint storage needs</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A506743?t=slipped&amp;at=2026-10-28T00:37:16.477Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A506743"/>
-    <updated>2026-10-28T00:37:16.477Z</updated>
-    <summary>2026-11 → 2027-01 · Microsoft 365 · Microsoft 365 · ID 506743</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=506743"/>
   </entry>
 </feed>
