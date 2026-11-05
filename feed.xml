@@ -5,7 +5,47 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-11-04T18:37:17.195Z</updated>
+  <updated>2026-11-05T06:37:16.932Z</updated>
+  <entry>
+    <title>Slipped +1 month — Dynamics 365 Field Service: Improve mobile offline reliability across network conditions</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573242?t=slipped&amp;at=2026-11-05T06:37:16.932Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573242"/>
+    <updated>2026-11-05T06:37:16.932Z</updated>
+    <summary>2027-01 → 2027-02 · Dynamics 365 Field Service · Microsoft 365 · ID 573242</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=573242"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Dynamics 365 Field Service: Enhance mobile offline up-sync</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573241?t=slipped&amp;at=2026-11-05T06:37:16.932Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573241"/>
+    <updated>2026-11-05T06:37:16.932Z</updated>
+    <summary>2026-11 → 2027-01 · Dynamics 365 Field Service · Microsoft 365 · ID 573241</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=573241"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Dynamics 365 Field Service: Modernize the mobile offline foundation</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573240?t=slipped&amp;at=2026-11-05T06:37:16.932Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573240"/>
+    <updated>2026-11-05T06:37:16.932Z</updated>
+    <summary>2026-11 → 2027-01 · Dynamics 365 Field Service · Microsoft 365 · ID 573240</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=573240"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Microsoft Copilot (Microsoft 365): Chat: Access to UBB models via the model selector</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A571400?t=slipped&amp;at=2026-11-05T06:37:16.932Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A571400"/>
+    <updated>2026-11-05T06:37:16.932Z</updated>
+    <summary>2026-10 → 2026-12 · Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 571400</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=571400"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Outlook: Share Word, Excel, and PowerPoint local files via the new Outlook for Windows</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A557675?t=slipped&amp;at=2026-11-05T06:37:16.932Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A557675"/>
+    <updated>2026-11-05T06:37:16.932Z</updated>
+    <summary>2026-11 → 2027-01 · Outlook · Microsoft 365 · ID 557675</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=557675"/>
+  </entry>
   <entry>
     <title>Retirement announced — Retirement: Transition to Entra ID (formerly known as Azure AD) to query data from Azure Monitor application insights by March 31, 2027</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3Atransition-to-azure-ad-to-query-data-from-azure-monitor-application-insights-by-31-march-2026?t=retirement_announced&amp;at=2026-11-04T18:37:17.195Z</id>
@@ -365,45 +405,5 @@
     <updated>2026-10-28T00:37:16.477Z</updated>
     <summary>2026-11 → 2027-01 · Microsoft 365 · Microsoft 365 · ID 506743</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=506743"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Teams: Expanded Markdown support in Microsoft Teams</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A576199?t=slipped&amp;at=2026-10-27T00:37:16.082Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A576199"/>
-    <updated>2026-10-27T00:37:16.082Z</updated>
-    <summary>2026-11 → 2026-12 · Microsoft Teams · Microsoft 365 · ID 576199</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=576199"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Outlook: Reply with a Template in Rules</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567318?t=slipped&amp;at=2026-10-27T00:37:16.082Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A567318"/>
-    <updated>2026-10-27T00:37:16.082Z</updated>
-    <summary>2026-09 → 2026-10 · Outlook · Microsoft 365 · ID 567318</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=567318"/>
-  </entry>
-  <entry>
-    <title>Slipped +3 months — Microsoft Viva: Copilot Analytics - Identifiable Export metrics in the Copilot Dashboard</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562648?t=slipped&amp;at=2026-10-27T00:37:16.082Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562648"/>
-    <updated>2026-10-27T00:37:16.082Z</updated>
-    <summary>2026-08 → 2026-11 · Microsoft Viva · Microsoft 365 · ID 562648</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562648"/>
-  </entry>
-  <entry>
-    <title>Cancelled — Microsoft Copilot Studio: Supercharge your workflows with computer use</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562220?t=cancelled&amp;at=2026-10-27T00:37:16.082Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A562220"/>
-    <updated>2026-10-27T00:37:16.082Z</updated>
-    <summary>In development → Cancelled · Microsoft Copilot (Microsoft 365), Microsoft Copilot Studio · Microsoft 365 · ID 562220</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=562220"/>
-  </entry>
-  <entry>
-    <title>Cancelled — Microsoft 365: Companion apps - Copilot prompts in the Files app now available for Copilot Chat users</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A558595?t=cancelled&amp;at=2026-10-27T00:37:16.082Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A558595"/>
-    <updated>2026-10-27T00:37:16.082Z</updated>
-    <summary>In development → Cancelled · Microsoft 365 · Microsoft 365 · ID 558595</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=558595"/>
   </entry>
 </feed>
