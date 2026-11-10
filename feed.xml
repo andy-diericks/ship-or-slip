@@ -5,7 +5,15 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-11-07T00:37:16.825Z</updated>
+  <updated>2026-11-10T00:37:17.565Z</updated>
+  <entry>
+    <title>Retirement announced — Retirement: Support for .NET 8 and .NET 9 on Static Web Apps is ending November 10, 2026</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A575106?t=retirement_announced&amp;at=2026-11-10T00:37:17.565Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A575106"/>
+    <updated>2026-11-10T00:37:17.565Z</updated>
+    <summary>— → 2026-11-10 · Compute, Web, Static Web Apps · Azure · ID 575106</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=575106"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Teams: Multiple screen shares
 in Teams Rooms on Windows</title>
@@ -398,13 +406,5 @@ in Teams Rooms on Windows</title>
     <updated>2026-10-30T00:37:19.132Z</updated>
     <summary>2026-11 → 2026-12 · Microsoft Teams · Microsoft 365 · ID 502520</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=502520"/>
-  </entry>
-  <entry>
-    <title>Slipped +2 months — Microsoft Purview compliance portal: Scanner data export for custom reporting</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A494839?t=slipped&amp;at=2026-10-30T00:37:19.132Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A494839"/>
-    <updated>2026-10-30T00:37:19.132Z</updated>
-    <summary>2026-11 → 2027-01 · Microsoft Purview · Microsoft 365 · ID 494839</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=494839"/>
   </entry>
 </feed>
