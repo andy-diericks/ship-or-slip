@@ -5,7 +5,31 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-11-11T06:37:16.407Z</updated>
+  <updated>2026-11-12T06:37:17.892Z</updated>
+  <entry>
+    <title>Slipped +2 months — Microsoft Copilot (Microsoft M365): Delegated prompt publishing for organization prompts</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A569425?t=slipped&amp;at=2026-11-12T06:37:17.892Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A569425"/>
+    <updated>2026-11-12T06:37:17.892Z</updated>
+    <summary>2026-10 → 2026-12 · Microsoft 365 admin center, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 569425</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=569425"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: New sharing panel in meetings - improved content discovery and ease of sharing</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A502520?t=slipped&amp;at=2026-11-12T06:37:17.892Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A502520"/>
+    <updated>2026-11-12T06:37:17.892Z</updated>
+    <summary>2026-12 → 2027-01 · Microsoft Teams · Microsoft 365 · ID 502520</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=502520"/>
+  </entry>
+  <entry>
+    <title>Cancelled — Word: Email Notification Context Previews for Files Protected with Microsoft Purview</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A486825?t=cancelled&amp;at=2026-11-12T06:37:17.892Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A486825"/>
+    <updated>2026-11-12T06:37:17.892Z</updated>
+    <summary>In development → Cancelled · Word · Microsoft 365 · ID 486825</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=486825"/>
+  </entry>
   <entry>
     <title>Slipped +1 month — Microsoft Copilot (Microsoft 365): Enable semantic model in Sales agent</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573294?t=slipped&amp;at=2026-11-11T06:37:16.407Z</id>
@@ -382,29 +406,5 @@ in Teams Rooms on Windows</title>
     <updated>2026-11-04T06:37:18.822Z</updated>
     <summary>2026-11 → 2026-12 · Microsoft Teams · Microsoft 365 · ID 577399</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=577399"/>
-  </entry>
-  <entry>
-    <title>Scope cut (Clouds lost: GCC High, DoD) — Microsoft Teams: Invite attendees to register</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573250?t=scope_reduced&amp;at=2026-11-04T06:37:18.822Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573250"/>
-    <updated>2026-11-04T06:37:18.822Z</updated>
-    <summary>Worldwide (Standard Multi-Tenant), GCC, GCC High, DoD → Worldwide (Standard Multi-Tenant), GCC · Microsoft Teams · Microsoft 365 · ID 573250</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=573250"/>
-  </entry>
-  <entry>
-    <title>Scope cut (Release phase lost: Targeted Release) — Microsoft Teams: Invite attendees to register</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573250?t=scope_reduced&amp;at=2026-11-04T06:37:18.822Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573250"/>
-    <updated>2026-11-04T06:37:18.822Z</updated>
-    <summary>General Availability, Targeted Release → General Availability · Microsoft Teams · Microsoft 365 · ID 573250</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=573250"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Purview: Auto-labeling scalability, policy management, and reporting enhancements</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570445?t=slipped&amp;at=2026-11-04T06:37:18.822Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570445"/>
-    <updated>2026-11-04T06:37:18.822Z</updated>
-    <summary>2026-10 → 2026-11 · Microsoft Purview · Microsoft 365 · ID 570445</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=570445"/>
   </entry>
 </feed>
