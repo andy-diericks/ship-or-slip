@@ -5,7 +5,47 @@
   <id>https://andy-diericks.github.io/ship-or-slip/</id>
   <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/"/>
   <link rel="self" href="https://raw.githubusercontent.com/andy-diericks/ship-or-slip/data/feed.xml"/>
-  <updated>2026-11-12T06:37:17.892Z</updated>
+  <updated>2026-11-14T00:37:16.418Z</updated>
+  <entry>
+    <title>Slipped +2 months — Microsoft Teams: Express face enrollment</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570846?t=slipped&amp;at=2026-11-14T00:37:16.418Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A570846"/>
+    <updated>2026-11-14T00:37:16.418Z</updated>
+    <summary>2026-12 → 2027-02 · Microsoft Teams · Microsoft 365 · ID 570846</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=570846"/>
+  </entry>
+  <entry>
+    <title>Slipped +1 month — Microsoft Teams: Two presenters can share their screens or windows simultaneously in meetings</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A80239?t=slipped&amp;at=2026-11-14T00:37:16.418Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A80239"/>
+    <updated>2026-11-14T00:37:16.418Z</updated>
+    <summary>2026-12 → 2027-01 · Microsoft Teams · Microsoft 365 · ID 80239</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=80239"/>
+  </entry>
+  <entry>
+    <title>Slipped +2 months — Microsoft Teams: Facilitator detects and answers questions</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A558341?t=slipped&amp;at=2026-11-14T00:37:16.418Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A558341"/>
+    <updated>2026-11-14T00:37:16.418Z</updated>
+    <summary>2026-12 → 2027-02 · Microsoft Teams, Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 558341</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=558341"/>
+  </entry>
+  <entry>
+    <title>Slipped +6 months — Microsoft Copilot (Microsoft 365): Microsoft 365 Copilot Search Supports SharePoint Online Custom Properties Search</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A508526?t=slipped&amp;at=2026-11-14T00:37:16.418Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A508526"/>
+    <updated>2026-11-14T00:37:16.418Z</updated>
+    <summary>2026-12 → 2027-06 · Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 508526</summary>
+    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=508526"/>
+  </entry>
+  <entry>
+    <title>Retirement announced — Retirement: Azure Data Share will be retired on November 12, 2029</title>
+    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A578818?t=retirement_announced&amp;at=2026-11-14T00:37:16.418Z</id>
+    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3A578818"/>
+    <updated>2026-11-14T00:37:16.418Z</updated>
+    <summary>— → 2029-11-12 · Analytics, Storage, Azure Data Share · Azure · ID 578818</summary>
+    <link rel="related" href="https://azure.microsoft.com/updates?id=578818"/>
+  </entry>
   <entry>
     <title>Slipped +2 months — Microsoft Copilot (Microsoft M365): Delegated prompt publishing for organization prompts</title>
     <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A569425?t=slipped&amp;at=2026-11-12T06:37:17.892Z</id>
@@ -366,45 +406,5 @@ in Teams Rooms on Windows</title>
     <updated>2026-11-05T06:37:16.932Z</updated>
     <summary>2026-11 → 2027-01 · Dynamics 365 Field Service · Microsoft 365 · ID 573241</summary>
     <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=573241"/>
-  </entry>
-  <entry>
-    <title>Slipped +2 months — Dynamics 365 Field Service: Modernize the mobile offline foundation</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573240?t=slipped&amp;at=2026-11-05T06:37:16.932Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A573240"/>
-    <updated>2026-11-05T06:37:16.932Z</updated>
-    <summary>2026-11 → 2027-01 · Dynamics 365 Field Service · Microsoft 365 · ID 573240</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=573240"/>
-  </entry>
-  <entry>
-    <title>Slipped +2 months — Microsoft Copilot (Microsoft 365): Chat: Access to UBB models via the model selector</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A571400?t=slipped&amp;at=2026-11-05T06:37:16.932Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A571400"/>
-    <updated>2026-11-05T06:37:16.932Z</updated>
-    <summary>2026-10 → 2026-12 · Microsoft Copilot (Microsoft 365) · Microsoft 365 · ID 571400</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=571400"/>
-  </entry>
-  <entry>
-    <title>Slipped +2 months — Outlook: Share Word, Excel, and PowerPoint local files via the new Outlook for Windows</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A557675?t=slipped&amp;at=2026-11-05T06:37:16.932Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A557675"/>
-    <updated>2026-11-05T06:37:16.932Z</updated>
-    <summary>2026-11 → 2027-01 · Outlook · Microsoft 365 · ID 557675</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=557675"/>
-  </entry>
-  <entry>
-    <title>Retirement announced — Retirement: Transition to Entra ID (formerly known as Azure AD) to query data from Azure Monitor application insights by March 31, 2027</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/azure%3Atransition-to-azure-ad-to-query-data-from-azure-monitor-application-insights-by-31-march-2026?t=retirement_announced&amp;at=2026-11-04T18:37:17.195Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/azure%3Atransition-to-azure-ad-to-query-data-from-azure-monitor-application-insights-by-31-march-2026"/>
-    <updated>2026-11-04T18:37:17.195Z</updated>
-    <summary>— → 2027-03-31 · DevOps, Management and governance, Application Insights, Azure Monitor · Azure · ID transition-to-azure-ad-to-query-data-from-azure-monitor-application-insights-by-31-march-2026</summary>
-    <link rel="related" href="https://azure.microsoft.com/updates?id=transition-to-azure-ad-to-query-data-from-azure-monitor-application-insights-by-31-march-2026"/>
-  </entry>
-  <entry>
-    <title>Slipped +1 month — Microsoft Teams: Enhanced Copilot and AI controls for meetings</title>
-    <id>https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A577399?t=slipped&amp;at=2026-11-04T06:37:18.822Z</id>
-    <link rel="alternate" href="https://andy-diericks.github.io/ship-or-slip/#/item/m365%3A577399"/>
-    <updated>2026-11-04T06:37:18.822Z</updated>
-    <summary>2026-11 → 2026-12 · Microsoft Teams · Microsoft 365 · ID 577399</summary>
-    <link rel="related" href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=577399"/>
   </entry>
 </feed>
